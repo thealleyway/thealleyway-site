@@ -1,24 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Alleyway
+
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [File Structure](#file-structure)
+3. [Technologies](#technologies)<br />
+   - [Prismic](#prismic)
+4. [Developers](#developers)
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Scout-NU/alejandra-site.git
+```
+
+2. **Change directories**
+
+```bash
+cd alejandra-site
+```
+
+3. **Set up environment variables**
+   In the project directory there is a file called `env_example`, which holds all the necessary environment variables. Most importantly, it contains the Prismic access token.
+
+Copy the file and add the values to the variables.
+
+```sh
+cp env_example .env
+```
+
+```sh
+PRISMIC_URL="XXXXXXXXXXXXXXX"
+```
+
+4. **Install the packages**
+
+```bash
+# In the project directory
+npm install
+```
+
+5. **Run the server locally**
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now the server will run locally, most likely on `http://localhost:3000`. Your work will be displayed, and as changes are saved it will auto-refresh the site.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## :file_folder: File Structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## :gear: Technologies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The website is built on the following technologies:
 
-## Learn More
+- [NextJS](https://nextjs.org/): Static site generator for the site
+- [Netlify](https://www.netlify.com/): Site hosting provider
+- [Prismic](https://prismic.io/): Content Management Site
+
+### :diamond_shape_with_a_dot_inside: Prismic
+
+The Alleyway website uses [Prismic](https://prismic.io/) as its Content Management System (CMS). Prismic is a headless CMS that offers the flexibility to easily manage content. To update data in Prismic, the following must be done:
+
+1. ** Publish document on Prismic ** Publishing new data will not immediately show up on the site, since the data will need to be queried and stored in the build.
+
+2. ** Restart the development server** When the server restarts the new data published is grabbed and used in the build.
+
+Prismic documentation: [https://prismic.io/docs](https://prismic.io/docs)
+
+### :zap: Learn NextJS
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -27,8 +79,19 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## :phone: Developers
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repository is for [The Alleyway's website](https://the-alleyway.netlify.app/).
+This repository was built by The Alleyway team at [Scout](https://scout.camd.northeastern.edu/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Jean Zhang**<br />
+Developer<br />
+jean.nmn.zhang@gmail.com
+
+**Judy Zhang**<br />
+Developer<br />
+zhzhang66@gmail.com
+
+**Izzy Berzsenyi**<br />
+Developer<br />
+iberzsenyi@yahoo.com
