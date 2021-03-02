@@ -52,6 +52,34 @@ Now the server will run locally, most likely on `http://localhost:3000`. Your wo
 
 ## :file_folder: File Structure
 
+A quick look at the top-level file structure used
+
+    .
+    ├── /node_modules
+    ├── /pages
+    ├── /public
+    ├── /styles
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
+
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages)are automatically installed.
+
+2.  **`/pages`**: This directory contains the routes, with each route in a seperate file. Next.js then pre-renders every page in the **`/pages`** directory.
+
+3.  **`/public`**: This directory is used by Next.js to statically serve files.
+
+4.  **`/styles`**: This directory contains the global styles utilized in the project.
+
+5.  **`.gitignore`**: This file tells git which files will not maintain a version history, thus don't need to be tracked.
+
+6.  **`package-lock.json`**: (First see `package.json`, below) This is an automatically generated file based on the exact versions of your npm dependencies used for the project. **You won't change this file directly.**
+
+7.  **`package.json`**: A manifest file for Node.js projects, this file includes the metadata for the project. Metadat incluedes the project's name, author, etc. This manifest is how npm knows which packages to isntall to run the project.
+
+6.**`README.md`**: A reference text file containing information about the project.
+
 ## :gear: Technologies
 
 The website is built on the following technologies:
