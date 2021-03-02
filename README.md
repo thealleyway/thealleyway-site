@@ -5,7 +5,9 @@
 1. [Getting Started](#getting-started)
 2. [File Structure](#file-structure)
 3. [Technologies](#technologies)<br />
-   - [Prismic](#prismic)
+   - [Netlify](#netlify)<br />
+   - [Prismic](#prismic)<br />
+   - [Learn Next.js](#learn_next.js)
 4. [Developers](#developers)
 
 ## Getting Started
@@ -23,7 +25,7 @@ cd alejandra-site
 ```
 
 3. **Set up environment variables**
-   In the project directory there is a file called `env_example`, which holds all the necessary environment variables. Most importantly, it contains the Prismic access token.
+   In the project directory there is a file called `env_example`, which holds all the necessary environment variables. Most importantly, it contains the Prismic URL.
 
 Copy the file and add the values to the variables.
 
@@ -84,11 +86,22 @@ A quick look at the top-level file structure used
 
 The website is built on the following technologies:
 
-- [NextJS](https://nextjs.org/): Static site generator for the site
 - [Netlify](https://www.netlify.com/): Site hosting provider
 - [Prismic](https://prismic.io/): Content Management Site
+- [Next.js](https://nextjs.org/): Static site generator for the site
 
-### :diamond_shape_with_a_dot_inside: Prismic
+### :diamond_shape_with_a_dot_inside: Netlify
+
+The Alleyway site is deployed on [Netlify](https://www.netlify.com/). Netlify is continuous integration and deployment platform that allows you to run web projects at global scale. There are a couple ways to update and deploy the site:
+
+- **Manual Deploy**: Go to [https://app.netlify.com/sites/the-alleyway/deploys](https://app.netlify.com/sites/the-alleyway/deploys). Click on **Trigger deploy**, then on **Deploy site**. Now the build will begin for your site. If your build is successful, the logs will tell you that the site is live! If any errors arise in the logs, please fix them and redeploy.
+
+- **Merging a Pull Request**: Netlify is hooked up to GitHub, thus when a PR is merged into the master branch Netlify will automaticaly deploy to keep the sit up-to-date.
+  Note: Upon creating and updating any Pr, a `deploy preview` can be accessed from the bottom of the page - this
+
+Note: In Netlify, when a PR is created there is a link, **Deploy Preview ##**, that will allow you to preview the changes.
+
+### :large_orange_diamond: Prismic
 
 The Alleyway website uses [Prismic](https://prismic.io/) as its Content Management System (CMS). Prismic is a headless CMS that offers the flexibility to easily manage content. To update data in Prismic, the following must be done:
 
