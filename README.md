@@ -131,7 +131,7 @@ jean.nmn.zhang@gmail.com
 
 **Judy Zhang**<br />
 Developer<br />
-zhzhang66@gmail.com
+jzhzhang66@gmail.com
 
 **Izzy Berzsenyi**<br />
 Developer<br />
