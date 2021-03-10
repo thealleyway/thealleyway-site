@@ -1,10 +1,11 @@
 import React from "react";
+import { renderRichText } from "../../lib/richText";
 
-const TextSection = ({ slice }) => {
+const TextSection = ({ text }) => {
   return (
     <>
       <h3>Text Section: </h3>
-      <p>{slice.primary.text[0].text}</p>
+      {renderRichText(text)}
     </>
   );
 };

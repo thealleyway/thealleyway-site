@@ -1,31 +1,31 @@
-import Link from "next/link";
-import Prismic from "prismic-javascript";
-import { RichText } from "prismic-reactjs";
-import { client } from "../prismic-configuration";
+import { renderRichText } from "../lib/richText";
+import { getHomePage } from "../lib/api";
 
-export default function Home(props) {
+export default function HomePage({ homePageData }) {
+  const {
+    home_page_title: homePageTitle,
+    featured_stories_title: featuredStoriesTitle,
+    featured_stories: featuredStories,
+    newsletter_signup: newsletterSignup,
+    newsletter_description: newsletterDescription,
+  } = homePageData;
+
   return (
     <>
-      <h1>{RichText.asText(props.home.data.headline)}</h1>
-      {props.stories.results.map((story) => (
-        <Link href="story/[id]" as={`/story/${story.uid}`} key={story.uid}>
-          <a>{RichText.render(story.data.title)}</a>
-        </Link>
-      ))}
+      {renderRichText(homePageTitle)}
+      {renderRichText(featuredStoriesTitle)}
+      {renderRichText(newsletterSignup)}
+      {renderRichText(newsletterDescription)}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const home = await client.getSingle("home_page");
-  const stories = await client.query(
-    Prismic.Predicates.at("document.type", "story")
-  );
+  const homePageData = await getHomePage();
 
   return {
     props: {
-      home,
-      stories,
+      homePageData,
     },
   };
 }

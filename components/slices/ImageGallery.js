@@ -1,22 +1,30 @@
 import React from "react";
+import { renderRichText } from "../../lib/richText";
 
-const ImageGallery = ({ slice }) => {
+const ImageGallery = ({ images }) => {
   return (
     <>
       <h3>Image Gallery: </h3>
-      {slice.items.map((item, index) => (
-        <GalleryItem item={item} key={index} />
-      ))}
+      {images.map((item, index) => {
+        return <GalleryItem item={item} key={index} />;
+      })}
     </>
   );
 };
 
-const GalleryItem = ({ item }) => (
-  <img
-    style={{ width: "500px" }}
-    src={item.gallery_image.url}
-    alt={item.gallery_image.alt}
-  />
-);
+const GalleryItem = ({ item }) => {
+  const { gallery_image: galleryImage, image_caption: imageCaption } = item;
+
+  return (
+    <>
+      <img
+        style={{ width: "500px" }}
+        src={galleryImage.url}
+        alt={galleryImage.alt}
+      />
+      {renderRichText(imageCaption)}
+    </>
+  );
+};
 
 export default ImageGallery;
