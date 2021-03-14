@@ -1,5 +1,7 @@
 import { renderRichText } from "../lib/richText";
 import { getHomePage } from "../lib/api";
+import { PageLink } from "../lib/link";
+import Link from "next/link";
 
 export default function HomePage({ homePageData }) {
   const {
@@ -12,6 +14,9 @@ export default function HomePage({ homePageData }) {
 
   return (
     <>
+      <PageLink href="/about">
+        <p>About</p>
+      </PageLink>
       {renderRichText(homePageTitle)}
       {renderRichText(featuredStoriesTitle)}
       {renderRichText(newsletterSignup)}
