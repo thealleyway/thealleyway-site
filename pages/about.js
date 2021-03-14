@@ -3,22 +3,23 @@ import { getAboutPage } from "../lib/api";
 
 export default function AboutPage({ aboutPageData }) {
   const {
-    about_page_title,
-    camaryn_image,
-    camaryn_title,
-    camaryn_text,
-    the_alleyway_image,
-    the_alleyway_text,
-    the_alleyway_title,
+    about_page_title: aboutPageTitle,
+    camaryn_image: camarynImage,
+    camaryn_title: camarynTitle,
+    camaryn_text: camarynText,
+    the_alleyway_image: theAlleywayImage,
+    the_alleyway_text: theAlleywayText,
+    the_alleyway_title: theAlleywayTitle,
   } = aboutPageData;
   return (
     <>
-      {renderRichText(about_page_title)}
-      {renderRichText(camaryn_title)}
-      {renderRichText(camaryn_text)}
-      {renderRichText(the_alleyway_text)}
-      {renderRichText(the_alleyway_title)}
-      <img src={camaryn_image.url} alt={camaryn_image.alt} />
+      {renderRichText(aboutPageTitle)}
+      {renderRichText(theAlleywayTitle)}
+      <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
+      {renderRichText(theAlleywayText)}
+      {renderRichText(camarynTitle)}
+      <img src={camarynImage.url} alt={camarynImage.alt} />
+      {renderRichText(camarynText)}
     </>
   );
 }
