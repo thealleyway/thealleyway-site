@@ -3,13 +3,13 @@ import { getContactPage } from "../lib/api";
 
 export default function ContactPage({ contactPageData }) {
     const {
-        contact_page_title,
-        contact_page_description,
+        contact_page_title: contactPageTitle,
+        contact_page_description: contactPageDescription,
     } = contactPageData;
 
     return <>
-    {renderRichText(contact_page_title)}
-    {renderRichText(contact_page_description)}
+    {renderRichText(contactPageTitle)}
+    {renderRichText(contactPageDescription)}
     </>
 }
 
