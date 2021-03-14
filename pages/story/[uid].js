@@ -1,12 +1,12 @@
-import { getStories, getStory } from "../../lib/api";
+import { getAuthorInfo, getStories, getStory } from "../../lib/api";
 import { renderRichText } from "../../lib/richText";
 import SliceZone from "../../components/slices/SliceZone";
 
-export default function Story({ storyData }) {
+export default function Story({ storyData, authorInfo }) {
+  console.log(authorInfo)
   const {
     story_title: storyTitle,
     story_date: storyDate,
-    author_info: authorInfo,
     body,
   } = storyData;
 
@@ -33,9 +33,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const storyData = await getStory(params.uid);
+  const authorInfo = await getAuthorInfo(storyData.author_info.id)
+  console.log(authorInfo)
   return {
     props: {
       storyData,
+      authorInfo
     },
   };
 }
