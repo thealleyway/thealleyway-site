@@ -7,10 +7,12 @@ export default function ContactPage({ contactPageData }) {
         contact_page_description: contactPageDescription,
     } = contactPageData;
 
-    return (<>
-    {renderRichText(contactPageTitle)}
-    {renderRichText(contactPageDescription)}
-    </>)
+    return (
+      <>
+        {renderRichText(contactPageTitle)}
+        {renderRichText(contactPageDescription)}
+      </>
+    );
 }
 
 export async function getStaticProps() {
