@@ -12,14 +12,14 @@ export default function Footer({ footerData }) {
 
     return (
         <>
-        <br /> <br /> <br />
-        <h1>Footer</h1>
-        {contactEmail}
-        {renderRichText(contactInformationDescription)}
-        {renderRichText(contactTitle)} 
-        {facebookLink} <br />
-        {instagramLink} <br />
-        {twitterLink} <br />
+            <br /> <br /> <br />
+            <h1>Footer</h1>
+            {contactEmail}
+            {renderRichText(contactInformationDescription)}
+            {renderRichText(contactTitle)} 
+            {facebookLink} <br />
+            {instagramLink} <br />
+            {twitterLink} <br />
         </>
     )
 };
