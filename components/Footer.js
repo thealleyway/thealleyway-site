@@ -6,8 +6,8 @@ export default function Footer({ footerData }) {
         contact_information_description: contactInformationDescription,
         contact_title: contactTitle,
         instagram_link: {url: instagramLink},
-        tiktok_link: {url: tiktokLink}
-    } = footerData
+        tiktok_link: {url: tiktokLink},
+    } = footerData;
 
     return (
         <>
@@ -19,5 +19,5 @@ export default function Footer({ footerData }) {
             {instagramLink} <br />
             {tiktokLink} <br />
         </>
-    )
-};
+    );
+}
