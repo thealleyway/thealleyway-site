@@ -1,7 +1,8 @@
 import { renderRichText } from "../lib/richText";
-import { getHomePage } from "../lib/api";
+import { getHomePage, getNavigation } from "../lib/api";
+import Navigation from "../components/Navigation";
 
-export default function HomePage({ homePageData }) {
+export default function HomePage({ homePageData, navigationData }) {
   const {
     home_page_title: homePageTitle,
     featured_stories_title: featuredStoriesTitle,
@@ -12,6 +13,7 @@ export default function HomePage({ homePageData }) {
 
   return (
     <>
+      <Navigation navigationData={navigationData} />
       {renderRichText(homePageTitle)}
       {renderRichText(featuredStoriesTitle)}
       {renderRichText(newsletterSignup)}
@@ -22,10 +24,12 @@ export default function HomePage({ homePageData }) {
 
 export async function getStaticProps() {
   const homePageData = await getHomePage();
+  const navigationData = await getNavigation();
 
   return {
     props: {
       homePageData,
+      navigationData,
     },
   };
 }
