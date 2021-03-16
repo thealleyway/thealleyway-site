@@ -4,7 +4,7 @@ import { getString } from "../lib/richText";
 
 export default function Navigation({ navigationData }) {
   const { navigation_links: navigationLinks } = navigationData;
-  console.log(navigationData);
+
   return (
     <nav>
       {navigationLinks.map((navigationLink, index) => (
