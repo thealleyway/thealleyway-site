@@ -30,12 +30,12 @@ export default function StoryInquiryPage({
       {renderRichText(submissionGuidelinesDescription)}
       {renderRichText(donationResourcesSubtitle)}
       {renderRichText(authorTestimonyTitle)}
-      {authorTestimonies.map((item, i) => {
-        return <AuthorTestimony key={i} authorTestimonyData={item} />;
+      {authorTestimonies.map((item) => {
+        return <AuthorTestimony key={item.author_info.id} authorTestimonyData={item} />;
       })}
       {renderRichText(faqTitle)}
-      {questionsAndAnswers.map((item, i) => {
-        return <QuestionAnswer key={i} questionAnswerData={item} />;
+      {questionsAndAnswers.map((item) => {
+        return <QuestionAnswer key={item.id} questionAnswerData={item} />;
       })}
     </>
   );
