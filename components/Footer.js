@@ -5,21 +5,19 @@ export default function Footer({ footerData }) {
         contact_email: {url: contactEmail},
         contact_information_description: contactInformationDescription,
         contact_title: contactTitle,
-        facebook_link: {url: facebookLink},
         instagram_link: {url: instagramLink},
-        twitter_link: {url: twitterLink}
+        tiktok_link: {url: tiktokLink}
     } = footerData
 
     return (
         <>
             <br /> <br /> <br />
             <h1>Footer</h1>
-            {contactEmail}
             {renderRichText(contactInformationDescription)}
+            {contactEmail}
             {renderRichText(contactTitle)} 
-            {facebookLink} <br />
             {instagramLink} <br />
-            {twitterLink} <br />
+            {tiktokLink} <br />
         </>
     )
 };
