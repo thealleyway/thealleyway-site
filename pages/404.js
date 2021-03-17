@@ -14,7 +14,6 @@ export default function FourOhFour(errorPageData) {
         <h1>{renderRichText(errorPageTitle)}</h1>
         <a>
             {renderRichText(errorText)}
-            <a>Home page ID is: {homePage.id}<br/><br/></a>
         </a>
         <Link href="/">
             <a>Click here to redirect to home page!</a>
