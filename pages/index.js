@@ -1,5 +1,4 @@
 import { renderRichText } from "../lib/richText";
-import { getHomePage } from "../lib/api";
 import { getHomePage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
