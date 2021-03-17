@@ -10,7 +10,11 @@ export default function AboutPage({ aboutPageData }) {
     the_alleyway_image: theAlleywayImage,
     the_alleyway_text: theAlleywayText,
     the_alleyway_title: theAlleywayTitle,
+    values_title: valuesTitle,
+    values_description: valuesDescription, 
+    values,
   } = aboutPageData;
+
   return (
     <>
       {renderRichText(aboutPageTitle)}
@@ -20,6 +24,9 @@ export default function AboutPage({ aboutPageData }) {
       {renderRichText(camarynTitle)}
       <img src={camarynImage.url} alt={camarynImage.alt} />
       {renderRichText(camarynText)}
+      {renderRichText(valuesTitle)}
+      {renderRichText(valuesDescription)}
+      {values.map((v) => <a>{v.value[0].text}<br/></a>)}
     </>
   );
 }
