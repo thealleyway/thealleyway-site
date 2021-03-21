@@ -1,7 +1,7 @@
 import React from "react";
 import { renderRichText } from "../../lib/richText";
 
-const ImageGallery = ({ images }) => {
+export default function ImageGallery({ images }) {
   return (
     <>
       <h3>Image Gallery: </h3>
@@ -10,9 +10,9 @@ const ImageGallery = ({ images }) => {
       })}
     </>
   );
-};
+}
 
-const GalleryItem = ({ item }) => {
+function GalleryItem({ item }) {
   const { gallery_image: galleryImage, image_caption: imageCaption } = item;
 
   return (
@@ -25,6 +25,4 @@ const GalleryItem = ({ item }) => {
       {renderRichText(imageCaption)}
     </>
   );
-};
-
-export default ImageGallery;
+}

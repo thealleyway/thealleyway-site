@@ -1,6 +1,6 @@
 import { getAuthorInfo, getStories, getStory } from "../../lib/api";
 import { renderRichText } from "../../lib/richText";
-import SliceZone from "../../components/slices/SliceZone";
+import SliceZone from "../../components/storySlices/SliceZone";
 import AuthorInfo from "../../components/AuthorInfo";
 
 export default function Story({ storyData, authorInfo }) {
