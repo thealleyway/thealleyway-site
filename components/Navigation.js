@@ -1,6 +1,6 @@
 import React from "react";
-import { PageLink } from "../lib/link";
 import { getString } from "../lib/richText";
+import PageLink from "../components/PageLink";
 
 export default function Navigation({ navigationData }) {
   const { navigation_links: navigationLinks } = navigationData;
