@@ -1,8 +1,15 @@
 import React from "react";
 import { renderRichText } from "../../lib/richText";
-import { getStoriesByPage, getStoryArchivePage } from "../../lib/api";
+import { getStoriesByPage, getStoryArchivePage, getNavigation, getFooter } from "../../lib/api";
+import Navigation from "../../components/Navigation";
+import Footer from "../../components/Footer";
 
-export default function StoryArchive({ storyArchivePageData, stories }) {
+export default function StoryArchive({
+  storyArchivePageData,
+  stories,
+  navigationData,
+  footerData,
+}) {
   const {
     archive_description: archiveDescription,
     archive_title: archiveTitle,
@@ -10,11 +17,13 @@ export default function StoryArchive({ storyArchivePageData, stories }) {
 
   return (
     <>
+      <Navigation navigationData={navigationData} />
       {renderRichText(archiveTitle)}
       {renderRichText(archiveDescription)}
       {stories.map((story, index) => {
         return <StoryPreview key={index} story={story} />;
       })}
+      <Footer footerData={footerData} />
     </>
   );
 }
@@ -29,11 +38,7 @@ function StoryPreview({ story }) {
     <>
       {renderRichText(storyTitle)}
       <p>{storyDate}</p>
-      <img
-        style={{ width: "500px" }}
-        src={previewImage.url}
-        alt={previewImage.alt}
-      />
+      <img style={{ width: "500px" }} src={previewImage.url} alt={previewImage.alt} />
     </>
   );
 }
@@ -56,10 +61,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const storyArchivePageData = await getStoryArchivePage();
   const { results } = await getStoriesByPage(params.page);
+  const footerData = await getFooter();
+  const navigationData = await getNavigation();
+
   return {
     props: {
       storyArchivePageData,
       stories: results,
+      footerData,
+      navigationData,
     },
   };
 }

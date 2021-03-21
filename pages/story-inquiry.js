@@ -3,14 +3,20 @@ import {
   getAuthorTestimonies,
   getFrequentlyAnsweredQuestions,
   getStoryInquiryPage,
+  getNavigation,
+  getFooter,
 } from "../lib/api";
 import AuthorTestimony from "../components/AuthorTestimony";
 import QuestionAnswer from "../components/QuestionAnswer";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
   authorTestimonies,
   questionsAndAnswers,
+  navigationData,
+  footerData,
 }) {
   const {
     story_submission_title: storySubmissionTitle,
@@ -24,6 +30,7 @@ export default function StoryInquiryPage({
 
   return (
     <>
+      <Navigation navigationData={navigationData} />
       {renderRichText(storySubmissionTitle)}
       {renderRichText(storySubmissionDescription)}
       {renderRichText(submissionGuidelinesSubtitle)}
@@ -37,6 +44,7 @@ export default function StoryInquiryPage({
       {questionsAndAnswers.map((item) => {
         return <QuestionAnswer key={item.id} questionAnswerData={item} />;
       })}
+      <Footer footerData={footerData} />
     </>
   );
 }
@@ -53,11 +61,16 @@ export async function getStaticProps() {
   });
   const questionsAndAnswers = await getFrequentlyAnsweredQuestions(faqsIds);
 
+  const footerData = await getFooter();
+  const navigationData = await getNavigation();
+
   return {
     props: {
       storyInquiryPageData,
       authorTestimonies,
       questionsAndAnswers,
+      footerData,
+      navigationData,
     },
   };
 }

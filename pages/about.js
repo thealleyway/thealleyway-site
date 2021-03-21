@@ -1,7 +1,9 @@
 import { renderRichText } from "../lib/richText";
-import { getAboutPage } from "../lib/api";
+import { getAboutPage, getNavigation, getFooter } from "../lib/api";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
-export default function AboutPage({ aboutPageData }) {
+export default function AboutPage({ aboutPageData, navigationData, footerData }) {
   const {
     about_page_title: aboutPageTitle,
     camaryn_image: camarynImage,
@@ -11,12 +13,13 @@ export default function AboutPage({ aboutPageData }) {
     the_alleyway_text: theAlleywayText,
     the_alleyway_title: theAlleywayTitle,
     values_title: valuesTitle,
-    values_description: valuesDescription, 
+    values_description: valuesDescription,
     values,
   } = aboutPageData;
 
   return (
     <>
+      <Navigation navigationData={navigationData} />
       {renderRichText(aboutPageTitle)}
       {renderRichText(theAlleywayTitle)}
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
@@ -26,17 +29,27 @@ export default function AboutPage({ aboutPageData }) {
       {renderRichText(camarynText)}
       {renderRichText(valuesTitle)}
       {renderRichText(valuesDescription)}
-      {values.map((v) => <a>{v.value[0].text}<br/></a>)}
+      {values.map((v) => (
+        <a>
+          {v.value[0].text}
+          <br />
+        </a>
+      ))}
+      <Footer footerData={footerData} />
     </>
   );
 }
 
 export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
+  const footerData = await getFooter();
+  const navigationData = await getNavigation();
 
   return {
     props: {
       aboutPageData,
+      footerData,
+      navigationData,
     },
   };
 }
