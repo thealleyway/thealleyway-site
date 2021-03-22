@@ -2,7 +2,7 @@ import { renderRichText } from "../lib/richText";
 import { getHomePage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import H1 from "../components/headers/H1";
 
 export default function HomePage({ homePageData, navigationData, footerData }) {
 
@@ -17,7 +17,7 @@ export default function HomePage({ homePageData, navigationData, footerData }) {
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1 headerData={homePageTitle} />
+      <H1 h1Data={homePageTitle} />
       {renderRichText(featuredStoriesTitle)}
       {renderRichText(newsletterSignup)}
       {renderRichText(newsletterDescription)}

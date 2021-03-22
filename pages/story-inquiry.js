@@ -10,6 +10,11 @@ import AuthorTestimony from "../components/AuthorTestimony";
 import QuestionAnswer from "../components/QuestionAnswer";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import H1 from "../components/headers/H1";
+import H2 from "../components/headers/H2";
+import H3 from "../components/headers/H3";
+
+
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -31,7 +36,7 @@ export default function StoryInquiryPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(storySubmissionTitle)}
+      <H1 h1Data={storySubmissionTitle} />
       {renderRichText(storySubmissionDescription)}
       {renderRichText(submissionGuidelinesSubtitle)}
       {renderRichText(submissionGuidelinesDescription)}

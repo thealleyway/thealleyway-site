@@ -2,6 +2,9 @@ import { renderRichText } from "../lib/richText";
 import { getAboutPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import H1 from "../components/headers/H1";
+import H2 from "../components/headers/H2";
+import H3 from "../components/headers/H3";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData }) {
   const {
@@ -20,7 +23,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(aboutPageTitle)}
+      <H1 h1Data={aboutPageTitle} />
       {renderRichText(theAlleywayTitle)}
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
       {renderRichText(theAlleywayText)}

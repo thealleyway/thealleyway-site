@@ -3,6 +3,7 @@ import { renderRichText } from "../../lib/richText";
 import { getStoriesByPage, getStoryArchivePage, getNavigation, getFooter } from "../../lib/api";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import H1 from "../../components/headers/H1";
 
 export default function StoryArchive({
   storyArchivePageData,
@@ -18,7 +19,7 @@ export default function StoryArchive({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(archiveTitle)}
+      <H1 h1Data={archiveTitle} />
       {renderRichText(archiveDescription)}
       {stories.map((story, index) => {
         return <StoryPreview key={index} story={story} />;
