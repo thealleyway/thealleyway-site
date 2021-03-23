@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
     "next": "10.0.7",
     "prismic-javascript": "^3.0.2",
     "prismic-reactjs": "^1.3.3",
