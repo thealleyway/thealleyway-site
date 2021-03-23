@@ -10,7 +10,6 @@ const H1Style = styled.h1`
 `;
 
 export default function H1({ h1Data }) {
-
     return (
         <>
             <H1Style>{getString(h1Data)}</H1Style>

@@ -33,7 +33,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
       <H3 h3Data={valuesTitle} />
       <H3 h3Data={valuesDescription} />
       {values.map((v) => (
-        <a>
+        <a key={v.value.toString()}>
           <H3 h3Data={v.value} />
         </a>
       ))}
