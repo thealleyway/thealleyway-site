@@ -1,10 +1,10 @@
-import { renderRichText } from "../lib/richText";
 import { getAboutPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import H1 from "../components/headers/H1";
 import H2 from "../components/headers/H2";
 import H3 from "../components/headers/H3";
+import Text from "../components/Text";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData }) {
   const {
@@ -24,18 +24,17 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
     <>
       <Navigation navigationData={navigationData} />
       <H1 h1Data={aboutPageTitle} />
-      {renderRichText(theAlleywayTitle)}
+      <H2 h2Data={theAlleywayTitle} />
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
-      {renderRichText(theAlleywayText)}
-      {renderRichText(camarynTitle)}
+      <Text textData={theAlleywayText} />
+      <H2 h2Data={camarynTitle} />
       <img src={camarynImage.url} alt={camarynImage.alt} />
-      {renderRichText(camarynText)}
-      {renderRichText(valuesTitle)}
-      {renderRichText(valuesDescription)}
+      <Text textData={camarynText} />
+      <H3 h3Data={valuesTitle} />
+      <H3 h3Data={valuesDescription} />
       {values.map((v) => (
         <a>
-          {v.value[0].text}
-          <br />
+          <H3 h3Data={v.value} />
         </a>
       ))}
       <Footer footerData={footerData} />

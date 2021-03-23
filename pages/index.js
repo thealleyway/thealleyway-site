@@ -1,8 +1,9 @@
-import { renderRichText } from "../lib/richText";
 import { getHomePage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import H1 from "../components/headers/H1";
+import H2 from "../components/headers/H2";
+import Text from "../components/Text";
 
 export default function HomePage({ homePageData, navigationData, footerData }) {
 
@@ -18,9 +19,9 @@ export default function HomePage({ homePageData, navigationData, footerData }) {
     <>
       <Navigation navigationData={navigationData} />
       <H1 h1Data={homePageTitle} />
-      {renderRichText(featuredStoriesTitle)}
-      {renderRichText(newsletterSignup)}
-      {renderRichText(newsletterDescription)}
+      <H2 h2Data={featuredStoriesTitle} />
+      <H2 h2Data={newsletterSignup} />
+      <Text textData={newsletterDescription} />
       <Footer footerData={footerData}/>
     </>
   );
