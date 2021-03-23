@@ -1,11 +1,11 @@
-import { renderRichText } from "../lib/richText";
+import Text from "../components/Text";
 
 export default function AuthorTestimony({ authorTestimonyData }) {
   const { author_name: authorName, author_testimony: authorTestimony } = authorTestimonyData;
   return (
     <>
-      {renderRichText(authorName)}
-      {renderRichText(authorTestimony)}
+      <Text textData={authorName} />
+      <Text textData={authorTestimony} />
     </>
   );
 }

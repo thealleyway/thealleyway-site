@@ -1,11 +1,12 @@
-import { renderRichText } from "../lib/richText";
+import Text from "../components/Text";
+import H3 from "../components/headers/H3";
 
 export default function QuestionAnswer({ questionAnswerData }) {
   const { question, answer } = questionAnswerData;
   return (
     <>
-      {renderRichText(question)}
-      {renderRichText(answer)}
+      <H3 h3Data={question} />
+      <Text textData={answer} />
     </>
   );
 }
