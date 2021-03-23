@@ -1,10 +1,11 @@
 import { getAboutPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import H1 from "../components/headers/H1";
+import { H1 } from "../style/typography";
 import H2 from "../components/headers/H2";
 import H3 from "../components/headers/H3";
 import Text from "../components/Text";
+import { getString } from "../lib/richText";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData }) {
   const {
@@ -23,7 +24,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1 h1Data={aboutPageTitle} />
+      <H1>{getString(aboutPageTitle)}</H1>
       <H2 h2Data={theAlleywayTitle} />
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
       <Text textData={theAlleywayText} />
