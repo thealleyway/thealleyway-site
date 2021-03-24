@@ -1,9 +1,7 @@
 import { getAboutPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { H1 } from "../style/typography";
-import H2 from "../components/headers/H2";
-import H3 from "../components/headers/H3";
+import { H1, H2, H3, P } from "../style/typography";
 import Text from "../components/Text";
 import { getString } from "../lib/richText";
 
@@ -25,17 +23,18 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
     <>
       <Navigation navigationData={navigationData} />
       <H1>{getString(aboutPageTitle)}</H1>
-      <H2 h2Data={theAlleywayTitle} />
+      <H2>{getString(theAlleywayTitle)}</H2>
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
-      <Text textData={theAlleywayText} />
-      <H2 h2Data={camarynTitle} />
+      <P>{getString(theAlleywayText)}</P>
+      <H2>{getString(camarynTitle)}</H2>
       <img src={camarynImage.url} alt={camarynImage.alt} />
-      <Text textData={camarynText} />
-      <H3 h3Data={valuesTitle} />
-      <H3 h3Data={valuesDescription} />
+      <P>{getString(camarynText)}</P>
+      <H2>{getString(valuesTitle)}</H2>
+      <H3>{getString(valuesDescription)}</H3>
       {values.map((v) => (
         <a key={v.value.toString()}>
-          <H3 h3Data={v.value} />
+          <H3>{v.value[0].text}</H3>
+          <P>{v.value[1].text}</P>
         </a>
       ))}
       <Footer footerData={footerData} />
@@ -47,6 +46,7 @@ export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
   const footerData = await getFooter();
   const navigationData = await getNavigation();
+  console.log(aboutPageData.values[0].value)
 
   return {
     props: {

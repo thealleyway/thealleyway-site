@@ -4,15 +4,16 @@ const fonts = {
     aktiv: `'aktiv-grotesk', sans-serif`
 }
 
+
 const fontSizes = {
-    h1: `calc(40px + (86 - 40) * ((100vw - 375px) / (1920 - 375)))`,
-    h2: `calc(30px + (60 - 30) * ((100vw - 375px) / (1920 - 375)))`,
-    h3: `calc(22px + (54 - 22) * ((100vw - 375px) / (1920 - 375)))`,
-    p: `calc(14px + (24 - 14) * ((100vw - 375px) / (1920 - 375)))`,
+    h1: `calc(40px + (100 - 40) * ((100vw - 320px) / (1440 - 320)))`,
+    h2: `calc(30px + (60 - 30) * ((100vw - 320px) / (1440 - 320)))`,
+    h3: `calc(22px + (30 - 22) * ((100vw - 320px) / (1440 - 320)))`,
+    p: `calc(14px + (24 - 14) * ((100vw - 320px) / (1440 - 320)))`,
 }
 
 const fontStyles = {
-    italic: `'italic'`,
+    italic: 'italic',
 }
 
 const fontWeights = {
