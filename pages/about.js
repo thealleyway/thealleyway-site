@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { H1, H2, H3, P } from "../style/typography";
 import { getString } from "../lib/richText";
+import Value from "../components/Value";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
   const {
@@ -29,12 +30,11 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
       <P>{getString(camarynText)}</P>
       <H2>{getString(valuesTitle)}</H2>
       <H3>{getString(valuesDescription)}</H3>
-      {valuesData.map((v) => (
-        <div key={v.id}>
-          <H3>{getString(v.title)}</H3>
-          <P>{getString(v.description)}</P>
-        </div>
-      ))}
+{
+        valuesData.map((v) => (
+            <Value key={v.id} valueData={v.data}/>
+        ))
+      }
       <Footer footerData={footerData} />
     </>
   );
@@ -44,8 +44,7 @@ export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
   const footerData = await getFooter();
   const navigationData = await getNavigation();
-  const valueIds = aboutPageData.values.map((item) => { return item.about_values.id })
-  const valuesData = await getValues(valueIds)
+  const valuesData = await getValues();
 
   return {
     props: {
