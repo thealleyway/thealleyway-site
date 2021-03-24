@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { H1, H2, H3, P } from "../style/typography";
 import { getString } from "../lib/richText";
 
-export default function AboutPage({ aboutPageData, navigationData, footerData }) {
+export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
   const {
     about_page_title: aboutPageTitle,
     camaryn_image: camarynImage,
@@ -15,7 +15,6 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
     the_alleyway_title: theAlleywayTitle,
     values_title: valuesTitle,
     values_description: valuesDescription,
-    values,
   } = aboutPageData;
 
   return (
@@ -30,8 +29,11 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
       <P>{getString(camarynText)}</P>
       <H2>{getString(valuesTitle)}</H2>
       <H3>{getString(valuesDescription)}</H3>
-      {values.map((v) => (
-        console.log('')
+      {valuesData.map((v) => (
+        <div key={v.id}>
+          <H3>{getString(v.title)}</H3>
+          <P>{getString(v.description)}</P>
+        </div>
       ))}
       <Footer footerData={footerData} />
     </>
@@ -43,13 +45,14 @@ export async function getStaticProps() {
   const footerData = await getFooter();
   const navigationData = await getNavigation();
   const valueIds = aboutPageData.values.map((item) => { return item.about_values.id })
-  const values = await getValues(valueIds)
+  const valuesData = await getValues(valueIds)
 
   return {
     props: {
       aboutPageData,
       footerData,
       navigationData,
+      valuesData
     },
   };
 }
