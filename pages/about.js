@@ -2,7 +2,6 @@ import { getAboutPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { H1, H2, H3, P } from "../style/typography";
-import Text from "../components/Text";
 import { getString } from "../lib/richText";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData }) {

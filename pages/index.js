@@ -1,9 +1,8 @@
 import { getHomePage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import H1 from "../components/headers/H1";
-import H2 from "../components/headers/H2";
-import Text from "../components/Text";
+import { H1, H2, P } from "../style/typography";
+import { getString } from "../lib/richText";
 
 export default function HomePage({ homePageData, navigationData, footerData }) {
 
@@ -18,10 +17,10 @@ export default function HomePage({ homePageData, navigationData, footerData }) {
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1 h1Data={homePageTitle} />
-      <H2 h2Data={featuredStoriesTitle} />
-      <H2 h2Data={newsletterSignup} />
-      <Text textData={newsletterDescription} />
+      <H1>{getString(homePageTitle)}</H1>
+      <H2>{getString(featuredStoriesTitle)}</H2>
+      <H2>{getString(newsletterSignup)}</H2>
+      <P>{getString(newsletterDescription)}</P>
       <Footer footerData={footerData}/>
     </>
   );

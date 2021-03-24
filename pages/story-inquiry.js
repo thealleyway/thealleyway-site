@@ -9,10 +9,8 @@ import AuthorTestimony from "../components/AuthorTestimony";
 import QuestionAnswer from "../components/QuestionAnswer";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import H1 from "../components/headers/H1";
-import H2 from "../components/headers/H2";
-import H3 from "../components/headers/H3";
-import Text from "../components/Text";
+import { H1, H2, H3, P } from "../style/typography";
+import { getString } from "../lib/richText";
 
 
 export default function StoryInquiryPage({
@@ -35,12 +33,12 @@ export default function StoryInquiryPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1 h1Data={storySubmissionTitle} />
-      <Text textData={storySubmissionDescription} />
-      <H2 h2Data={submissionGuidelinesSubtitle} />
-      <Text textData={submissionGuidelinesDescription} />
-      <H3 h3Data={donationResourcesSubtitle} />
-      <H3 h3Data={authorTestimonyTitle} />
+      <H1>{getString(storySubmissionTitle)}</H1>
+      <P>{getString(storySubmissionDescription)}</P>
+      <H2>{getString(submissionGuidelinesSubtitle)}</H2>
+      <P>{getString(submissionGuidelinesDescription)}</P>
+      <H3>{getString(donationResourcesSubtitle)}</H3>
+      <H3>{getString(authorTestimonyTitle)}</H3>
       {authorTestimonies.map((item) => {
         return <AuthorTestimony key={item.author_info.id} authorTestimonyData={item} />;
       })}

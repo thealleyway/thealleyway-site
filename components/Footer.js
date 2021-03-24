@@ -1,5 +1,5 @@
-import { renderRichText } from "../lib/richText";
-
+import { H2, H3, P } from "../style/typography";
+import { getString } from "../lib/richText";
 export default function Footer({ footerData }) {
     const {
         contact_email: {url: contactEmail},
@@ -12,12 +12,12 @@ export default function Footer({ footerData }) {
     return (
         <>
             <br /> <br /> <br />
-            <h1>Footer</h1>
-            {renderRichText(contactInformationDescription)}
-            {contactEmail}
-            {renderRichText(contactTitle)} 
-            {instagramLink} <br />
-            {tiktokLink} <br />
+            <H2>Footer</H2>
+            <P>{getString(contactInformationDescription)}</P>
+            <P>{contactEmail}</P>
+            <H3>{getString(contactTitle)}</H3>
+            <P>{instagramLink}</P> <br />
+            <P>{tiktokLink}</P>
         </>
     );
 }

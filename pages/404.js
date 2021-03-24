@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { renderRichText } from "../lib/richText";
 import { get404 } from "../lib/api";
+import { H1, P } from "../style/typography";
+import { getString } from "../lib/richText";
 
 export default function FourOhFour(errorPageData) {
     const {
@@ -11,12 +12,12 @@ export default function FourOhFour(errorPageData) {
 
   return (
     <>
-        <h1>{renderRichText(errorPageTitle)}</h1>
-        <a>
-            {renderRichText(errorText)}
-        </a>
+        <H1>{getString(errorPageTitle)}</H1>
+        <P>
+            {getString(errorText)}
+        </P>
         <Link href="/">
-            <a>Click here to redirect to home page!</a>
+            <P>Click here to redirect to home page!</P>
         </Link>
     </>
   );
