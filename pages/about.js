@@ -1,9 +1,10 @@
 import { renderRichText } from "../lib/richText";
-import { getAboutPage, getNavigation, getFooter } from "../lib/api";
+import { getAboutPage, getNavigation, getFooter, getValues } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Value from "../components/Value";
 
-export default function AboutPage({ aboutPageData, navigationData, footerData }) {
+export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
   const {
     about_page_title: aboutPageTitle,
     camaryn_image: camarynImage,
@@ -14,7 +15,6 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
     the_alleyway_title: theAlleywayTitle,
     values_title: valuesTitle,
     values_description: valuesDescription,
-    values,
   } = aboutPageData;
 
   return (
@@ -29,12 +29,11 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
       {renderRichText(camarynText)}
       {renderRichText(valuesTitle)}
       {renderRichText(valuesDescription)}
-      {values.map((v) => (
-        <a>
-          {v.value[0].text}
-          <br />
-        </a>
-      ))}
+      {
+        valuesData.map((v) => (
+            <Value key={v.id} valueData={v.data}/>
+        ))
+      }
       <Footer footerData={footerData} />
     </>
   );
@@ -44,12 +43,14 @@ export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
   const footerData = await getFooter();
   const navigationData = await getNavigation();
+  const valuesData = await getValues();
 
   return {
     props: {
       aboutPageData,
       footerData,
       navigationData,
+      valuesData
     },
   };
 }
