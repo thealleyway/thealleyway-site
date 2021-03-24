@@ -1,4 +1,4 @@
-import { getAboutPage, getNavigation, getFooter } from "../lib/api";
+import { getAboutPage, getNavigation, getFooter, getValues } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { H1, H2, H3, P } from "../style/typography";
@@ -31,10 +31,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData })
       <H2>{getString(valuesTitle)}</H2>
       <H3>{getString(valuesDescription)}</H3>
       {values.map((v) => (
-        <a key={v.value.toString()}>
-          <H3>{v.value[0].text}</H3>
-          <P>{v.value[1].text}</P>
-        </a>
+        console.log('')
       ))}
       <Footer footerData={footerData} />
     </>
@@ -45,7 +42,8 @@ export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
   const footerData = await getFooter();
   const navigationData = await getNavigation();
-  console.log(aboutPageData.values[0].value)
+  const valueIds = aboutPageData.values.map((item) => { return item.about_values.id })
+  const values = await getValues(valueIds)
 
   return {
     props: {
