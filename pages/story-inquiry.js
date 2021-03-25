@@ -1,4 +1,3 @@
-import { renderRichText } from "../lib/richText";
 import {
   getAuthorTestimonies,
   getFrequentlyAnsweredQuestions,
@@ -10,6 +9,9 @@ import AuthorTestimony from "../components/AuthorTestimony";
 import QuestionAnswer from "../components/QuestionAnswer";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { H1, H2, H3, P } from "../style/typography";
+import { getString } from "../lib/richText";
+
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -31,16 +33,16 @@ export default function StoryInquiryPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(storySubmissionTitle)}
-      {renderRichText(storySubmissionDescription)}
-      {renderRichText(submissionGuidelinesSubtitle)}
-      {renderRichText(submissionGuidelinesDescription)}
-      {renderRichText(donationResourcesSubtitle)}
-      {renderRichText(authorTestimonyTitle)}
+      <H1>{getString(storySubmissionTitle)}</H1>
+      <P>{getString(storySubmissionDescription)}</P>
+      <H2>{getString(submissionGuidelinesSubtitle)}</H2>
+      <P>{getString(submissionGuidelinesDescription)}</P>
+      <H3>{getString(donationResourcesSubtitle)}</H3>
+      <H3>{getString(authorTestimonyTitle)}</H3>
       {authorTestimonies.map((item) => {
         return <AuthorTestimony key={item.author_info.id} authorTestimonyData={item} />;
       })}
-      {renderRichText(faqTitle)}
+      <H2 h2Data={faqTitle} />
       {questionsAndAnswers.map((item) => {
         return <QuestionAnswer key={item.id} questionAnswerData={item} />;
       })}

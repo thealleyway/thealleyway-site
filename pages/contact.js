@@ -1,7 +1,8 @@
-import { renderRichText } from "../lib/richText";
 import { getContactPage, getNavigation, getFooter } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { H1, P } from "../style/typography";
+import { getString } from "../lib/richText";
 
 export default function ContactPage({ contactPageData, navigationData, footerData }) {
   const {
@@ -12,8 +13,8 @@ export default function ContactPage({ contactPageData, navigationData, footerDat
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(contactPageTitle)}
-      {renderRichText(contactPageDescription)}
+      <H1>{getString(contactPageTitle)}</H1>
+      <P>{getString(contactPageDescription)}</P>
       <Footer footerData={footerData} />
     </>
   );

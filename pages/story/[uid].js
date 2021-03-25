@@ -4,6 +4,8 @@ import SliceZone from "../../components/storySlices/SliceZone";
 import AuthorInfo from "../../components/AuthorInfo";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import { H1 } from "../../style/typography";
+import { getString } from "../../lib/richText";
 
 export default function Story({ storyData, authorInfo, navigationData, footerData }) {
   const { story_title: storyTitle, story_date: storyDate, body } = storyData;
@@ -12,7 +14,7 @@ export default function Story({ storyData, authorInfo, navigationData, footerDat
     <>
       <Navigation navigationData={navigationData} />
       <article>
-        <header>{renderRichText(storyTitle)}</header>
+        <H1>{getString(storyTitle)}</H1>
         <AuthorInfo authorInfo={authorInfo} />
         <SliceZone sliceZone={body} />
       </article>

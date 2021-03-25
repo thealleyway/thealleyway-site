@@ -1,7 +1,8 @@
-import { renderRichText } from "../lib/richText";
 import { getAboutPage, getNavigation, getFooter, getValues } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { H1, H2, H3, P } from "../style/typography";
+import { getString } from "../lib/richText";
 import Value from "../components/Value";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
@@ -20,16 +21,16 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(aboutPageTitle)}
-      {renderRichText(theAlleywayTitle)}
+      <H1>{getString(aboutPageTitle)}</H1>
+      <H2>{getString(theAlleywayTitle)}</H2>
       <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
-      {renderRichText(theAlleywayText)}
-      {renderRichText(camarynTitle)}
+      <P>{getString(theAlleywayText)}</P>
+      <H2>{getString(camarynTitle)}</H2>
       <img src={camarynImage.url} alt={camarynImage.alt} />
-      {renderRichText(camarynText)}
-      {renderRichText(valuesTitle)}
-      {renderRichText(valuesDescription)}
-      {
+      <P>{getString(camarynText)}</P>
+      <H2>{getString(valuesTitle)}</H2>
+      <H3>{getString(valuesDescription)}</H3>
+{
         valuesData.map((v) => (
             <Value key={v.id} valueData={v.data}/>
         ))

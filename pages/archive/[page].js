@@ -1,8 +1,9 @@
 import React from "react";
-import { renderRichText } from "../../lib/richText";
 import { getStoriesByPage, getStoryArchivePage, getNavigation, getFooter } from "../../lib/api";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import { H1, H2, P } from "../../style/typography";
+import { getString } from "../../lib/richText";
 
 export default function StoryArchive({
   storyArchivePageData,
@@ -18,8 +19,8 @@ export default function StoryArchive({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      {renderRichText(archiveTitle)}
-      {renderRichText(archiveDescription)}
+      <H1>{getString(archiveTitle)}</H1>
+      <P>{getString(archiveDescription)}</P>
       {stories.map((story, index) => {
         return <StoryPreview key={index} story={story} />;
       })}
@@ -36,8 +37,8 @@ function StoryPreview({ story }) {
   } = story.data;
   return (
     <>
-      {renderRichText(storyTitle)}
-      <p>{storyDate}</p>
+      <H2>{getString(storyTitle)}</H2>
+      <P>{storyDate}</P>
       <img style={{ width: "500px" }} src={previewImage.url} alt={previewImage.alt} />
     </>
   );
