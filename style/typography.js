@@ -6,10 +6,10 @@ const fonts = {
 
 
 const fontSizes = {
-    h1: `calc(40px + (90 - 40) * ((100vw - 320px) / (1440 - 320)))`,
-    h2: `calc(30px + (50 - 30) * ((100vw - 320px) / (1440 - 320)))`,
-    h3: `calc(22px + (20 - 22) * ((100vw - 320px) / (1440 - 320)))`,
-    p: `calc(14px + (22 - 14) * ((100vw - 320px) / (1440 - 320)))`,
+    h1: `clamp(2.5em, 8vw, 8em)`,
+    h2: `clamp(1.8em, 5vw, 6em)`,
+    h3: `clamp(1em, 2.5vw, 3em)`,
+    p: `clamp(.6em, 1.5vw, 2em)`,
 }
 
 const fontStyles = {
