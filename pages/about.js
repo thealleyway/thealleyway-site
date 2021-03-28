@@ -1,11 +1,13 @@
-import { getAboutPage, getNavigation, getFooter, getValues } from "../lib/api";
+import { getAboutPage, getNavigation, getFooter, getValues, getMainResources } from "../lib/api";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { H1, H2, H3, P } from "../style/typography";
 import { getString } from "../lib/richText";
 import Value from "../components/Value";
+import MainResource from "../components/MainResource";
 
-export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
+export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData, 
+  mainResourcesData }) {
   const {
     about_page_title: aboutPageTitle,
     about_page_description: aboutPageDescription, 
@@ -25,6 +27,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
     top_quote: topQuote, 
     bottom_quote: bottomQuote 
   } = aboutPageData;
+
 
   return (
     <>
@@ -50,6 +53,13 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
             <Value key={v.id} valueData={v.data}/>
         ))
       }
+            {
+        mainResourcesData.map((d) => {
+          return ( 
+            <MainResource key={d.id} mainResourceData={d}/>
+        )} )
+      }
+      
       <P>{getString(bottomQuote)}</P>
       <Footer footerData={footerData} />
     </>
@@ -58,17 +68,22 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
 
 export async function getStaticProps() {
   const aboutPageData = await getAboutPage();
-  console.log(aboutPageData)
   const footerData = await getFooter();
   const navigationData = await getNavigation();
   const valuesData = await getValues();
+  const mainResourceIds = aboutPageData.main_resources.map((item) => {
+    return item.resource.id;
+  });
+  const mainResourcesData = await getMainResources(mainResourceIds);
+
 
   return {
     props: {
       aboutPageData,
       footerData,
       navigationData,
-      valuesData
+      valuesData,
+      mainResourcesData,
     },
   };
 }
