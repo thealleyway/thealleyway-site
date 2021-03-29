@@ -24,6 +24,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
     camaryns_resources_title: camarynsResourcesTitle, 
     camaryns_resources_description: camarynsResourcesDescription,
     more_resources_title: moreResourcesTitle,
+    more_resources: moreResources,
     top_quote: topQuote, 
     bottom_quote: bottomQuote 
   } = aboutPageData;
@@ -54,12 +55,14 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
         ))
       }
             {
-        mainResourcesData.map((d) => {
-          return ( 
-            <MainResource key={d.id} mainResourceData={d}/>
-        )} )
+        mainResourcesData.map((r) => (
+            <MainResource key={r.id} mainResourceData={r}/>
+        ) )
       }
-      
+      <br />
+      {
+      moreResources.map((r) => <a>{r.resource.url} <br /></a>)
+      }      
       <P>{getString(bottomQuote)}</P>
       <Footer footerData={footerData} />
     </>
