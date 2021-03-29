@@ -6,30 +6,29 @@ import { getString } from "../lib/richText";
 import Value from "../components/Value";
 import MainResource from "../components/MainResource";
 
-export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData, 
+export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData,
   mainResourcesData }) {
   const {
     about_page_title: aboutPageTitle,
-    about_page_description: aboutPageDescription, 
+    about_page_description: aboutPageDescription,
     camaryn_image: camarynImage,
     camaryn_title: camarynTitle,
     camaryn_text: camarynText,
     the_alleyway_image: theAlleywayImage,
     the_alleyway_text: theAlleywayText,
     the_alleyway_title: theAlleywayTitle,
-    the_alleyway_names_title: theAlleywayNamesTitle, 
-    the_alleyway_names_description: theAlleywayNamesDescription, 
-    the_alleyway_names_text: theAlleywayNamesText, 
+    the_alleyway_names_title: theAlleywayNamesTitle,
+    the_alleyway_names_meaning: theAlleywayNamesMeaning,
     our_mission_title: ourMissionTitle,
     our_mission_description: ourMissionDescription,
     values_title: valuesTitle,
     values_description: valuesDescription,
-    camaryns_resources_title: camarynsResourcesTitle, 
+    camaryns_resources_title: camarynsResourcesTitle,
     camaryns_resources_description: camarynsResourcesDescription,
     more_resources_title: moreResourcesTitle,
     more_resources: moreResources,
-    top_quote: topQuote, 
-    bottom_quote: bottomQuote 
+    top_quote: topQuote,
+    bottom_quote: bottomQuote
   } = aboutPageData;
 
   return (
@@ -53,21 +52,22 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
       <H3>{getString(valuesDescription)}</H3>
       {
         valuesData.map((v) => (
-            <Value key={v.id} valueData={v.data}/>
+          <Value key={v.id} valueData={v.data} />
         ))
       }
       <H3>{getString(theAlleywayNamesTitle)}</H3>
-      <P>{getString(theAlleywayNamesDescription)}</P>
-      <P>{getString(theAlleywayNamesText)}</P>
-            {
+      {
+        theAlleywayNamesMeaning.map((m) => <P key={m.id}>{getString(m.meaning)}</P>)
+      }
+      {
         mainResourcesData.map((r) => (
-            <MainResource key={r.id} mainResourceData={r}/>
-        ) )
+          <MainResource key={r.id} mainResourceData={r} />
+        ))
       }
       <br />
       {
-      moreResources.map((r) => <P>{r.resource.url}</P>)
-      }      
+        moreResources.map((r) => <P>{r.resource.url}</P>)
+      }
       <P>{getString(bottomQuote)}</P>
       <Footer footerData={footerData} />
     </>
