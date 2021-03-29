@@ -1,5 +1,5 @@
 import React from "react";
-import { renderRichText } from "../../lib/richText";
+import { renderRichText } from "../../../lib/richText";
 
 export default function ImageGallery({ images }) {
   return (

@@ -1,9 +1,9 @@
 import { getAuthorInfo, getStories, getStory, getNavigation, getFooter } from "../../lib/api";
 import { renderRichText } from "../../lib/richText";
-import SliceZone from "../../components/storySlices/SliceZone";
-import AuthorInfo from "../../components/AuthorInfo";
-import Navigation from "../../components/Navigation";
-import Footer from "../../components/Footer";
+import SliceZone from "../../components/storySlices/slizeZone/SliceZone";
+import AuthorInfo from "../../components/authorInfo/AuthorInfo";
+import Navigation from "../../components/navigation/Navigation";
+import Footer from "../../components/footer/Footer";
 import { H1 } from "../../style/typography";
 import { getString } from "../../lib/richText";
 

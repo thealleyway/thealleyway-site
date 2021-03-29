@@ -1,6 +1,6 @@
 import React from "react";
-import TextSection from "./TextSection";
-import ImageGallery from "./ImageGallery";
+import TextSection from "../textSection/TextSection";
+import ImageGallery from "../imageGallery/ImageGallery";
 
 export default function SliceZone({ sliceZone }) {
   return (

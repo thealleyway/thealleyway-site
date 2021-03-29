@@ -1,5 +1,5 @@
-import { P } from "../style/typography";
-import { getString } from "../lib/richText";
+import { P } from "../../style/typography";
+import { getString } from "../../lib/richText";
 
 export default function AuthorInfo({ authorInfo }) {
 

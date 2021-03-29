@@ -1,6 +1,6 @@
 import { getHomePage, getNavigation, getFooter } from "../lib/api";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../components/navgation/Navigation";
+import Footer from "../components/footer/Footer";
 import { H1, H2, P } from "../style/typography";
 import { getString } from "../lib/richText";
 

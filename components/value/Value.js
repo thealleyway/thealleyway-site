@@ -1,4 +1,4 @@
-import { getString } from "../lib/richText";
+import { getString } from "../../lib/richText";
 
 export default function Value({ valueData }) {
   const {
