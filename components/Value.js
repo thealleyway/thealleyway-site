@@ -1,4 +1,5 @@
 import { getString } from "../lib/richText";
+import { H3, P } from "../style/typography";
 
 export default function Value({ valueData }) {
   const {
@@ -8,9 +9,9 @@ export default function Value({ valueData }) {
   } = valueData;
   return (
     <>
-      {getString(title)}
+      <H3>{getString(title)}</H3>
       <br />
-      {getString(description)}
+      <P>{getString(description)}</P>
       <br />
       <img src={valueImage.url} alt={valueImage.alt} />
       <br />

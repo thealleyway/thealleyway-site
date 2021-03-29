@@ -1,5 +1,5 @@
 import { getString } from "../lib/richText";
-
+import { H3 } from "../style/typography";
 export default function MainResource({ mainResourceData }) {
 
   const {
@@ -9,7 +9,7 @@ export default function MainResource({ mainResourceData }) {
 
   return (
     <>
-      {getString(resourceTitle)}
+      <H3>{getString(resourceTitle)}</H3>
     </>
   );
 }

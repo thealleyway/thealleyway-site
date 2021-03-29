@@ -17,6 +17,9 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
     the_alleyway_image: theAlleywayImage,
     the_alleyway_text: theAlleywayText,
     the_alleyway_title: theAlleywayTitle,
+    the_alleyway_names_title: theAlleywayNamesTitle, 
+    the_alleyway_names_description: theAlleywayNamesDescription, 
+    the_alleyway_names_text: theAlleywayNamesText, 
     our_mission_title: ourMissionTitle,
     our_mission_description: ourMissionDescription,
     values_title: valuesTitle,
@@ -28,7 +31,6 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
     top_quote: topQuote, 
     bottom_quote: bottomQuote 
   } = aboutPageData;
-
 
   return (
     <>
@@ -54,6 +56,9 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
             <Value key={v.id} valueData={v.data}/>
         ))
       }
+      <H3>{getString(theAlleywayNamesTitle)}</H3>
+      <P>{getString(theAlleywayNamesDescription)}</P>
+      <P>{getString(theAlleywayNamesText)}</P>
             {
         mainResourcesData.map((r) => (
             <MainResource key={r.id} mainResourceData={r}/>
@@ -61,7 +66,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
       }
       <br />
       {
-      moreResources.map((r) => <a>{r.resource.url} <br /></a>)
+      moreResources.map((r) => <P>{r.resource.url}</P>)
       }      
       <P>{getString(bottomQuote)}</P>
       <Footer footerData={footerData} />
@@ -78,7 +83,6 @@ export async function getStaticProps() {
     return item.resource.id;
   });
   const mainResourcesData = await getMainResources(mainResourceIds);
-
 
   return {
     props: {
