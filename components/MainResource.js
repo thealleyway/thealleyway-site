@@ -1,15 +1,7 @@
-import { getString } from "../lib/richText";
-import { H3 } from "../style/typography";
+import { getString } from '../lib/richText';
+import { H3 } from '../style/typography';
 export default function MainResource({ mainResourceData }) {
+  const { resourceTitle } = mainResourceData;
 
-  const {
-    resourceTitle,
-    resourceLink,
-  } = mainResourceData;
-
-  return (
-    <>
-      <H3>{getString(resourceTitle)}</H3>
-    </>
-  );
+  return <H3>{getString(resourceTitle)}</H3>;
 }

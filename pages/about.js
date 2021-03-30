@@ -1,13 +1,24 @@
-import { getAboutPage, getNavigation, getFooter, getValues, getMainResources } from "../lib/api";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
-import { H1, H2, H3, P } from "../style/typography";
-import { getString } from "../lib/richText";
-import Value from "../components/Value";
-import MainResource from "../components/MainResource";
+import {
+  getAboutPage,
+  getNavigation,
+  getFooter,
+  getValues,
+  getMainResources,
+} from '../lib/api';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { H1, H2, H3, P } from '../style/typography';
+import { getString } from '../lib/richText';
+import Value from '../components/Value';
+import MainResource from '../components/MainResource';
 
-export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData,
-  mainResourcesData }) {
+export default function AboutPage({
+  aboutPageData,
+  navigationData,
+  footerData,
+  valuesData,
+  mainResourcesData,
+}) {
   const {
     about_page_title: aboutPageTitle,
     about_page_description: aboutPageDescription,
@@ -28,7 +39,7 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
     more_resources_title: moreResourcesTitle,
     more_resources: moreResources,
     top_quote: topQuote,
-    bottom_quote: bottomQuote
+    bottom_quote: bottomQuote,
   } = aboutPageData;
 
   return (
@@ -50,24 +61,20 @@ export default function AboutPage({ aboutPageData, navigationData, footerData, v
       <P>{getString(ourMissionDescription)}</P>
       <H2>{getString(valuesTitle)}</H2>
       <H3>{getString(valuesDescription)}</H3>
-      {
-        valuesData.map((v) => (
-          <Value key={v.id} valueData={v.data} />
-        ))
-      }
+      {valuesData.map((v) => (
+        <Value key={v.id} valueData={v.data} />
+      ))}
       <H3>{getString(theAlleywayNamesTitle)}</H3>
-      {
-        theAlleywayNamesMeaning.map((m) => <P key={m.id}>{getString(m.meaning)}</P>)
-      }
-      {
-        mainResourcesData.map((r) => (
-          <MainResource key={r.id} mainResourceData={r} />
-        ))
-      }
+      {theAlleywayNamesMeaning.map((m) => (
+        <P key={m.id}>{getString(m.meaning)}</P>
+      ))}
+      {mainResourcesData.map((r) => (
+        <MainResource key={r.id} mainResourceData={r} />
+      ))}
       <br />
-      {
-        moreResources.map((r) => <P>{r.resource.url}</P>)
-      }
+      {moreResources.map((r) => (
+        <P key={r.id}>{r.resource.url}</P>
+      ))}
       <P>{getString(bottomQuote)}</P>
       <Footer footerData={footerData} />
     </>
@@ -79,9 +86,9 @@ export async function getStaticProps() {
   const footerData = await getFooter();
   const navigationData = await getNavigation();
   const valuesData = await getValues();
-  const mainResourceIds = aboutPageData.main_resources.map((item) => {
-    return item.resource.id;
-  });
+  const mainResourceIds = aboutPageData.main_resources.map(
+    (item) => item.resource.id,
+  );
   const mainResourcesData = await getMainResources(mainResourceIds);
 
   return {
