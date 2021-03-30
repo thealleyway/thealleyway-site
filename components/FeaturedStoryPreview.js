@@ -1,4 +1,4 @@
-import PageLink from '../components/PageLink';
+import PageLink from '../components/pageLink/PageLink';
 import { H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
 
