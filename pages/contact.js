@@ -1,10 +1,14 @@
-import { getContactPage, getNavigation, getFooter } from "../lib/api";
-import Navigation from "../components/navigation/Navigation";
-import Footer from "../components/footer/Footer";
-import { H1, P } from "../style/typography";
-import { getString } from "../lib/richText";
+import { getContactPage, getNavigation, getFooter } from '../lib/api';
+import Navigation from '../components/navigation/Navigation';
+import Footer from '../components/footer/Footer';
+import { H1, P } from '../style/typography';
+import { getString } from '../lib/richText';
 
-export default function ContactPage({ contactPageData, navigationData, footerData }) {
+export default function ContactPage({
+  contactPageData,
+  navigationData,
+  footerData,
+}) {
   const {
     contact_page_title: contactPageTitle,
     contact_page_description: contactPageDescription,

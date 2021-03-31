@@ -1,16 +1,19 @@
-import { getString } from "../../lib/richText";
+import { getString } from '../../lib/richText';
+import { H3, P } from '../../style/typography';
 
 export default function Value({ valueData }) {
   const {
     value_title: title,
-    value_description: description
+    value_description: description,
+    value_image: valueImage,
   } = valueData;
   return (
     <>
-      {getString(title)}
+      <H3>{getString(title)}</H3>
       <br />
-      {getString(description)}
+      <P>{getString(description)}</P>
       <br />
+      <img src={valueImage.url} alt={valueImage.alt} />
       <br />
     </>
   );

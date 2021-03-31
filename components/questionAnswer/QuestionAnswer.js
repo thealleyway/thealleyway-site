@@ -1,5 +1,5 @@
-import { H3, P } from "../../style/typography";
-import { getString } from "../../lib/richText";
+import { H3, P } from '../../style/typography';
+import { getString } from '../../lib/richText';
 
 export default function QuestionAnswer({ questionAnswerData }) {
   const { question, answer } = questionAnswerData;
