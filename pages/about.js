@@ -1,9 +1,9 @@
 import { getAboutPage, getNavigation, getFooter, getValues } from "../lib/api";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../components/navigation/Navigation";
+import Footer from "../components/footer/Footer";
 import { H1, H2, H3, P } from "../style/typography";
 import { getString } from "../lib/richText";
-import Value from "../components/Value";
+import Value from "../components/value/Value";
 
 export default function AboutPage({ aboutPageData, navigationData, footerData, valuesData }) {
   const {

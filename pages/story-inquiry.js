@@ -5,13 +5,13 @@ import {
   getNavigation,
   getFooter,
 } from '../lib/api';
-import AuthorTestimony from '../components/AuthorTestimony';
-import QuestionAnswer from '../components/QuestionAnswer';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import StorySubmissionConfirmation from '../components/StorySubmissionConfirmation';
+import AuthorTestimony from '../components/authorTestimony/AuthorTestimony';
+import QuestionAnswer from '../components/questionAnswer/QuestionAnswer';
+import Navigation from '../components/navigation/Navigation';
+import Footer from '../components/footer/Footer';
 import { H1, H2, H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
+import StorySubmissionConfirmation from '../components/storySubmissionConfirmation/StorySubmissionConfirmation';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -93,7 +93,6 @@ export async function getStaticProps() {
     return item.question_and_answer.id;
   });
   const questionsAndAnswers = await getFrequentlyAnsweredQuestions(faqsIds);
-
   const footerData = await getFooter();
   const navigationData = await getNavigation();
 
