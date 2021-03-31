@@ -1,5 +1,5 @@
-import { getString } from "../lib/richText";
-import { H3, P } from "../style/typography";
+import { getString } from '../../lib/richText';
+import { H3, P } from '../../style/typography';
 
 export default function Value({ valueData }) {
   const {

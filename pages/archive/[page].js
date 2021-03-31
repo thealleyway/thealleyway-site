@@ -1,9 +1,14 @@
-import React from "react";
-import { getStoriesByPage, getStoryArchivePage, getNavigation, getFooter } from "../../lib/api";
-import Navigation from "../../components/Navigation";
-import Footer from "../../components/Footer";
-import { H1, H2, P } from "../../style/typography";
-import { getString } from "../../lib/richText";
+import React from 'react';
+import {
+  getStoriesByPage,
+  getStoryArchivePage,
+  getNavigation,
+  getFooter,
+} from '../../lib/api';
+import Navigation from '../../components/navigation/Navigation';
+import Footer from '../../components/footer/Footer';
+import { H1, H2, P } from '../../style/typography';
+import { getString } from '../../lib/richText';
 
 export default function StoryArchive({
   storyArchivePageData,
@@ -39,7 +44,11 @@ function StoryPreview({ story }) {
     <>
       <H2>{getString(storyTitle)}</H2>
       <P>{storyDate}</P>
-      <img style={{ width: "500px" }} src={previewImage.url} alt={previewImage.alt} />
+      <img
+        style={{ width: '500px' }}
+        src={previewImage.url}
+        alt={previewImage.alt}
+      />
     </>
   );
 }
@@ -48,7 +57,7 @@ export async function getStaticPaths() {
   const storiesByPage = await getStoriesByPage(1);
   const arrayWithPageIndexes = Array.from(
     Array(storiesByPage.total_pages),
-    (_, index) => index + 1
+    (_, index) => index + 1,
   );
   const paths = arrayWithPageIndexes.map((index) => ({
     params: { page: `${index}` },

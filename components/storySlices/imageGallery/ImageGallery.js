@@ -1,5 +1,5 @@
-import React from "react";
-import { renderRichText } from "../../lib/richText";
+import React from 'react';
+import { renderRichText } from '../../../lib/richText';
 
 export default function ImageGallery({ images }) {
   return (
@@ -18,7 +18,7 @@ function GalleryItem({ item }) {
   return (
     <>
       <img
-        style={{ width: "500px" }}
+        style={{ width: '500px' }}
         src={galleryImage.url}
         alt={galleryImage.alt}
       />
