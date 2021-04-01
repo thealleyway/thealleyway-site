@@ -6,7 +6,7 @@ import {
 } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
-import FeaturedStoryPreview from '../components/FeaturedStoryPreview';
+import FeaturedStoryPreview from '../components/featuredStoryPreview/FeaturedStoryPreview';
 import NewsletterConfirmation from '../components/newsletterConfirmation/NewsletterConfirmation';
 import { H1, H2, P } from '../style/typography';
 import { getString } from '../lib/richText';

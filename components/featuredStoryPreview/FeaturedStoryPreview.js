@@ -1,6 +1,6 @@
-import PageLink from '../components/pageLink/PageLink';
-import { H3, P } from '../style/typography';
-import { getString } from '../lib/richText';
+import PageLink from '../pageLink/PageLink';
+import { H3, P } from '../../style/typography';
+import { getString } from '../../lib/richText';
 
 export default function FeaturedStoryPreview({ featuredStoryData }) {
   const {
