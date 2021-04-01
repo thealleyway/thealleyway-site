@@ -7,6 +7,7 @@ import {
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import FeaturedStoryPreview from '../components/FeaturedStoryPreview';
+import NewsletterConfirmation from '../components/newsletterConfirmation/NewsletterConfirmation';
 import { H1, H2, P } from '../style/typography';
 import { getString } from '../lib/richText';
 
@@ -21,18 +22,36 @@ export default function HomePage({
     featured_stories_title: featuredStoriesTitle,
     newsletter_signup: newsletterSignup,
     newsletter_description: newsletterDescription,
+    privacy_policy_link_title: privacyPolicyLinkTitle,
+    privacy_policy_text: privacyPolicyText,
+    newsletter_confirmation_title_1,
+    newsletter_confirmation_title_2,
+    newsletter_confirmation_description,
+    newsletter_confirmation_image,
   } = homePageData;
+
+  const newsletterConfirmationData = {
+    newsletter_confirmation_title_1,
+    newsletter_confirmation_title_2,
+    newsletter_confirmation_description,
+    newsletter_confirmation_image,
+  };
 
   return (
     <>
       <Navigation navigationData={navigationData} />
       <H1>{getString(homePageTitle)}</H1>
       <H2>{getString(featuredStoriesTitle)}</H2>
-      <H2>{getString(newsletterSignup)}</H2>
-      <P>{getString(newsletterDescription)}</P>
       {featuredStoriesData.map((item) => {
         return <FeaturedStoryPreview key={item.uid} featuredStoryData={item} />;
       })}
+      <H2>{getString(newsletterSignup)}</H2>
+      <P>{getString(newsletterDescription)}</P>
+      <H2>{getString(privacyPolicyLinkTitle)}</H2>
+      <P>{getString(privacyPolicyText)}</P>
+      <NewsletterConfirmation
+        newsletterConfirmationData={newsletterConfirmationData}
+      />
       <Footer footerData={footerData} />
     </>
   );
