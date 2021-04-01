@@ -1,7 +1,7 @@
 import { getContactPage, getNavigation, getFooter } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
-import ContactConfirmation from '../components/ContactConfirmation';
+import ContactConfirmation from '../components/contactConfirmation/ContactConfirmation';
 import { H1, P } from '../style/typography';
 import { getString } from '../lib/richText';
 

@@ -1,4 +1,4 @@
-import { renderRichText } from '../lib/richText';
+import { renderRichText } from '../../lib/richText';
 
 export default function ContactConfirmation({ contactConfirmationData }) {
   const {
