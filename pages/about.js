@@ -7,7 +7,7 @@ import {
 } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
-import { H1, H2, H3, P } from '../style/typography';
+import { H1, H2, H3, P, H1Regular } from '../style/typography';
 import { getString } from '../lib/richText';
 import Value from '../components/value/Value';
 import MainResource from '../components/mainResource/MainResource';
@@ -45,7 +45,8 @@ export default function AboutPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1>{getString(aboutPageTitle)}</H1>
+      <H1Regular>{getString(aboutPageTitle)}</H1Regular>
+      <H1>us</H1>
       <P>{getString(aboutPageDescription)}</P>
       <H2>{getString(camarynTitle)}</H2>
       <img src={camarynImage.url} alt={camarynImage.alt} />

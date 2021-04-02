@@ -5,10 +5,10 @@ const fonts = {
 };
 
 const fontSizes = {
-  h1: 'clamp(2.5em, 8vw, 8em)',
-  h2: 'clamp(1.8em, 5vw, 6em)',
-  h3: 'clamp(1em, 2.5vw, 3em)',
-  p: 'clamp(.6em, 1.5vw, 2em)',
+  h1: 'clamp(96px, 1.5vw, 180px)',
+  h2: 'clamp(34px, 4vw, 48px)',
+  h3: 'clamp(14px, 2.5vw, 16px)',
+  p: 'clamp(14px, 1.2vw, 16px)',
 };
 
 const fontStyles = {
@@ -16,23 +16,28 @@ const fontStyles = {
 };
 
 const fontWeights = {
-  normal: `400px`,
-  medium: `700px`,
-  bold: `900px`,
+  normal: `400`,
+  medium: `600`,
+  bold: `650`,
 };
 
 const H1 = styled.h1`
   font-size: ${fontSizes.h1};
   font-family: ${fonts.swearDisplay};
   font-style: ${fontStyles.italic};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
+`;
+
+const H1Regular = styled.h1`
+  font-size: ${fontSizes.h1};
+  font-family: ${fonts.swearDisplay};
+  font-weight: ${fontWeights.medium};
 `;
 
 const H2 = styled.h2`
   font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
-  font-style: ${fontStyles.italic};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
 `;
 
 const H3 = styled.h3`
@@ -48,4 +53,4 @@ const P = styled.p`
   font-weight: ${fontWeights.regular};
 `;
 
-export { H1, H2, H3, P };
+export { H1, H2, H3, P, H1Regular };
