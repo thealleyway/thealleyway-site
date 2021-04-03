@@ -7,6 +7,7 @@ import {
 } from '../../lib/api';
 import Navigation from '../../components/navigation/Navigation';
 import Footer from '../../components/footer/Footer';
+import PageLink from '../../components/pageLink/PageLink';
 import { H1, H2, P } from '../../style/typography';
 import { getString } from '../../lib/richText';
 
@@ -17,15 +18,19 @@ export default function StoryArchive({
   footerData,
 }) {
   const {
+    archive_title_regular: archiveTitleRegular,
+    archive_title_italic: archiveTitleItalic,
     archive_description: archiveDescription,
-    archive_title: archiveTitle,
+    archive_header_image: archiveHeaderImage,
   } = storyArchivePageData;
 
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1>{getString(archiveTitle)}</H1>
+      <H1>{getString(archiveTitleRegular)}</H1>
+      <H1>{getString(archiveTitleItalic)}</H1>
       <P>{getString(archiveDescription)}</P>
+      <img src={archiveHeaderImage.url} alt={archiveHeaderImage.alt} />
       {stories.map((story, index) => {
         return <StoryPreview key={index} story={story} />;
       })}
@@ -40,23 +45,25 @@ function StoryPreview({ story }) {
     story_title: storyTitle,
     story_date: storyDate,
   } = story.data;
+  const { uid } = story;
   return (
     <>
       <H2>{getString(storyTitle)}</H2>
       <P>{storyDate}</P>
-      <img
-        style={{ width: '500px' }}
-        src={previewImage.url}
-        alt={previewImage.alt}
-      />
+      <PageLink href={'/story/' + uid}>
+        <img
+          style={{ width: '500px' }}
+          src={previewImage.url}
+          alt={previewImage.alt}
+        />
+      </PageLink>
     </>
   );
 }
 
 export async function getStaticPaths() {
   const storiesByPage = await getStoriesByPage(1);
-  const arrayWithPageIndexes = Array.from(
-    Array(storiesByPage.total_pages),
+  const arrayWithPageIndexes = [...new Array(storiesByPage.total_pages)].map(
     (_, index) => index + 1,
   );
   const paths = arrayWithPageIndexes.map((index) => ({

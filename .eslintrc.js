@@ -32,6 +32,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'unicorn/filename-case': 'off',
+    'unicorn/no-new-array': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'unicorn/prevent-abbreviations': 'off',
