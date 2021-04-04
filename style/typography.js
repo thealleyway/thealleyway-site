@@ -1,14 +1,14 @@
 import styled from 'styled-components';
+import { min } from '../lib/responsive';
 const fonts = {
   swearDisplay: 'swear-display, serif',
   poppins: 'poppins, sans-serif',
 };
 
 const fontSizes = {
-  h1: 'clamp(96px, 20vw, 180px)',
-  h2: 'clamp(34px, 10vw, 48px)',
-  h3: 'clamp(14px, 2.5vw, 16px)',
-  p: 'clamp(14px, 1.2vw, 16px)',
+  h1: 'clamp(11em, 25vw, 14em)',
+  h2: 'clamp(5em, 10vw, 8em)',
+  h3: 'clamp(3em, 5vw, 4em)',
 };
 
 const fontStyles = {
@@ -48,9 +48,12 @@ const H3 = styled.h3`
 `;
 
 const P = styled.p`
-  font-size: ${fontSizes.p};
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.regular};
+  font-size: 2em;
+  @media ${min.tablet} {
+    font-size: 1.2em;
+  }
 `;
 
 export { H1, H2, H3, P, H1Regular };
