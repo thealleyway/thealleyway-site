@@ -8,7 +8,7 @@ import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import FeaturedStoryPreview from '../components/featuredStoryPreview/FeaturedStoryPreview';
 import NewsletterConfirmation from '../components/newsletterConfirmation/NewsletterConfirmation';
-import { H1, H2, P } from '../style/typography';
+import { H1Regular, H2, P } from '../style/typography';
 import { getString } from '../lib/richText';
 
 export default function HomePage({
@@ -40,7 +40,7 @@ export default function HomePage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1>{getString(homePageTitle)}</H1>
+      <H1Regular>{getString(homePageTitle)}</H1Regular>
       <H2>{getString(featuredStoriesTitle)}</H2>
       {featuredStoriesData.map((item) => {
         return <FeaturedStoryPreview key={item.uid} featuredStoryData={item} />;

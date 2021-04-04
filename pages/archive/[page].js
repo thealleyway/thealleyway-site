@@ -8,7 +8,7 @@ import {
 import Navigation from '../../components/navigation/Navigation';
 import Footer from '../../components/footer/Footer';
 import PageLink from '../../components/pageLink/PageLink';
-import { H1, H2, P } from '../../style/typography';
+import { H1Regular, H1Italic, H2, P } from '../../style/typography';
 import { getString } from '../../lib/richText';
 
 export default function StoryArchive({
@@ -27,8 +27,8 @@ export default function StoryArchive({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1>{getString(archiveTitleRegular)}</H1>
-      <H1>{getString(archiveTitleItalic)}</H1>
+      <H1Regular>{getString(archiveTitleRegular)}</H1Regular>
+      <H1Italic>{getString(archiveTitleItalic)}</H1Italic>
       <P>{getString(archiveDescription)}</P>
       <img src={archiveHeaderImage.url} alt={archiveHeaderImage.alt} />
       {stories.map((story, index) => {
