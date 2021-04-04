@@ -5,8 +5,8 @@ const fonts = {
 };
 
 const fontSizes = {
-  h1: 'clamp(96px, 1.5vw, 180px)',
-  h2: 'clamp(34px, 4vw, 48px)',
+  h1: 'clamp(96px, 20vw, 180px)',
+  h2: 'clamp(34px, 10vw, 48px)',
   h3: 'clamp(14px, 2.5vw, 16px)',
   p: 'clamp(14px, 1.2vw, 16px)',
 };
