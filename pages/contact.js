@@ -35,7 +35,9 @@ export default function ContactPage({
     <>
       <Navigation navigationData={navigationData} />
       <H1>{getString(contactPageTitleRegular)}</H1>
-      <H1>{getString(contactPageTitleItalic)}</H1>
+      <H1>
+        <i>{getString(contactPageTitleItalic)}</i>
+      </H1>
       <P>{getString(contactPageDescription)}</P>
       <img src={contactImageTop.url} alt={contactImageTop.alt} />
       <img src={contactImageBottom.url} alt={contactImageBottom.alt} />

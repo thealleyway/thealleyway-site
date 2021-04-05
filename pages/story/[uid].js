@@ -5,7 +5,6 @@ import {
   getNavigation,
   getFooter,
 } from '../../lib/api';
-import { renderRichText } from '../../lib/richText';
 import SliceZone from '../../components/storySlices/sliceZone/SliceZone';
 import AuthorInfo from '../../components/authorInfo/AuthorInfo';
 import Navigation from '../../components/navigation/Navigation';
@@ -19,13 +18,15 @@ export default function Story({
   navigationData,
   footerData,
 }) {
-  const { story_title: storyTitle, story_date: storyDate, body } = storyData;
+  const { story_title: storyTitle, body } = storyData;
 
   return (
     <>
       <Navigation navigationData={navigationData} />
       <article>
-        <H1>{getString(storyTitle)}</H1>
+        <H1>
+          <i>{getString(storyTitle)}</i>
+        </H1>
         <AuthorInfo authorInfo={authorInfo} />
         <SliceZone sliceZone={body} />
       </article>

@@ -11,7 +11,9 @@ export default function NewsletterConfirmation({ newsletterConfirmationData }) {
   return (
     <>
       <H1>{getString(title1)}</H1>
-      <H1>{getString(title2)}</H1>
+      <H1>
+        <i>{getString(title2)}</i>
+      </H1>
       <H3>{getString(description)}</H3>
       <img src={image.url} alt={image.alt} />
     </>

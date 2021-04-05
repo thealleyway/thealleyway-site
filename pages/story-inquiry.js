@@ -42,7 +42,6 @@ export default function StoryInquiryPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-
       <H1>{getString(storySubmissionTitle)}</H1>
       <P>{getString(storySubmissionDescription)}</P>
       <H2>{getString(submissionFormSubtitle)}</H2>

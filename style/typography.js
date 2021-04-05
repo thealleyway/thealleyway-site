@@ -1,14 +1,14 @@
 import styled from 'styled-components';
+import { min } from '../lib/responsive';
 const fonts = {
   swearDisplay: 'swear-display, serif',
   poppins: 'poppins, sans-serif',
 };
 
 const fontSizes = {
-  h1: 'clamp(2.5em, 8vw, 8em)',
-  h2: 'clamp(1.8em, 5vw, 6em)',
-  h3: 'clamp(1em, 2.5vw, 3em)',
-  p: 'clamp(.6em, 1.5vw, 2em)',
+  h1: 'clamp(11em, 25vw, 14em)',
+  h2: 'clamp(5em, 10vw, 8em)',
+  h3: 'clamp(3em, 5vw, 4em)',
 };
 
 const fontStyles = {
@@ -16,23 +16,21 @@ const fontStyles = {
 };
 
 const fontWeights = {
-  normal: `400px`,
-  medium: `700px`,
-  bold: `900px`,
+  normal: `400`,
+  medium: `600`,
+  bold: `650`,
 };
 
 const H1 = styled.h1`
   font-size: ${fontSizes.h1};
   font-family: ${fonts.swearDisplay};
-  font-style: ${fontStyles.italic};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
 `;
 
 const H2 = styled.h2`
   font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
-  font-style: ${fontStyles.italic};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.medium};
 `;
 
 const H3 = styled.h3`
@@ -43,9 +41,12 @@ const H3 = styled.h3`
 `;
 
 const P = styled.p`
-  font-size: ${fontSizes.p};
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.regular};
+  font-size: 2em;
+  @media ${min.tablet} {
+    font-size: 1.2em;
+  }
 `;
 
 export { H1, H2, H3, P };

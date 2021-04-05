@@ -28,7 +28,9 @@ export default function StoryArchive({
     <>
       <Navigation navigationData={navigationData} />
       <H1>{getString(archiveTitleRegular)}</H1>
-      <H1>{getString(archiveTitleItalic)}</H1>
+      <H1>
+        <i>{getString(archiveTitleItalic)}</i>
+      </H1>
       <P>{getString(archiveDescription)}</P>
       <img src={archiveHeaderImage.url} alt={archiveHeaderImage.alt} />
       {stories.map((story, index) => {
