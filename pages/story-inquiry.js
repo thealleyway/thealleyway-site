@@ -9,7 +9,7 @@ import AuthorTestimony from '../components/authorTestimony/AuthorTestimony';
 import QuestionAnswer from '../components/questionAnswer/QuestionAnswer';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
-import { H1Regular, H2, H3, P } from '../style/typography';
+import { H1, H2, H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
 import StorySubmissionConfirmation from '../components/storySubmissionConfirmation/StorySubmissionConfirmation';
 
@@ -42,7 +42,7 @@ export default function StoryInquiryPage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1Regular>{getString(storySubmissionTitle)}</H1Regular>
+      <H1>{getString(storySubmissionTitle)}</H1>
       <P>{getString(storySubmissionDescription)}</P>
       <H2>{getString(submissionFormSubtitle)}</H2>
       <H3>{getString(authorInformationSubtitle)}</H3>

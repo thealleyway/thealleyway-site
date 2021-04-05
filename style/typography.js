@@ -21,7 +21,7 @@ const fontWeights = {
   bold: `650`,
 };
 
-const H1Regular = styled.h1`
+const H1 = styled.h1`
   font-size: ${fontSizes.h1};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
@@ -49,4 +49,4 @@ const P = styled.p`
   }
 `;
 
-export { H1Regular, H2, H3, P };
+export { H1, H2, H3, P };
