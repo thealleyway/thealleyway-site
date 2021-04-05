@@ -1,4 +1,4 @@
-import { H1Italic, H1Regular, H3 } from '../../style/typography';
+import { H1Regular, H3 } from '../../style/typography';
 import { getString } from '../../lib/richText';
 
 export default function NewsletterConfirmation({ newsletterConfirmationData }) {
@@ -11,7 +11,9 @@ export default function NewsletterConfirmation({ newsletterConfirmationData }) {
   return (
     <>
       <H1Regular>{getString(title1)}</H1Regular>
-      <H1Italic>{getString(title2)}</H1Italic>
+      <H1Regular>
+        <i>{getString(title2)}</i>
+      </H1Regular>
       <H3>{getString(description)}</H3>
       <img src={image.url} alt={image.alt} />
     </>

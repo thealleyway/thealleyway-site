@@ -40,7 +40,9 @@ export default function HomePage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1Regular>{getString(homePageTitle)}</H1Regular>
+      <H1Regular>
+        <i>{getString(homePageTitle)}</i>
+      </H1Regular>
       <H2>{getString(featuredStoriesTitle)}</H2>
       {featuredStoriesData.map((item) => {
         return <FeaturedStoryPreview key={item.uid} featuredStoryData={item} />;

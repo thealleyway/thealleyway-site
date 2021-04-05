@@ -2,7 +2,7 @@ import { getContactPage, getNavigation, getFooter } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import ContactConfirmation from '../components/contactConfirmation/ContactConfirmation';
-import { H1Regular, H1Italic, P } from '../style/typography';
+import { H1Regular, P } from '../style/typography';
 import { getString } from '../lib/richText';
 
 export default function ContactPage({
@@ -35,7 +35,9 @@ export default function ContactPage({
     <>
       <Navigation navigationData={navigationData} />
       <H1Regular>{getString(contactPageTitleRegular)}</H1Regular>
-      <H1Italic>{getString(contactPageTitleItalic)}</H1Italic>
+      <H1Regular>
+        <i>{getString(contactPageTitleItalic)}</i>
+      </H1Regular>
       <P>{getString(contactPageDescription)}</P>
       <img src={contactImageTop.url} alt={contactImageTop.alt} />
       <img src={contactImageBottom.url} alt={contactImageBottom.alt} />

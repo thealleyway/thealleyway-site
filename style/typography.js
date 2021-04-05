@@ -21,13 +21,6 @@ const fontWeights = {
   bold: `650`,
 };
 
-const H1Italic = styled.h1`
-  font-size: ${fontSizes.h1};
-  font-family: ${fonts.swearDisplay};
-  font-style: ${fontStyles.italic};
-  font-weight: ${fontWeights.medium};
-`;
-
 const H1Regular = styled.h1`
   font-size: ${fontSizes.h1};
   font-family: ${fonts.swearDisplay};
@@ -56,4 +49,4 @@ const P = styled.p`
   }
 `;
 
-export { H1Regular, H1Italic, H2, H3, P };
+export { H1Regular, H2, H3, P };
