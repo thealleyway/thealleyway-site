@@ -21,17 +21,14 @@ const H1Regular = styled(H1)`
 
 const H1Italicized = styled(H1)`
   @media ${min.mobile} {
-    padding: 0;
     margin: 0 0 0 0.65em;
     line-height: 0.3em;
   }
   @media ${min.tablet} {
-    padding: 0;
     margin: 0 0 0 0.55em;
     line-height: 0.3em;
   }
   @media ${min.desktop} {
-    padding: 0;
     margin: 0 0 0 0.76em;
     line-height: 0.43em;
   }
