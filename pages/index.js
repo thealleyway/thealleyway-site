@@ -8,8 +8,9 @@ import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import FeaturedStoryPreview from '../components/featuredStoryPreview/FeaturedStoryPreview';
 import NewsletterConfirmation from '../components/newsletterConfirmation/NewsletterConfirmation';
-import { H1, H2, P } from '../style/typography';
+import { H2, P } from '../style/typography';
 import { getString } from '../lib/richText';
+import H1Styled from '../components/H1Styled/H1Styled';
 
 export default function HomePage({
   homePageData,
@@ -40,9 +41,7 @@ export default function HomePage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1>
-        <i>{getString(homePageTitle)}</i>
-      </H1>
+      <H1Styled regular={homePageTitle} italicized={undefined} />
       <H2>{getString(featuredStoriesTitle)}</H2>
       {featuredStoriesData.map((item) => {
         return <FeaturedStoryPreview key={item.uid} featuredStoryData={item} />;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { min } from '../lib/responsive';
+import { colors } from './colors';
 const fonts = {
   swearDisplay: 'swear-display, serif',
   poppins: 'poppins, sans-serif',
 };
 
 const fontSizes = {
-  h1: 'clamp(11em, 25vw, 14em)',
   h2: 'clamp(5em, 10vw, 8em)',
   h3: 'clamp(3em, 5vw, 4em)',
 };
@@ -22,9 +22,16 @@ const fontWeights = {
 };
 
 const H1 = styled.h1`
-  font-size: ${fontSizes.h1};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
+  color: ${colors.BURNTORANGE};
+  font-size: 16em;
+  @media ${min.tablet} {
+    font-size: 13em;
+  }
+  @media ${min.desktop} {
+    font-size: 10em;
+  }
 `;
 
 const H2 = styled.h2`
@@ -43,9 +50,12 @@ const H3 = styled.h3`
 const P = styled.p`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.regular};
-  font-size: 2em;
+  font-size: 2.2em;
   @media ${min.tablet} {
-    font-size: 1.2em;
+    font-size: 1.6em;
+  }
+  @media ${min.desktop} {
+    font-size: 1em;
   }
 `;
 
