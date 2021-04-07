@@ -1,6 +1,6 @@
 const icons = {
-  DOUBBLE_ARCHWAY: '/assets/double-archway.svg',
-  DOUBBLE_ELLIPSES: '/assets/double-ellipses.svg',
+  DOUBLE_ARCHWAY: '/assets/double-archway.svg',
+  DOUBLE_ELLIPSES: '/assets/double-ellipses.svg',
   FILLED_BACK_TO_TOP: '/assets/filled-back-to-top-arrow.svg',
   FILLED_LONG_ARROW: '/assets/filled-long-arrow.svg',
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
