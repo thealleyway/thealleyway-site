@@ -14,7 +14,7 @@ const TextInput = styled(P).attrs({
   display: block;
   border: none;
   border-bottom: 1px solid ${colors.BROWN};
-  width: clamp(300px, 55vw, 500px);
+  width: clamp(16em, 60vw, 26em);
 
   &:focus {
     outline: none;
