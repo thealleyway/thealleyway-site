@@ -17,7 +17,6 @@ export default function FeaturedStoryPreview({ featuredStoryData }) {
       <H3>{getString(previewTitleItalic)}</H3>
       <P>{getString(previewText)}</P>
       <img src={previewImage.url} alt={previewImage.alt} />
-      <img src={signature.url} alt={signature.alt} />
       <PageLink href={'/story/' + uid}>Tell me more</PageLink>
     </>
   );
