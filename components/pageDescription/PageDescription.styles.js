@@ -47,15 +47,15 @@ const Img = styled.img`
   position: absolute;
   @media ${min.mobile} {
     top: 7em;
-    right: 0;
-    width: 29em;
-    height: 30em;
+    right: 3em;
+    width: 34em;
+    height: 30.7em;
   }
   @media ${min.tablet} {
-    top: -14.5em;
+    top: -13.5em;
     right: 0;
     width: 29em;
-    height: 27.5em;
+    height: 24em;
   }
   @media ${min.desktop} {
     top: 0;
