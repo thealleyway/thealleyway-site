@@ -5,7 +5,7 @@ const icons = {
   FILLED_BACK_TO_TOP: '/assets/filled-back-to-top-arrow.svg',
   FILLED_MEDIUM_ARROW: '/assets/filled-medium-arrow.svg',
   FILLED_LONG_ARROW: '/assets/filled-long-arrow.svg',
-  FILLED_LONG_ARROW2: '/assets/filled-long-arrow2.svg',
+  FILLED_LONG_ARROW_MAUVE: '/assets/filled-long-arrow-mauve.svg',
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
   FILLED_LINK: '/assets/filled-link-icon.svg',
