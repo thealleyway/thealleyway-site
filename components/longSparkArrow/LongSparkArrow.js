@@ -15,7 +15,8 @@ export default function LongSparkArrow({ arrowText, onClick }) {
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => onClick}
+      onClick={onClick}
+      aria-hidden="true"
     >
       {!hover && (
         <ArrowContainer>

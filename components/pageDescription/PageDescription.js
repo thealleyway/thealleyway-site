@@ -11,7 +11,7 @@ export default function PageDescription({ description, arrowText, img }) {
   return (
     <div>
       <PageDescriptionContainer>
-        <LongSparkArrow arrowText={arrowText} />
+        <LongSparkArrow arrowText={arrowText} onClick={() => {}} />
         <DescriptionContainer>
           <Description>{getString(description)}</Description>
         </DescriptionContainer>
