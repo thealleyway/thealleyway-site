@@ -1,10 +1,12 @@
 const icons = {
-  DOUBBLE_ARCHWAY: '/assets/double-archway.svg',
-  DOUBBLE_ELLIPSES: '/assets/double-ellipses.svg',
+  DOUBLE_ARCHWAY: '/assets/double-archway.svg',
+  DOUBLE_ELLIPSES: '/assets/double-ellipses.svg',
   FILLED_BACK_TO_TOP: '/assets/filled-back-to-top-arrow.svg',
   FILLED_LONG_ARROW: '/assets/filled-long-arrow.svg',
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
+  FILLED_LINK: '/assets/filled-link-icon.svg',
+  FILLED_SHORT_ARROW: '/assets/filled-short-arrow.svg',
   LONG_FILLED_SPARK_ARROW: '/assets/long-filled-spark-arrow.svg',
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
   REFINED_SQUIGGLE: '/assets/refined-squiggle.svg',
@@ -16,6 +18,9 @@ const icons = {
   UNFILLED_BACK_TO_TOP: '/assets/unfilled-back-to-top-arrow.svg',
   UNFILLED_LONG_ARROW: '/assets/unfilled-long-arrow.svg',
   UNFILLED_SPARK_WHITE_OUTLINE: '/assets/unfilled-spark-white-outline.svg',
+  UNFILLED_LINK: '/assets/unfilled-link-icon.svg',
+  UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
+  ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
 };
 
 export { icons };
