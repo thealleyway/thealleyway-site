@@ -4,6 +4,7 @@ const icons = {
   HORIZONTAL_ELLIPSE: '/assets/horizontal-ellipse.svg',
   FILLED_BACK_TO_TOP: '/assets/filled-back-to-top-arrow.svg',
   FILLED_MEDIUM_ARROW: '/assets/filled-medium-arrow.svg',
+  FILLED_MEDIUM_ARROW_WHITE: '/assets/filled-medium-arrow-white.svg',
   FILLED_LONG_ARROW: '/assets/filled-long-arrow.svg',
   FILLED_LONG_ARROW_MAUVE: '/assets/filled-long-arrow-mauve.svg',
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
