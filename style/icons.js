@@ -1,8 +1,11 @@
 const icons = {
   DOUBLE_ARCHWAY: '/assets/double-archway.svg',
   DOUBLE_ELLIPSES: '/assets/double-ellipses.svg',
+  HORIZONTAL_ELLIPSE: '/assets/horizontal-ellipse.svg',
   FILLED_BACK_TO_TOP: '/assets/filled-back-to-top-arrow.svg',
+  FILLED_MEDIUM_ARROW: '/assets/filled-medium-arrow.svg',
   FILLED_LONG_ARROW: '/assets/filled-long-arrow.svg',
+  FILLED_LONG_ARROW2: '/assets/filled-long-arrow2.svg',
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
   FILLED_LINK: '/assets/filled-link-icon.svg',
@@ -21,6 +24,7 @@ const icons = {
   UNFILLED_LINK: '/assets/unfilled-link-icon.svg',
   UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
+  X: '/assets/x.svg',
 };
 
 export { icons };
