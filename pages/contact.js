@@ -5,6 +5,7 @@ import ContactConfirmation from '../components/contactConfirmation/ContactConfir
 import { P } from '../style/typography';
 import { getString } from '../lib/richText';
 import H1Styled from '../components/H1Styled/H1Styled';
+import PageDescription from '../components/pageDescription/PageDescription';
 
 export default function ContactPage({
   contactPageData,
@@ -34,16 +35,21 @@ export default function ContactPage({
 
   return (
     <>
-      <Navigation navigationData={navigationData} />
+      {/* <Navigation navigationData={navigationData} /> */}
       <H1Styled
         regular={contactPageTitleRegular}
         italicized={contactPageTitleItalic}
       />
-      <P>{getString(contactPageDescription)}</P>
-      <img src={contactImageTop.url} alt={contactImageTop.alt} />
-      <img src={contactImageBottom.url} alt={contactImageBottom.alt} />
-      <ContactConfirmation contactConfirmationData={contactConfirmationData} />
-      <Footer footerData={footerData} />
+      <PageDescription
+        description={contactPageDescription}
+        arrowText="LET'S CONNECT"
+        img={contactImageTop.url}
+      />
+      {/* <P>{getString(contactPageDescription)}</P>
+      <img src={contactImageTop.url} alt={contactImageTop.alt} /> */}
+      {/* <img src={contactImageBottom.url} alt={contactImageBottom.alt} /> */}
+      {/* <ContactConfirmation contactConfirmationData={contactConfirmationData} />
+      <Footer footerData={footerData} /> */}
     </>
   );
 }
