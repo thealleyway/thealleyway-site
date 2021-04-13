@@ -52,9 +52,6 @@ const P = styled.p`
   font-weight: ${fontWeights.regular};
   font-size: 2.2em;
   @media ${min.tablet} {
-    font-size: 1.6em;
-  }
-  @media ${min.desktop} {
     font-size: 1em;
   }
 `;
