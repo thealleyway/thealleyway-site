@@ -18,7 +18,7 @@ export default function ContactPage({
 
   return (
     <>
-      <Navigation navigationData={navigationData} />
+      {/* <Navigation navigationData={navigationData} /> */}
       <H1Styled
         regular={contactPageTitleRegular}
         italicized={contactPageTitleItalic}

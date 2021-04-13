@@ -30,8 +30,8 @@ const Description = styled(P)`
     line-height: 1.8em;
   }
   @media ${min.tablet} {
-    margin: 0 0 0 2em;
-    width: 15em;
+    margin: 0 0 0 1em;
+    width: 17em;
     line-height: 1.8em;
   }
   @media ${min.desktop} {
@@ -50,19 +50,24 @@ const Img = styled.img`
     right: 3em;
     width: 34em;
     height: 30.7em;
-  }
+}
   @media ${min.tablet} {
     top: -13.5em;
     right: 0;
     width: 29em;
     height: 24em;
-  }
+}
   @media ${min.desktop} {
     top: 0;
     right: 0;
     width: 38.5em;
     height: 38em;
-  }
+}
 `;
 
-export { PageDescriptionContainer, DescriptionContainer, Description, Img };
+export {
+  PageDescriptionContainer,
+  DescriptionContainer,
+  Description,
+  Img,
+};
