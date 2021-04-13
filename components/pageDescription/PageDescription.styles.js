@@ -6,8 +6,8 @@ const PageDescriptionContainer = styled.div`
   display: flex;
   position: relative;
   @media ${min.mobile} {
-    padding: 4em 0 0 0;
-    margin: 0 0 0 10em;
+    // padding: 4em 0 0 0;
+    // margin: 0 0 0 10em;
   }
   @media ${min.tablet} {
     padding: 2em 0 0 0;
@@ -20,18 +20,23 @@ const PageDescriptionContainer = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-  margin: 0 0 0 2em;
+  @media ${min.mobile} {
+    margin: 10% 0 0 24%;
+  }
+  @media ${min.tablet} {
+    margin: 0 0 0 2em;
+  }
 `;
 
 const Description = styled(P)`
-  line-height: 1.8em;
   @media ${min.mobile} {
-    margin: 0 2em 0 2em;
-    width: 18em;
+    width: 92%;
+    line-height: 1.8em;
   }
   @media ${min.tablet} {
     margin: 0 0 0 1em;
     width: 17em;
+    line-height: 1.8em;
   }
   @media ${min.desktop} {
     margin: 0 0 0 4em;
@@ -44,10 +49,10 @@ const Img = styled.img`
   object-fit: cover;
   position: absolute;
   @media ${min.mobile} {
-    top: 7em;
-    right: 3em;
-    width: 34em;
-    height: 30.7em;
+    top: 3em;
+    right: 1em;
+    width: 50%;
+    height: 30%;
   }
   @media ${min.tablet} {
     top: -13.5em;

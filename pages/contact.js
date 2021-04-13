@@ -3,6 +3,10 @@ import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import H1Styled from '../components/H1Styled/H1Styled';
 import PageDescription from '../components/pageDescription/PageDescription';
+import styled from 'styled-components';
+import { min } from '../lib/responsive';
+
+const PageContainer = styled.div``;
 
 export default function ContactPage({
   contactPageData,
@@ -17,7 +21,7 @@ export default function ContactPage({
   } = contactPageData;
 
   return (
-    <>
+    <PageContainer>
       {/* <Navigation navigationData={navigationData} /> */}
       <H1Styled
         regular={contactPageTitleRegular}
@@ -28,8 +32,8 @@ export default function ContactPage({
         arrowText="LET'S CONNECT"
         img={contactImageTop.url}
       />
-      <Footer footerData={footerData} />
-    </>
+      {/* <Footer footerData={footerData} /> */}
+    </PageContainer>
   );
 }
 
