@@ -26,7 +26,7 @@ const UnfilledSparkArrow = styled.img`
     height: 13em;
   }
   @media ${min.tablet} {
-    top: -1.5em;
+    top: -1.45em;
     right: 6em;
     height: 15em;
   }
