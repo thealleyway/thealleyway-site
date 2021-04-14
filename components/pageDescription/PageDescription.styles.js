@@ -6,7 +6,7 @@ const PageDescriptionContainer = styled.div`
   display: flex;
   position: relative;
   @media ${min.mobile} {
-    padding: 3em 0 0 6.3em;
+    padding: 4em 0 0 6.3em;
   }
   @media ${min.tablet} {
     padding: 2em 0 0 0;
