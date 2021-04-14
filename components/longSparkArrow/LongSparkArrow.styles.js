@@ -15,7 +15,7 @@ const UnfilledSparkArrow = styled.img`
   }
   @media ${min.tablet} {
     top: -1.5em;
-    right: 6em;
+    right: 7.3em;
     height: 15em;
   }
   @media ${min.desktop} {
@@ -88,6 +88,7 @@ const ArrowContainer = styled.div`
     left: 1.5em;
   }
   @media ${min.tablet} {
+    top: 1em;
     left: -8.5em;
   }
   @media ${min.desktop} {

@@ -1,6 +1,6 @@
 import { P } from '../../style/typography';
 import styled from 'styled-components';
-import { max, min } from '../../lib/responsive';
+import { min } from '../../lib/responsive';
 
 const PageDescriptionContainer = styled.div`
   display: flex;
@@ -19,8 +19,6 @@ const PageDescriptionContainer = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-  @media ${min.mobile} {
-  }
   @media ${min.tablet} {
     margin: 0 0 0 2em;
   }
@@ -50,17 +48,16 @@ const Img = styled.img`
     top: 4em;
     right: 1.5em;
     width: 14.5em;
-    height: 11.5em;
+    height: 11.6em;
   }
   @media ${min.tablet} {
-    top: -13.5em;
+    top: 5em;
     right: 0;
-    width: 29em;
-    height: 24em;
+    width: 28.7em;
+    height: 20.6em;
   }
   @media ${min.desktop} {
     top: 0;
-    right: 0;
     width: 38.5em;
     height: 38em;
   }
