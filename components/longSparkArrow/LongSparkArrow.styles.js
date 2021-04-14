@@ -5,17 +5,17 @@ import { fontWeights } from '../../style/typography';
 import { min } from '../../lib/responsive';
 
 const SparkArrowGeneral = `
-position: absolute;
-transform: rotate(90deg);
-z-index: 1;
+  position: absolute;
+  transform: rotate(90deg);
+  z-index: 1;
 `;
 
 const ArrowTextGeneral = `
-position: absolute;
-z-index: 2;
-right: 0;
-text-align: right;
-color: ${colors.BROWN};
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  text-align: right;
+  color: ${colors.BROWN};
 `;
 
 const UnfilledSparkArrow = styled.img`

@@ -19,13 +19,19 @@ export default function LongSparkArrow({ arrowText }) {
     >
       {!hover && (
         <ArrowContainer>
-          <UnfilledSparkArrow src={icons.LONG_UNFILLED_SPARK_ARROW} />
+          <UnfilledSparkArrow
+            src={icons.LONG_UNFILLED_SPARK_ARROW}
+            alt="Unfilled long white spark arrow"
+          />
           <ArrowText>{arrowText}</ArrowText>
         </ArrowContainer>
       )}
       {hover && (
         <ArrowContainerHover>
-          <FilledSparkArrow src={icons.LONG_FILLED_SPARK_ARROW} />
+          <FilledSparkArrow
+            src={icons.LONG_FILLED_SPARK_ARROW}
+            alt="Filled long white spark arrow with brown arrow center"
+          />
           <ArrowTextHover>{arrowText}</ArrowTextHover>
         </ArrowContainerHover>
       )}
