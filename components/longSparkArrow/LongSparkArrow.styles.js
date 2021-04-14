@@ -27,18 +27,27 @@ const UnfilledSparkArrow = styled.img`
   }
   @media ${min.tablet} {
     top: -1.5em;
-    right: 7.3em;
+    right: 6em;
     height: 15em;
   }
   @media ${min.desktop} {
     top: 2.5em;
-    right: 7em;
+    right: 5.5em;
     height: 14em;
   }
 `;
 
 const FilledSparkArrow = styled.img`
   ${SparkArrowGeneral};
+  @media ${min.mobile} {
+    top: -4.8em;
+    right: 6.5em;
+    height: 13em;
+  }
+  @media ${min.tablet} {
+    top: -5em;
+    height: 15em;
+  }
   @media ${min.desktop} {
     top: 2.1em;
     right: 8em;
@@ -49,20 +58,24 @@ const FilledSparkArrow = styled.img`
 const ArrowTextHover = styled(P)`
   ${ArrowTextGeneral};
   font-weight: ${fontWeights.bold};
+  width: 20em;
+  @media ${min.mobile} {
+    padding-right: 0;
+  }
+  @media ${min.tablet} {
+    padding-top: .8em;
+  }
   @media ${min.desktop} {
     padding-top: 9.8em;
-    width: 20em;
+
   }
 `;
 
 const ArrowText = styled(P)`
   ${ArrowTextGeneral};
   width: 20em;
-  @media ${min.mobile} {
-    padding-right: 1.4em;
-  }
   @media ${min.tablet} {
-    padding-top: 4.2em;
+    padding-top: 4.3em;
   }
   @media ${min.desktop} {
     padding-top: 7.8em;
@@ -73,12 +86,13 @@ const ArrowContainerHover = styled.div`
   position: absolute;
   transform: rotate(270deg);
   @media ${min.mobile} {
-    left: -15em;
+    // left: -15em;
   }
   @media ${min.tablet} {
-    left: -10em;
+    left: -5em;
   }
   @media ${min.desktop} {
+    top: 3.5em;
     left: -9.5em;
   }
 `;
@@ -90,11 +104,11 @@ const ArrowContainer = styled.div`
     left: 1.5em;
   }
   @media ${min.tablet} {
-    top: 1em;
+    top: 2.5em;
     left: -8.5em;
   }
   @media ${min.desktop} {
-    top: 2em;
+    top: 3.5em;
     left: -7.5em;
   }
 `;

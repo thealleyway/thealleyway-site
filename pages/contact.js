@@ -13,7 +13,7 @@ export default function ContactPage({ contactPageData, navigationData }) {
 
   return (
     <>
-      <Navigation navigationData={navigationData} />
+      {/* <Navigation navigationData={navigationData} /> */}
       <H1Styled
         regular={contactPageTitleRegular}
         italicized={contactPageTitleItalic}
