@@ -9,13 +9,12 @@ import {
 import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 
-export default function LongSparkArrow({ arrowText, onClick }) {
+export default function LongSparkArrow({ arrowText }) {
   const [hover, setHover] = useState(false);
   return (
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={onClick}
       aria-hidden="true"
     >
       {!hover && (
