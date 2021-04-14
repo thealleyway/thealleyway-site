@@ -4,10 +4,22 @@ import { colors } from '../../style/colors';
 import { fontWeights } from '../../style/typography';
 import { min } from '../../lib/responsive';
 
+const SparkArrowGeneral = `
+position: absolute;
+transform: rotate(90deg);
+z-index: 1;
+`;
+
+const ArrowTextGeneral = `
+position: absolute;
+z-index: 2;
+right: 0;
+text-align: right;
+color: ${colors.BROWN};
+`;
+
 const UnfilledSparkArrow = styled.img`
-  position: absolute;
-  transform: rotate(90deg);
-  z-index: 1;
+  ${SparkArrowGeneral};
   @media ${min.mobile} {
     top: -4.8em;
     right: 6.5em;
@@ -26,9 +38,7 @@ const UnfilledSparkArrow = styled.img`
 `;
 
 const FilledSparkArrow = styled.img`
-  position: absolute;
-  transform: rotate(90deg);
-  z-index: 1;
+  ${SparkArrowGeneral};
   @media ${min.desktop} {
     top: 2.1em;
     right: 8em;
@@ -37,11 +47,7 @@ const FilledSparkArrow = styled.img`
 `;
 
 const ArrowTextHover = styled(P)`
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  text-align: right;
-  color: ${colors.BROWN};
+  ${ArrowTextGeneral};
   font-weight: ${fontWeights.bold};
   @media ${min.desktop} {
     padding-top: 9.8em;
@@ -50,11 +56,7 @@ const ArrowTextHover = styled(P)`
 `;
 
 const ArrowText = styled(P)`
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  text-align: right;
-  color: ${colors.BROWN};
+  ${ArrowTextGeneral};
   width: 20em;
   @media ${min.mobile} {
     padding-right: 1.4em;

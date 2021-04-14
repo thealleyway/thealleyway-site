@@ -1,17 +1,9 @@
-import { getContactPage, getNavigation, getFooter } from '../lib/api';
+import { getContactPage, getNavigation } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
-import Footer from '../components/footer/Footer';
 import H1Styled from '../components/H1Styled/H1Styled';
 import PageDescription from '../components/pageDescription/PageDescription';
-import styled from 'styled-components';
 
-const PageContainer = styled.div``;
-
-export default function ContactPage({
-  contactPageData,
-  navigationData,
-  footerData,
-}) {
+export default function ContactPage({ contactPageData, navigationData }) {
   const {
     contact_page_title_regular: contactPageTitleRegular,
     contact_page_title_italic: contactPageTitleItalic,
@@ -20,7 +12,7 @@ export default function ContactPage({
   } = contactPageData;
 
   return (
-    <PageContainer>
+    <>
       <Navigation navigationData={navigationData} />
       <H1Styled
         regular={contactPageTitleRegular}
@@ -31,20 +23,17 @@ export default function ContactPage({
         arrowText="LET'S CONNECT"
         img={contactImageTop.url}
       />
-      <Footer footerData={footerData} />
-    </PageContainer>
+    </>
   );
 }
 
 export async function getStaticProps() {
   const contactPageData = await getContactPage();
-  const footerData = await getFooter();
   const navigationData = await getNavigation();
 
   return {
     props: {
       contactPageData,
-      footerData,
       navigationData,
     },
   };
