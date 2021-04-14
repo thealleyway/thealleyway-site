@@ -45,8 +45,9 @@ const FilledSparkArrow = styled.img`
     height: 13em;
   }
   @media ${min.tablet} {
-    top: -5em;
-    height: 15em;
+    top: -6.9em;
+    right: 8em;
+    height: 19em;
   }
   @media ${min.desktop} {
     top: 2.1em;
