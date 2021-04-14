@@ -9,9 +9,9 @@ const UnfilledSparkArrow = styled.img`
   transform: rotate(90deg);
   z-index: 1;
   @media ${min.mobile} {
-    top: -1.3em;
-    right: 12em;
-    height: 30em;
+    top: -4.8em;
+    right: 6.5em;
+    height: 13em;
   }
   @media ${min.tablet} {
     top: -1.5em;
@@ -57,7 +57,7 @@ const ArrowText = styled(P)`
   color: ${colors.BROWN};
   width: 20em;
   @media ${min.mobile} {
-    padding-top: 4.5em;
+    padding-right: 1.4em;
   }
   @media ${min.tablet} {
     padding-top: 4.2em;
@@ -85,7 +85,7 @@ const ArrowContainer = styled.div`
   position: absolute;
   transform: rotate(270deg);
   @media ${min.mobile} {
-    left: -15em;
+    left: 1.5em;
   }
   @media ${min.tablet} {
     left: -8.5em;

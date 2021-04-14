@@ -51,9 +51,6 @@ const P = styled.p`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.regular};
   font-size: 1em;
-  @media ${min.tablet} {
-    font-size: 1em;
-  }
 `;
 
 export { H1, H2, H3, P, fontWeights };

@@ -5,7 +5,8 @@ import { min } from '../../lib/responsive';
 const H1Container = styled.div`
   white-space: nowrap;
   @media ${min.mobile} {
-    margin: 35% 0 0 11%;
+    font-size: clamp(.8em, 4.5vw, 1em);
+    margin: 9.5em 0 0 3em;
   }
   @media ${min.tablet} {
     margin: 20.5em 0 4em 5em;
