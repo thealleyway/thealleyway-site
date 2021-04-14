@@ -21,7 +21,7 @@ export default function ContactPage({ contactPageData, navigationData }) {
       <PageDescription
         description={contactPageDescription}
         arrowText="LET'S CONNECT"
-        img={contactImageTop.url}
+        img={contactImageTop}
       />
     </>
   );

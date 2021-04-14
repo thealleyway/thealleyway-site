@@ -16,7 +16,7 @@ export default function PageDescription({ description, arrowText, img }) {
           <Description>{getString(description)}</Description>
         </DescriptionContainer>
       </PageDescriptionContainer>
-      <Img src={img} />
+      <Img src={img.url} alt={img.alt} />
     </div>
   );
 }
