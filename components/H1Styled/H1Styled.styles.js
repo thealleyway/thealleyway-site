@@ -5,10 +5,11 @@ import { min } from '../../lib/responsive';
 const H1Container = styled.div`
   white-space: nowrap;
   @media ${min.mobile} {
-    margin: 25em 0 5em 10em;
+    font-size: clamp(0.8em, 4.5vw, 1em);
+    margin: 9.5em 0 0 3em;
   }
   @media ${min.tablet} {
-    margin: 20.5em 0 4em 5em;
+    margin: 15em 0 4em 5em;
   }
   @media ${min.desktop} {
     margin: 4em 0 2em 5.9em;
