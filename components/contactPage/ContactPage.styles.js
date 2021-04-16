@@ -5,6 +5,9 @@ const HeaderAndSquiggleContainer = styled.div`
   @media ${min.tablet} {
     padding-bottom: 1em;
   }
+  @media ${min.desktop} {
+    padding-bottom: 2.3em;
+  }
 `;
 
 const PageContainer = styled.div`

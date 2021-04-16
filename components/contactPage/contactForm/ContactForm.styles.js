@@ -10,7 +10,7 @@ const ContactFormContainer = styled.div`
     width: 55%;
   }
   @media ${min.desktop} {
-    padding-top: 3em;
+    padding-top: 8em;
     padding-left: 8em;
     width: 47%;
   }
