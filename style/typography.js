@@ -8,7 +8,7 @@ const fonts = {
 
 const fontSizes = {
   h2: 'clamp(3em, 2vw, 5em)',
-  h3: 'clamp(3em, 5vw, 4em)',
+  h3: 'clamp(1.5em, 6vw, 2em)',
 };
 
 const fontStyles = {
@@ -43,14 +43,14 @@ const H2 = styled.h2`
 
 const H3 = styled.h3`
   font-size: ${fontSizes.h3};
-  font-family: ${fonts.poppins};
+  font-family: ${fonts.swearDisplay};
   font-style: ${fontStyles.italic};
   font-weight: ${fontWeights.medium};
 `;
 
 const P = styled.p`
   font-family: ${fonts.poppins};
-  font-weight: ${fontWeights.regular};
+  font-weight: ${fontWeights.normal};
   font-size: 1em;
 `;
 
