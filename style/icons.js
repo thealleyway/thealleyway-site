@@ -10,6 +10,7 @@ const icons = {
   FILLED_SPARK: '/assets/filled-spark-for-popup.svg',
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
   FILLED_LINK: '/assets/filled-link-icon.svg',
+  FILLED_MEDIUM_ARROW: '/assets/filled-medium-arrow.svg',
   FILLED_SHORT_ARROW: '/assets/filled-short-arrow.svg',
   LONG_FILLED_SPARK_ARROW: '/assets/long-filled-spark-arrow.svg',
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
