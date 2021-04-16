@@ -57,7 +57,7 @@ const Img = styled.img`
     height: 20.6em;
   }
   @media ${min.desktop} {
-    top: 0;
+    top: 5em;
     width: 38.5em;
     height: 38em;
   }
