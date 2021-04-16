@@ -1,40 +1,42 @@
-import { getContactPage, getNavigation } from '../lib/api';
+import {
+  getContactPage,
+  getNavigation,
+  getFooter,
+  getBoxLink,
+} from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
-import H1Styled from '../components/H1Styled/H1Styled';
-import PageDescription from '../components/pageDescription/PageDescription';
+import Footer from '../components/footer/Footer';
+import ContactPage from '../components/contactPage/ContactPage';
 
-export default function ContactPage({ contactPageData, navigationData }) {
-  const {
-    contact_page_title_regular: contactPageTitleRegular,
-    contact_page_title_italic: contactPageTitleItalic,
-    contact_page_description: contactPageDescription,
-    contact_image_top: contactImageTop,
-  } = contactPageData;
-
+export default function Contact({
+  contactPageData,
+  navigationData,
+  footerData,
+  boxLink1Data,
+}) {
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1Styled
-        regular={contactPageTitleRegular}
-        italicized={contactPageTitleItalic}
+      <ContactPage
+        contactPageData={contactPageData}
+        boxLinkData={boxLink1Data}
       />
-      <PageDescription
-        description={contactPageDescription}
-        arrowText="LET'S CONNECT"
-        img={contactImageTop}
-      />
+      <Footer footerData={footerData} />
     </>
   );
 }
 
 export async function getStaticProps() {
   const contactPageData = await getContactPage();
+  const boxLink1Data = await getBoxLink(contactPageData.box_link_1.id);
+  const footerData = await getFooter();
   const navigationData = await getNavigation();
-
   return {
     props: {
       contactPageData,
       navigationData,
+      boxLink1Data,
+      footerData,
     },
   };
 }
