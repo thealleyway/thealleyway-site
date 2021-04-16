@@ -5,6 +5,7 @@ import ArchiveStoryPreview from './archiveStoryPreview/ArchiveStoryPreview';
 import ArchivePagination from './archivePagination/ArchivePagination';
 import ArchiveSorting from './archiveSorting/ArchiveSorting';
 import {
+  H1StyledContainer,
   ArchiveContainer,
   ArchiveSortingWrapper,
   StoriesWrapper,
@@ -45,7 +46,12 @@ export default function StoryArchivePage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1Styled regular={archiveTitleRegular} italicized={archiveTitleItalic} />
+      <H1StyledContainer>
+        <H1Styled
+          regular={archiveTitleRegular}
+          italicized={archiveTitleItalic}
+        />
+      </H1StyledContainer>
       <PageDescription
         description={archiveDescription}
         arrowText="EXPLORE THE ARCHIVE"

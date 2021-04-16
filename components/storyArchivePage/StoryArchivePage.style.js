@@ -3,8 +3,16 @@ import { max } from '../../lib/responsive';
 
 const STORY_SPACING = 48;
 
+const H1StyledContainer = styled.div`
+  margin-left: -1.5em;
+`;
+
 const ArchiveContainer = styled.div`
-  padding-top: clamp(5em, 10vw, 6em);
+  padding-top: clamp(7em, 25vw, 9em);
+
+  @media only screen and ${max.tabletSm} {
+    padding-top: clamp(7em, 18vw, 4.5em);
+  }
 `;
 
 const ArchiveSortingWrapper = styled.div`
@@ -72,6 +80,7 @@ const FooterPaginationWrapper = styled(SortingPaginationWrapper)`
 `;
 
 export {
+  H1StyledContainer,
   ArchiveContainer,
   ArchiveSortingWrapper,
   StoriesWrapper,
