@@ -8,6 +8,7 @@ import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 import { breakpointsObj } from '../../lib/responsive';
 import MediaQuery from 'react-responsive';
+
 export default function BackToStartVerticalButton({ onClick }) {
   const [hover, setHover] = useState(false);
   return (

@@ -10,6 +10,7 @@ import {
   PStyled,
 } from './ContactConfirmationPopup.styles';
 import { icons } from '../../../style/icons';
+
 export default function ContactConfirmationPopup({
   contactConfirmationData,
   togglePopup,

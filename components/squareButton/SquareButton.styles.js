@@ -6,7 +6,7 @@ import { min } from '../../lib/responsive';
 
 const Button = styled.button`
   background-color: ${colors.OLIVE};
-  color: white;
+  color: ${colors.WHITE};
   border: none;
   @media ${min.mobile} {
     width: 10em;

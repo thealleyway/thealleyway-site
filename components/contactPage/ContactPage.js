@@ -20,6 +20,7 @@ import {
   ImageBoxLinkContainer,
   BoxLinkContainer,
 } from './ContactPage.styles';
+
 export default function ContactPage({ contactPageData, boxLinkData }) {
   const {
     contact_page_title_regular: contactPageTitleRegular,

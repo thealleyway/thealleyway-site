@@ -27,7 +27,7 @@ const Box = styled.div`
   background: ${colors.CREME};
   position: relative;
   margin: 0 auto;
-  border: 0.15em solid black;
+  border: 0.15em solid ${colors.BLACK};
   overflow: auto;
   @media ${min.mobile} {
     height: 23em;

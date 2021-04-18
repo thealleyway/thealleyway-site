@@ -7,6 +7,7 @@ import {
   InputBoxWrapper,
   ButtonWrapper,
 } from './ContactForm.styles';
+
 export default function ContactForm({ togglePopup }) {
   return (
     <>

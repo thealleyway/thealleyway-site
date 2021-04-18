@@ -11,12 +11,12 @@ const InputBox = styled.textarea`
   }
   color: ${colors.BROWN};
   font-family: ${fonts.poppins};
-  font-weight: ${fontWeights.regular};
+  font-weight: ${fontWeights.normal};
   font-size: 1em;
   ::placeholder {
     color: ${colors.BROWN};
     font-family: ${fonts.poppins};
-    font-weight: ${fontWeights.regular};
+    font-weight: ${fontWeights.normal};
   }
 `;
 
