@@ -4,7 +4,6 @@ import { TextInput, TextLabel } from './TextInputField.style';
 export default function TextInputField({ id, label, onChange, ...inputProps }) {
   return (
     <div>
-      <TextLabel for={id}>{label}</TextLabel>
       <TextLabel htmlFor={id}>{label}</TextLabel>
       <TextInput
         type="text"
