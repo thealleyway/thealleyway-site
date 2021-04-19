@@ -14,7 +14,8 @@ const TextInput = styled(P).attrs({
   display: block;
   border: none;
   border-bottom: 1px solid ${colors.BROWN};
-  width: clamp(16em, 60vw, 26em);
+  width: ${(props) => (props.fullWidth ? '100%' : 'clamp(16em, 60vw, 26em)')};
+  background-color: ${colors.CREME};
 
   &:focus {
     outline: none;
