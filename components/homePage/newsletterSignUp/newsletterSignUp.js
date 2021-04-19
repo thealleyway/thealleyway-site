@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { getString } from '../../../lib/richText';
-import { colors } from '../../../style/colors';
 import TextInputField from '../../textInputField/TextInputField';
-import ArchModal from '../../archModal/ArchModal';
 import NewsletterConfirmationModal from './newsletterConfirmationModal/NewsletterConfirmationModal';
+import PrivacyPolicyModal from './privacyPolicyModal/PrivacyPolicyModal';
 import {
   ContentWrapper,
   NewsletterSignUpTextInput,
@@ -38,7 +37,7 @@ export default function NewsletterSignUp({
             {getString(description)}
           </NewsletterDescriptionText>
           <NewsletterSignUpTextInput id="name" label="Name" fullWidth />
-          <TextInputField id="email" label="Email" />
+          <TextInputField id="email" label="Email" fullWidth />
           <PrivacyPolicyLinkText
             onClick={() => {
               document.body.style.overflow = 'hidden';
@@ -47,17 +46,13 @@ export default function NewsletterSignUp({
           >
             {getString(privacyPolicyLinkTitle)}
           </PrivacyPolicyLinkText>
-          <SubmitButton
-            color={colors.WHITE}
-            type="submit"
-            onClick={onSubmitClick}
-          >
+          <SubmitButton type="submit" onClick={onSubmitClick}>
             SUBMIT
           </SubmitButton>
         </ContentWrapper>
         {isPrivacyPolicyOpen && (
-          <ArchModal
-            text={privacyPolicyText}
+          <PrivacyPolicyModal
+            privacyPolicyText={privacyPolicyText}
             onClose={() => {
               document.body.style.overflow = 'visible';
               setIsPrivacyPolicyOpen(false);
