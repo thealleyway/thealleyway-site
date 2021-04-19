@@ -1,8 +1,8 @@
 import {
+  getAuthorSignatureFromIDs,
   getHomePage,
   getNavigation,
   getFooter,
-  getFeaturedStories,
 } from '../lib/api';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
@@ -62,15 +62,15 @@ export async function getStaticProps() {
   const homePageData = await getHomePage();
   const footerData = await getFooter();
   const navigationData = await getNavigation();
-  const featuredStoriesIds = homePageData.featured_stories.map((item) => {
-    return item.story.id;
-  });
-  const featuredStoriesData = await getFeaturedStories(featuredStoriesIds);
+  const authorInfoIDs = homePageData.featured_stories.map(
+    (story) => story.story.data.author_info.id,
+  );
+  const authorSignatures = await getAuthorSignatureFromIDs(authorInfoIDs);
 
   return {
     props: {
+      authorSignatures,
       homePageData,
-      featuredStoriesData,
       navigationData,
       footerData,
     },
