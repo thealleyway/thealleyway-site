@@ -22,7 +22,7 @@ const FilledButtonImage = styled.img`
 `;
 
 const Button = styled.button`
-  background-color: Transparent;
+  background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;

@@ -117,7 +117,7 @@ const Img = styled.img`
   }
 `;
 
-const X = styled.img`
+const CloseIcon = styled.img`
   position: absolute;
   border: none;
   top: 1em;
@@ -130,4 +130,13 @@ const X = styled.img`
   }
 `;
 
-export { PopupBox, Box, TextContent, ImgBackground, Img, X, H2Styled, PStyled };
+export {
+  PopupBox,
+  Box,
+  TextContent,
+  ImgBackground,
+  Img,
+  CloseIcon,
+  H2Styled,
+  PStyled,
+};

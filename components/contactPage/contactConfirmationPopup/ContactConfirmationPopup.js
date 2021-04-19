@@ -5,7 +5,7 @@ import {
   TextContent,
   ImgBackground,
   Img,
-  X,
+  CloseIcon,
   H2Styled,
   PStyled,
 } from './ContactConfirmationPopup.styles';
@@ -37,9 +37,9 @@ export default function ContactConfirmationPopup({
           </TextContent>
           <ImgBackground src={image.url} alt={image.alt} />
           <Img src={image.url} alt={image.alt} />
-          <X
-            src={icons.X}
-            alt="X symbol used to close popup"
+          <CloseIcon
+            src={icons.CLOSE_ICON}
+            alt="Close icon symbol used to close popup"
             onClick={togglePopup}
           />
         </Box>

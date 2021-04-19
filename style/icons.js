@@ -26,7 +26,7 @@ const icons = {
   UNFILLED_LINK: '/assets/unfilled-link-icon.svg',
   UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
-  X: '/assets/x.svg',
+  CLOSE_ICON: '/assets/close-icon.svg',
 };
 
 export { icons };

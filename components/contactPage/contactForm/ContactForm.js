@@ -13,19 +13,23 @@ export default function ContactForm({ togglePopup }) {
     <>
       <ContactFormContainer>
         <InputFieldWrapper>
-          <TextInputField id="1" label="First Name" />
+          <TextInputField id="firstName" label="First Name" />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField id="2" label="Last Name" />
+          <TextInputField id="lastName" label="Last Name" />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField id="3" label="Email" />
+          <TextInputField id="email" label="Email" />
         </InputFieldWrapper>
         <InputBoxWrapper>
           <TextInputBox placeholder="Message" />
         </InputBoxWrapper>
         <ButtonWrapper>
-          <SquareButton buttonText="SUBMIT" onClick={togglePopup} />
+          <SquareButton
+            aria-label="Submission Button"
+            buttonText="SUBMIT"
+            onClick={togglePopup}
+          />
         </ButtonWrapper>
       </ContactFormContainer>
     </>
