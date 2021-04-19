@@ -23,6 +23,7 @@ export default function ArchiveSorting({ sortType, order }) {
         enabled={sortType == order}
         src={icons.ALMOST_STRAIGHT_SCRIBBLE}
         alpha={ALPHA == order}
+        alt=""
       />
     </SortLabelWrapper>
   );

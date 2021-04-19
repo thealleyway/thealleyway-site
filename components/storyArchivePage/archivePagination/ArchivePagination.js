@@ -16,6 +16,7 @@ export default function ArchivePagination({ paginationData, sortType }) {
           src={icons.FILLED_SHORT_ARROW}
           disabled={prevDisabled}
           previous={true}
+          alt=""
         />
       </PageLink>
       <P>
@@ -26,6 +27,7 @@ export default function ArchivePagination({ paginationData, sortType }) {
           src={icons.FILLED_SHORT_ARROW}
           disabled={nextDisabled}
           previous={false}
+          alt=""
         />
       </PageLink>
     </PaginationWrapper>

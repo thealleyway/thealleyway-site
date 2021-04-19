@@ -35,6 +35,15 @@ export default function StoryArchivePage({
   } = storyArchivePageData;
 
   const sortType = sortingData == DATE.toLowerCase() ? DATE : ALPHA;
+  const ariaSort = (label) => {
+    if (label == ALPHA && label == sortType) {
+      return 'ascending';
+    } else if (label == DATE && label == sortType) {
+      return 'decscending';
+    } else {
+      return 'none';
+    }
+  };
 
   const StoryPreviews = storiesData.map((story) => {
     const signature = authorSignatures[story.author_info_id];
@@ -60,8 +69,16 @@ export default function StoryArchivePage({
       <ArchiveContainer>
         <SortingPaginationWrapper>
           <ArchiveSortingWrapper>
-            <ArchiveSorting order={DATE} sortType={sortType} />
-            <ArchiveSorting order={ALPHA} sortType={sortType} />
+            <ArchiveSorting
+              order={DATE}
+              sortType={sortType}
+              aria-sort={ariaSort(DATE)}
+            />
+            <ArchiveSorting
+              order={ALPHA}
+              sortType={sortType}
+              aria-sort={ariaSort(ALPHA)}
+            />
           </ArchiveSortingWrapper>
           <ArchivePagination
             paginationData={paginationData}

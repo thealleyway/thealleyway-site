@@ -8,10 +8,14 @@ const H1StyledContainer = styled.div`
 `;
 
 const ArchiveContainer = styled.div`
-  padding-top: clamp(7em, 25vw, 9em);
+  padding-top: clamp(7em, 10vw, 8.5em);
 
   @media only screen and ${max.tabletSm} {
-    padding-top: clamp(7em, 18vw, 4.5em);
+    padding-top: clamp(2em, 22vw, 7em);
+  }
+
+  @media only screen and ${max.mobile} {
+    padding-top: 1em;
   }
 `;
 
