@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
 
 const ContactFormContainer = styled.div`
-  @media ${min.mobile} {
-    padding-top: 6em;
-    width: 70%;
-  }
+  padding-top: 6em;
+  width: 70%;
   @media ${min.tablet} {
     width: 55%;
   }
@@ -21,9 +19,7 @@ const InputFieldWrapper = styled.div`
 `;
 
 const InputBoxWrapper = styled.div`
-  @media ${min.mobile} {
-    padding-top: 0.5em;
-  }
+  padding-top: 0.5em;
   @media ${min.desktop} {
     padding-top: 1em;
   }
@@ -32,9 +28,7 @@ const InputBoxWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  @media ${min.mobile} {
-    padding-top: 1.5em;
-  }
+  padding-top: 1.5em;
   @media ${min.tablet} {
     padding-top: 1.8em;
     float: right;

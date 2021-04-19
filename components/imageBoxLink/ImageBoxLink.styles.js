@@ -9,16 +9,12 @@ const ImageBoxLinkContainer = styled.div`
   position: relative;
   padding-top: 10em;
   display: flex;
-  @media ${min.mobile} {
-    justify-content: center;
-  }
+  justify-content: center;
 `;
 
 const BoxLinkContainer = styled.div`
   position: absolute;
-  @media ${min.mobile} {
-    margin: 3.8em 0 0 0;
-  }
+  margin: 3.8em 0 0 0;
   @media ${min.tablet} {
     margin: 3em 0 0 15em;
   }
@@ -30,10 +26,8 @@ const BoxLinkContainer = styled.div`
 const BottomImage = styled.img`
   opacity: 10%;
   object-fit: cover;
-  @media ${min.mobile} {
-    height: 30em;
-    width: 100%;
-  }
+  height: 30em;
+  width: 100%;
   @media ${min.tablet} {
     height: 32em;
     width: 100vw;

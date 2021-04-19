@@ -8,10 +8,8 @@ const Button = styled.button`
   background-color: ${colors.OLIVE};
   color: ${colors.WHITE};
   border: none;
-  @media ${min.mobile} {
-    width: 10em;
-    height: 4em;
-  }
+  width: 10em;
+  height: 4em;
   @media ${min.tablet} {
     width: 13em;
   }

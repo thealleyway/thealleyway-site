@@ -8,9 +8,7 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 5;
-  @media ${min.mobile} {
-    top: 25%;
-  }
+  top: 25%;
   @media ${min.tablet} {
     top: 30%;
   }
@@ -29,11 +27,9 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  @media ${min.mobile} {
-    height: 23em;
-    padding: 1em;
-    width: 80%;
-  }
+  height: 23em;
+  padding: 1em;
+  width: 80%;
   @media ${min.tablet} {
     height: 19em;
   }
@@ -47,11 +43,9 @@ const Box = styled.div`
 `;
 
 const TextContent = styled.div`
-  @media ${min.mobile} {
-    width: 20em;
-    padding: 1em;
-    margin-top: -2em;
-  }
+  width: 20em;
+  padding: 1em;
+  margin-top: -2em;
   @media ${min.tablet} {
     width: 60%;
     padding: 0 0 0 2em;
@@ -65,9 +59,7 @@ const TextContent = styled.div`
 `;
 
 const H2Styled = styled(H2)`
-  @media ${min.mobile} {
-    font-size: clamp(2.3em, 8vw, 2.5em);
-  }
+  font-size: clamp(2.3em, 8vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
   }
@@ -77,9 +69,7 @@ const H2Styled = styled(H2)`
 `;
 
 const PStyled = styled(P)`
-  @media ${min.mobile} {
-    margin-top: -1em;
-  }
+  margin-top: -1em;
 `;
 
 const ImgBackground = styled.img`
@@ -95,11 +85,9 @@ const ImgBackground = styled.img`
 const Img = styled.img`
   object-fit: cover;
   position: absolute;
-  @media ${min.mobile} {
-    bottom: 2.5em;
-    width: 9em;
-    height: 8em;
-  }
+  bottom: 2.5em;
+  width: 9em;
+  height: 8em;
   @media ${max.tablet} {
     left: 2em;
   }
@@ -122,9 +110,7 @@ const CloseIcon = styled.img`
   border: none;
   top: 1em;
   right: 1em;
-  @media ${min.mobile} {
-    width: 1.6em;
-  }
+  width: 1.6em;
   @media ${min.desktop} {
     width: 1.3em;
   }

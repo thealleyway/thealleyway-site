@@ -26,9 +26,7 @@ const BackToStartButtonContainer = styled.div`
   width: 100%;
   justify-content: center;
   padding-bottom: 10em;
-  @media ${min.mobile} {
-    bottom: -42em;
-  }
+  bottom: -42em;
   @media ${min.tablet} {
     bottom: -43.5em;
   }
@@ -36,10 +34,8 @@ const BackToStartButtonContainer = styled.div`
 
 const SquiggleUnderline = styled.img`
   position: absolute;
-  @media ${min.mobile} {
-    width: clamp(16em, 80vw, 21em);
-    margin: 2em 0 0 2.5em;
-  }
+  width: clamp(16em, 80vw, 21em);
+  margin: 2em 0 0 2.5em;
   @media ${min.tablet} {
     width: 26em;
     margin: -1em 0 0 10em;

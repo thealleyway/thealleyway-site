@@ -10,9 +10,7 @@ const UnfilledButtonImage = styled.img`
 `;
 
 const FilledButtonImage = styled.img`
-  @media ${min.mobile} {
-    width: 90%;
-  }
+  width: 90%;
   @media ${min.tablet} {
     width: 70%;
   }

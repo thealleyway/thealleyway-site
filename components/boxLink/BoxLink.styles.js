@@ -12,10 +12,8 @@ const InnerContentContainer = styled.div`
   position: absolute;
   z-index: 2;
   padding-left: 1em;
-  @media ${min.mobile} {
-    font-size: clamp(0.8em, 4vw, 1em);
-    top: min(30%, 7em);
-  }
+  font-size: clamp(0.8em, 4vw, 1em);
+  top: min(30%, 7em);
   @media ${min.tablet} {
     top: 8em;
   }
@@ -28,10 +26,8 @@ const EllipseContainer = styled.div`
 `;
 
 const Ellipse = styled.img`
-  @media ${min.mobile} {
-    height: clamp(18em, 90vw, 23em);
-    width: clamp(18em, 90vw, 23em);
-  }
+  height: clamp(18em, 90vw, 23em);
+  width: clamp(18em, 90vw, 23em);
   @media ${min.tablet} {
     height: 26em;
     width: 26em;
@@ -52,10 +48,8 @@ const MediumArrow = styled.img`
 
 const LongArrow = styled.img`
   width: 8em;
-  @media ${min.mobile} {
-    height: 3em;
-    margin: 0 0 0 6.2em;
-  }
+  height: 3em;
+  margin: 0 0 0 6.2em;
   @media ${min.tablet} {
     height: 4em;
     margin: 0 0 0 8em;
@@ -67,9 +61,7 @@ const Title = styled(P)`
   font-weight: ${fontWeights.medium};
   letter-spacing: 0.1em;
   margin: 0;
-  @media ${min.mobile} {
-    padding-bottom: 0.5em;
-  }
+  padding-bottom: 0.5em;
   @media ${min.tablet} {
     padding-bottom: 1em;
   }
@@ -78,9 +70,7 @@ const Title = styled(P)`
 const Description = styled(P)`
   line-height: 1.7em;
   width: 13em;
-  @media ${min.mobile} {
-    margin: 0 0 0 4.3em;
-  }
+  margin: 0 0 0 4.3em;
   @media ${min.tablet} {
     margin: 0 0 0 5.6em;
   }

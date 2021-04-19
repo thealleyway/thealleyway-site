@@ -20,11 +20,9 @@ const ArrowTextGeneral = `
 
 const UnfilledSparkArrow = styled.img`
   ${SparkArrowGeneral};
-  @media ${min.mobile} {
-    top: -4.8em;
-    right: 5em;
-    height: 13em;
-  }
+  top: -4.8em;
+  right: 5em;
+  height: 13em;
   @media ${min.tablet} {
     top: -1.45em;
     right: 6em;
@@ -39,11 +37,9 @@ const UnfilledSparkArrow = styled.img`
 
 const FilledSparkArrow = styled.img`
   ${SparkArrowGeneral};
-  @media ${min.mobile} {
-    top: -7.2em;
-    right: 7.5em;
-    height: 18em;
-  }
+  top: -7.2em;
+  right: 7.5em;
+  height: 18em;
   @media ${min.tablet} {
     top: -6.9em;
     right: 8em;
@@ -60,9 +56,7 @@ const ArrowTextHover = styled(P)`
   ${ArrowTextGeneral};
   font-weight: ${fontWeights.bold};
   width: 20em;
-  @media ${min.mobile} {
-    padding-right: 0;
-  }
+  padding-right: 0;
   @media ${min.tablet} {
     padding-top: 0.8em;
   }
@@ -85,10 +79,8 @@ const ArrowText = styled(P)`
 const ArrowContainerHover = styled.div`
   position: absolute;
   transform: rotate(270deg);
-  @media ${min.mobile} {
-    top: 5.5em;
-    left: 1.5em;
-  }
+  top: 5.5em;
+  left: 1.5em;
   @media ${min.tablet} {
     top: 2.5em;
     left: -5em;
@@ -102,10 +94,8 @@ const ArrowContainerHover = styled.div`
 const ArrowContainer = styled.div`
   position: absolute;
   transform: rotate(270deg);
-  @media ${min.mobile} {
-    top: 5.5em;
-    left: 1.5em;
-  }
+  top: 5.5em;
+  left: 1.5em;
   @media ${min.tablet} {
     top: 2.5em;
     left: -8.5em;
