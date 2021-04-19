@@ -1,6 +1,6 @@
 import React from 'react';
 import H1Styled from '../H1Styled/H1Styled';
-import ContactConfirmationPopup from './contactConfirmationPopup/ContactConfirmationPopup';
+import ConfirmationPopup from '../confirmationPopup/ConfirmationPopup';
 import { useState } from 'react';
 import PageDescription from '../pageDescription/PageDescription';
 import ContactForm from './contactForm/ContactForm';
@@ -28,19 +28,19 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
     contact_page_description: contactPageDescription,
     contact_image_top: contactImageTop,
     contact_image_bottom: contactImageBottom,
-    contact_confirmation_title_regular_1,
-    contact_confirmation_title_italic_2,
-    contact_confirmation_title_regular_3,
-    contact_confirmation_description,
-    contact_confirmation_image,
+    contact_confirmation_title_regular_1: confirmationTitleRegular1,
+    contact_confirmation_title_italic_2: confirmationTitleItalic2,
+    contact_confirmation_title_regular_3: confirmationTitleRegular3,
+    contact_confirmation_description: confirmationDescription,
+    contact_confirmation_image: confirmationImage,
   } = contactPageData;
 
   const contactConfirmationData = {
-    contact_confirmation_title_regular_1,
-    contact_confirmation_title_italic_2,
-    contact_confirmation_title_regular_3,
-    contact_confirmation_description,
-    contact_confirmation_image,
+    confirmationTitleRegular1,
+    confirmationTitleItalic2,
+    confirmationTitleRegular3,
+    confirmationDescription,
+    confirmationImage,
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -82,8 +82,8 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
           </BoxLinkContainer>
         </ImageBoxLinkContainer>
         {isOpen && (
-          <ContactConfirmationPopup
-            contactConfirmationData={contactConfirmationData}
+          <ConfirmationPopup
+            confirmationData={contactConfirmationData}
             togglePopup={togglePopup}
           />
         )}
