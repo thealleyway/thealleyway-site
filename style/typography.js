@@ -49,8 +49,8 @@ const H3 = styled.h3`
 
 const P = styled.p`
   font-family: ${fonts.poppins};
-  font-weight: ${fontWeights.regular};
-  font-size: 1em;
+  font-weight: ${fontWeights.normal};
+  font-size: clamp(1em, 2vw, 1.2em);
 `;
 
 export { H1, H2, H3, P, fontWeights };
