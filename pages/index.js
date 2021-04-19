@@ -7,7 +7,6 @@ import {
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import FeaturedStoryPreview from '../components/featuredStoryPreview/FeaturedStoryPreview';
-import NewsletterConfirmation from '../components/newsletterConfirmation/NewsletterConfirmation';
 import { H2, P } from '../style/typography';
 import { getString } from '../lib/richText';
 import H1Styled from '../components/H1Styled/H1Styled';
@@ -50,9 +49,6 @@ export default function HomePage({
       <P>{getString(newsletterDescription)}</P>
       <H2>{getString(privacyPolicyLinkTitle)}</H2>
       <P>{getString(privacyPolicyText)}</P>
-      <NewsletterConfirmation
-        newsletterConfirmationData={newsletterConfirmationData}
-      />
       <Footer footerData={footerData} />
     </>
   );
