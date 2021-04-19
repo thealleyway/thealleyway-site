@@ -34,32 +34,6 @@ const BackToStartButtonContainer = styled.div`
   }
 `;
 
-const BottomImageContainer = styled.div`
-  position: absolute;
-`;
-
-const ImageBoxLinkContainer = styled.div`
-  position: relative;
-  padding-top: 10em;
-  display: flex;
-  @media ${min.mobile} {
-    justify-content: center;
-  }
-`;
-
-const BoxLinkContainer = styled.div`
-  position: absolute;
-  @media ${min.mobile} {
-    margin: 3.8em 0 0 0;
-  }
-  @media ${min.tablet} {
-    margin: 3em 0 0 15em;
-  }
-  @media ${min.desktop} {
-    margin: 1em 0 0 40em;
-  }
-`;
-
 const SquiggleUnderline = styled.img`
   position: absolute;
   @media ${min.mobile} {
@@ -76,30 +50,10 @@ const SquiggleUnderline = styled.img`
   }
 `;
 
-const BottomImage = styled.img`
-  opacity: 10%;
-  object-fit: cover;
-  @media ${min.mobile} {
-    height: 30em;
-    width: 100%;
-  }
-  @media ${min.tablet} {
-    height: 32em;
-    width: 100vw;
-  }
-  @media ${min.desktop} {
-    height: 28em;
-  }
-`;
-
 export {
   SquiggleUnderline,
-  BottomImageContainer,
   HeaderAndSquiggleContainer,
   PageContainer,
-  BottomImage,
-  ImageBoxLinkContainer,
-  BoxLinkContainer,
   BackToStartButtonContainer,
   FormContainer,
 };

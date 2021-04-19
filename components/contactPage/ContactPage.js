@@ -4,7 +4,6 @@ import ConfirmationPopup from '../confirmationPopup/ConfirmationPopup';
 import { useState } from 'react';
 import PageDescription from '../pageDescription/PageDescription';
 import ContactForm from './contactForm/ContactForm';
-import BoxLink from '../boxLink/BoxLink';
 import { icons } from '../../style/icons';
 import { breakpointsObj } from '../../lib/responsive';
 import MediaQuery from 'react-responsive';
@@ -15,11 +14,8 @@ import {
   HeaderAndSquiggleContainer,
   SquiggleUnderline,
   BackToStartButtonContainer,
-  BottomImageContainer,
-  BottomImage,
-  ImageBoxLinkContainer,
-  BoxLinkContainer,
 } from './ContactPage.styles';
+import ImageBoxLink from '../imageBoxLink/ImageBoxLink';
 
 export default function ContactPage({ contactPageData, boxLinkData }) {
   const {
@@ -70,17 +66,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
         <FormContainer>
           <ContactForm togglePopup={togglePopup} />
         </FormContainer>
-        <ImageBoxLinkContainer>
-          <BottomImageContainer>
-            <BottomImage
-              src={contactImageBottom.url}
-              alt={contactImageBottom.alt}
-            />
-          </BottomImageContainer>
-          <BoxLinkContainer>
-            <BoxLink boxLinkData={boxLinkData} />
-          </BoxLinkContainer>
-        </ImageBoxLinkContainer>
+        <ImageBoxLink img={contactImageBottom} boxLinkData={boxLinkData} />
         {isOpen && (
           <ConfirmationPopup
             confirmationData={contactConfirmationData}
