@@ -1,4 +1,5 @@
 const icons = {
+  DOUBLE_ARCHWAY_NO_BACKGROUND: '/assets/double-archway-no-background.svg',
   DOUBLE_ARCHWAY: '/assets/double-archway.svg',
   DOUBLE_ELLIPSES: '/assets/double-ellipses.svg',
   HORIZONTAL_ELLIPSE: '/assets/horizontal-ellipse.svg',
