@@ -1,11 +1,12 @@
 import React from 'react';
 import Navigation from '../navigation/Navigation';
-import Footer from '../footer/Footer';
+// import Footer from '../footer/Footer';
 import ArchiveStoryPreview from './archiveStoryPreview/ArchiveStoryPreview';
 import ArchivePagination from './archivePagination/ArchivePagination';
 import ArchiveSorting from './archiveSorting/ArchiveSorting';
 import {
-  H1StyledContainer,
+  HeaderandSquiggleContainer,
+  SquiggleUnderline,
   ArchiveContainer,
   ArchiveSortingWrapper,
   StoriesWrapper,
@@ -14,6 +15,7 @@ import {
 } from './StoryArchivePage.style';
 import H1Styled from '../H1Styled/H1Styled';
 import PageDescription from '../pageDescription/PageDescription';
+import { icons } from '../../style/icons';
 
 const ALPHA = 'alpha';
 const DATE = 'date';
@@ -55,12 +57,13 @@ export default function StoryArchivePage({
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1StyledContainer>
+      <HeaderandSquiggleContainer>
         <H1Styled
           regular={archiveTitleRegular}
           italicized={archiveTitleItalic}
         />
-      </H1StyledContainer>
+        <SquiggleUnderline src={icons.REFINED_SQUIGGLE} />
+      </HeaderandSquiggleContainer>
       <PageDescription
         description={archiveDescription}
         arrowText="EXPLORE THE ARCHIVE"
@@ -93,7 +96,7 @@ export default function StoryArchivePage({
           />
         </FooterPaginationWrapper>
       </ArchiveContainer>
-      <Footer footerData={footerData} />
+      {/* <Footer footerData={footerData} /> */}
     </>
   );
 }

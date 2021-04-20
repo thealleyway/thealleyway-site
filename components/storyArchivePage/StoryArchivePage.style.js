@@ -1,10 +1,33 @@
 import styled from 'styled-components';
-import { max } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 
 const STORY_SPACING = 48;
 
-const H1StyledContainer = styled.div`
+const HeaderandSquiggleContainer = styled.div`
   margin-left: -1.5em;
+  @media ${min.tablet} {
+    padding-bottom: 1.5em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2em;
+  }
+`;
+
+const SquiggleUnderline = styled.img`
+  position: absolute;
+  width: clamp(20em, 95vw, 22em);
+  margin-top: 2em;
+  margin-left: clamp(1.5em, 20vw, 3em);
+  padding: 0 1.5em 0 2em;
+
+  @media ${min.tablet} {
+    width: 26em;
+    margin: -1em 0 0 11.3em;
+  }
+  @media ${min.desktop} {
+    width: 25em;
+    margin: 0.6em 0 0 13.8em;
+  }
 `;
 
 const ArchiveContainer = styled.div`
@@ -84,7 +107,8 @@ const FooterPaginationWrapper = styled(SortingPaginationWrapper)`
 `;
 
 export {
-  H1StyledContainer,
+  HeaderandSquiggleContainer,
+  SquiggleUnderline,
   ArchiveContainer,
   ArchiveSortingWrapper,
   StoriesWrapper,
