@@ -27,7 +27,7 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: 23em;
+  height: clamp(21em, 85vw, 23em);
   padding: 1em;
   width: 80%;
   @media ${min.tablet} {
@@ -43,7 +43,7 @@ const Box = styled.div`
 `;
 
 const TextContent = styled.div`
-  width: 20em;
+  width: max(100%, 15em);
   padding: 1em;
   margin-top: -2em;
   @media ${min.tablet} {
@@ -59,7 +59,8 @@ const TextContent = styled.div`
 `;
 
 const H2Styled = styled(H2)`
-  font-size: clamp(2.3em, 8vw, 2.5em);
+  width: 10em;
+  font-size: clamp(1.6em, 8vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
   }
@@ -110,7 +111,7 @@ const CloseIcon = styled.img`
   border: none;
   top: 1em;
   right: 1em;
-  width: 1.6em;
+  width: clamp(1.3em, 7vw, 1.6em);
   @media ${min.desktop} {
     width: 1.3em;
   }
