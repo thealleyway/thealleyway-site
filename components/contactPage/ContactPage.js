@@ -29,6 +29,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
     contact_confirmation_title_regular_3: confirmationTitleRegular3,
     contact_confirmation_description: confirmationDescription,
     contact_confirmation_image: confirmationImage,
+    spark_arrow_description_text: sparkArrowDescriptionText,
   } = contactPageData;
 
   const contactConfirmationData = {
@@ -59,7 +60,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
       </HeaderAndSquiggleContainer>
       <PageDescription
         description={contactPageDescription}
-        arrowText="LET'S CONNECT"
+        arrowText={sparkArrowDescriptionText}
         img={contactImageTop}
       />
       <PageContainer>

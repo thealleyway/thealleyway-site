@@ -37,8 +37,10 @@ export default function StoryInquiryPage({
     faq_title: faqTitle,
     story_submission_confirmation_title: storySubmissionConfirmationTitle,
     story_submission_confirmation_description: storySubmissionConfirmationDescription,
+    spark_arrow_description_text: sparkArrowDescriptionText,
+    spark_arrow_faq_text: sparkArrowFaqText,
+    spark_arrow_author_testimonies_text: sparkArrowAuthorTestimoniesText,
   } = storyInquiryPageData;
-
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -74,6 +76,9 @@ export default function StoryInquiryPage({
         title={storySubmissionConfirmationTitle}
         description={storySubmissionConfirmationDescription}
       />
+      <P>{getString(sparkArrowDescriptionText)}</P>
+      <P>{getString(sparkArrowFaqText)}</P>
+      <P>{getString(sparkArrowAuthorTestimoniesText)}</P>
       <Footer footerData={footerData} />
     </>
   );

@@ -6,6 +6,7 @@ import {
   FilledSparkArrow,
   ArrowTextHover,
 } from './LongSparkArrow.styles';
+import { getString } from '../../lib/richText';
 import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 
@@ -23,7 +24,7 @@ export default function LongSparkArrow({ arrowText }) {
             src={icons.LONG_UNFILLED_SPARK_ARROW}
             alt="Unfilled long white spark arrow"
           />
-          <ArrowText>{arrowText}</ArrowText>
+          <ArrowText>{getString(arrowText)}</ArrowText>
         </ArrowContainer>
       )}
       {hover && (
@@ -32,7 +33,7 @@ export default function LongSparkArrow({ arrowText }) {
             src={icons.LONG_FILLED_SPARK_ARROW}
             alt="Filled long white spark arrow with brown arrow center"
           />
-          <ArrowTextHover>{arrowText}</ArrowTextHover>
+          <ArrowTextHover>{getString(arrowText)}</ArrowTextHover>
         </ArrowContainerHover>
       )}
     </div>
