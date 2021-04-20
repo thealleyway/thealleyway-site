@@ -7,7 +7,7 @@ const fonts = {
 };
 
 const fontSizes = {
-  h2: 'clamp(3em, 2vw, 5em)',
+  h2: 'clamp(5em, 10vw, 8em)',
   h3: 'clamp(3em, 5vw, 4em)',
 };
 
@@ -16,16 +16,16 @@ const fontStyles = {
 };
 
 const fontWeights = {
-  normal: 400,
-  medium: 600,
-  bold: 650,
+  normal: `400`,
+  medium: `600`,
+  bold: `650`,
 };
 
 const H1 = styled.h1`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
-  font-size: 6em;
+  font-size: 12.5em;
   @media ${min.tablet} {
     font-size: 10.5em;
   }
@@ -38,7 +38,6 @@ const H2 = styled.h2`
   font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
-  color: ${colors.BURNTORANGE};
 `;
 
 const H3 = styled.h3`
@@ -50,8 +49,8 @@ const H3 = styled.h3`
 
 const P = styled.p`
   font-family: ${fonts.poppins};
-  font-weight: ${fontWeights.regular};
+  font-weight: ${fontWeights.normal};
   font-size: 1em;
 `;
 
-export { H1, H2, H3, P, fontWeights, fonts };
+export { H1, H2, H3, P, fontWeights };

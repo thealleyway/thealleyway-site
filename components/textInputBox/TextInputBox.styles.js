@@ -9,7 +9,7 @@ const InputBox = styled.textarea`
   &:focus {
     outline: none;
   }
-  color: ${colors.BROWN};
+  color: ${colors.BLACK};
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;
@@ -18,6 +18,7 @@ const InputBox = styled.textarea`
     font-family: ${fonts.poppins};
     font-weight: ${fontWeights.normal};
   }
+  padding: 0.5em;
 `;
 
 export { InputBox };
