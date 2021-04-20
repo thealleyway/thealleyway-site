@@ -13,7 +13,7 @@ const PopupBox = styled.div`
     top: 30%;
   }
   @media ${min.desktop} {
-    top: 24%;
+    top: 15%;
     left: 1em;
   }
   @media ${min.desktopLg} {
@@ -31,7 +31,7 @@ const Box = styled.div`
   padding: 1em;
   width: 80%;
   @media ${min.tablet} {
-    height: 19em;
+    height: 27em;
   }
   @media ${min.desktop} {
     padding: 20px;
@@ -53,6 +53,7 @@ const TextContent = styled.div`
   }
   @media ${min.desktop} {
     width: 50%;
+    margin-top: 7.5em;
     margin-left: 1em;
     font-size: 0.9em;
   }
@@ -79,8 +80,17 @@ const ImgBackground = styled.img`
   position: absolute;
   top: 0;
   right: 0;
-  width: 66%;
+  width: 100%;
   height: 100%;
+`;
+
+const Arch = styled.img`
+  position: absolute;
+  @media ${min.desktop} {
+    top: 3.8em;
+    right: 3.5em;
+    width: 15em;
+  }
 `;
 
 const Img = styled.img`
@@ -101,8 +111,10 @@ const Img = styled.img`
     margin-right: 2em;
   }
   @media ${min.desktop} {
-    top: 5em;
-    right: 5em;
+    top: 5.5em;
+    right: 3.5em;
+    width: 10.5em;
+    height: 17em;
   }
 `;
 
@@ -126,4 +138,5 @@ export {
   CloseIcon,
   H2Styled,
   PStyled,
+  Arch,
 };

@@ -8,6 +8,7 @@ import {
   CloseIcon,
   H2Styled,
   PStyled,
+  Arch,
 } from './ConfirmationPopup.styles';
 import { icons } from '../../style/icons';
 
@@ -37,6 +38,7 @@ export default function ConfirmationPopup({ confirmationData, togglePopup }) {
             alt={confirmationImage.alt}
           />
           <Img src={confirmationImage.url} alt={confirmationImage.alt} />
+          <Arch src={icons.SINGLE_ARCHWAY} alt="White single archway" />
           <CloseIcon
             src={icons.CLOSE_ICON}
             alt="Close icon symbol used to close popup"
