@@ -6,6 +6,8 @@ import PageDescription from '../pageDescription/PageDescription';
 import ContactForm from './contactForm/ContactForm';
 import { icons } from '../../style/icons';
 import { breakpointsObj } from '../../lib/responsive';
+import Navigation from '../navigation/Navigation';
+import Footer from '../footer/Footer';
 import MediaQuery from 'react-responsive';
 import BackToStartVerticalButton from '../backToStartVerticalButton/BackToStartVerticalButton';
 import {
@@ -18,7 +20,12 @@ import {
 } from './ContactPage.styles';
 import ImageBoxLink from '../imageBoxLink/ImageBoxLink';
 
-export default function ContactPage({ contactPageData, boxLinkData }) {
+export default function ContactPage({
+  contactPageData,
+  boxLinkData,
+  navigationData,
+  footerData,
+}) {
   const {
     contact_page_title_regular: contactPageTitleRegular,
     contact_page_title_italic: contactPageTitleItalic,
@@ -49,6 +56,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
 
   return (
     <>
+      <Navigation navigationData={navigationData} />
       <HeaderAndSquiggleContainer>
         <H1Styled
           regular={contactPageTitleRegular}
@@ -82,6 +90,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
         </MediaQuery>
       </PageContainer>
       <Overlay showOverlay={isOpen} />
+      <Footer footerData={footerData} />
     </>
   );
 }

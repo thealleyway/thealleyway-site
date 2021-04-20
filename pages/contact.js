@@ -4,8 +4,6 @@ import {
   getFooter,
   getBoxLink,
 } from '../lib/api';
-import Navigation from '../components/navigation/Navigation';
-import Footer from '../components/footer/Footer';
 import ContactPage from '../components/contactPage/ContactPage';
 
 export default function Contact({
@@ -15,14 +13,12 @@ export default function Contact({
   boxLink1Data,
 }) {
   return (
-    <>
-      <Navigation navigationData={navigationData} />
-      <ContactPage
-        contactPageData={contactPageData}
-        boxLinkData={boxLink1Data}
-      />
-      <Footer footerData={footerData} />
-    </>
+    <ContactPage
+      contactPageData={contactPageData}
+      boxLinkData={boxLink1Data}
+      navigationData={navigationData}
+      footerData={footerData}
+    />
   );
 }
 
