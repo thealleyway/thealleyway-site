@@ -16,7 +16,7 @@ import {
   SquiggleUnderline,
   BackToStartButtonContainer,
 } from './ContactPage.styles';
-import ImageBoxLink from '../imageBoxLink.js/ImageBoxLink';
+import ImageBoxLink from '../imageBoxLink/ImageBoxLink';
 
 export default function ContactPage({ contactPageData, boxLinkData }) {
   const {
