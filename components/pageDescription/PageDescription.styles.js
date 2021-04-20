@@ -5,9 +5,7 @@ import { min } from '../../lib/responsive';
 const PageDescriptionContainer = styled.div`
   display: flex;
   position: relative;
-  @media ${min.mobile} {
-    padding: 4em 0 0 6.3em;
-  }
+  padding: 4em 0 0 6.3em;
   @media ${min.tablet} {
     padding: 2em 0 0 0;
     margin: 0 0 0 8em;
@@ -26,9 +24,7 @@ const DescriptionContainer = styled.div`
 
 const Description = styled(P)`
   width: min(90%, 18em);
-  @media ${min.mobile} {
-    line-height: 1.8em;
-  }
+  line-height: 1.8em;
   @media ${min.tablet} {
     margin: 0 0 0 1em;
     width: 17em;
@@ -44,12 +40,10 @@ const Img = styled.img`
   opacity: 10%;
   object-fit: cover;
   position: absolute;
-  @media ${min.mobile} {
-    top: 4em;
-    right: 1.5em;
-    width: 14.5em;
-    height: 11.6em;
-  }
+  top: 4em;
+  right: 1.5em;
+  width: 14.5em;
+  height: 11.6em;
   @media ${min.tablet} {
     top: 5em;
     right: 0;

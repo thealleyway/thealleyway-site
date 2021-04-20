@@ -7,7 +7,7 @@ const fonts = {
 };
 
 const fontSizes = {
-  h2: 'clamp(5em, 10vw, 8em)',
+  h2: 'clamp(3em, 2vw, 5em)',
   h3: 'clamp(3em, 5vw, 4em)',
 };
 
@@ -16,9 +16,9 @@ const fontStyles = {
 };
 
 const fontWeights = {
-  normal: `400`,
-  medium: `600`,
-  bold: `650`,
+  normal: 400,
+  medium: 600,
+  bold: 650,
 };
 
 const H1 = styled.h1`
@@ -38,6 +38,7 @@ const H2 = styled.h2`
   font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
+  color: ${colors.BURNTORANGE};
 `;
 
 const H3 = styled.h3`
@@ -53,4 +54,4 @@ const P = styled.p`
   font-size: 1em;
 `;
 
-export { H1, H2, H3, P, fontWeights };
+export { H1, H2, H3, P, fontWeights, fonts };

@@ -23,6 +23,7 @@ export default function StoryArchive({
     archive_title_italic: archiveTitleItalic,
     archive_description: archiveDescription,
     archive_header_image: archiveHeaderImage,
+    spark_arrow_description_text: sparkArrowDescriptionText,
   } = storyArchivePageData;
 
   return (
@@ -34,6 +35,7 @@ export default function StoryArchive({
       {stories.map((story, index) => {
         return <StoryPreview key={index} story={story} />;
       })}
+      <P>{getString(sparkArrowDescriptionText)}</P>
       <Footer footerData={footerData} />
     </>
   );

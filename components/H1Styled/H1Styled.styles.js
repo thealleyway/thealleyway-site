@@ -4,10 +4,8 @@ import { min } from '../../lib/responsive';
 
 const H1Container = styled.div`
   white-space: nowrap;
-  @media ${min.mobile} {
-    font-size: clamp(0.8em, 4.5vw, 1em);
-    margin: 9.5em 0 0 3em;
-  }
+  font-size: clamp(0.8em, 4.5vw, 1em);
+  margin: 9.5em 0 0 3em;
   @media ${min.tablet} {
     margin: 15em 0 4em 5em;
   }
@@ -21,10 +19,8 @@ const H1Regular = styled(H1)`
 `;
 
 const H1Italicized = styled(H1)`
-  @media ${min.mobile} {
-    margin: 0 0 0 0.65em;
-    line-height: 0.3em;
-  }
+  margin: 0 0 0 0.65em;
+  line-height: 0.3em;
   @media ${min.tablet} {
     margin: 0 0 0 0.55em;
     line-height: 0.3em;

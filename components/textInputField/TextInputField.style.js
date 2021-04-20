@@ -11,10 +11,11 @@ const TextLabel = styled(P)`
 const TextInput = styled(P).attrs({
   as: 'input',
 })`
+  background-color: ${colors.CREME};
   display: block;
   border: none;
   border-bottom: 1px solid ${colors.BROWN};
-  width: clamp(16em, 60vw, 26em);
+  width: 100%;
 
   &:focus {
     outline: none;

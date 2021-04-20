@@ -40,8 +40,12 @@ export default function AboutPage({
     more_resources: moreResources,
     top_quote: topQuote,
     bottom_quote: bottomQuote,
+    spark_arrow_description_text: sparkArrowDescriptionText,
+    spark_arrow_mission_text: sparkArrowMissionText,
+    spark_arrow_values_text: sparkArrowValuesText,
+    spark_arrow_name_text: sparkArrowNameText,
+    spark_arrow_alleyway_text: sparkArrowAlleywayText,
   } = aboutPageData;
-
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -76,6 +80,11 @@ export default function AboutPage({
         <P key={r.id}>{r.resource.url}</P>
       ))}
       <P>{getString(bottomQuote)}</P>
+      <P>{getString(sparkArrowDescriptionText)}</P>
+      <P>{getString(sparkArrowMissionText)}</P>
+      <P>{getString(sparkArrowValuesText)}</P>
+      <P>{getString(sparkArrowNameText)}</P>
+      <P>{getString(sparkArrowAlleywayText)}</P>
       <Footer footerData={footerData} />
     </>
   );
