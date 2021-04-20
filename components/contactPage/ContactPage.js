@@ -9,13 +9,14 @@ import { breakpointsObj } from '../../lib/responsive';
 import MediaQuery from 'react-responsive';
 import BackToStartVerticalButton from '../backToStartVerticalButton/BackToStartVerticalButton';
 import {
+  Overlay,
   FormContainer,
   PageContainer,
   HeaderAndSquiggleContainer,
   SquiggleUnderline,
   BackToStartButtonContainer,
 } from './ContactPage.styles';
-import ImageBoxLink from '../imageBoxLink/ImageBoxLink';
+import ImageBoxLink from '../imageBoxLink.js/ImageBoxLink';
 
 export default function ContactPage({ contactPageData, boxLinkData }) {
   const {
@@ -80,6 +81,7 @@ export default function ContactPage({ contactPageData, boxLinkData }) {
           </BackToStartButtonContainer>
         </MediaQuery>
       </PageContainer>
+      <Overlay showOverlay={isOpen} />
     </>
   );
 }

@@ -28,7 +28,10 @@ export default function ContactForm({ togglePopup }) {
           <SquareButton
             aria-label="Submission Button"
             buttonText="SUBMIT"
-            onClick={togglePopup}
+            onClick={() => {
+              document.body.style.overflow = 'hidden';
+              togglePopup();
+            }}
           />
         </ButtonWrapper>
       </ContactFormContainer>

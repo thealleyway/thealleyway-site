@@ -40,7 +40,10 @@ export default function ConfirmationPopup({ confirmationData, togglePopup }) {
           <CloseIcon
             src={icons.CLOSE_ICON}
             alt="Close icon symbol used to close popup"
-            onClick={togglePopup}
+            onClick={() => {
+              document.body.style.overflow = 'visible';
+              togglePopup();
+            }}
           />
         </Box>
       </PopupBox>
