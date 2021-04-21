@@ -1,5 +1,6 @@
 import { getString } from '../../../lib/richText';
 import { icons } from '../../../style/icons';
+import { colors } from '../../../style/colors';
 import PageLink from '../../pageLink/PageLink';
 import {
   CurrentFeaturedStoryButton,
@@ -43,7 +44,10 @@ export default function CurrentFeaturedStory({
         </CurrentFeaturedStoryH1>
         <PreviewText>{getString(previewText)}</PreviewText>
         <PageLink href={url} passHref>
-          <CurrentFeaturedStoryButton url={icons.UNFILLED_LONG_ARROW}>
+          <CurrentFeaturedStoryButton
+            color={colors.BROWN}
+            url={icons.UNFILLED_LONG_ARROW}
+          >
             <CurrentFeaturedStoryButtonText>
               TELL ME MORE
             </CurrentFeaturedStoryButtonText>
