@@ -4,7 +4,7 @@ import {
   getStoryArchivePage,
   getNavigation,
   getFooter,
-  getAuthorSignatureFromIds,
+  getAuthorSignatureFromIDs,
 } from '../../../lib/api';
 import StoryArchivePage from '../../../components/storyArchivePage/StoryArchivePage';
 
@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
   const authorInfoIds = archiveStoriesData.results.map(
     (story) => story.data.author_info.id,
   );
-  const authorSignatures = await getAuthorSignatureFromIds(authorInfoIds);
+  const authorSignatures = await getAuthorSignatureFromIDs(authorInfoIds);
   const stories = archiveStoriesData.results.map((story) => {
     return {
       id: story.id,

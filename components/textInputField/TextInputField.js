@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, TextLabel } from './TextInputField.style';
 
-export default function TextInputField({ id, label, onChange }) {
+export default function TextInputField({ id, label, onChange, ...inputProps }) {
   return (
     <div>
       <TextLabel htmlFor={id}>{label}</TextLabel>
@@ -9,6 +9,7 @@ export default function TextInputField({ id, label, onChange }) {
         type="text"
         name={id}
         onChange={(e) => onChange(e.target.value)}
+        {...inputProps}
       />
     </div>
   );

@@ -25,7 +25,7 @@ const H1 = styled.h1`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
-  font-size: 6em;
+  font-size: 12.5em;
   @media ${min.tablet} {
     font-size: 10.5em;
   }
@@ -52,6 +52,7 @@ const P = styled.p`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;
+  line-height: 1.8em;
 `;
 
 export { H1, H2, H3, P, fontWeights, fonts };
