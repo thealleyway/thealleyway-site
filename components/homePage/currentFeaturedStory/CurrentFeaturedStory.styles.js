@@ -1,7 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { H1, P } from '../../../style/typography';
 import { max } from '../../../lib/responsive';
 import { colors } from '../../../style/colors';
+import {
+  HoverAnimationButton,
+  LeftRightAnimation,
+} from '../../animationBaseComponents/animationBaseComponents';
 import { SignatureImage } from '../HomePage.styles';
 
 export const CurrentFeaturedStoryWrapper = styled.div`
@@ -47,12 +51,7 @@ export const CurrentFeaturedStoryH1 = styled(H1)`
   }
 `;
 
-const MoreAnimation = keyframes`
-  from { background-position: left center };
-  to { background-position: right center };
-`;
-
-export const CurrentFeaturedStoryButton = styled.button`
+export const CurrentFeaturedStoryButton = styled(HoverAnimationButton)`
   margin: 16px 0px;
   width: min(80%, 300px);
   cursor: pointer;
@@ -62,15 +61,7 @@ export const CurrentFeaturedStoryButton = styled.button`
   border: none;
 
   &:hover {
-    animation: ${MoreAnimation} 0.8s forwards;
-    --shadow: 0.35px;
-    --neg-shadow: calc(-1 * var(--shadow));
-
-    text-shadow: var(--neg-shadow) var(--neg-shadow) 0 ${colors.BROWN},
-      var(--shadow) var(--neg-shadow) 0 ${colors.BROWN},
-      var(--neg-shadow) var(--shadow) 0 ${colors.BROWN},
-      var(--shadow) var(--shadow) 0 ${colors.BROWN};
-    transition: all 0.8s;
+    animation: ${LeftRightAnimation} 0.8s forwards;
   }
 
   @media ${max.tablet} {

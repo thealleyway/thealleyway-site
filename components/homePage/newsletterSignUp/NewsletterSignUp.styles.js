@@ -1,9 +1,10 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
 import { H2, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
 import { icons } from '../../../style/icons';
 import TextInputField from '../../textInputField/TextInputField';
+import { HoverAnimationButton } from '../../animationBaseComponents/animationBaseComponents';
 
 export const NewsletterSignUpWrapper = styled.div`
   display: flex;
@@ -62,13 +63,8 @@ export const PrivacyPolicyLinkText = styled(P)`
   }
 `;
 
-const MoreAnimation = keyframes`
-  from { background-position: left center };
-  to { background-position: right center };
-`;
-
 export const SubmitButton = styled(P).attrs({
-  as: 'button',
+  as: HoverAnimationButton,
 })`
   color: ${colors.WHITE};
   background-color: ${colors.OLIVE};
@@ -80,18 +76,6 @@ export const SubmitButton = styled(P).attrs({
   font-weight: normal;
   letter-spacing: 4px;
   cursor: pointer;
-
-  &:hover {
-    animation: ${MoreAnimation} 0.8s forwards;
-    --shadow: 0.35px;
-    --neg-shadow: calc(-1 * var(--shadow));
-
-    text-shadow: var(--neg-shadow) var(--neg-shadow) 0 ${colors.WHITE},
-      var(--shadow) var(--neg-shadow) 0 ${colors.WHITE},
-      var(--neg-shadow) var(--shadow) 0 ${colors.WHITE},
-      var(--shadow) var(--shadow) 0 ${colors.WHITE};
-    transition: all 0.8s;
-  }
 
   @media ${max.tabletSm} {
     align-self: center;
