@@ -3,7 +3,6 @@ import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
 import TextInputField from '../../textInputField/TextInputField';
 import ArchModal from '../../archModal/ArchModal';
-import NewsletterConfirmationModal from './newsletterConfirmationModal/NewsletterConfirmationModal';
 import {
   ContentWrapper,
   NewsletterSignUpTextInput,
@@ -14,6 +13,7 @@ import {
   PrivacyPolicyLinkText,
   SubmitButton,
 } from './NewsletterSignUp.styles';
+import ConfirmationPopup from '../../confirmationPopup/ConfirmationPopup';
 
 export default function NewsletterSignUp({
   description,
@@ -65,9 +65,10 @@ export default function NewsletterSignUp({
           />
         )}
         {isConfirmationOpen && (
-          <NewsletterConfirmationModal
-            newsletterConfirmationData={newsletterConfirmationData}
-          />
+          <ConfirmationPopup confirmationData={newsletterConfirmationData} />
+          // <NewsletterConfirmationModal
+          //   newsletterConfirmationData={newsletterConfirmationData}
+          // />
         )}
       </NewsletterSignUpWrapper>
       <Overlay showOverlay={isPrivacyPolicyOpen || isConfirmationOpen} />

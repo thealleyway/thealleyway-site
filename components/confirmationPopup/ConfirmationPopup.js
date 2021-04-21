@@ -15,9 +15,8 @@ import { icons } from '../../style/icons';
 
 export default function ConfirmationPopup({ confirmationData, togglePopup }) {
   const {
-    confirmationTitleRegular1,
-    confirmationTitleItalic2,
-    confirmationTitleRegular3,
+    confirmationTitleRegular,
+    confirmationTitleItalic,
     confirmationDescription,
     confirmationImage,
   } = confirmationData;
@@ -28,9 +27,8 @@ export default function ConfirmationPopup({ confirmationData, togglePopup }) {
         <Box>
           <TextContent>
             <H2Styled>
-              {getString(confirmationTitleRegular1) + ' '}
-              <i>{getString(confirmationTitleItalic2) + ' '}</i>
-              {getString(confirmationTitleRegular3)}
+              <i>{getString(confirmationTitleItalic) + ' '}</i>
+              {getString(confirmationTitleRegular)}
             </H2Styled>
             <PStyled>{getString(confirmationDescription)}</PStyled>
           </TextContent>

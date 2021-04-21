@@ -23,17 +23,17 @@ export default function HomePage({
     newsletter_description: newsletterDescription,
     privacy_policy_link_title: privacyPolicyLinkTitle,
     privacy_policy_text: privacyPolicyText,
-    newsletter_confirmation_title_1,
-    newsletter_confirmation_title_2,
-    newsletter_confirmation_description,
-    newsletter_confirmation_image,
+    newsletter_confirmation_title_regular: confirmationTitleRegular,
+    newsletter_confirmation_title_italic: confirmationTitleItalic,
+    newsletter_confirmation_description: confirmationDescription,
+    newsletter_confirmation_image: confirmationImage,
   } = homePageData;
 
   const newsletterConfirmationData = {
-    newsletter_confirmation_title_1,
-    newsletter_confirmation_title_2,
-    newsletter_confirmation_description,
-    newsletter_confirmation_image,
+    confirmationTitleRegular,
+    confirmationTitleItalic,
+    confirmationDescription,
+    confirmationImage,
   };
 
   const getSignature = (authorInfoID) => authorSignatures[String(authorInfoID)];
