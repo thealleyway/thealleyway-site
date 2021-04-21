@@ -8,7 +8,7 @@ import {
   ArchModalSpark,
   ArchModalText,
   ArchModalWrapper,
-  X,
+  CloseXImage,
 } from './ArchModal.styles';
 
 export default function ArchModal({ text, onClose }) {
@@ -16,7 +16,7 @@ export default function ArchModal({ text, onClose }) {
     <ArchModalWrapper>
       <ArchModalContentWrapper>
         <ArchModalCloseButton onClick={onClose}>
-          <X src={icons.X} />
+          <CloseXImage src={icons.CLOSE_ICON} />
         </ArchModalCloseButton>
         <ArchModalSpark src={icons.FILLED_SPARK} />
         <ArchFilledIn />
