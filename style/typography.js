@@ -52,6 +52,7 @@ const P = styled.p`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;
+  line-height: 1.8em;
 `;
 
 export { H1, H2, H3, P, fontWeights, fonts };

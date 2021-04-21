@@ -18,6 +18,7 @@ export const FeaturedStoryPreviews = styled.div`
   padding-top: 0px;
 
   @media ${max.tabletSm} {
+    padding-top: 10%;
     align-items: center;
     flex-direction: column;
   }
