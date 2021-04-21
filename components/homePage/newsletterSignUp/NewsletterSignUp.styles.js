@@ -11,39 +11,34 @@ export const NewsletterSignUpWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 900px;
+  height: 700px;
   position: relative;
   background-image: url(${icons.DOUBLE_ELLIPSES});
   background-repeat: no-repeat;
   background-position: center;
-  @media ${max.tablet} {
-    background-size: 900px;
+  @media ${max.tabletLg} {
+    background-size: min(700px, 170%);
   }
 `;
 
 export const NewsletterSignUpTitle = styled(H2)`
   color: ${colors.BURNTORANGE};
   font-size: clamp(2em, 3vw, 3em);
-  margin-left: -250px;
+  margin-left: max(-12%, -200px);
   text-transform: lowercase;
 
-  @media ${max.tablet} {
-    margin-left: -100px;
-  }
-
   @media ${max.tabletSm} {
-    margin-left: 0px;
+    margin-left: -5%;
+    margin-bottom: 5%;
   }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: max(35%, 300px);
-
-  @media ${max.mobile} {
-    width: 90%;
-  }
+  max-width: 360px;
+  width: 25%;
+  min-width: min(65%, 240px);
 `;
 
 export const NewsletterDescriptionText = styled(P)`
@@ -97,12 +92,18 @@ export const SubmitButton = styled(P).attrs({
       var(--shadow) var(--shadow) 0 ${colors.WHITE};
     transition: all 0.8s;
   }
+
+  @media ${max.tabletSm} {
+    align-self: center;
+    width: 50%;
+    letter-spacing: 2px;
+  }
 `;
 
 export const Overlay = styled.div`
   display: ${(props) => (props.showOverlay ? 'block' : 'none')};
   position: fixed;
-  background-color: ${colors.WHITE};
+  background-color: ${colors.CREME};
   opacity: 0.7;
   top: 0;
   left: 0;
