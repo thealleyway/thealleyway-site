@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { min, max } from '../../lib/responsive';
+import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { P, H2 } from '../../style/typography';
 const PopupBox = styled.div`
@@ -27,7 +27,8 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: clamp(21em, 85vw, 23em);
+  height: 26em;
+  //height: clamp(21em, 85vw, 23em);
   padding: 1em;
   width: 80%;
   @media ${min.tablet} {
@@ -89,15 +90,15 @@ const ImgBackground = styled.img`
   height: 100%;
 `;
 
-const ArchImgContainer = styled.div``;
+const ArchImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const Arch = styled.img`
   position: absolute;
   bottom: 2.5em;
-  width: 13em;
-  @media ${max.tablet} {
-    left: 2em;
-  }
+  width: 6.5em;
   @media ${min.tablet} {
     top: 3.8em;
     right: 3.5em;
@@ -114,11 +115,8 @@ const Img = styled.img`
   object-fit: cover;
   position: absolute;
   bottom: 2.5em;
-  width: 9em;
+  width: 7.5em;
   height: 8em;
-  @media ${max.tablet} {
-    left: 2em;
-  }
   @media ${min.tablet} {
     top: 5.5em;
     right: 3.5em;
