@@ -25,7 +25,7 @@ const H1 = styled.h1`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
-  font-size: 12.5em;
+  font-size: 6em;
   @media ${min.tablet} {
     font-size: 10.5em;
   }
