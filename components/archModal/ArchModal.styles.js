@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { P } from '../../../../style/typography';
-import { max } from '../../../../lib/responsive';
-import { colors } from '../../../../style/colors';
+import { P } from '../../style/typography';
+import { max } from '../../lib/responsive';
+import { colors } from '../../style/colors';
 
-export const PrivacyPolicyModalWrapper = styled.div`
+export const ArchModalWrapper = styled.div`
   --arch-width: 350px;
   --arch-height: 450px;
   --off-set: 25px;
@@ -28,13 +28,13 @@ export const PrivacyPolicyModalWrapper = styled.div`
   }
 `;
 
-export const PrivacyPolicyModalContentWrapper = styled.div`
+export const ArchModalContentWrapper = styled.div`
   width: calc(var(--arch-width) + var(--off-set));
   height: calc(var(--arch-height) + var(--off-set));
   position absolute;
 `;
 
-export const PrivacyPolicyModalArch = styled.span`
+export const ArchFilledIn = styled.span`
   background-color: ${colors.SANDYYELLOW};
   width: var(--arch-width);
   height: 50%;
@@ -60,14 +60,14 @@ export const PrivacyPolicyModalArch = styled.span`
   }
 `;
 
-export const PrivacyPolicyModalArchOutline = styled(PrivacyPolicyModalArch)`
+export const ArchOutline = styled(ArchFilledIn)`
   background-color: transparent;
   position: absolute;
   left: 0;
   bottom: 25px;
 `;
 
-export const PrivacyPolicyModalSpark = styled.img`
+export const ArchModalSpark = styled.img`
   --spark-width: min(25%, 100px);
   position: absolute;
   left: 150px;
@@ -83,7 +83,7 @@ export const PrivacyPolicyModalSpark = styled.img`
   }
 `;
 
-export const PrivacyPolicyText = styled(P)`
+export const ArchModalText = styled(P)`
   position: absolute;
   left: calc(var(--off-set) * 2);
   right: calc(var(--off-set) * 2);
@@ -96,7 +96,7 @@ export const PrivacyPolicyText = styled(P)`
   }
 `;
 
-export const PrivacyPolicyModalCloseButton = styled.button`
+export const ArchModalCloseButton = styled.button`
   display flex;
   align-items: center;
   justify-content: center;
@@ -109,6 +109,12 @@ export const PrivacyPolicyModalCloseButton = styled.button`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+
+  @media ${max.tabletSm} {
+    top: -10px;
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const X = styled.img`
