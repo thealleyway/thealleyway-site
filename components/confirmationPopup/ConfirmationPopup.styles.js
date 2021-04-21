@@ -51,6 +51,11 @@ const TextContent = styled.div`
     padding: 0 0 0 2em;
     margin-top: 3em;
   }
+  @media ${min.tablet} {
+    width: 60%;
+    padding: 0 0 0 3em;
+    margin-top: 7em;
+  }
   @media ${min.desktop} {
     width: 50%;
     margin-top: 7.5em;
@@ -84,8 +89,20 @@ const ImgBackground = styled.img`
   height: 100%;
 `;
 
+const ArchImgContainer = styled.div``;
+
 const Arch = styled.img`
   position: absolute;
+  bottom: 2.5em;
+  width: 13em;
+  @media ${max.tablet} {
+    left: 2em;
+  }
+  @media ${min.tablet} {
+    top: 3.8em;
+    right: 3.5em;
+    width: 15em;
+  }
   @media ${min.desktop} {
     top: 3.8em;
     right: 3.5em;
@@ -103,10 +120,10 @@ const Img = styled.img`
     left: 2em;
   }
   @media ${min.tablet} {
-    top: 4.5em;
-    right: 3em;
+    top: 5.5em;
+    right: 3.5em;
     width: 10.5em;
-    height: 10.5em;
+    height: 17em;
     margin-top: -1em;
     margin-right: 2em;
   }
@@ -139,4 +156,5 @@ export {
   H2Styled,
   PStyled,
   Arch,
+  ArchImgContainer,
 };
