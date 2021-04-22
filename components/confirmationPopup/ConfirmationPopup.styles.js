@@ -27,9 +27,10 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: 30em;
+  height: ${(props) => (props.page == 'home' ? '70%' : '25em')};
   padding: 1em;
   width: 80%;
+  top: ${(props) => (props.page == 'home' ? '-5em' : '0')};
   @media ${min.tablet} {
     height: 29em;
   }
@@ -48,31 +49,28 @@ const TextContent = styled.div`
   padding: 1em;
   margin-top: -2em;
   @media ${min.tablet} {
-    width: 60%;
-    padding: 0 0 0 2em;
-    margin-top: 3em;
-  }
-  @media ${min.tablet} {
-    width: 60%;
+    width: ${(props) => (props.page == 'home' ? '50%' : '60%')};
     padding: 0 0 0 3em;
-    margin-top: 7em;
+    margin-top: ${(props) => (props.page == 'home' ? '3em' : '7em')};
   }
   @media ${min.desktop} {
     width: 50%;
-    margin-top: 8em;
+    margin-top: ${(props) => (props.page == 'home' ? '3em' : '8em')};
     margin-left: 1em;
     font-size: 0.9em;
   }
 `;
 
 const H2Styled = styled(H2)`
-  width: 8em;
-  font-size: clamp(1.6em, 30vw, 2.5em);
+  width: ${(props) => (props.page == 'home' ? '5em' : '8em')};
+  // font-size: clamp(1.6em, 30vw, 2.5em);
+  font-size: clamp(1.6em, 10vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
   }
   @media ${min.desktop} {
     font-size: 3em;
+    width: ${(props) => (props.page == 'home' ? '7em' : '8em')};
   }
 `;
 

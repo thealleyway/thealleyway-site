@@ -74,6 +74,7 @@ export default function NewsletterSignUp({
             confirmationData={newsletterConfirmationData}
             togglePopup={setIsConfirmationOpen}
             name={name}
+            page="home"
           />
         )}
       </NewsletterSignUpWrapper>

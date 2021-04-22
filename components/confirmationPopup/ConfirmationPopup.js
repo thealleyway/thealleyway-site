@@ -30,18 +30,18 @@ export default function ConfirmationPopup({
   if (name != undefined) {
     firstName = name.trim().split(' ')[0];
   }
-  if (firstName.length >= 14) {
-    firstName = firstName.slice(0, 14) + '...';
+  if (firstName.length >= 13) {
+    firstName = firstName.slice(0, 12) + '...';
   }
 
   return (
     <>
       <PopupBox>
-        <Box>
+        <Box page={page}>
           <TextContent page={page}>
-            <H2Styled>
+            <H2Styled page={page}>
               <i>{getString(confirmationTitleItalic) + ' '}</i>
-              {name != undefined && firstName + ' '}
+              {name != undefined && firstName + ', '}
               {getString(confirmationTitleRegular)}
             </H2Styled>
             <PStyled>{getString(confirmationDescription)}</PStyled>
