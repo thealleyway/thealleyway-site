@@ -8,7 +8,7 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 5;
-  top: 25%;
+  top: 20%;
   @media ${min.tablet} {
     top: 30%;
   }
@@ -34,11 +34,12 @@ const Box = styled.div`
     height: 29em;
   }
   @media ${min.desktop} {
+    top: -2%;
     padding: 20px;
     width: 58%;
   }
   @media ${min.desktopLg} {
-    top: 33%;
+    top: 22%;
   }
 `;
 
