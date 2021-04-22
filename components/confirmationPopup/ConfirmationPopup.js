@@ -25,6 +25,11 @@ export default function ConfirmationPopup({
     confirmationImage,
   } = confirmationData;
 
+  let firstName = name.trim().split(' ')[0];
+  if (firstName.length >= 14) {
+    firstName = firstName.slice(0, 14) + '...';
+  }
+
   return (
     <>
       <PopupBox>
@@ -32,7 +37,7 @@ export default function ConfirmationPopup({
           <TextContent>
             <H2Styled>
               <i>{getString(confirmationTitleItalic) + ' '}</i>
-              {name != undefined && name + ' '}
+              {name != undefined && firstName + ' '}
               {getString(confirmationTitleRegular)}
             </H2Styled>
             <PStyled>{getString(confirmationDescription)}</PStyled>
