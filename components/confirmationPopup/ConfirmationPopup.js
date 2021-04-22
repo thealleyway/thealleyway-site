@@ -30,7 +30,7 @@ export default function ConfirmationPopup({
   if (name != undefined) {
     firstName = name.trim().split(' ')[0];
   }
-  if (firstName.length >= 13) {
+  if (firstName.length > 12) {
     firstName = firstName.slice(0, 12) + '...';
   }
 
