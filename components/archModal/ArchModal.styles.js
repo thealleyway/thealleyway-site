@@ -117,6 +117,6 @@ export const ArchModalCloseButton = styled.button`
   }
 `;
 
-export const X = styled.img`
+export const CloseXImage = styled.img`
   width: 50%;
 `;
