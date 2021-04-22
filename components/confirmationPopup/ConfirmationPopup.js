@@ -13,7 +13,11 @@ import {
 } from './ConfirmationPopup.styles';
 import { icons } from '../../style/icons';
 
-export default function ConfirmationPopup({ confirmationData, togglePopup }) {
+export default function ConfirmationPopup({
+  confirmationData,
+  togglePopup,
+  name,
+}) {
   const {
     confirmationTitleRegular,
     confirmationTitleItalic,
@@ -28,6 +32,7 @@ export default function ConfirmationPopup({ confirmationData, togglePopup }) {
           <TextContent>
             <H2Styled>
               <i>{getString(confirmationTitleItalic) + ' '}</i>
+              {name != undefined && name + ' '}
               {getString(confirmationTitleRegular)}
             </H2Styled>
             <PStyled>{getString(confirmationDescription)}</PStyled>
@@ -45,7 +50,7 @@ export default function ConfirmationPopup({ confirmationData, togglePopup }) {
             alt="Close icon symbol used to close popup"
             onClick={() => {
               document.body.style.overflow = 'visible';
-              togglePopup();
+              togglePopup(false);
             }}
           />
         </Box>

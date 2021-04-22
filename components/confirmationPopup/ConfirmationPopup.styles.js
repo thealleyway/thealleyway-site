@@ -32,11 +32,11 @@ const Box = styled.div`
   padding: 1em;
   width: 80%;
   @media ${min.tablet} {
-    height: 27em;
+    height: 29em;
   }
   @media ${min.desktop} {
     padding: 20px;
-    width: 55%;
+    width: 58%;
   }
   @media ${min.desktopLg} {
     top: 33%;
@@ -66,7 +66,7 @@ const TextContent = styled.div`
 `;
 
 const H2Styled = styled(H2)`
-  width: 10em;
+  width: 8em;
   font-size: clamp(1.6em, 8vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
