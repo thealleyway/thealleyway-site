@@ -63,7 +63,6 @@ const TextContent = styled.div`
 
 const H2Styled = styled(H2)`
   width: ${(props) => (props.page == 'home' ? '5em' : '8em')};
-  // font-size: clamp(1.6em, 30vw, 2.5em);
   font-size: clamp(1.6em, 10vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
@@ -102,11 +101,6 @@ const Arch = styled.img`
     right: 3.5em;
     width: 15em;
   }
-  @media ${min.desktop} {
-    top: 3.8em;
-    right: 3.5em;
-    width: 15em;
-  }
 `;
 
 const Img = styled.img`
@@ -122,12 +116,6 @@ const Img = styled.img`
     height: 17em;
     margin-top: -1em;
     margin-right: 2em;
-  }
-  @media ${min.desktop} {
-    top: 5.5em;
-    right: 3.5em;
-    width: 10.5em;
-    height: 17em;
   }
 `;
 
