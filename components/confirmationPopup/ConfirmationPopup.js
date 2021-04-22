@@ -17,6 +17,7 @@ export default function ConfirmationPopup({
   confirmationData,
   togglePopup,
   name,
+  page,
 }) {
   const {
     confirmationTitleRegular,
@@ -25,7 +26,10 @@ export default function ConfirmationPopup({
     confirmationImage,
   } = confirmationData;
 
-  let firstName = name.trim().split(' ')[0];
+  let firstName = '';
+  if (name != undefined) {
+    firstName = name.trim().split(' ')[0];
+  }
   if (firstName.length >= 14) {
     firstName = firstName.slice(0, 14) + '...';
   }
@@ -34,7 +38,7 @@ export default function ConfirmationPopup({
     <>
       <PopupBox>
         <Box>
-          <TextContent>
+          <TextContent page={page}>
             <H2Styled>
               <i>{getString(confirmationTitleItalic) + ' '}</i>
               {name != undefined && firstName + ' '}

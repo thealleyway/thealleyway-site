@@ -27,8 +27,7 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: 26em;
-  //height: clamp(21em, 85vw, 23em);
+  height: 30em;
   padding: 1em;
   width: 80%;
   @media ${min.tablet} {
@@ -59,7 +58,7 @@ const TextContent = styled.div`
   }
   @media ${min.desktop} {
     width: 50%;
-    margin-top: 7.5em;
+    margin-top: 8em;
     margin-left: 1em;
     font-size: 0.9em;
   }
@@ -67,7 +66,7 @@ const TextContent = styled.div`
 
 const H2Styled = styled(H2)`
   width: 8em;
-  font-size: clamp(1.6em, 8vw, 2.5em);
+  font-size: clamp(1.6em, 30vw, 2.5em);
   @media ${min.tablet} {
     font-size: 2.6em;
   }
