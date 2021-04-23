@@ -3,29 +3,18 @@ import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { min } from '../../lib/responsive';
 
-const UnfilledButtonImage = styled.img`
-  @media ${min.desktop} {
-    width: 42%;
+const ButtonImage = styled.img`
+  width: 4.5em;
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
-const FilledButtonImage = styled.img`
-  width: 90%;
-  @media ${min.tablet} {
-    width: 70%;
-  }
-  @media ${min.desktop} {
-    width: 42%;
-  }
-`;
-
-const Button = styled.button`
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  overflow: hidden;
+const Button = styled.a`
+  text-align: center;
   position: absolute;
-  outline: none;
+  margin-bottom: 2em;
 `;
 
 const ButtonText = styled(P)`
@@ -39,4 +28,4 @@ const ButtonText = styled(P)`
   }
 `;
 
-export { Button, ButtonText, UnfilledButtonImage, FilledButtonImage };
+export { Button, ButtonText, ButtonImage };
