@@ -27,7 +27,7 @@ export default function BoxLink({ boxLinkData }) {
         <Ellipse src={icons.DOUBLE_ELLIPSES} alt="White double ellipses" />
       </EllipseContainer>
       <InnerContentContainer>
-        <Title>{getString(boxLinkTitle)}</Title>
+        <Title>{getString(boxLinkTitle).toUpperCase()}</Title>
         <Description>{getString(boxLinkDescription)}</Description>
         <MediaQuery minDeviceWidth={breakpointsObj.tabletLg}>
           <PageLink href={`/${boxLinkLink.uid}`}>
