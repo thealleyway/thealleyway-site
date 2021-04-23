@@ -27,10 +27,10 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: ${(props) => (props.page == 'home' ? '70%' : '25em')};
+  height: ${(props) => (props.page == 'home' ? '34em' : '25em')};
   padding: 1em;
   width: 80%;
-  top: ${(props) => (props.page == 'home' ? '-5em' : '0')};
+  top: ${(props) => (props.page == 'home' ? '-6em' : '0')};
   @media ${min.tablet} {
     height: 29em;
   }
