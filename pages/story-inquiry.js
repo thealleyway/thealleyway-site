@@ -5,13 +5,13 @@ import {
   getNavigation,
   getFooter,
 } from '../lib/api';
-import AuthorTestimony from '../components/authorTestimony/AuthorTestimony';
-import QuestionAnswer from '../components/questionAnswer/QuestionAnswer';
+import AuthorTestimony from '../components/author-testimony/AuthorTestimony';
+import QuestionAnswer from '../components/question-answer/QuestionAnswer';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/footer/Footer';
 import { H1, H2, H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
-import StorySubmissionConfirmation from '../components/storySubmissionConfirmation/StorySubmissionConfirmation';
+import StorySubmissionConfirmation from '../components/story-submission-confirmation/StorySubmissionConfirmation';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
