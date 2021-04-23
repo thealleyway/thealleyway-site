@@ -4,7 +4,7 @@ import {
   getFooter,
   getBoxLink,
 } from '../lib/api';
-import ContactPage from '../components/contactPage/ContactPage';
+import ContactPage from '../components/contact-page/ContactPage';
 
 export default function Contact({
   contactPageData,

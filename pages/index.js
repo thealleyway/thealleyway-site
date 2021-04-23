@@ -5,7 +5,7 @@ import {
   getFooter,
   getNavigation,
 } from '../lib/api';
-import HomePage from '../components/homePage/HomePage';
+import HomePage from '../components/home-page/HomePage';
 
 export default function Home({
   authorSignatures,
