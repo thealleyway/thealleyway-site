@@ -1,11 +1,12 @@
 import React from 'react';
+import HomePage from '../components/home-page/HomePage';
 import {
   getAuthorSignatureFromIDs,
-  getHomePage,
-  getFooter,
-  getNavigation,
+
+  getFooter, getHomePage,
+
+  getNavigation
 } from '../lib/api';
-import HomePage from '../components/homePage/HomePage';
 
 export default function Home({
   authorSignatures,
