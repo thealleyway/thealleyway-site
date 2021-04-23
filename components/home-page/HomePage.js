@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
+import Navigation from '../navigation/Navigation';
+import CurrentFeaturedStory from './current-featured-story/CurrentFeaturedStory';
+import FeaturedStoryPreview from './featured-story-preview/FeaturedStoryPreview';
 import {
-  HomePageContentWrapper,
-  FeaturedStoryPreviews,
+  FeaturedStoryPreviews, HomePageContentWrapper
 } from './HomePage.styles';
-import CurrentFeaturedStory from './currentFeaturedStory/CurrentFeaturedStory';
-import FeaturedStoryPreview from './featuredStoryPreview/FeaturedStoryPreview';
-import NewsletterSignUp from './newsletterSignUp/NewsletterSignUp';
+import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
 
