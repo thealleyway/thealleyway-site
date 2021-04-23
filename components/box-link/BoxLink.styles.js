@@ -39,10 +39,12 @@ const Ellipse = styled.img`
 `;
 
 const MediumArrow = styled.img`
-  @media ${min.desktop} {
-    height: 3.8em;
-    margin: 0.5em 0 0 9.7em;
-    padding-bottom: 1.5em;
+  height: 3.8em;
+  margin: 0.5em 0 0 9.7em;
+  padding-bottom: 1.5em;
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
