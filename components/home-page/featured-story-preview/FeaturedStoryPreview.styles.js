@@ -56,7 +56,7 @@ export const DoubleArchways = styled.img`
 
 // Below only for mobile
 export const FeaturedStoryPreviewTitle = styled(H1)`
-  font-size: 2.5em;
+  font-size: 9vw;
   color: ${colors.BLACK};
   position: absolute;
   top: 0;
