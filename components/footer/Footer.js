@@ -6,9 +6,9 @@ import {
   SocialsWrapper,
   BackToStartButtonContainer,
 } from './Footer.style';
-import FooterLink from './footerLink/FooterLink';
-import ImageBoxLink from '../imageBoxLink/ImageBoxLink';
-import BackToStartVerticalButton from '../backToStartVerticalButton/BackToStartVerticalButton';
+import FooterLink from './footer-link/FooterLink';
+import ImageBoxLink from '../image-box-link/ImageBoxLink';
+import BackToStartVerticalButton from '../back-to-start-vertical-button/BackToStartVerticalButton';
 
 export default function Footer({ footerData, footerBoxLinkData }) {
   const {
