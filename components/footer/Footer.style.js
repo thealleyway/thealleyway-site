@@ -28,9 +28,6 @@ const FooterSocialsContainer = styled.div`
   @media only screen and ${max.tabletSm} {
     height: 11em;
     overflow: hidden;
-  }
-
-  @media only screen and ${max.mobile} {
     flex-direction: column;
   }
 `;
@@ -43,25 +40,25 @@ const EmailWrapper = styled.div`
   @media only screen and ${max.tablet} {
     width: 50%;
     padding-top: clamp(1em, 5vw, 3em);
-    padding-left: 3em;
+    padding-left: 1.8em;
   }
 
   @media only screen and ${max.tabletSm} {
     width: 60%;
-    padding-left: clamp(1em, 3vw, 3em);
+    padding-left: clamp(1.5em, 3vw, 2em);
   }
 `;
 
 const SocialsWrapper = styled.div`
   padding-top: 4em;
-  padding-left: clamp(3em, 7vw, 4em);
+  padding-left: clamp(3em, 8vw, 4em);
   width: 40%;
 
   @media only screen and ${max.tablet} {
     padding-top: clamp(1em, 5vw, 3em);
   }
-  @media only screen and ${max.mobile} {
-    padding-left: 1em;
+  @media only screen and ${max.tabletSm} {
+    padding-left: clamp(1.5em, 3vw, 2em);
   }
 `;
 

@@ -26,7 +26,7 @@ const BoxLinkContainer = styled.div`
 `;
 
 const BottomImage = styled.img`
-  opacity: 30%;
+  opacity: 10%;
   object-fit: cover;
   height: 30em;
   width: 200vw;
