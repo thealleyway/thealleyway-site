@@ -1,9 +1,9 @@
 import React from 'react';
 import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
-import ArchiveStoryPreview from './archiveStoryPreview/ArchiveStoryPreview';
-import ArchivePagination from './archivePagination/ArchivePagination';
-import ArchiveSorting from './archiveSorting/ArchiveSorting';
+import ArchiveStoryPreview from './archive-story-preview/ArchiveStoryPreview';
+import ArchivePagination from './archive-pagination/ArchivePagination';
+import ArchiveSorting from './archive-sorting/ArchiveSorting';
 import {
   HeaderandSquiggleContainer,
   SquiggleUnderline,
