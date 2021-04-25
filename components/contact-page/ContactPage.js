@@ -32,18 +32,16 @@ export default function ContactPage({
     contact_page_description: contactPageDescription,
     contact_image_top: contactImageTop,
     contact_image_bottom: contactImageBottom,
-    contact_confirmation_title_regular_1: confirmationTitleRegular1,
-    contact_confirmation_title_italic_2: confirmationTitleItalic2,
-    contact_confirmation_title_regular_3: confirmationTitleRegular3,
+    contact_confirmation_title_regular: confirmationTitleRegular,
+    contact_confirmation_title_italic: confirmationTitleItalic,
     contact_confirmation_description: confirmationDescription,
     contact_confirmation_image: confirmationImage,
     spark_arrow_description_text: sparkArrowDescriptionText,
   } = contactPageData;
 
   const contactConfirmationData = {
-    confirmationTitleRegular1,
-    confirmationTitleItalic2,
-    confirmationTitleRegular3,
+    confirmationTitleRegular,
+    confirmationTitleItalic,
     confirmationDescription,
     confirmationImage,
   };
