@@ -34,6 +34,7 @@ export default function StoryArchivePage({
     archive_title_italic: archiveTitleItalic,
     archive_description: archiveDescription,
     archive_header_image: archiveHeaderImage,
+    spark_arrow_description_text: sparkArrowDescriptionText,
   } = storyArchivePageData;
 
   const sortType = sortingData == DATE.toLowerCase() ? DATE : ALPHA;
@@ -66,7 +67,7 @@ export default function StoryArchivePage({
       </HeaderandSquiggleContainer>
       <PageDescription
         description={archiveDescription}
-        arrowText="EXPLORE THE ARCHIVE"
+        arrowText={sparkArrowDescriptionText}
         img={archiveHeaderImage}
       />
       <ArchiveContainer>
