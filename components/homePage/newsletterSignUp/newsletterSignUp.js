@@ -3,7 +3,6 @@ import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
 import TextInputField from '../../textInputField/TextInputField';
 import ArchModal from '../../archModal/ArchModal';
-import NewsletterConfirmationModal from './newsletterConfirmationModal/NewsletterConfirmationModal';
 import {
   ContentWrapper,
   NewsletterSignUpTextInput,
@@ -14,6 +13,7 @@ import {
   PrivacyPolicyLinkText,
   SubmitButton,
 } from './NewsletterSignUp.styles';
+import ConfirmationPopup from '../../confirmationPopup/ConfirmationPopup';
 
 export default function NewsletterSignUp({
   description,
@@ -24,6 +24,7 @@ export default function NewsletterSignUp({
 }) {
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [name, updateName] = useState('');
 
   const onSubmitClick = () => {
     setIsConfirmationOpen(true);
@@ -37,7 +38,12 @@ export default function NewsletterSignUp({
           <NewsletterDescriptionText>
             {getString(description)}
           </NewsletterDescriptionText>
-          <NewsletterSignUpTextInput id="name" label="Name" fullWidth />
+          <NewsletterSignUpTextInput
+            id="name"
+            label="Name"
+            fullWidth
+            onChange={(e) => updateName(e)}
+          />
           <TextInputField id="email" label="Email" fullWidth />
           <PrivacyPolicyLinkText
             onClick={() => {
@@ -65,8 +71,11 @@ export default function NewsletterSignUp({
           />
         )}
         {isConfirmationOpen && (
-          <NewsletterConfirmationModal
-            newsletterConfirmationData={newsletterConfirmationData}
+          <ConfirmationPopup
+            confirmationData={newsletterConfirmationData}
+            togglePopup={setIsConfirmationOpen}
+            name={name}
+            page="home"
           />
         )}
       </NewsletterSignUpWrapper>
