@@ -7,7 +7,7 @@ import {
 } from './HomePage.styles';
 import CurrentFeaturedStory from './currentFeaturedStory/CurrentFeaturedStory';
 import FeaturedStoryPreview from './featuredStoryPreview/FeaturedStoryPreview';
-import NewsletterSignUp from './newsletter-signup/NewsletterSignUp';
+import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
 
