@@ -56,7 +56,7 @@ export const DoubleArchways = styled.img`
 
 // Below only for mobile
 export const FeaturedStoryPreviewTitle = styled(H1)`
-  font-size: 2.5em;
+  font-size: 9vw;
   color: ${colors.BLACK};
   position: absolute;
   top: 0;
@@ -71,10 +71,15 @@ export const FeaturedStoryPreviewTitle = styled(H1)`
 export const FeaturedStoryPreviewText = styled(P)`
   color: ${colors.BLACK};
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 20%;
   right: -10%;
   cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media ${min.tabletSm} {
     display: none;
