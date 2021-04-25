@@ -6,7 +6,7 @@ import {
   getFooter,
   getAuthorSignatureFromIDs,
 } from '../../../lib/api';
-import StoryArchivePage from '../../../components/storyArchivePage/StoryArchivePage';
+import StoryArchivePage from '../../../components/story-archive-page/StoryArchivePage';
 
 export default function StoryArchive({
   storyArchivePageData,

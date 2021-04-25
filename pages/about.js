@@ -10,7 +10,7 @@ import Footer from '../components/footer/Footer';
 import { H1, H2, H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
 import Value from '../components/value/Value';
-import MainResource from '../components/mainResource/MainResource';
+import MainResource from '../components/main-resource/MainResource';
 
 export default function AboutPage({
   aboutPageData,

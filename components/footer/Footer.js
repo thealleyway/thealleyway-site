@@ -8,7 +8,7 @@ export default function Footer({ footerData }) {
     instagram_link: { url: instagramLink },
     tiktok_link: { url: tiktokLink },
   } = footerData;
-
+  
   return (
     <>
       <br /> <br /> <br />
