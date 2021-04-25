@@ -5,8 +5,8 @@ import {
   getNavigation,
   getFooter,
 } from '../../lib/api';
-import SliceZone from '../../components/storySlices/sliceZone/SliceZone';
-import AuthorInfo from '../../components/authorInfo/AuthorInfo';
+import SliceZone from '../../components/story-slices/slice-zone/SliceZone';
+import AuthorInfo from '../../components/author-info/AuthorInfo';
 import Navigation from '../../components/navigation/Navigation';
 import Footer from '../../components/footer/Footer';
 import { H1 } from '../../style/typography';
