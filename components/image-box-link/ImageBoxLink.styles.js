@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { min } from '../../lib/responsive';
+import { max } from '../../lib/responsive';
 
 const BottomImageContainer = styled.div`
   position: absolute;
@@ -7,19 +7,21 @@ const BottomImageContainer = styled.div`
 
 const ImageBoxLinkContainer = styled.div`
   position: relative;
-  padding-top: 10em;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  flex: 100%;
+  flex-direction: row;
+  overflow: hidden;
 `;
 
 const BoxLinkContainer = styled.div`
-  position: absolute;
-  margin: 3.8em 0 0 0;
-  @media ${min.tablet} {
-    margin: 3em 0 0 15em;
+  margin: 2.5em 10% 1em 0;
+
+  @media ${max.tabletLg} {
+    margin-top: 2.5em;
   }
-  @media ${min.desktop} {
-    margin: 1em 0 0 40em;
+  @media ${max.tabletSm} {
+    margin: 2em auto 1em auto;
   }
 `;
 
@@ -27,14 +29,7 @@ const BottomImage = styled.img`
   opacity: 10%;
   object-fit: cover;
   height: 30em;
-  width: 100%;
-  @media ${min.tablet} {
-    height: 32em;
-    width: 100vw;
-  }
-  @media ${min.desktop} {
-    height: 28em;
-  }
+  width: 200vw;
 `;
 
 export {

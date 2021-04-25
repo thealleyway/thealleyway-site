@@ -20,18 +20,6 @@ const FormContainer = styled.div`
   margin-top: -2em;
 `;
 
-const BackToStartButtonContainer = styled.div`
-  position: absolute;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  padding-bottom: 10em;
-  bottom: -42em;
-  @media ${min.tablet} {
-    bottom: -43.5em;
-  }
-`;
-
 const SquiggleUnderline = styled.img`
   position: absolute;
   width: clamp(16em, 80vw, 21em);
@@ -62,7 +50,6 @@ export {
   SquiggleUnderline,
   HeaderAndSquiggleContainer,
   PageContainer,
-  BackToStartButtonContainer,
   FormContainer,
   Overlay,
 };

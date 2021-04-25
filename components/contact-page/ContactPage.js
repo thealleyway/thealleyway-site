@@ -5,20 +5,15 @@ import { useState } from 'react';
 import PageDescription from '../page-description/PageDescription';
 import ContactForm from './contact-form/ContactForm';
 import { icons } from '../../style/icons';
-import { breakpointsObj } from '../../lib/responsive';
 import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
-import MediaQuery from 'react-responsive';
-import BackToStartVerticalButton from '../back-to-start-vertical-button/BackToStartVerticalButton';
 import {
   Overlay,
   FormContainer,
   PageContainer,
   HeaderAndSquiggleContainer,
   SquiggleUnderline,
-  BackToStartButtonContainer,
 } from './ContactPage.styles';
-import ImageBoxLink from '../image-box-link/ImageBoxLink';
 
 export default function ContactPage({
   contactPageData,
@@ -52,6 +47,11 @@ export default function ContactPage({
     setIsOpen(!isOpen);
   };
 
+  const footerBoxLinkData = {
+    img: contactImageBottom,
+    data: boxLinkData,
+  };
+
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -74,21 +74,15 @@ export default function ContactPage({
         <FormContainer>
           <ContactForm togglePopup={togglePopup} />
         </FormContainer>
-        <ImageBoxLink img={contactImageBottom} boxLinkData={boxLinkData} />
         {isOpen && (
           <ConfirmationPopup
             confirmationData={contactConfirmationData}
             togglePopup={togglePopup}
           />
         )}
-        <MediaQuery maxDeviceWidth={breakpointsObj.desktop - 1}>
-          <BackToStartButtonContainer>
-            <BackToStartVerticalButton />
-          </BackToStartButtonContainer>
-        </MediaQuery>
       </PageContainer>
       <Overlay showOverlay={isOpen} />
-      <Footer footerData={footerData} />
+      <Footer footerData={footerData} footerBoxLinkData={footerBoxLinkData} />
     </>
   );
 }

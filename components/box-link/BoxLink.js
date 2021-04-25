@@ -27,9 +27,9 @@ export default function BoxLink({ boxLinkData }) {
         <Ellipse src={icons.DOUBLE_ELLIPSES} alt="White double ellipses" />
       </EllipseContainer>
       <InnerContentContainer>
-        <Title>{getString(boxLinkTitle)}</Title>
+        <Title>{getString(boxLinkTitle).toUpperCase()}</Title>
         <Description>{getString(boxLinkDescription)}</Description>
-        <MediaQuery minDeviceWidth={breakpointsObj.desktop}>
+        <MediaQuery minDeviceWidth={breakpointsObj.tabletLg}>
           <PageLink href={`/${boxLinkLink.uid}`}>
             <MediumArrow
               src={icons.FILLED_MEDIUM_ARROW}
@@ -37,7 +37,7 @@ export default function BoxLink({ boxLinkData }) {
             />
           </PageLink>
         </MediaQuery>
-        <MediaQuery maxDeviceWidth={breakpointsObj.desktop - 1}>
+        <MediaQuery maxDeviceWidth={breakpointsObj.tabletLg - 1}>
           <PageLink href={`/${boxLinkLink.uid}`}>
             <LongArrow
               src={icons.FILLED_LONG_ARROW_MAUVE}

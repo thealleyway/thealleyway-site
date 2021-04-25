@@ -6,7 +6,7 @@ export default function Navigation({ navigationData }) {
   const { navigation_links: navigationLinks } = navigationData;
 
   return (
-    <nav>
+    <nav id="top">
       {navigationLinks.map((navigationLink, index) => (
         <NavigationLink key={index} navigationLink={navigationLink} />
       ))}
@@ -19,15 +19,16 @@ function NavigationLink({ navigationLink }) {
 
   switch (link.link_type) {
     case 'Document':
-      const href = link.uid === 'home' ? '/' : `/${link.uid}`;
       return (
         <div>
-          <PageLink href={href}>{getString(linkName)}</PageLink>
+          <PageLink href={link.uid === 'home' ? '/' : `/${link.uid}`}>
+            {getString(linkName)}
+          </PageLink>
         </div>
       );
     case 'Web':
       return (
-        <a href={link.url} target="_blank">
+        <a href={link.url} target="_blank" rel="noreferrer">
           {getString(linkName)}
         </a>
       );

@@ -4,6 +4,7 @@ import {
   getStoryInquiryPage,
   getNavigation,
   getFooter,
+  getBoxLink,
 } from '../lib/api';
 import AuthorTestimony from '../components/author-testimony/AuthorTestimony';
 import QuestionAnswer from '../components/question-answer/QuestionAnswer';
@@ -18,6 +19,7 @@ export default function StoryInquiryPage({
   authorTestimonies,
   questionsAndAnswers,
   navigationData,
+  boxLinkDataFooter,
   footerData,
 }) {
   const {
@@ -40,7 +42,11 @@ export default function StoryInquiryPage({
     spark_arrow_description_text: sparkArrowDescriptionText,
     spark_arrow_faq_text: sparkArrowFaqText,
     spark_arrow_author_testimonies_text: sparkArrowAuthorTestimoniesText,
+    footer_image: footerImage,
   } = storyInquiryPageData;
+
+  const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
+
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -79,7 +85,7 @@ export default function StoryInquiryPage({
       <P>{getString(sparkArrowDescriptionText)}</P>
       <P>{getString(sparkArrowFaqText)}</P>
       <P>{getString(sparkArrowAuthorTestimoniesText)}</P>
-      <Footer footerData={footerData} />
+      <Footer footerData={footerData} footerBoxLinkData={boxLinkFooter} />
     </>
   );
 }
@@ -99,6 +105,9 @@ export async function getStaticProps() {
   const questionsAndAnswers = await getFrequentlyAnsweredQuestions(faqsIds);
   const footerData = await getFooter();
   const navigationData = await getNavigation();
+  const boxLinkDataFooter = await getBoxLink(
+    storyInquiryPageData.box_link_footer.id,
+  );
 
   return {
     props: {
@@ -106,6 +115,7 @@ export async function getStaticProps() {
       authorTestimonies,
       questionsAndAnswers,
       footerData,
+      boxLinkDataFooter,
       navigationData,
     },
   };
