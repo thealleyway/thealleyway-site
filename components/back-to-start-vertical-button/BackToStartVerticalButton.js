@@ -6,10 +6,13 @@ import {
 import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 import { breakpointsObj } from '../../lib/responsive';
-import MediaQuery from 'react-responsive';
+import { useMatchMedia } from '../../lib/hooks';
 
 export default function BackToStartVerticalButton() {
   const [hover, setHover] = useState(false);
+  const isTabletOrMobile = useMatchMedia(
+    `(max-width: ${breakpointsObj.tabletLg}px)`,
+  );
 
   return (
     <Button
@@ -17,18 +20,14 @@ export default function BackToStartVerticalButton() {
       onMouseLeave={() => setHover(false)}
       href="#top"
     >
-      <MediaQuery minDeviceWidth={breakpointsObj.tabletLg}>
-        <ButtonImage
-          src={hover ? icons.FILLED_BACK_TO_TOP : icons.UNFILLED_BACK_TO_TOP}
-          alt="Brown unfilled back to top arrow"
-        />
-      </MediaQuery>
-      <MediaQuery maxDeviceWidth={breakpointsObj.tabletLg - 1}>
-        <ButtonImage
-          src={icons.FILLED_BACK_TO_TOP}
-          alt="Brown unfilled back to top arrow"
-        />
-      </MediaQuery>
+      <ButtonImage
+        src={
+          hover || isTabletOrMobile
+            ? icons.FILLED_BACK_TO_TOP
+            : icons.UNFILLED_BACK_TO_TOP
+        }
+        alt="Brown unfilled back to top arrow"
+      />
       <ButtonText>BACK TO START</ButtonText>
     </Button>
   );

@@ -17,11 +17,8 @@ export default function Footer({ footerData, footerBoxLinkData }) {
     tiktok_link: { url: tiktokLink },
   } = footerData;
 
-<<<<<<< HEAD
-=======
   const mailToLink = 'mailto:' + getString(contactEmail);
 
->>>>>>> Footer and FooterLink component and styling
   return (
     <FooterContainer topMargin={footerBoxLinkData ? true : false}>
       {footerBoxLinkData && <ImageBoxLink boxLinkData={footerBoxLinkData} />}

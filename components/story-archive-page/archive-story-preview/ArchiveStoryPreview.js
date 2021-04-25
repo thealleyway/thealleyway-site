@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { useMediaQuery } from 'react-responsive';
 import { getString } from '../../../lib/richText';
 import { icons } from '../../../style/icons';
 import { breakpointsObj } from '../../../lib/responsive';
@@ -15,6 +14,7 @@ import {
   DateArrowWrapper,
   DateWrapper,
 } from './ArchiveStoryPreview.style';
+import { useMatchMedia } from '../../../lib/hooks';
 
 export default function ArchiveStoryPreview({ story, signature }) {
   const {
@@ -26,9 +26,9 @@ export default function ArchiveStoryPreview({ story, signature }) {
 
   const storyUrl = '/story/' + uid;
   const formattedDate = moment(storyDate).format('MM/DD');
-  const isTabletOrMobile = useMediaQuery({
-    query: `(max-width: ${breakpointsObj.tabletLg}px)`,
-  });
+  const isTabletOrMobile = useMatchMedia(
+    `(max-width: ${breakpointsObj.tabletLg}px)`,
+  );
 
   return (
     <StoryPreviewContainer>
