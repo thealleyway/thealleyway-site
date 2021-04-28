@@ -6,13 +6,17 @@ import H1Styled from '../h1-styled/H1Styled';
 import { getString } from '../../lib/richText';
 import QuestionAnswer from '../question-answer/QuestionAnswer';
 import AuthorTestimony from '../author-testimony/AuthorTestimony';
+import PageDescription from '../page-description/PageDescription';
+import { SquiggleWavy } from './StoryInquiryPage.styles';
+import { icons } from '../../style/icons';
+
 export default function StoryInquiryPage({ storyInquiryPageData,
     authorTestimonies,
     questionsAndAnswers,
     navigationData,
     boxLinkDataFooter,
     footerData
- }) {
+}) {
     const {
         story_submission_title_regular: storySubmissionTitleRegular,
         story_submission_title_italic: storySubmissionTitleItalic,
@@ -35,16 +39,20 @@ export default function StoryInquiryPage({ storyInquiryPageData,
         spark_arrow_faq_text: sparkArrowFaqText,
         spark_arrow_author_testimonies_text: sparkArrowAuthorTestimoniesText,
         footer_image: footerImage,
-    } = storyInquiryPageData;
+        story_inquiry_top_image: storyInquiryTopImage,
+        story_inquiry_side_image_1: storyInquirySideImage1,
+        story_inquiry_side_image_2: storyInquirySideImage2,
+        story_inquiry_side_image_3: storyInquirySideImage3,
 
+    } = storyInquiryPageData;
     const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
 
     return (
         <>
-            <Navigation navigationData={navigationData} />
+            {/* <Navigation navigationData={navigationData} /> */}
             <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} />
-            <P>{getString(storySubmissionDescription)}</P>
-            <H2>{getString(submissionFormSubtitle)}</H2>
+            <SquiggleWavy src={icons.SQUIGGLE_WAVY}/>
+            <PageDescription description={storySubmissionDescription} arrowText={sparkArrowDescriptionText} img={storyInquiryTopImage} />
             <H3>{getString(authorInformationSubtitle)}</H3>
             <H3>{getString(authorSignatureSubtitle)}</H3>
             <P>{getString(authorSignatureDescription)}</P>
@@ -74,7 +82,6 @@ export default function StoryInquiryPage({ storyInquiryPageData,
         title={storySubmissionConfirmationTitle}
         description={storySubmissionConfirmationDescription}
       /> */}
-            <P>{getString(sparkArrowDescriptionText)}</P>
             <P>{getString(sparkArrowFaqText)}</P>
             <P>{getString(sparkArrowAuthorTestimoniesText)}</P>
             <Footer footerData={footerData} footerBoxLinkData={boxLinkFooter} />
