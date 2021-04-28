@@ -7,7 +7,7 @@ import { getString } from '../../lib/richText';
 import QuestionAnswer from '../question-answer/QuestionAnswer';
 import AuthorTestimony from '../author-testimony/AuthorTestimony';
 import PageDescription from '../page-description/PageDescription';
-import { SquiggleWavy } from './StoryInquiryPage.styles';
+import { SquiggleWavy, HeaderStyling } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 
@@ -65,13 +65,14 @@ export default function StoryInquiryPage({ storyInquiryPageData,
     return (
         <>
             {/* <Navigation navigationData={navigationData} /> */}
+            {/* <HeaderStyling>
             <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} />
-            <SquiggleWavy src={icons.SQUIGGLE_WAVY}/>
+            </HeaderStyling> */}
+            {/* <SquiggleWavy src={icons.SQUIGGLE_WAVY}/> */}
             <PageDescription description={storySubmissionDescription} arrowText={sparkArrowDescriptionText} img={storyInquiryTopImage} />
             <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}/>
 
-            <H2 h2Data={faqTitle} />
-
+            <H2>{getString(faqTitle)}</H2>
             {questionsAndAnswers.map((item) => {
                 return <QuestionAnswer key={item.id} questionAnswerData={item} />;
             })}
