@@ -1,7 +1,7 @@
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
 import SquareButton from '../../square-button/SquareButton';
-import { H3, P } from '../../../style/typography';
+import { H4, P } from '../../../style/typography';
 import { getString } from '../../../lib/richText';
 import {
     StoryInquiryFormContainer,
@@ -11,7 +11,8 @@ import {
     AuthorInformationContainer,
     AuthorSignatureContainer,
     Description,
-    InputBoxWrapper
+    InputBoxWrapper,
+    ResourceLinksContainer
 } from './StoryInquiryForm.styles';
 
 export default function StoryInquiryForm({ storyInquiryFormData }) {
@@ -32,7 +33,7 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
     return (
         <StoryInquiryFormContainer>
             <AuthorInformationContainer>
-                <H3>{getString(authorInformationSubtitle)}</H3>
+                <H4>{getString(authorInformationSubtitle)}</H4>
                 <InputFieldWrapper>
                     <TextInputField id="firstName" label="First Name" />
                 </InputFieldWrapper>
@@ -44,11 +45,11 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 </InputFieldWrapper>
             </AuthorInformationContainer>
             <AuthorSignatureContainer>
-                <H3>{getString(authorSignatureSubtitle)}</H3>
+                <H4>{getString(authorSignatureSubtitle)}</H4>
                 <Description>{getString(authorSignatureDescription)}</Description>
             </AuthorSignatureContainer>
             <SocialInformationContainer>
-                <H3>{getString(socialInformationSubtitle)}</H3>
+                <H4>{getString(socialInformationSubtitle)}</H4>
                 <InputFieldWrapper>
                     <TextInputField id="website" label="Website" />
                 </InputFieldWrapper>
@@ -63,14 +64,16 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 </InputFieldWrapper>
             </SocialInformationContainer>
             <StoryConceptContainer>
-                <H3>{getString(storyConceptSubtitle)}</H3>
+                <H4>{getString(storyConceptSubtitle)}</H4>
                 <Description>{getString(storyConceptDescription)}</Description>
                 <InputBoxWrapper>
-                <TextInputBox placeholder="Copy and paste here" />
+                    <TextInputBox placeholder="Copy and paste here" height='clamp(10em, 4vw, 26em)'/>
                 </InputBoxWrapper>
-
             </StoryConceptContainer>
-
+            <ResourceLinksContainer>
+            <H4>{getString(resourceLinksSubtitle)}</H4>
+                <Description>{getString(resourceLinksDescription)}</Description>
+            </ResourceLinksContainer>
         </StoryInquiryFormContainer>
     )
 }

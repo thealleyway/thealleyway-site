@@ -42,15 +42,25 @@ const H2 = styled.h2`
 `;
 
 const H3 = styled.h3`
-  font-size: ${fontSizes.h3};
-  font-family: ${fonts.poppins};
-  font-weight: ${fontWeights.medium};
-  color: ${colors.BROWN};
-  letter-spacing: .1em;
+font-size: ${fontSizes.h3};
+font-family: ${fonts.swearDisplay};
+font-style: ${fontStyles.italic};
+font-weight: ${fontWeights.medium};
   @media ${min.desktop} {
     font-size: 1em;
   }
 `;
+
+ const H4 = styled.h3`
+    font-size: ${fontSizes.h3};
+   font-family: ${fonts.poppins};
+   font-weight: ${fontWeights.medium};
+   color: ${colors.BROWN};
+   letter-spacing: .1em;
+   @media ${min.desktop} {
+     font-size: 1em;
+   }
+ `;
 
 const P = styled.p`
   font-family: ${fonts.poppins};
@@ -59,4 +69,4 @@ const P = styled.p`
   line-height: 1.8em;
 `;
 
-export { H1, H2, H3, P, fontWeights, fonts };
+export { H1, H2, H3, H4, P, fontWeights, fonts };

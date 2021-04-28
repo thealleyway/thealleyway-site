@@ -31,8 +31,13 @@ const StoryConceptContainer = styled.div`
   padding-bottom: 1em;
 `;
 
+const ResourceLinksContainer = styled.div`
+  padding-bottom: 1em;
+`;
+
+
 const InputBoxWrapper = styled.div`
-  height: 3em:
+  height: 50%:
 `;
 
 const Description = styled(P)`
@@ -44,4 +49,4 @@ const InputFieldWrapper = styled.div`
   font-size: .8em;
 `;
 
-export { StoryInquiryFormContainer, SocialInformationContainer, StoryConceptContainer, InputBoxWrapper, InputFieldWrapper, AuthorInformationContainer, AuthorSignatureContainer, Description }
+export { StoryInquiryFormContainer, SocialInformationContainer, ResourceLinksContainer, StoryConceptContainer, InputBoxWrapper, InputFieldWrapper, AuthorInformationContainer, AuthorSignatureContainer, Description }
