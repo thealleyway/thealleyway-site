@@ -46,6 +46,7 @@ const H3 = styled.h3`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.medium};
   color: ${colors.BROWN};
+  letter-spacing: .1em;
   @media ${min.desktop} {
     font-size: 1em;
   }

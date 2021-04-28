@@ -8,6 +8,7 @@ import QuestionAnswer from '../question-answer/QuestionAnswer';
 import AuthorTestimony from '../author-testimony/AuthorTestimony';
 import PageDescription from '../page-description/PageDescription';
 import { SquiggleWavy } from './StoryInquiryPage.styles';
+import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 
 export default function StoryInquiryPage({ storyInquiryPageData,
@@ -46,6 +47,20 @@ export default function StoryInquiryPage({ storyInquiryPageData,
 
     } = storyInquiryPageData;
     const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
+    const storyInquiryFormData = {
+        authorInformationSubtitle,
+        authorSignatureSubtitle,
+        authorSignatureDescription,
+        socialInformationSubtitle,
+        venmoMoreInfoSubtitle,
+        venmoMoreInfoDescription,
+        storyConceptSubtitle,
+        storyConceptDescription,
+        resourceLinksSubtitle,
+        resourceLinksDescription,
+    }
+
+
 
     return (
         <>
@@ -53,16 +68,7 @@ export default function StoryInquiryPage({ storyInquiryPageData,
             <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} />
             <SquiggleWavy src={icons.SQUIGGLE_WAVY}/>
             <PageDescription description={storySubmissionDescription} arrowText={sparkArrowDescriptionText} img={storyInquiryTopImage} />
-            <H3>{getString(authorInformationSubtitle)}</H3>
-            <H3>{getString(authorSignatureSubtitle)}</H3>
-            <P>{getString(authorSignatureDescription)}</P>
-            <H3>{getString(socialInformationSubtitle)}</H3>
-            <H3>{getString(venmoMoreInfoSubtitle)}</H3>
-            <P>{getString(venmoMoreInfoDescription)}</P>
-            <H3>{getString(storyConceptSubtitle)}</H3>
-            <P>{getString(storyConceptDescription)}</P>
-            <H3>{getString(resourceLinksSubtitle)}</H3>
-            <P>{getString(resourceLinksDescription)}</P>
+            <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}/>
 
             <H2 h2Data={faqTitle} />
 
