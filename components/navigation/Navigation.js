@@ -25,7 +25,7 @@ export default function Navigation({ navigationData }) {
 
   return (
     <>
-      <NavigationWrapper id="top">
+      <NavigationWrapper>
         <PageLink href="/" passHref>
           <LogoWrapper>The Alleyway</LogoWrapper>
         </PageLink>
