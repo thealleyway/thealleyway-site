@@ -11,6 +11,7 @@ import {
   LogoWrapper,
   NavigationLinksWrapper,
   NavigationWrapper,
+  Overlay,
 } from './Navigation.styles';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
@@ -56,6 +57,7 @@ export default function Navigation({ navigationData }) {
                 />
               </HamburgerMenu>
             )}
+            <Overlay showOverlay={isHamburgerOpen} />
           </>
         ) : (
           <NavigationLinksWrapper>
