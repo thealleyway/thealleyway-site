@@ -7,10 +7,6 @@ const fonts = {
   poppins: 'poppins, sans-serif',
 };
 
-const fontSizes = {
-  h3: 'clamp(1.5em, 6vw, 2em)',
-};
-
 const fontStyles = {
   italic: 'italic',
 };
@@ -35,7 +31,6 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
-  font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
@@ -46,14 +41,13 @@ const H2 = styled.h2`
 `;
 
 const H3 = styled.h3`
-  font-size: ${fontSizes.h3};
+  font-size: clamp(1.5em, 6vw, 2em);
   font-family: ${fonts.swearDisplay};
   font-style: ${fontStyles.italic};
   font-weight: ${fontWeights.medium};
 `;
 
 const H4 = styled.h3`
-font-size: ${fontSizes.h3};
 font-family: ${fonts.poppins};
 font-weight: ${fontWeights.medium};
 color: ${colors.BROWN};
@@ -68,6 +62,16 @@ const P = styled.p`
   line-height: 1.8em;
 `;
 
+const LinkText = styled(P)`
+  color: ${colors.MAUVE};
+  font-size: 0.8em;
+  text-transform: lowercase;
+  text-align: right;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
 
 
-export { H1, H2, H3, H4, P, fontWeights, fonts };
+export { H1, H2, H3, H4, P, LinkText, fontWeights, fonts };
