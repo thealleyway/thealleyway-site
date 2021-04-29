@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { min, max } from '../../lib/responsive';
 
-const SquiggleWavy = styled.img` 
+const SquiggleWavy = styled.img`
   position: absolute;
-    width: 8.7em;
-    margin: -3em 0 0 4em;
+  width: 8.7em;
+  margin: -3em 0 0 4em;
   @media ${min.tablet} {
     width: 16em;
     margin: -9em 0 0 8em;
@@ -15,4 +15,13 @@ const SquiggleWavy = styled.img`
   }
 `;
 
-export { SquiggleWavy }
+const H1StyledContainer = styled.div`
+  @media ${min.tablet} {
+    padding-bottom: 0.5em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2.5em;
+  }
+`;
+
+export { SquiggleWavy, H1StyledContainer };
