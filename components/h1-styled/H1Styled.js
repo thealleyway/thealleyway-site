@@ -1,14 +1,13 @@
 import { getString } from '../../lib/richText';
 import { H1Container, H1Italicized, H1Regular, H1Italicized1, H1Italicized2, H1ItalicizedContainer } from './H1Styled.styles';
 
-export default function H1Styled({ regular, italicized, storyInquiry }) {
+export default function H1Styled({ regular, italicized }) {
+  let longItalicized = false;
   let firstItalicized;
   let secondItalicized;
-  if (storyInquiry) {
-    const fullItalicized = getString(italicized).trim().split(' ');
-    firstItalicized = fullItalicized[0];
-    secondItalicized = fullItalicized[1];
-  }
+  const fullItalicized = getString(italicized).trim().split(' ');
+  firstItalicized = fullItalicized[0];
+  secondItalicized = fullItalicized[1];
 
   return (
     <H1Container storyInquiry={storyInquiry}>
@@ -25,7 +24,7 @@ export default function H1Styled({ regular, italicized, storyInquiry }) {
           <H1Italicized2 >
             <i>{secondItalicized}</i>
           </H1Italicized2>
-          </H1ItalicizedContainer>}
+        </H1ItalicizedContainer>}
     </H1Container>
   );
 }
