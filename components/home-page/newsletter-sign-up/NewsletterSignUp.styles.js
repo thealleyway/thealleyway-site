@@ -50,17 +50,8 @@ export const NewsletterSignUpTextInput = styled(TextInputField)`
   margin-bottom: 20px;
 `;
 
-export const PrivacyPolicyLinkText = styled(P)`
-  color: ${colors.MAUVE};
-  font-size: 0.8em;
-  text-transform: lowercase;
-  text-align: right;
-  margin: 6px 0px;
-
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+export const PrivacyPolicyLinkText = styled.div`
+  margin: -5px 0;
 `;
 
 export const SubmitButton = styled(P).attrs({
