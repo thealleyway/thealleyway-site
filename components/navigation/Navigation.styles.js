@@ -56,9 +56,12 @@ export const NavigationLinksWrapper = styled.div`
   }
 `;
 
-export const LinkWrapper = styled(HoverAnimationButton).attrs({
-  as: 'div',
-})`
+export const LinkWrapper = styled(HoverAnimationButton)`
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1em;
   font-family: ${fonts.poppins};
   color: ${colors.BROWN};
   font-weight: ${fontWeights.normal};
@@ -67,7 +70,7 @@ export const LinkWrapper = styled(HoverAnimationButton).attrs({
 
   @media ${max.tabletLg} {
     margin-bottom: 3em;
-    width: 18em;
+    width: min(18em, 100%);
     &:hover {
       background: url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat;
       background-position: right center;
