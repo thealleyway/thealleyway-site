@@ -6,6 +6,15 @@ const TextLabel = styled(P)`
   color: ${colors.BROWN};
   display: block;
   margin: 0;
+  padding-left: ${(props) => (props.required ? 0 : `2em`)};
+`;
+
+const StarContainer = styled.div`
+  display: flex;
+`;
+
+const RedStar = styled.img`
+  padding-right: 1.3em;
 `;
 
 const TextInput = styled(P).attrs({
@@ -18,9 +27,10 @@ const TextInput = styled(P).attrs({
   width: 100%;
   border-radius: 0%;
 
+  margin-left: 2.2em;
   &:focus {
     outline: none;
   }
 `;
 
-export { TextLabel, TextInput };
+export { TextLabel, TextInput, RedStar, StarContainer };
