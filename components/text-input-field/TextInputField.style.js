@@ -16,6 +16,7 @@ const TextInput = styled(P).attrs({
   background-color: ${colors.CREME};
   border-bottom: 1px solid ${colors.BROWN};
   width: 100%;
+  border-radius: 0%;
 
   &:focus {
     outline: none;
