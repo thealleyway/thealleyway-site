@@ -7,7 +7,7 @@ import { getString } from '../../lib/richText';
 import QuestionAnswer from '../question-answer/QuestionAnswer';
 import AuthorTestimony from '../author-testimony/AuthorTestimony';
 import PageDescription from '../page-description/PageDescription';
-import { SquiggleWavy, HeaderStyling } from './StoryInquiryPage.styles';
+import { SquiggleWavy } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 
@@ -66,7 +66,7 @@ export default function StoryInquiryPage({ storyInquiryPageData,
         <>
             {/* <Navigation navigationData={navigationData} /> */}
             <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} storyInquiry={true} />
-                        {/* <SquiggleWavy src={icons.SQUIGGLE_WAVY}/> */}
+                        <SquiggleWavy src={icons.SQUIGGLE_WAVY}/>
             <PageDescription description={storySubmissionDescription} arrowText={sparkArrowDescriptionText} img={storyInquiryTopImage} />
             <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}/>
 
