@@ -4,7 +4,7 @@ import { min } from '../../lib/responsive';
 
 const H1Container = styled.div`
   white-space: nowrap;
-  font-size: clamp(0.8em, 4.5vw, 1em);
+  font-size: ${(props) => (props.storyInquiry ? `clamp(0.8em, 4.3vw, 1em)` : `clamp(0.8em, 4.5vw, 1em)`)};
   margin: ${(props) => (props.storyInquiry ? `6em 0 0em 3em` : `9.5em 0 0 3em`)};
   @media ${min.tablet} {
     margin: ${(props) => (props.storyInquiry ? `8em 0 4em 5em` : `15em 0 4em 5em`)};
