@@ -20,6 +20,7 @@ const icons = {
   SPARK_EXITING_ARCHWAY: 'assets/spark-exiting-archway.svg',
   SQUIGGLE_UNDERLINE: '/assets/squiggle-underline.svg',
   SQUIGGLE_WAVY: '/assets/squiggle-wavy.svg',
+  RED_STAR: '/assets/red-star.svg',
   UNFILLED_BACK_TO_TOP: '/assets/unfilled-back-to-top-arrow.svg',
   UNFILLED_LONG_ARROW: '/assets/unfilled-long-arrow.svg',
   UNFILLED_SPARK_WHITE_OUTLINE: '/assets/unfilled-spark-white-outline.svg',
