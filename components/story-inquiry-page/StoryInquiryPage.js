@@ -65,10 +65,8 @@ export default function StoryInquiryPage({ storyInquiryPageData,
     return (
         <>
             {/* <Navigation navigationData={navigationData} /> */}
-            {/* <HeaderStyling>
-            <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} />
-            </HeaderStyling> */}
-            {/* <SquiggleWavy src={icons.SQUIGGLE_WAVY}/> */}
+            <H1Styled regular={storySubmissionTitleRegular} italicized={storySubmissionTitleItalic} storyInquiry={true} />
+                        {/* <SquiggleWavy src={icons.SQUIGGLE_WAVY}/> */}
             <PageDescription description={storySubmissionDescription} arrowText={sparkArrowDescriptionText} img={storyInquiryTopImage} />
             <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}/>
 
