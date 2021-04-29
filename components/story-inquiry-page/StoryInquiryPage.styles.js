@@ -1,6 +1,30 @@
 import styled from 'styled-components';
 import { min, max } from '../../lib/responsive';
 
+const LongLines = styled.img`
+  position: relative;
+  width: 11.2em;
+  margin: 0 0 0 5.8em;
+`;
+
+const LongLinesFlipped = styled.img`
+position: relative;
+width: 11.2em;
+top: 27.5em;
+right: 12.1em;
+
+`;
+
+const LongLinesContainer = styled.div`
+  position: absolute;
+  margin: 24em 0 0 0;
+`;
+
+const SparkArrowContainer = styled.div`
+  position: absolute;
+  margin: 2em 0 0 10.9em;
+`;
+
 const SquiggleWavy = styled.img`
   position: absolute;
   width: 8.7em;
@@ -24,4 +48,4 @@ const H1StyledContainer = styled.div`
   }
 `;
 
-export { SquiggleWavy, H1StyledContainer };
+export { SquiggleWavy, H1StyledContainer, LongLines, LongLinesFlipped, LongLinesContainer, SparkArrowContainer };
