@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
-import { LinkText } from '../../../style/typography';
+import { InputInfoText } from '../../../style/typography';
 import TextInputField from '../../text-input-field/TextInputField';
 import {
   ContentWrapper,
@@ -47,14 +47,14 @@ export default function NewsletterSignUp({
           />
           <TextInputField id="email" label="Email" fullWidth />
           <PrivacyPolicyLinkText>
-            <LinkText
+            <InputInfoText
               onClick={() => {
                 document.body.style.overflow = 'hidden';
                 setIsPrivacyPolicyOpen(true);
               }}
             >
               {getString(privacyPolicyLinkTitle)}
-            </LinkText>
+            </InputInfoText>
           </PrivacyPolicyLinkText>
           <SubmitButton
             color={colors.WHITE}

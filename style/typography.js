@@ -62,7 +62,7 @@ const P = styled.p`
   line-height: 1.8em;
 `;
 
-const LinkText = styled(P)`
+const InputInfoText = styled(P)`
   color: ${colors.MAUVE};
   font-size: 0.8em;
   text-transform: lowercase;
@@ -73,4 +73,4 @@ const LinkText = styled(P)`
   }
 `;
 
-export { H1, H2, H3, H4, P, LinkText, fontWeights, fonts };
+export { H1, H2, H3, H4, P, InputInfoText, fontWeights, fonts };

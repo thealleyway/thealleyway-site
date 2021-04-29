@@ -51,7 +51,7 @@ export const NewsletterSignUpTextInput = styled(TextInputField)`
 `;
 
 export const PrivacyPolicyLinkText = styled.div`
-  margin: 6px 0px;
+  margin: -5px 0 -5px 0;
 `;
 
 export const SubmitButton = styled(P).attrs({
