@@ -6,15 +6,16 @@ const TextLabel = styled(P)`
   color: ${colors.BROWN};
   display: block;
   margin: 0;
-  padding-left: ${(props) => (props.required ? 0 : `2em`)};
-`;
-
-const StarContainer = styled.div`
-  display: flex;
 `;
 
 const RedStar = styled.img`
-  padding-right: 1.3em;
+  width: 2%;
+  margin-left: 0.5em;
+`;
+
+const StarLabelContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 const TextInput = styled(P).attrs({
@@ -33,4 +34,4 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-export { TextLabel, TextInput, RedStar, StarContainer };
+export { TextLabel, TextInput, RedStar, StarLabelContainer };
