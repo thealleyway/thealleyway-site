@@ -12,10 +12,13 @@ const icons = {
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
   FILLED_LINK: '/assets/filled-link-icon.svg',
   FILLED_SHORT_ARROW: '/assets/filled-short-arrow.svg',
+  HAMBURGER: '/assets/hamburger.svg',
   LONG_FILLED_SPARK_ARROW: '/assets/long-filled-spark-arrow.svg',
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
   LONG_LINES: '/assets/long-lines.svg',
   LONG_LINES_FLIPPED: '/assets/long-lines-flipped.svg',
+  LONG_UNFILLED_SPARK_ARROW_HORIZONTAL:
+    '/assets/long-unfilled-spark-horizontal.svg',
   REFINED_SQUIGGLE: '/assets/refined-squiggle.svg',
   SHORT_SQUIGGLE: '/assets/short-squiggle.svg',
   SINGLE_ARCHWAY: '/assets/single-archway.svg',

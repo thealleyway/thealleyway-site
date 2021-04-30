@@ -48,11 +48,11 @@ const H3 = styled.h3`
 `;
 
 const H4 = styled.h3`
-font-family: ${fonts.poppins};
-font-weight: ${fontWeights.medium};
-color: ${colors.BROWN};
-letter-spacing: .1em;
-font-size: 1em;
+  font-family: ${fonts.poppins};
+  font-weight: ${fontWeights.medium};
+  color: ${colors.BROWN};
+  letter-spacing: 0.1em;
+  font-size: 1em;
 `;
 
 const P = styled.p`
@@ -62,7 +62,7 @@ const P = styled.p`
   line-height: 1.8em;
 `;
 
-const LinkText = styled(P)`
+const InputInfoText = styled(P)`
   color: ${colors.MAUVE};
   font-size: 0.8em;
   text-transform: lowercase;
@@ -73,5 +73,4 @@ const LinkText = styled(P)`
   }
 `;
 
-
-export { H1, H2, H3, H4, P, LinkText, fontWeights, fonts };
+export { H1, H2, H3, H4, P, InputInfoText, fontWeights, fonts };

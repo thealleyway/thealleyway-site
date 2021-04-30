@@ -8,10 +8,9 @@ const TextLabel = styled(P)`
   margin: 0;
 `;
 
-
 const RedStar = styled.img`
   width: 2%;
-  margin-left: .5em;
+  margin-left: 0.5em;
 `;
 
 const StarLabelContainer = styled.div`
@@ -27,6 +26,7 @@ const TextInput = styled(P).attrs({
   background-color: ${colors.CREME};
   border-bottom: 1px solid ${colors.BROWN};
   width: 100%;
+  border-radius: 0%;
 
   &:focus {
     outline: none;

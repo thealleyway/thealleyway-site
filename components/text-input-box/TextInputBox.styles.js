@@ -4,7 +4,13 @@ import { fonts, fontWeights } from '../../style/typography';
 const InputBox = styled.textarea`
   background-color: ${colors.CREME};
   width: 100%;
-  height: ${(props) => props.height ? props.height : `clamp(16em, 4vw, 26em)`};
+<<<<<<< HEAD
+  height: ${(props) =>
+    props.height ? props.height : `clamp(16em, 4vw, 26em)`};
+=======
+  height: ${(props) =>
+    props.height ? props.height : `clamp(16em, 4vw, 26em)`};
+>>>>>>> master
   border: 1px solid ${colors.BROWN};
   &:focus {
     outline: none;

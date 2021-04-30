@@ -7,6 +7,7 @@ export const HomePageContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 2em;
 `;
 
 export const FeaturedStoryPreviews = styled.div`

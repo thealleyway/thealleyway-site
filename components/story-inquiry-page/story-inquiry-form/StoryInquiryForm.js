@@ -1,7 +1,7 @@
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
 import SquareButton from '../../square-button/SquareButton';
-import { H4, LinkText } from '../../../style/typography';
+import { H4, InputInfoText } from '../../../style/typography';
 import { getString } from '../../../lib/richText';
 import {
   StoryInquiryFormContainer,
@@ -60,15 +60,15 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
         <InputFieldWrapper>
           <TextInputField id="venmo" label="Venmo" />
         </InputFieldWrapper>
-        <LinkText>{getString(venmoMoreInfoSubtitle)}</LinkText>
+        <InputInfoText>{getString(venmoMoreInfoSubtitle)}</InputInfoText>
       </SocialInformationContainer>
       <StoryConceptContainer>
         <H4>{getString(storyConceptSubtitle)}</H4>
         <Description>{getString(storyConceptDescription)}</Description>
-          <TextInputBox
-            placeholder="Copy and paste here"
-            height="clamp(10em, 4vw, 26em)"
-          />
+        <TextInputBox
+          placeholder="Copy and paste here"
+          height="clamp(10em, 4vw, 26em)"
+        />
       </StoryConceptContainer>
       <ResourceLinksContainer>
         <H4>{getString(resourceLinksSubtitle)}</H4>
