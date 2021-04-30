@@ -34,11 +34,13 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
         resourceLinksDescription,
     } = storyInquiryFormData;
 
-    let sigPad = {}
     const clear = () => {
         sigPad.clear();
-      };
+    };
     const [trimmedDataUrl, trim] = useState(null);
+    const [sigPad, setSigPad] = useState({});
+    const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(null);
+    const [isStoryConceptPopup, setIsStoryConceptOpen] = useState(null);
 
     return (
         <StoryInquiryFormContainer>
@@ -58,13 +60,19 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 <H4>{getString(authorSignatureSubtitle)}</H4>
                 <Description>{getString(authorSignatureDescription)}</Description>
                 <SignatureCanvasWrapper>
-                <SignatureCanvas penColor='black'
-                    canvasProps={{width: 450, height: 60}}
-                    ref={(ref) => { sigPad = ref }}
-                     />
+                    <SignatureCanvas penColor='black'
+                        canvasProps={{ width: 450, height: 60 }}
+                        ref={(ref) => {
+                            setSigPad(ref)
+                        }}
+                    />
                 </SignatureCanvasWrapper>
                 <SquareButton buttonText="CLEAR" onClick={clear} />
-                <SquareButton buttonText="SUBMIT MY STORY" onClick={() => console.log()} />
+                <SquareButton buttonText="SUBMIT MY STORY" onClick={() => {
+                    sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
+                    console.log(trimmedDataUrl)
+                }
+                } />
             </AuthorSignatureContainer>
             <SocialInformationContainer>
                 <H4>{getString(socialInformationSubtitle)}</H4>
