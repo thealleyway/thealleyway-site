@@ -24,12 +24,8 @@ export default function AboutPage({
   const {
     about_page_title: aboutPageTitle,
     about_page_description: aboutPageDescription,
-    camaryn_image: camarynImage,
     camaryn_title: camarynTitle,
     camaryn_text: camarynText,
-    the_alleyway_image: theAlleywayImage,
-    the_alleyway_text: theAlleywayText,
-    the_alleyway_title: theAlleywayTitle,
     the_alleyway_names_title: theAlleywayNamesTitle,
     the_alleyway_names_meaning: theAlleywayNamesMeaning,
     our_mission_title: ourMissionTitle,
@@ -61,15 +57,11 @@ export default function AboutPage({
       <H1>{getString(aboutPageTitle)}</H1>
       <P>{getString(aboutPageDescription)}</P>
       <H2>{getString(camarynTitle)}</H2>
-      <img src={camarynImage.url} alt={camarynImage.alt} />
       <P>{getString(camarynText)}</P>
       <H3>{getString(camarynsResourcesTitle)}</H3>
       <P>{getString(camarynsResourcesDescription)}</P>
       <H3>{getString(moreResourcesTitle)}</H3>
       <P>{getString(topQuote)}</P>
-      <H2>{getString(theAlleywayTitle)}</H2>
-      <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
-      <P>{getString(theAlleywayText)}</P>
       <H3>{getString(ourMissionTitle)}</H3>
       <P>{getString(ourMissionDescription)}</P>
       <H2>{getString(valuesTitle)}</H2>

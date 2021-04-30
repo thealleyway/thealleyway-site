@@ -36,5 +36,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/no-null': 'off',
   },
 };

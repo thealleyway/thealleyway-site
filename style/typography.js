@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 import { min } from '../lib/responsive';
 import { colors } from './colors';
+
 const fonts = {
   swearDisplay: 'swear-display, serif',
   poppins: 'poppins, sans-serif',
-};
-
-const fontSizes = {
-  h2: 'clamp(3em, 2vw, 5em)',
-  h3: 'clamp(1.5em, 6vw, 2em)',
 };
 
 const fontStyles = {
@@ -35,17 +31,28 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
-  font-size: ${fontSizes.h2};
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
+  font-size: 2em;
+  @media ${min.tablet} {
+    font-size: 2.6em;
+  }
 `;
 
 const H3 = styled.h3`
-  font-size: ${fontSizes.h3};
+  font-size: clamp(1.5em, 6vw, 2em);
   font-family: ${fonts.swearDisplay};
   font-style: ${fontStyles.italic};
   font-weight: ${fontWeights.medium};
+`;
+
+const H4 = styled.h3`
+  font-family: ${fonts.poppins};
+  font-weight: ${fontWeights.medium};
+  color: ${colors.BROWN};
+  letter-spacing: 0.1em;
+  font-size: 1em;
 `;
 
 const P = styled.p`
@@ -55,4 +62,15 @@ const P = styled.p`
   line-height: 1.8em;
 `;
 
-export { H1, H2, H3, P, fontWeights, fonts };
+const InputInfoText = styled(P)`
+  color: ${colors.MAUVE};
+  font-size: 0.8em;
+  text-transform: lowercase;
+  text-align: right;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
+export { H1, H2, H3, H4, P, InputInfoText, fontWeights, fonts };
