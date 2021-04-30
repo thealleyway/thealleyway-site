@@ -14,8 +14,10 @@ import {
     ResourceLinksContainer,
     InfoTextWrapper,
     StoryConceptInfoTextWrapper,
+    SignatureCanvasWrapper,
 } from './StoryInquiryForm.styles';
-
+import SignatureCanvas from 'react-signature-canvas';
+import { colors } from '../../../style/colors';
 export default function StoryInquiryForm({ storyInquiryFormData }) {
     const {
         authorInformationSubtitle,
@@ -48,6 +50,11 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
             <AuthorSignatureContainer>
                 <H4>{getString(authorSignatureSubtitle)}</H4>
                 <Description>{getString(authorSignatureDescription)}</Description>
+                <SignatureCanvasWrapper>
+                <SignatureCanvas penColor='black'
+                    canvasProps={{width: 450, height: 60}} />
+                </SignatureCanvasWrapper>
+ 
             </AuthorSignatureContainer>
             <SocialInformationContainer>
                 <H4>{getString(socialInformationSubtitle)}</H4>

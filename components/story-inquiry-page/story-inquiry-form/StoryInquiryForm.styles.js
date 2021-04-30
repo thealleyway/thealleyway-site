@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
 import { H4, P } from '../../../style/typography';
+import {colors } from '../../../style/colors';
 
 const StoryInquiryFormContainer = styled.div`
   padding-top: 6em;
@@ -14,7 +15,6 @@ const StoryInquiryFormContainer = styled.div`
     width: 72%;
   }
 `;
-
 
 const InfoTextWrapper = styled.div`
   margin: -1.4em 0;
@@ -53,6 +53,11 @@ const InputFieldWrapper = styled.div`
   font-size: 0.8em;
 `;
 
+const SignatureCanvasWrapper = styled.div`
+  background-color: white;
+  border: 1px solid ${colors.BROWN};
+`;
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -64,4 +69,5 @@ export {
   Description,
   InfoTextWrapper,
   StoryConceptInfoTextWrapper,
+  SignatureCanvasWrapper,
 };
