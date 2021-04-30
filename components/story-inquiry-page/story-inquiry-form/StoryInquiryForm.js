@@ -19,13 +19,14 @@ import {
     StarLabelContainer,
     RedStar,
     TextLabel,
+    SquareButtonWrapper,
 
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
 import { icons } from '../../../style/icons';
-import { calendarFormat } from 'moment';
+
 export default function StoryInquiryForm({ storyInquiryFormData }) {
     const {
         authorInformationSubtitle,
@@ -128,9 +129,11 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 <H4>{getString(resourceLinksSubtitle)}</H4>
                 <Description>{getString(resourceLinksDescription)}</Description>
             </ResourceLinksContainer>
-            <SquareButton buttonText="SUBMIT MY STORY" onClick={() => {
-                sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
-            }} />
+            <SquareButtonWrapper>
+                <SquareButton buttonText="SUBMIT MY STORY" long={true} onClick={() => {
+                    sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
+                }} />
+            </SquareButtonWrapper>
         </StoryInquiryFormContainer>
     );
 }

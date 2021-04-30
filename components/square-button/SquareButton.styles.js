@@ -8,14 +8,18 @@ const Button = styled.button`
   background-color: ${colors.OLIVE};
   color: ${colors.WHITE};
   border: none;
-  width: 10em;
+  width: ${(props) =>
+    props.long ? `13em` : `10em`};
   height: 4em;
   @media ${min.tablet} {
-    width: 13em;
+    width: ${(props) =>
+    props.long ? `16em` : `13em`};
   }
   @media ${min.desktop} {
-    width: 9.5em;
-    height: 3.8em;
+    width: ${(props) =>
+    props.long ? `18em` : `9.5em`};
+      height: ${(props) =>
+    props.long ? `3.4em` : `3.8em`};
   }
 `;
 

@@ -79,6 +79,9 @@ const StarLabelContainer = styled.div`
   margin: 0 0 .3em 0;
 `;
 
+const SquareButtonWrapper = styled.div`
+  float: right;
+`;
 
 export {
   StoryInquiryFormContainer,
@@ -96,5 +99,6 @@ export {
   StarLabelContainer,
   RedStar,
   TextLabel,
+  SquareButtonWrapper,
 
 };
