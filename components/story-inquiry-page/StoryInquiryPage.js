@@ -13,6 +13,8 @@ import {
   LongLinesFlipped,
   LongLinesContainer,
   SparkArrowContainer,
+  SideImageContainer,
+  SideImage,
 } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
@@ -89,6 +91,11 @@ export default function StoryInquiryPage({
       <SparkArrowContainer>
         <LongSparkArrow arrowText={sparkArrowFaqText} />
       </SparkArrowContainer>
+      <SideImageContainer>
+        <SideImage src={storyInquirySideImage1.url} alt={storyInquirySideImage1.alt} />
+        <SideImage src={storyInquirySideImage2.url} alt={storyInquirySideImage2.alt} />
+        <SideImage src={storyInquirySideImage3.url} alt={storyInquirySideImage3.alt} />
+      </SideImageContainer>
       <LongLinesContainer>
         <LongLines
           src={icons.LONG_LINES}

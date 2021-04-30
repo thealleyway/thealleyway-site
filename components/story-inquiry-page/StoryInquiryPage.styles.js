@@ -48,4 +48,28 @@ const H1StyledContainer = styled.div`
   }
 `;
 
-export { SquiggleWavy, H1StyledContainer, LongLines, LongLinesFlipped, LongLinesContainer, SparkArrowContainer };
+const SideImageContainer = styled.div`
+position: absolute;
+right: 0;
+opacity: 10%;
+margin-top: 10em;
+display: flex; 
+flex-direction: column;
+`;
+
+const SideImage = styled.img`
+  width: 16em;
+  height: 32em;
+  object-fit: cover;
+  margin-bottom: 15em;
+`;
+
+export { SquiggleWavy, 
+  H1StyledContainer, 
+  LongLines, 
+  LongLinesFlipped,
+   LongLinesContainer, 
+   SparkArrowContainer,
+   SideImage,
+   SideImageContainer,
+  };

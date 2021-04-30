@@ -15,10 +15,17 @@ import {
     InfoTextWrapper,
     StoryConceptInfoTextWrapper,
     SignatureCanvasWrapper,
+    ClearSignatureWrapper,
+    StarLabelContainer,
+    RedStar,
+    TextLabel,
+
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
-import { colors } from '../../../style/colors';
+import ArchModal from '../../arch-modal/ArchModal';
+import { icons } from '../../../style/icons';
+import { calendarFormat } from 'moment';
 export default function StoryInquiryForm({ storyInquiryFormData }) {
     const {
         authorInformationSubtitle,
@@ -39,7 +46,7 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
     };
     const [trimmedDataUrl, trim] = useState(null);
     const [sigPad, setSigPad] = useState({});
-    const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(null);
+    const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
     const [isStoryConceptPopup, setIsStoryConceptOpen] = useState(null);
 
     return (
@@ -59,20 +66,23 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
             <AuthorSignatureContainer>
                 <H4>{getString(authorSignatureSubtitle)}</H4>
                 <Description>{getString(authorSignatureDescription)}</Description>
+                <StarLabelContainer>
+                    <TextLabel >
+                        Signature
+                    </TextLabel>
+                    <RedStar src={icons.RED_STAR} />
+                </StarLabelContainer>
                 <SignatureCanvasWrapper>
                     <SignatureCanvas penColor='black'
                         canvasProps={{ width: 450, height: 60 }}
-                        ref={(ref) => {
-                            setSigPad(ref)
-                        }}
+                        ref={(ref) => setSigPad(ref)}
+                        minWidth={1.5}
+                        maxWidth={1.5}
                     />
                 </SignatureCanvasWrapper>
-                <SquareButton buttonText="CLEAR" onClick={clear} />
-                <SquareButton buttonText="SUBMIT MY STORY" onClick={() => {
-                    sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
-                    console.log(trimmedDataUrl)
-                }
-                } />
+                <ClearSignatureWrapper>
+                    <InputInfoText onClick={clear}>Reset</InputInfoText>
+                </ClearSignatureWrapper>
             </AuthorSignatureContainer>
             <SocialInformationContainer>
                 <H4>{getString(socialInformationSubtitle)}</H4>
@@ -89,8 +99,17 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                     <TextInputField id="venmo" label="Venmo" />
                 </InputFieldWrapper>
                 <InfoTextWrapper>
-                    <InputInfoText>{getString(venmoMoreInfoSubtitle)}</InputInfoText>
+                    <InputInfoText onClick={() => {
+                        document.body.style.overflow = 'hidden';
+                        setIsVenmoPolicyOpen(true);
+                    }}>{getString(venmoMoreInfoSubtitle)}</InputInfoText>
                 </InfoTextWrapper>
+                {isVenmoPolicyOpen &&
+                    <ArchModal text={venmoMoreInfoDescription} onClose={() => {
+                        document.body.style.overflow = 'visible';
+                        setIsVenmoPolicyOpen(false);
+                    }} />
+                }
             </SocialInformationContainer>
             <StoryConceptContainer>
                 <H4>{getString(storyConceptSubtitle)}</H4>
@@ -109,6 +128,9 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 <H4>{getString(resourceLinksSubtitle)}</H4>
                 <Description>{getString(resourceLinksDescription)}</Description>
             </ResourceLinksContainer>
+            <SquareButton buttonText="SUBMIT MY STORY" onClick={() => {
+                sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
+            }} />
         </StoryInquiryFormContainer>
     );
 }

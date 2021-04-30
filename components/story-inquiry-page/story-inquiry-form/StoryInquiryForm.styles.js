@@ -16,6 +16,10 @@ const StoryInquiryFormContainer = styled.div`
   }
 `;
 
+const ClearSignatureWrapper = styled.div`
+  margin: -.5em 0;
+`;
+
 const InfoTextWrapper = styled.div`
   margin: -1.4em 0;
 `;
@@ -58,6 +62,24 @@ const SignatureCanvasWrapper = styled.div`
   border: 1px solid ${colors.BROWN};
 `;
 
+const TextLabel = styled(P)`
+  color: ${colors.BROWN};
+  display: block;
+  margin: 0;
+`;
+
+const RedStar = styled.img`
+  width: 2%;
+  margin-left: 0.5em;
+`;
+
+const StarLabelContainer = styled.div`
+  display: flex;
+  font-size: 0.8em;
+  margin: 0 0 .3em 0;
+`;
+
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -70,4 +92,9 @@ export {
   InfoTextWrapper,
   StoryConceptInfoTextWrapper,
   SignatureCanvasWrapper,
+  ClearSignatureWrapper,
+  StarLabelContainer,
+  RedStar,
+  TextLabel,
+
 };
