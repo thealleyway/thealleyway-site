@@ -15,7 +15,6 @@ const RedStar = styled.img`
 
 const StarLabelContainer = styled.div`
   display: flex;
-  flex-direction: row;
 `;
 
 const TextInput = styled(P).attrs({

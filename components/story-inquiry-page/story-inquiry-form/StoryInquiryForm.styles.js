@@ -15,6 +15,15 @@ const StoryInquiryFormContainer = styled.div`
   }
 `;
 
+
+const InfoTextWrapper = styled.div`
+  margin: -1.4em 0;
+`;
+
+const StoryConceptInfoTextWrapper = styled.div`
+  margin: -.5em 0;
+`;
+
 const AuthorInformationContainer = styled.div`
   padding-bottom: 1em;
 `;
@@ -53,4 +62,6 @@ export {
   AuthorInformationContainer,
   AuthorSignatureContainer,
   Description,
+  InfoTextWrapper,
+  StoryConceptInfoTextWrapper,
 };

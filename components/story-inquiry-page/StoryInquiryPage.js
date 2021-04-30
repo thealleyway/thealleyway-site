@@ -39,6 +39,7 @@ export default function StoryInquiryPage({
     venmo_more_info_description: venmoMoreInfoDescription,
     story_concept_subtitle: storyConceptSubtitle,
     story_concept_description: storyConceptDescription,
+    story_concept_box_subtitle: storyConceptBoxSubtitle,
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
@@ -63,6 +64,7 @@ export default function StoryInquiryPage({
     venmoMoreInfoDescription,
     storyConceptSubtitle,
     storyConceptDescription,
+    storyConceptBoxSubtitle,
     resourceLinksSubtitle,
     resourceLinksDescription,
   };
