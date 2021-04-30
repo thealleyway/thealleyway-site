@@ -10,7 +10,7 @@ const StoryInquiryFormContainer = styled.div`
   }
   @media ${min.desktop} {
     padding-top: 4em;
-    padding-left: 27.3em;
+    padding-left: 29em;
     width: 72%;
   }
 `;
@@ -35,17 +35,8 @@ const ResourceLinksContainer = styled.div`
   padding-bottom: 1em;
 `;
 
-const InputBoxWrapper = styled.div`
-  margin-left: 1.6em;
-`;
-
 const Description = styled(P)`
   width: 80%;
-  margin-left: 1.6em;
-`;
-
-const Subtitle = styled(H4)`
-  margin-left: 1.6em;
 `;
 
 const InputFieldWrapper = styled.div`
@@ -55,11 +46,9 @@ const InputFieldWrapper = styled.div`
 
 export {
   StoryInquiryFormContainer,
-  Subtitle,
   SocialInformationContainer,
   ResourceLinksContainer,
   StoryConceptContainer,
-  InputBoxWrapper,
   InputFieldWrapper,
   AuthorInformationContainer,
   AuthorSignatureContainer,

@@ -3,7 +3,7 @@ import {
   TextInput,
   TextLabel,
   RedStar,
-  StarContainer,
+  StarLabelContainer,
 } from './TextInputField.style';
 import { icons } from '../../style/icons';
 
@@ -16,12 +16,12 @@ export default function TextInputField({
 }) {
   return (
     <>
-      <StarContainer>
-        {required && <RedStar src={icons.RED_STAR} />}
+      <StarLabelContainer>
         <TextLabel htmlFor={id} required={required}>
           {label}
         </TextLabel>
-      </StarContainer>
+        {required && <RedStar src={icons.RED_STAR} />}
+      </StarLabelContainer>
       <TextInput
         type="text"
         name={id}
