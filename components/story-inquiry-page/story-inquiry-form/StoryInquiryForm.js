@@ -17,6 +17,7 @@ import {
     SignatureCanvasWrapper,
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
+import React, { useState } from 'react';
 import { colors } from '../../../style/colors';
 export default function StoryInquiryForm({ storyInquiryFormData }) {
     const {
@@ -32,6 +33,12 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
         resourceLinksSubtitle,
         resourceLinksDescription,
     } = storyInquiryFormData;
+
+    let sigPad = {}
+    const clear = () => {
+        sigPad.clear();
+      };
+    const [trimmedDataUrl, trim] = useState(null);
 
     return (
         <StoryInquiryFormContainer>
@@ -52,9 +59,12 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 <Description>{getString(authorSignatureDescription)}</Description>
                 <SignatureCanvasWrapper>
                 <SignatureCanvas penColor='black'
-                    canvasProps={{width: 450, height: 60}} />
+                    canvasProps={{width: 450, height: 60}}
+                    ref={(ref) => { sigPad = ref }}
+                     />
                 </SignatureCanvasWrapper>
- 
+                <SquareButton buttonText="CLEAR" onClick={clear} />
+                <SquareButton buttonText="SUBMIT MY STORY" onClick={() => console.log()} />
             </AuthorSignatureContainer>
             <SocialInformationContainer>
                 <H4>{getString(socialInformationSubtitle)}</H4>
