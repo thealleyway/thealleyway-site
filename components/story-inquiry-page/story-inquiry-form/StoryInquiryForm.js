@@ -26,8 +26,9 @@ import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
 import { icons } from '../../../style/icons';
+import StoryConceptPopup from '../story-concept-popup/StoryConceptPopup';
 
-export default function StoryInquiryForm({ storyInquiryFormData }) {
+export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPopupData }) {
     const {
         authorInformationSubtitle,
         authorSignatureSubtitle,
@@ -124,6 +125,7 @@ export default function StoryInquiryForm({ storyInquiryFormData }) {
                 <StoryConceptInfoTextWrapper>
                     <InputInfoText>{getString(storyConceptBoxSubtitle)}</InputInfoText>
                 </StoryConceptInfoTextWrapper>
+                <StoryConceptPopup storyConceptPopupData={storyConceptPopupData} />
             </StoryConceptContainer>
             <ResourceLinksContainer>
                 <H4>{getString(resourceLinksSubtitle)}</H4>

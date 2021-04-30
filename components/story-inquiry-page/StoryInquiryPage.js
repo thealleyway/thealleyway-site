@@ -42,6 +42,9 @@ export default function StoryInquiryPage({
     story_concept_subtitle: storyConceptSubtitle,
     story_concept_description: storyConceptDescription,
     story_concept_box_subtitle: storyConceptBoxSubtitle,
+    story_concept_popup_title: storyConceptPopupTitle, 
+    story_concept_popup_description: storyConceptPopupDescription,
+    story_concept_popup_image: storyConceptPopupImage,
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
@@ -56,7 +59,9 @@ export default function StoryInquiryPage({
     story_inquiry_side_image_2: storyInquirySideImage2,
     story_inquiry_side_image_3: storyInquirySideImage3,
   } = storyInquiryPageData;
+
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
+
   const storyInquiryFormData = {
     authorInformationSubtitle,
     authorSignatureSubtitle,
@@ -69,6 +74,12 @@ export default function StoryInquiryPage({
     storyConceptBoxSubtitle,
     resourceLinksSubtitle,
     resourceLinksDescription,
+  };
+
+  const storyConceptPopupData = {
+    story_concept_popup_title: storyConceptPopupTitle, 
+    story_concept_popup_description: storyConceptPopupDescription,
+    story_concept_popup_image: storyConceptPopupImage,
   };
 
   return (
@@ -106,7 +117,7 @@ export default function StoryInquiryPage({
           alt="long lines with spark at the end flipped"
         />
       </LongLinesContainer>
-      <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} />
+      <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} storyConceptPopupData={storyConceptPopupData} />
       <H2>{getString(faqTitle)}</H2>
       {questionsAndAnswers.map((item) => {
         return <QuestionAnswer key={item.id} questionAnswerData={item} />;
