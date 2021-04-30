@@ -16,10 +16,10 @@ export default function ContactForm({ togglePopup }) {
           <TextInputField id="firstName" label="First Name" required={true} />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField id="lastName" label="Last Name" required={true} />
+          <TextInputField id="lastName" label="Last Name" />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField id="email" label="Email" />
+          <TextInputField id="email" label="Email" required={true} />
         </InputFieldWrapper>
         <InputBoxWrapper>
           <TextInputBox placeholder="Message" />
