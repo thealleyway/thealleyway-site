@@ -18,7 +18,7 @@ export default function BackToStartVerticalButton() {
     <Button
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      href="#top"
+      onClick={() => window.scrollTo(0, 0)}
     >
       <ButtonImage
         src={
