@@ -1,15 +1,15 @@
-import { H4, P } from '../../style/typography';
-import { getString } from '../../lib/richText';
-import { Question } from './QuestionAnswer.styles';
+import { H4, P } from '../../../../style/typography';
+import { getString } from '../../../../lib/richText';
+import { QuestionStyled } from './Question.styles';
 import React, { useState } from 'react';
 
-export default function QuestionAnswer({ questionAnswerData, setCurrIndex, currIndex, index }) {
+export default function Question({ questionAnswerData, setCurrIndex, currIndex, index }) {
   const { question, answer } = questionAnswerData;
   const [hover, setHover] = useState(false);
   const isSelected = index == currIndex;
   return (
     <>
-      <Question onMouseEnter={() => {
+      <QuestionStyled onMouseEnter={() => {
         setHover(true);
       }}
         onMouseLeave={() => setHover(false)}
@@ -19,8 +19,8 @@ export default function QuestionAnswer({ questionAnswerData, setCurrIndex, currI
         }}
         isSelected={isSelected}
         hover={isSelected ? false : hover}
-      >{getString(question)}</Question>
-      {isSelected && <P>{getString(answer)}</P>}
+      >{getString(question)}</QuestionStyled>
+      {/* {isSelected && <P>{getString(answer)}</P>} */}
     </>
   );
 }
