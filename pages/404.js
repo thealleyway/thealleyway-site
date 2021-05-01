@@ -1,30 +1,22 @@
-import Link from 'next/link';
-import { get404 } from '../lib/api';
-import { H1, P } from '../style/typography';
-import { getString } from '../lib/richText';
+import { get404, getNavigation } from '../lib/api';
+import FourOhFourPage from '../components/four-oh-four-page/FourOhFourPage';
 
-export default function FourOhFour(errorPageData) {
-  const {
-    error_page_title: errorPageTitle,
-    error_text: errorText,
-  } = errorPageData.errorPageData;
-
+export default function FourOhFour({ navigationData, errorPageData }) {
   return (
-    <>
-      <H1>{getString(errorPageTitle)}</H1>
-      <P>{getString(errorText)}</P>
-      <Link href="/">
-        <P>Click here to redirect to home page!</P>
-      </Link>
-    </>
+    <FourOhFourPage
+      navigationData={navigationData}
+      errorPageData={errorPageData}
+    />
   );
 }
 
 export async function getStaticProps() {
   const errorPageData = await get404();
+  const navigationData = await getNavigation();
 
   return {
     props: {
+      navigationData,
       errorPageData,
     },
   };
