@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { P } from '../../style/typography';
+import { P, fontWeights } from '../../style/typography';
 import { colors } from '../../style/colors';
 
 const TextLabel = styled(P)`
@@ -7,6 +7,13 @@ const TextLabel = styled(P)`
   display: block;
   margin: 0;
 `;
+
+const ErrorText = styled(P)`
+  color: red;
+  font-size: 0.7em;
+  margin: .5em 0 -1em 0;
+
+`
 
 const RedStar = styled.img`
   width: 2%;
@@ -24,7 +31,8 @@ const TextInput = styled(P).attrs({
   display: block;
   border: none;
   background-color: ${colors.CREME};
-  border-bottom: 1px solid ${colors.BROWN};
+  //border-bottom: 1px solid ${colors.BROWN};
+  border-bottom: ${(props) => props.showError ? `1px solid red` : `1px solid ${colors.BROWN}`}
   width: 100%;
   border-radius: 0%;
   &:focus {
@@ -32,4 +40,4 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-export { TextLabel, TextInput, RedStar, StarLabelContainer };
+export { TextLabel, TextInput, RedStar, StarLabelContainer, ErrorText };
