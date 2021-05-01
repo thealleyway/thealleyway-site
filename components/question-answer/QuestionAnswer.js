@@ -6,22 +6,21 @@ import React, { useState } from 'react';
 export default function QuestionAnswer({ questionAnswerData, setCurrIndex, currIndex, index }) {
   const { question, answer } = questionAnswerData;
   const [hover, setHover] = useState(false);
-  const [clicked, setClicked] = useState(false);
-  const [bold, setBold] = useState(false);
+  const isSelected = index == currIndex;
   return (
     <>
       <Question onMouseEnter={() => {
         setHover(true);
       }}
         onMouseLeave={() => setHover(false)}
-        clicked={clicked}
         hover={hover}
         onClick={() => {
           setCurrIndex(index);
         }}
-        isSelected={index == currIndex}
+        isSelected={isSelected}
+        hover={isSelected ? false : hover}
       >{getString(question)}</Question>
-      <P>{getString(answer)}</P>
+      {isSelected && <P>{getString(answer)}</P>}
     </>
   );
 }
