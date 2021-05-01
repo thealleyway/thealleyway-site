@@ -5,7 +5,7 @@ import { colors } from '../../../style/colors';
 import {H4, fontWeights} from '../../../style/typography';
 
 const FaqContainer = styled.div`
-    margin: 8em 0 0 15em;
+    margin: 8em 0 0 16.5em;
 `;
 
 const QuestionAnswerContainer = styled.div`
@@ -17,7 +17,7 @@ const QuestionContainer = styled.div`
 `;
 
 const AnswerContainer = styled.div`
-    width: 40%;
+    width: 38%;
     margin: 0 5em 0 4em;
 `;
 

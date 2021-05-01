@@ -22,7 +22,7 @@ const LongLinesContainer = styled.div`
 
 const SparkArrowContainer = styled.div`
   position: absolute;
-  margin: 2em 0 0 10.9em;
+  margin: ${(props) => props.bottom ? `-24.5em 0 0 10.9em` : `2em 0 0 10.9em`};
 `;
 
 const SquiggleWavy = styled.img`

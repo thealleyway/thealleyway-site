@@ -40,7 +40,7 @@ export default function StoryInquiryPage({
     story_concept_subtitle: storyConceptSubtitle,
     story_concept_description: storyConceptDescription,
     story_concept_box_subtitle: storyConceptBoxSubtitle,
-    story_concept_popup_title: storyConceptPopupTitle, 
+    story_concept_popup_title: storyConceptPopupTitle,
     story_concept_popup_description: storyConceptPopupDescription,
     story_concept_popup_image: storyConceptPopupImage,
     resource_links_subtitle: resourceLinksSubtitle,
@@ -59,7 +59,7 @@ export default function StoryInquiryPage({
   } = storyInquiryPageData;
 
   const storyConceptFaqData = {
-    faqTitle, 
+    faqTitle,
     questionsAndAnswers
   };
 
@@ -80,7 +80,7 @@ export default function StoryInquiryPage({
   };
 
   const storyConceptPopupData = {
-    storyConceptPopupTitle, 
+    storyConceptPopupTitle,
     storyConceptPopupDescription,
     storyConceptPopupImage,
   };
@@ -122,18 +122,18 @@ export default function StoryInquiryPage({
       </LongLinesContainer>
       <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} storyConceptPopupData={storyConceptPopupData} />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
-      {/* <H2>{getString(faqTitle)}</H2>
-      {questionsAndAnswers.map((item) => {
-        return <QuestionAnswer key={item.id} questionAnswerData={item} />;
-      })}
-      {authorTestimonies.map((item) => {
+      <SparkArrowContainer bottom={true}>
+        <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
+      </SparkArrowContainer>
+
+      {/* {authorTestimonies.map((item) => {
         return (
           <AuthorTestimony
             key={item.author_info.id}
             authorTestimonyData={item}
           />
         );
-      })} */}
+      })}  */}
 
       {/* <StorySubmissionConfirmation
         title={storySubmissionConfirmationTitle}
