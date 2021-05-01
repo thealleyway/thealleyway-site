@@ -8,6 +8,16 @@ const TextLabel = styled(P)`
   margin: 0;
 `;
 
+const RedStar = styled.img`
+  width: 2%;
+  margin-left: 0.5em;
+`;
+
+const StarLabelContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const TextInput = styled(P).attrs({
   as: 'input',
 })`
@@ -17,10 +27,9 @@ const TextInput = styled(P).attrs({
   border-bottom: 1px solid ${colors.BROWN};
   width: 100%;
   border-radius: 0%;
-
   &:focus {
     outline: none;
   }
 `;
 
-export { TextLabel, TextInput };
+export { TextLabel, TextInput, RedStar, StarLabelContainer };
