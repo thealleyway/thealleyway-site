@@ -1,10 +1,8 @@
-import { H1, H2, H3, P } from '../../style/typography';
 import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
 import H1Styled from '../h1-styled/H1Styled';
 import { getString } from '../../lib/richText';
-import QuestionAnswer from '../question-answer/QuestionAnswer';
-import AuthorTestimony from '../author-testimony/AuthorTestimony';
+import StoryConceptFaq from './story-concept-faq/StoryConceptFaq';
 import PageDescription from '../page-description/PageDescription';
 import {
   SquiggleWavy,
@@ -60,6 +58,11 @@ export default function StoryInquiryPage({
     story_inquiry_side_image_3: storyInquirySideImage3,
   } = storyInquiryPageData;
 
+  const storyConceptFaqData = {
+    faqTitle, 
+    questionsAndAnswers
+  };
+
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
 
   const storyInquiryFormData = {
@@ -77,9 +80,9 @@ export default function StoryInquiryPage({
   };
 
   const storyConceptPopupData = {
-    story_concept_popup_title: storyConceptPopupTitle, 
-    story_concept_popup_description: storyConceptPopupDescription,
-    story_concept_popup_image: storyConceptPopupImage,
+    storyConceptPopupTitle, 
+    storyConceptPopupDescription,
+    storyConceptPopupImage,
   };
 
   return (
@@ -118,6 +121,7 @@ export default function StoryInquiryPage({
         />
       </LongLinesContainer>
       <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} storyConceptPopupData={storyConceptPopupData} />
+      <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       {/* <H2>{getString(faqTitle)}</H2>
       {questionsAndAnswers.map((item) => {
         return <QuestionAnswer key={item.id} questionAnswerData={item} />;
