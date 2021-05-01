@@ -49,7 +49,7 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
     const [trimmedDataUrl, trim] = useState(null);
     const [sigPad, setSigPad] = useState({});
     const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
-    const [isStoryConceptPopup, setIsStoryConceptOpen] = useState(null);
+    const [isStoryConceptPopup, setIsStoryConceptPopupOpen] = useState(false);
 
     return (
         <StoryInquiryFormContainer>
@@ -123,13 +123,25 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
                     required={true}
                 />
                 <StoryConceptInfoTextWrapper>
-                    <InputInfoText>{getString(storyConceptBoxSubtitle)}</InputInfoText>
+                    <InputInfoText onClick={() => {
+                        document.body.style.overflow = 'hidden';
+                        setIsStoryConceptPopupOpen(true);
+                    }}>{getString(storyConceptBoxSubtitle)}</InputInfoText>
                 </StoryConceptInfoTextWrapper>
-                <StoryConceptPopup storyConceptPopupData={storyConceptPopupData} />
+                {isStoryConceptPopup && <StoryConceptPopup storyConceptPopupData={storyConceptPopupData} setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen} />}
             </StoryConceptContainer>
             <ResourceLinksContainer>
                 <H4>{getString(resourceLinksSubtitle)}</H4>
                 <Description>{getString(resourceLinksDescription)}</Description>
+                <InputFieldWrapper>
+                    <TextInputField id="petition link" label="Petition link" />
+                </InputFieldWrapper>
+                <InputFieldWrapper>
+                    <TextInputField id="donation page link" label="Donate page link" />
+                </InputFieldWrapper>
+                <InputFieldWrapper>
+                    <TextInputField id="further education link" label="Further education link" />
+                </InputFieldWrapper>
             </ResourceLinksContainer>
             <SquareButtonWrapper>
                 <SquareButton buttonText="SUBMIT MY STORY" long={true} onClick={() => {

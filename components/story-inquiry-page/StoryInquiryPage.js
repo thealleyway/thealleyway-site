@@ -118,7 +118,7 @@ export default function StoryInquiryPage({
         />
       </LongLinesContainer>
       <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} storyConceptPopupData={storyConceptPopupData} />
-      <H2>{getString(faqTitle)}</H2>
+      {/* <H2>{getString(faqTitle)}</H2>
       {questionsAndAnswers.map((item) => {
         return <QuestionAnswer key={item.id} questionAnswerData={item} />;
       })}
@@ -129,14 +129,14 @@ export default function StoryInquiryPage({
             authorTestimonyData={item}
           />
         );
-      })}
+      })} */}
 
       {/* <StorySubmissionConfirmation
         title={storySubmissionConfirmationTitle}
         description={storySubmissionConfirmationDescription}
       /> */}
-      <P>{getString(sparkArrowFaqText)}</P>
-      <P>{getString(sparkArrowAuthorTestimoniesText)}</P>
+      {/* <P>{getString(sparkArrowFaqText)}</P>
+      <P>{getString(sparkArrowAuthorTestimoniesText)}</P> */}
       <Footer footerData={footerData} footerBoxLinkData={boxLinkFooter} />
     </>
   );

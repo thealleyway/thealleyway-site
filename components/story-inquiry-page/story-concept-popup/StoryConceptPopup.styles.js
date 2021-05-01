@@ -12,6 +12,27 @@ const TextContentWrapper = styled.div`
     margin: 2.1em 0 0 1.3em;
 `;
 
+const PopupImage = styled.img`
+opacity: 10%;
+object-fit: cover;
+position: absolute;
+top: 0;
+right: 0;
+width: 100%;
+height: 100%;
+`;
+
+const CloseIcon = styled.img`
+  position: absolute;
+  border: none;
+  top: 1em;
+  right: 1em;
+  width: clamp(1.3em, 7vw, 1.6em);
+  @media ${min.desktop} {
+    width: 1.3em;
+  }
+`;
+
 const PopupBox = styled.div`
   border: none;
   position: fixed;
@@ -59,5 +80,7 @@ export {
     PopupBox,
     Box,
     PopupTitle,
-    TextContentWrapper
+    TextContentWrapper,
+    PopupImage,
+    CloseIcon,
 }
