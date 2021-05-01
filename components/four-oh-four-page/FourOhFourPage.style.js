@@ -41,7 +41,7 @@ const ContentWrapper = styled.div`
     flex-direction: column;
     width: 80%;
     padding-top: 0;
-    margin-top: 3.25em;
+    margin-top: 8em;
   }
 `;
 const TextWrapper = styled.div`
@@ -80,8 +80,6 @@ const ErrorTitleText = styled(H2)`
 const ErrorText = styled(P)`
   margin-top: clamp(1em, 2vw, 2em);
   width: 100%;
-  line-height: 1.6em;
-  z-index: 100;
 
   @media ${max.tabletLg} {
     width: clamp(18em, 34vw, 20em);
@@ -109,7 +107,7 @@ const ImgWrapper = styled.div`
 `;
 
 const FrontImg = styled.img`
-  width: clamp(13em, 20vw, 18em);
+  width: clamp(13em, 24vw, 18em);
   height: clamp(11em, 27vw, 21em);
 
   @media ${max.tabletLg} {
