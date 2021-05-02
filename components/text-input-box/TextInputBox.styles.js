@@ -21,8 +21,8 @@ const InputBox = styled.textarea`
   background-color: ${colors.CREME};
   width: 100%;
   height: ${(props) =>
-    props.height ? props.height : `clamp(16em, 4vw, 26em)`};
-  border: 1px solid ${colors.BROWN};
+  props.height ? props.height : `clamp(16em, 4vw, 26em)`};
+  border: ${(props) => props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
   &:focus {
     outline: none;
   }
@@ -38,4 +38,14 @@ const InputBox = styled.textarea`
   padding: 0.5em;
 `;
 
-export { InputBox, InputBoxLabel, StarLabelContainer, RedStar };
+
+const ErrorText = styled(P)`
+  position: absolute;
+  color: ${colors.RED};
+  font-size: 0.7em;
+  margin: .5em 0 -1em 0;
+  letter-spacing: .07em;
+  font-weight: ${fontWeights.medium};
+`;
+
+export { InputBox, InputBoxLabel, StarLabelContainer, RedStar, ErrorText };

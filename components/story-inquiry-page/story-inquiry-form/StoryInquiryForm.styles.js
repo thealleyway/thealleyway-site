@@ -54,7 +54,6 @@ const Description = styled(P)`
 
 const InputFieldWrapper = styled.div`
   padding-bottom: 1.5em;
-  font-size: 0.8em;
 `;
 
 const SignatureCanvasWrapper = styled.div`
