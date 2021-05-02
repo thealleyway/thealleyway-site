@@ -22,7 +22,7 @@ export default function ContactForm({ togglePopup }) {
           <TextInputField id="email" label="Email" required />
         </InputFieldWrapper>
         <InputBoxWrapper>
-          <TextInputBox placeholder="Message" />
+          <TextInputBox placeholder="Message" showError={true} />
         </InputBoxWrapper>
         <ButtonWrapper>
           <SquareButton
