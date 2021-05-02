@@ -41,4 +41,11 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-export { TextLabel, TextInput, RedStar, StarLabelContainer, ErrorText };
+const PlusIcon = styled.img`
+position: absolute;
+margin: -2.6em 0 0 25.8em;
+width: 2.3em;
+`;
+
+
+export { TextLabel, TextInput, RedStar, StarLabelContainer, ErrorText, PlusIcon };

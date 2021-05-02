@@ -5,6 +5,7 @@ import {
   RedStar,
   StarLabelContainer,
   ErrorText,
+  PlusIcon,
 } from './TextInputField.style';
 import { icons } from '../../style/icons';
 
@@ -14,6 +15,7 @@ export default function TextInputField({
   onChange,
   required,
   showError,
+  addIcon,
   ...inputProps
 }) {
 
@@ -34,6 +36,7 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
+      <PlusIcon src={icons.ADD_ICON} />
       {showError &&
         <ErrorText>
           FIELD IS REQUIRED!

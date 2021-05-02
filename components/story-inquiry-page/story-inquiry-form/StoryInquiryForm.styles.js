@@ -80,6 +80,7 @@ const StarLabelContainer = styled.div`
 
 const SquareButtonWrapper = styled.div`
   float: right;
+  margin: -0.3em 0 0 0;
 `;
 
 export {
@@ -99,5 +100,4 @@ export {
   RedStar,
   TextLabel,
   SquareButtonWrapper,
-
 };

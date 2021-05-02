@@ -20,7 +20,6 @@ import {
     RedStar,
     TextLabel,
     SquareButtonWrapper,
-
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
@@ -134,7 +133,7 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
                 <H4>{getString(resourceLinksSubtitle)}</H4>
                 <Description>{getString(resourceLinksDescription)}</Description>
                 <InputFieldWrapper>
-                    <TextInputField id="petition link" label="Petition link" />
+                    <TextInputField id="petition link" label="Petition link" addIcon={true} />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
                     <TextInputField id="donation page link" label="Donate page link" />

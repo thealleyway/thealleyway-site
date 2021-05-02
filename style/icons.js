@@ -33,6 +33,7 @@ const icons = {
   UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
   CLOSE_ICON: '/assets/close-icon.svg',
+  ADD_ICON: '/assets/add-icon.svg',
 };
 
 export { icons };
