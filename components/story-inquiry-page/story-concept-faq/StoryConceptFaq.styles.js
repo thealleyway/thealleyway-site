@@ -25,5 +25,5 @@ export {
     FaqContainer,
     QuestionAnswerContainer,
     QuestionContainer,
-    AnswerContainer
+    AnswerContainer,
 }

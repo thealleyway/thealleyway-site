@@ -125,7 +125,6 @@ export default function StoryInquiryPage({
       <SparkArrowContainer bottom={true}>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
       </SparkArrowContainer>
-
       {/* {authorTestimonies.map((item) => {
         return (
           <AuthorTestimony
@@ -134,7 +133,6 @@ export default function StoryInquiryPage({
           />
         );
       })}  */}
-
       {/* <StorySubmissionConfirmation
         title={storySubmissionConfirmationTitle}
         description={storySubmissionConfirmationDescription}

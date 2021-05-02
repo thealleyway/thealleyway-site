@@ -21,7 +21,7 @@ export default function Question({ questionAnswerData, setCurrIndex, currIndex, 
         }}
         isSelected={isSelected}
         hover={isSelected ? false : hover}
-      >{getString(question)} <ShortArrow src={icons.FILLED_SHORT_ARROW} alt="filled short arrow" /> </QuestionStyled>
+      >{getString(question)} {isSelected && <ShortArrow src={icons.FILLED_SHORT_ARROW} alt="filled short arrow" />} </QuestionStyled>
     </>
   );
 }
