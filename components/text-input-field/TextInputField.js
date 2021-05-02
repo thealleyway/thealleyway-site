@@ -36,7 +36,7 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-      <PlusIcon src={icons.ADD_ICON} />
+      {addIcon && <PlusIcon src={icons.ADD_ICON} />}
       {showError &&
         <ErrorText>
           FIELD IS REQUIRED!

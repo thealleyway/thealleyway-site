@@ -49,6 +49,7 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
     const [sigPad, setSigPad] = useState({});
     const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
     const [isStoryConceptPopup, setIsStoryConceptPopupOpen] = useState(false);
+    const [petitionLinks, setPetitionLinks] = useState([]);
 
     return (
         <StoryInquiryFormContainer>
@@ -136,10 +137,10 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
                     <TextInputField id="petition link" label="Petition link" addIcon={true} />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
-                    <TextInputField id="donation page link" label="Donate page link" />
+                    <TextInputField id="donation page link" label="Donate page link" addIcon={true} />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
-                    <TextInputField id="further education link" label="Further education link" />
+                    <TextInputField id="further education link" label="Further education link" addIcon={true} />
                 </InputFieldWrapper>
             </ResourceLinksContainer>
             <SquareButtonWrapper>
