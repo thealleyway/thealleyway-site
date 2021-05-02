@@ -11,7 +11,7 @@ const Button = styled.a.attrs({
   color: ${colors.MAUVE};
   border: 2px solid ${colors.MAUVE};
   border-radius: 240%;
-  width: 8em;
+  width: clamp(7.5em, 10vw, 8em);
   height: 3.8em;
 
   &:hover {
@@ -22,7 +22,6 @@ const Button = styled.a.attrs({
 
   @media ${max.tabletLg} {
     height: 3.5em;
-    width: 8em;
   }
 
   @media ${max.tabletSm} {
