@@ -34,6 +34,7 @@ const icons = {
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
   CLOSE_ICON: '/assets/close-icon.svg',
   ADD_ICON: '/assets/add-icon.svg',
+  MINUS_ICON: '/assets/minus-icon.svg',
 };
 
 export { icons };

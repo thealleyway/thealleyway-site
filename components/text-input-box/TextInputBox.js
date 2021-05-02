@@ -9,7 +9,7 @@ export default function TextInputBox({ placeholder, onChange, height, label, req
         <InputBoxLabel>{label}</InputBoxLabel>
         {required && <RedStar src={icons.RED_STAR} />}
       </StarLabelContainer>
-      <InputBox onChange={onChange} placeholder={placeholder} height={height} showError={shoError} />
+      <InputBox onChange={onChange} placeholder={placeholder} height={height} showError={showError} />
       {showError &&
         <ErrorText>
           FIELD IS REQUIRED!
