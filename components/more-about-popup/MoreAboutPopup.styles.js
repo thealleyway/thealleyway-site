@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
-import {H4, fontWeights} from '../../style/typography';
+import { H4 } from '../../style/typography';
 
 const PopupTitle = styled(H4)`
-    color: ${colors.MAUVE};
+  color: ${colors.MAUVE};
 `;
 
 const TextContentWrapper = styled.div`
-    width: 80%;
-    margin: 2.1em 0 0 1.3em;
+  width: 80%;
+  margin: 2.1em 0 0 1.3em;
 `;
 
 const PopupImage = styled.img`
-opacity: 10%;
-object-fit: cover;
-position: absolute;
-top: 0;
-right: 0;
-width: 100%;
-height: 100%;
+  opacity: 10%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 const CloseIcon = styled.img`
@@ -39,13 +39,13 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 5;
-  font-size: .9em;
-  top: 20%;
+  font-size: 0.9em;
+  top: 23%;
   @media ${min.tablet} {
-    top: 30%;
+    top: 32%;
   }
   @media ${min.desktop} {
-    top: 15%;
+    top: 20%;
     left: 1em;
   }
   @media ${min.desktopLg} {
@@ -56,31 +56,31 @@ const PopupBox = styled.div`
 const Box = styled.div`
   background: ${colors.CREME};
   position: relative;
-  margin: 0 auto;
+  margin: 1em auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: 25em
-  padding: 1em;
-  width: 80%;
+  height: 26em;
+  padding: clamp(0.5em, 5vw, 1.5em);
+  width: 83%;
   top: 0;
+  @media ${min.tabletSm} {
+    height: 26em;
+    padding: 1.5em;
+    width: 25em;
+  }
   @media ${min.tablet} {
-    height: 29em;
+    height: 24em;
+    width: 25em;
+    padding: 1.7em 2em 2em 2.5em;
   }
   @media ${min.desktop} {
-    height: 25em;
+    height: 25.5em;
     padding: 2em;
-    width: 29%;
+    width: 25em;
   }
   @media ${min.desktopLg} {
     top: 22%;
   }
 `;
 
-export {
-    PopupBox,
-    Box,
-    PopupTitle,
-    TextContentWrapper,
-    PopupImage,
-    CloseIcon,
-}
+export { PopupBox, Box, PopupTitle, TextContentWrapper, PopupImage, CloseIcon };
