@@ -18,11 +18,35 @@ export default function ContactForm({ togglePopup }) {
   const [firstNameIsValid, setFirstNameIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [messageIsValid, setMessageIsValid] = useState(false);
+  const [submittedBefore, setSubmittedBefore] = useState(false);
+  const axios = require('axios');
+  const emailEndpoint =
+  'https://script.google.com/macros/s/AKfycbxXw7fnNjM-imxAYowQZWlPEO-tIT19CbTg2AttcnCkdEfVWHqCUhwgsKgL7QH9adjo/exec';
+  const axiosConfig = {
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Access-Control-Allow-Origin': '*',
+    },
+  };
 
   const isValidSubmission = () => {
+    const validEmail = new RegExp(
+      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
+    );
+  //  console.log(firstName, email, message);
     firstName.length > 0 ? setFirstNameIsValid(true) : setFirstNameIsValid(false);
+    if (!validEmail.test(email)) {
+      setEmailIsValid(false);
+    }
+    else {
+      setEmailIsValid(true);
+    }
     message.length > 0 ? setMessageIsValid(true) : setMessageIsValid(false);
+    console.log('first name:' + firstNameIsValid + 'email: ' + emailIsValid + 'message: ' + messageIsValid);
+    return (firstNameIsValid && emailIsValid && messageIsValid);
   }
+
+  console.log(submittedBefore);
 
   return (
     <>
@@ -32,7 +56,7 @@ export default function ContactForm({ togglePopup }) {
             id="firstName"
             label="First Name"
             required
-            showError={true}
+            showError={!firstNameIsValid && submittedBefore}
             onChange={(e) => setFirstName(e)}
           />
         </InputFieldWrapper>
@@ -48,7 +72,7 @@ export default function ContactForm({ togglePopup }) {
           id="email" 
           label="Email" 
           required 
-          showError={true} 
+          showError={!emailIsValid && submittedBefore} 
           onChange={(e) => setEmail(e)}
           />
         </InputFieldWrapper>
@@ -56,7 +80,7 @@ export default function ContactForm({ togglePopup }) {
           <TextInputBox
             placeholder="Message"
             label="Message"
-            showError={true}
+            showError={!messageIsValid && submittedBefore}
             required
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -68,10 +92,35 @@ export default function ContactForm({ togglePopup }) {
             onClick={() => {
               document.body.style.overflow = 'hidden';
               togglePopup();
+              submitRequest();
             }}
           />
         </ButtonWrapper>
       </ContactFormContainer>
     </>
   );
+  function submitRequest() {
+    const name = `${firstName} ${lastName}`;
+    const subject = `Get in touch - ${name}`;
+    if (isValidSubmission()) {
+      const request = `${emailEndpoint}?name=${name}&email=${email}&subject=${subject}&body=${message}`;
+    }
+    else {
+      setSubmittedBefore(true);
+      return;
+    }
+    // axios
+    //   .post(proxyurl + request, axiosConfig)
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+  }
 }
+
+
+
+
+
