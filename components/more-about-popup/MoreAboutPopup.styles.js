@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { min } from '../../../lib/responsive';
-import { colors } from '../../../style/colors';
-import {H4, fontWeights} from '../../../style/typography';
+import { min } from '../../lib/responsive';
+import { colors } from '../../style/colors';
+import {H4, fontWeights} from '../../style/typography';
 
 const PopupTitle = styled(H4)`
     color: ${colors.MAUVE};

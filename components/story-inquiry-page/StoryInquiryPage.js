@@ -40,9 +40,9 @@ export default function StoryInquiryPage({
     story_concept_subtitle: storyConceptSubtitle,
     story_concept_description: storyConceptDescription,
     story_concept_box_subtitle: storyConceptBoxSubtitle,
-    story_concept_popup_title: storyConceptPopupTitle,
-    story_concept_popup_description: storyConceptPopupDescription,
-    story_concept_popup_image: storyConceptPopupImage,
+    story_concept_popup_title: popupTitle,
+    story_concept_popup_description: popupDescription,
+    story_concept_popup_image: popupImage,
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
@@ -80,9 +80,9 @@ export default function StoryInquiryPage({
   };
 
   const storyConceptPopupData = {
-    storyConceptPopupTitle,
-    storyConceptPopupDescription,
-    storyConceptPopupImage,
+    popupTitle,
+    popupDescription,
+    popupImage,
   };
 
   return (
