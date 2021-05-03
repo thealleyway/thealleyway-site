@@ -35,7 +35,6 @@ export default function AboutPage({
     camaryns_resources_title: camarynsResourcesTitle,
     camaryns_resources_description: camarynsResourcesDescription,
     more_resources_title: moreResourcesTitle,
-    more_resources: moreResources,
     top_quote: topQuote,
     bottom_quote: bottomQuote,
     spark_arrow_description_text: sparkArrowDescriptionText,
@@ -77,9 +76,6 @@ export default function AboutPage({
         <MainResource key={r.id} mainResourceData={r} />
       ))}
       <br />
-      {moreResources.map((r) => (
-        <P key={r.id}>{r.resource.url}</P>
-      ))}
       <P>{getString(bottomQuote)}</P>
       <P>{getString(sparkArrowDescriptionText)}</P>
       <P>{getString(sparkArrowMissionText)}</P>
