@@ -5,6 +5,26 @@ export const LeftRightAnimation = keyframes`
   to { background-position: right center };
 `;
 
+export const FadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+export const FadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
 export const HoverAnimationButton = styled.button`
   &:hover {
     --shadow: 0.02em;
