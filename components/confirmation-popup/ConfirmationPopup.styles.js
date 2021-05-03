@@ -27,12 +27,40 @@ const Box = styled.div`
   margin: 0 auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: ${(props) => (props.page == 'home' ? '34em' : '25em')};
+  height: ${(props) => {
+    if (props.page == 'home') {
+      return '34em';
+    } else if (props.page == 'inquiry') {
+      return '39em';
+    } else {
+      return '25em';
+    }
+  }};
   padding: 1em;
   width: 80%;
-  top: ${(props) => (props.page == 'home' ? '-6em' : '0')};
+  top: ${(props) => {
+    if (props.page == 'home') {
+      return '-6em';
+    } else if (props.page == 'inquiry') {
+      return '-3em';
+    } else {
+      return '0';
+    }
+  }};
+  @media ${min.tabletSm} {
+    height: ${(props) => {
+      if (props.page == 'home') {
+        return '34em';
+      } else if (props.page == 'inquiry') {
+        return '37em';
+      } else {
+        return '25em';
+      }
+    }};
+  }
   @media ${min.tablet} {
     height: 29em;
+    width: ${(props) => (props.page == 'inquiry' ? '90%' : '80%')};
   }
   @media ${min.desktop} {
     top: -2%;
@@ -51,20 +79,27 @@ const TextContent = styled.div`
   @media ${min.tablet} {
     width: ${(props) => (props.page == 'home' ? '50%' : '60%')};
     padding: 0 0 0 3em;
-    margin-top: ${(props) => (props.page == 'home' ? '3em' : '7em')};
+    margin-top: ${(props) => {
+      if (props.page == 'home') {
+        return '3em';
+      } else if (props.page == 'inquiry') {
+        return '-1em';
+      } else {
+        return '7em';
+      }
+    }};
   }
   @media ${min.desktop} {
     width: 50%;
     margin-top: ${(props) => {
       if (props.page == 'home') {
         return '3em';
-      }
-      else if (props.page == 'inquiry') {
+      } else if (props.page == 'inquiry') {
         return '-1em';
+      } else {
+        return '8em';
       }
-      else {
-        return '8em'; 
-      }}};
+    }};
     margin-left: 1em;
     font-size: 0.9em;
   }
