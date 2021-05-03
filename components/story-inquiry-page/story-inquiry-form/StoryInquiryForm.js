@@ -134,13 +134,16 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
                 <H4>{getString(resourceLinksSubtitle)}</H4>
                 <Description>{getString(resourceLinksDescription)}</Description>
                 <InputFieldWrapper>
-                    <TextInputField id="petition link" label="Petition link" isAdd hasIcon />
+                    <TextInputField id="petition link" label="Petition link" required />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
-                    <TextInputField id="donation page link" label="Donate page link" isAdd hasIcon />
+                    <TextInputField id="donation page link" label="Donate page link" required />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
-                    <TextInputField id="further education link" label="Further education link" hasIcon />
+                    <TextInputField id="further education link" label="Further education link" required />
+                </InputFieldWrapper>
+                <InputFieldWrapper>
+                    <TextInputField id="more resources links" label="More resources links" isAdd hasIcon />
                 </InputFieldWrapper>
             </ResourceLinksContainer>
             <SquareButtonWrapper>
