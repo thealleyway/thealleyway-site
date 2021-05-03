@@ -28,33 +28,36 @@ const Box = styled.div`
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
   height: ${(props) => {
-    if (props.page == 'home') {
-      return '34em';
-    } else if (props.page == 'inquiry') {
-      return '39em';
-    } else {
-      return '25em';
+    switch (props.page) {
+      case 'home':
+        return '34em';
+      case 'inquiry':
+        return '39em';
+      default:
+        return '25em';
     }
   }};
   padding: 1em;
   width: 80%;
   top: ${(props) => {
-    if (props.page == 'home') {
-      return '-6em';
-    } else if (props.page == 'inquiry') {
-      return '-3em';
-    } else {
-      return '0';
+    switch (props.page) {
+      case 'home':
+        return '-6em';
+      case 'inquiry':
+        return '-3em';
+      default:
+        return '0';
     }
   }};
   @media ${min.tabletSm} {
     height: ${(props) => {
-      if (props.page == 'home') {
-        return '34em';
-      } else if (props.page == 'inquiry') {
-        return '37em';
-      } else {
-        return '25em';
+      switch (props.page) {
+        case 'home':
+          return '34em';
+        case 'inquiry':
+          return '37em';
+        default:
+          return '25em';
       }
     }};
   }
@@ -80,24 +83,26 @@ const TextContent = styled.div`
     width: ${(props) => (props.page == 'home' ? '50%' : '60%')};
     padding: 0 0 0 3em;
     margin-top: ${(props) => {
-      if (props.page == 'home') {
-        return '3em';
-      } else if (props.page == 'inquiry') {
-        return '-1em';
-      } else {
-        return '7em';
+      switch (props.page) {
+        case 'home':
+          return '3em';
+        case 'inquiry':
+          return '-1em';
+        default:
+          return '7em';
       }
     }};
   }
   @media ${min.desktop} {
     width: 50%;
     margin-top: ${(props) => {
-      if (props.page == 'home') {
-        return '3em';
-      } else if (props.page == 'inquiry') {
-        return '-1em';
-      } else {
-        return '8em';
+      switch (props.page) {
+        case 'home':
+          return '3em';
+        case 'inquiry':
+          return '-1em';
+        default:
+          return '8em';
       }
     }};
     margin-left: 1em;
