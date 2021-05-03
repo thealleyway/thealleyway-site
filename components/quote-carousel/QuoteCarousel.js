@@ -59,7 +59,7 @@ export default function QuoteCarousel({ quoteCarouselData }) {
             <ArchOutline />
             <QuoteContainer>
               <QuoteWrapper key={Number.parseInt(activeIndex)} fadeIn={fadeIn}>
-                {getString(quotes[Number.parseInt(activeIndex)].meaning)}
+                {quotes[Number.parseInt(activeIndex)]}
               </QuoteWrapper>
             </QuoteContainer>
           </ImageArchContentWrapper>
