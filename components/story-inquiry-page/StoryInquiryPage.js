@@ -46,8 +46,10 @@ export default function StoryInquiryPage({
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
-    story_submission_confirmation_title: storySubmissionConfirmationTitle,
-    story_submission_confirmation_description: storySubmissionConfirmationDescription,
+    story_submission_confirmation_title_regular: confirmationTitleRegular,
+    story_submission_confirmation_title_italic: confirmationTitleItalic,
+    story_submission_confirmation_description: confirmationDescription,
+    story_submission_confirmation_image: confirmationImage,
     spark_arrow_description_text: sparkArrowDescriptionText,
     spark_arrow_faq_text: sparkArrowFaqText,
     spark_arrow_author_testimonies_text: sparkArrowAuthorTestimoniesText,
@@ -62,6 +64,13 @@ export default function StoryInquiryPage({
     faqTitle,
     questionsAndAnswers
   };
+
+  const storySubmissionConfirmationData = {
+    confirmationTitleRegular,
+    confirmationTitleItalic,
+    confirmationDescription,
+    confirmationImage
+  }
 
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
 
@@ -120,7 +129,9 @@ export default function StoryInquiryPage({
           alt="long lines with spark at the end flipped"
         />
       </LongLinesContainer>
-      <StoryInquiryForm storyInquiryFormData={storyInquiryFormData} storyConceptPopupData={storyConceptPopupData} />
+      <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}
+        storyConceptPopupData={storyConceptPopupData}
+        storySubmissionConfirmationData={storySubmissionConfirmationData} />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <SparkArrowContainer bottom={true}>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />

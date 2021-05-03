@@ -26,8 +26,9 @@ import React, { useState } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
 import { icons } from '../../../style/icons';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
+import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 
-export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPopupData }) {
+export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPopupData, storySubmissionConfirmationData }) {
     const {
         authorInformationSubtitle,
         authorSignatureSubtitle,
@@ -49,7 +50,7 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
     const [sigPad, setSigPad] = useState({});
     const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
     const [isStoryConceptPopup, setIsStoryConceptPopupOpen] = useState(false);
-    const [petitionLinks, setPetitionLinks] = useState([]);
+    const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
 
     return (
         <StoryInquiryFormContainer>
@@ -148,9 +149,11 @@ export default function StoryInquiryForm({ storyInquiryFormData, storyConceptPop
             </ResourceLinksContainer>
             <SquareButtonWrapper>
                 <SquareButton buttonText="SUBMIT MY STORY" long={true} onClick={() => {
-                    sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"))
+                    sigPad && trim(sigPad.getTrimmedCanvas().toDataURL("image/png"));
+                    setIsConfirmationPopupOpen(true);
                 }} />
             </SquareButtonWrapper>
+            {true && <ConfirmationPopup confirmationData={storySubmissionConfirmationData} page="inquiry"/>}
         </StoryInquiryFormContainer>
     );
 }

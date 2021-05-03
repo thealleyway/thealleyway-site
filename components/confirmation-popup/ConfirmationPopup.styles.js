@@ -55,7 +55,16 @@ const TextContent = styled.div`
   }
   @media ${min.desktop} {
     width: 50%;
-    margin-top: ${(props) => (props.page == 'home' ? '3em' : '8em')};
+    margin-top: ${(props) => {
+      if (props.page == 'home') {
+        return '3em';
+      }
+      else if (props.page == 'inquiry') {
+        return '-1em';
+      }
+      else {
+        return '8em'; 
+      }}};
     margin-left: 1em;
     font-size: 0.9em;
   }
