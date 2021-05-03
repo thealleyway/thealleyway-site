@@ -3,13 +3,13 @@ import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
 import { InputInfoText } from '../../../style/typography';
 import TextInputField from '../../text-input-field/TextInputField';
+import { Overlay } from '../../base-components/BaseComponents';
 import {
   ContentWrapper,
   NewsletterSignUpTextInput,
   NewsletterSignUpTitle,
   NewsletterDescriptionText,
   NewsletterSignUpWrapper,
-  Overlay,
   PrivacyPolicyLinkText,
   SubmitButton,
 } from './NewsletterSignUp.styles';

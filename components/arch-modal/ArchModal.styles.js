@@ -12,7 +12,7 @@ export const ArchModalWrapper = styled.div`
   position: fixed;
   top: 20%;
   left: 70%;
-  z-index: 4;
+  z-index: 15;
 
   @media ${max.desktop} {
     left: 50%;
