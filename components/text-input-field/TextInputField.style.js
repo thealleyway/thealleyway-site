@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { P, fontWeights } from '../../style/typography';
+import { P } from '../../style/typography';
+import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 
 const TextLabel = styled(P)`
@@ -21,6 +22,9 @@ const ErrorText = styled(P)`
 const RedStar = styled.img`
   width: 2%;
   margin-left: 0.5em;
+  @media ${min.desktopLg} {
+    width: 0.7em;
+  }
 `;
 
 const StarLabelContainer = styled.div`

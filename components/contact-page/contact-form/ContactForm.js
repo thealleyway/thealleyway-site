@@ -3,23 +3,14 @@ import TextInputBox from '../../text-input-box/TextInputBox';
 import SquareButton from '../../square-button/SquareButton';
 import {
   ContactFormContainer,
-  InputFieldWrapper,
   InputBoxWrapper,
   ButtonWrapper,
 } from './ContactForm.styles';
 import React, { useState } from 'react';
+import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 
 export default function ContactForm({ togglePopup }) {
   const axios = require('axios');
-  const emailEndpoint =
-    'https://script.google.com/macros/s/AKfycbxXw7fnNjM-imxAYowQZWlPEO-tIT19CbTg2AttcnCkdEfVWHqCUhwgsKgL7QH9adjo/exec';
-  const axiosConfig = {
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Origin': '*',
-    },
-  };
-
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -53,11 +44,13 @@ export default function ContactForm({ togglePopup }) {
           label="First Name"
           required
           showError={errors['firstName']}
+          value={fields['firstName'] ? fields['firstName'] : ''}
           onChange={(e) => setFields({ ...fields, firstName: e })}
         />
         <TextInputField
           id="lastName"
           label="Last Name"
+          value={fields['lastName'] ? fields['lastName'] : ''}
           onChange={(e) => setFields({ ...fields, lastName: e })}
         />
         <TextInputField
@@ -65,6 +58,7 @@ export default function ContactForm({ togglePopup }) {
           label="Email"
           required
           showError={errors['email']}
+          value={fields['email'] ? fields['email'] : ''}
           onChange={(e) => setFields({ ...fields, email: e })}
         />
         <InputBoxWrapper>
@@ -72,6 +66,7 @@ export default function ContactForm({ togglePopup }) {
             label="Message"
             showError={errors['message']}
             required
+            value={fields['message'] ? fields['message'] : ''}
             onChange={(e) => setFields({ ...fields, message: e.target.value })}
           />
         </InputBoxWrapper>
@@ -82,6 +77,7 @@ export default function ContactForm({ togglePopup }) {
             onClick={() => {
               if (submitRequest()) {
                 document.body.style.overflow = 'hidden';
+                setFields({});
                 togglePopup();
               }
             }}
@@ -90,11 +86,11 @@ export default function ContactForm({ togglePopup }) {
       </ContactFormContainer>
     </>
   );
+
   function submitRequest() {
     const name = `${fields['firstName']} ${fields['lastName']}`;
     const subject = `Get in touch - ${name}`;
     if (isValidSubmission()) {
-      alert('form submitted');
       const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${fields['message']}`;
       axios
         .post(proxyurl + request, axiosConfig)

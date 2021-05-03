@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
+
 const HeaderAndSquiggleContainer = styled.div`
   @media ${min.tablet} {
     padding-bottom: 1em;
@@ -13,6 +14,12 @@ const HeaderAndSquiggleContainer = styled.div`
 const PageContainer = styled.div`
   position: relative;
   margin-bottom: -3em;
+  @media ${min.tablet} {
+    margin-bottom: -1em;
+  }
+  @media ${min.desktop} {
+    margin-bottom: -3em;
+  }
 `;
 
 const FormContainer = styled.div`

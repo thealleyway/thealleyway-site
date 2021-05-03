@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { fonts, fontWeights, P } from '../../style/typography';
+import { min } from '../../lib/responsive';
 
 const InputBoxLabel = styled(P)`
   color: ${colors.BROWN};
@@ -15,6 +16,9 @@ const StarLabelContainer = styled.div`
 const RedStar = styled.img`
   width: 2%;
   margin-left: 0.5em;
+  @media ${min.desktopLg} {
+    width: 0.7em;
+  }
 `;
 
 const ErrorText = styled(P)`

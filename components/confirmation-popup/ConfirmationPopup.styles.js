@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { P, H2 } from '../../style/typography';
+
 const PopupBox = styled.div`
   border: none;
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 5;
+  z-index: 10;
   top: 20%;
   @media ${min.tablet} {
     top: 30%;

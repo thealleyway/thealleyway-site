@@ -6,6 +6,7 @@ const ContactFormContainer = styled.div`
   width: 70%;
   @media ${min.tablet} {
     width: 55%;
+    padding-top: 9em;
   }
   @media ${min.desktop} {
     padding-top: 8em;
