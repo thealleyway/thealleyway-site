@@ -5,7 +5,6 @@ import {
   ErrorText,
   RedStar,
 } from './TextInputBox.styles';
-import { getString } from '../../lib/richText';
 import { icons } from '../../style/icons';
 
 export default function TextInputBox({
@@ -22,7 +21,6 @@ export default function TextInputBox({
         {required && <RedStar src={icons.RED_STAR} />}
       </StarLabelContainer>
       <InputBox onChange={onChange} height={height} showError={showError} />
-
       <ErrorText>{showError}</ErrorText>
     </>
   );
