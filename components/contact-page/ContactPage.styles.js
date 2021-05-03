@@ -12,12 +12,13 @@ const HeaderAndSquiggleContainer = styled.div`
 
 const PageContainer = styled.div`
   position: relative;
+  margin-bottom: -3em;
 `;
 
 const FormContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -2em;
+  margin-top: -2.5em;
 `;
 
 const SquiggleUnderline = styled.img`
