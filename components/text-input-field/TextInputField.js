@@ -5,6 +5,7 @@ import {
   RedStar,
   StarLabelContainer,
   ErrorText,
+  InputFieldWrapper,
 } from './TextInputField.style';
 import { icons } from '../../style/icons';
 
@@ -17,7 +18,7 @@ export default function TextInputField({
   ...inputProps
 }) {
   return (
-    <>
+    <InputFieldWrapper>
       <StarLabelContainer>
         <TextLabel htmlFor={id} required={required}>
           {label}
@@ -33,7 +34,7 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-      {showError && <ErrorText>FIELD IS REQUIRED!</ErrorText>}
-    </>
+      <ErrorText>{showError}</ErrorText>
+    </InputFieldWrapper>
   );
 }

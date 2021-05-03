@@ -27,59 +27,52 @@ export default function ContactForm({ togglePopup }) {
     let errors = {};
     let formIsValid = true;
     const validEmail = new RegExp(
-      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
+      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
     );
-    if (fields["firstName"] == undefined || fields["firstName"].length < 1) {
+    if (fields['firstName'] == undefined || fields['firstName'].length < 1) {
       formIsValid = false;
-      errors["firstName"] = "FIRST NAME IS REQUIRED";
+      errors['firstName'] = 'FIRST NAME IS REQUIRED!';
     }
-    if (!validEmail.test(fields["email"])) {
+    if (!validEmail.test(fields['email'])) {
       formIsValid = false;
-      errors["email"] = "EMAIL IS REQUIRED";
+      errors['email'] = 'EMAIL IS REQUIRED!';
     }
-    if (fields["message"] == undefined || fields["message"].length < 1) {
+    if (fields['message'] == undefined || fields['message'].length < 1) {
       formIsValid = false;
-      errors["message"] = "MESSAGE IS REQUIRED";
+      errors['message'] = 'MESSAGE IS REQUIRED!';
     }
     setErrors(errors);
     return formIsValid;
-  }
+  };
 
   return (
     <>
       <ContactFormContainer>
-        <InputFieldWrapper>
-          <TextInputField
-            id="firstName"
-            label="First Name"
-            required
-            showError={errors["firstName"]}
-            onChange={(e) => setFields({ ...fields, "firstName": e })}
-          />
-        </InputFieldWrapper>
-        <InputFieldWrapper>
-          <TextInputField
-            id="lastName"
-            label="Last Name"
-            onChange={(e) => setFields({ ...fields, "lastName": e })}
-          />
-        </InputFieldWrapper>
-        <InputFieldWrapper>
-          <TextInputField
-            id="email"
-            label="Email"
-            required
-            showError={errors["email"]}
-            onChange={(e) => setFields({ ...fields, "email": e })}
-          />
-        </InputFieldWrapper>
+        <TextInputField
+          id="firstName"
+          label="First Name"
+          required
+          showError={errors['firstName']}
+          onChange={(e) => setFields({ ...fields, firstName: e })}
+        />
+        <TextInputField
+          id="lastName"
+          label="Last Name"
+          onChange={(e) => setFields({ ...fields, lastName: e })}
+        />
+        <TextInputField
+          id="email"
+          label="Email"
+          required
+          showError={errors['email']}
+          onChange={(e) => setFields({ ...fields, email: e })}
+        />
         <InputBoxWrapper>
           <TextInputBox
-            placeholder="Message"
             label="Message"
-            showError={errors["message"]}
+            showError={errors['message']}
             required
-            onChange={(e) => setFields({ ...fields, "message": e.target.value })}
+            onChange={(e) => setFields({ ...fields, message: e.target.value })}
           />
         </InputBoxWrapper>
         <ButtonWrapper>
@@ -98,28 +91,20 @@ export default function ContactForm({ togglePopup }) {
     </>
   );
   function submitRequest() {
-    const name = `${fields["firstName"]} ${fields["lastName"]}`;
+    const name = `${fields['firstName']} ${fields['lastName']}`;
     const subject = `Get in touch - ${name}`;
     if (isValidSubmission()) {
-      alert("form submitted");
-      const request = `${emailEndpoint}?name=${fields["name"]}&email=${fields["email"]}&subject=${fields["subject"]}&body=${fields["message"]}`;
+      alert('form submitted');
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${fields['message']}`;
+      axios
+        .post(proxyurl + request, axiosConfig)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       return true;
     }
-    else {
-      alert("form has errors");
-    }
-    // axios
-    //   .post(proxyurl + request, axiosConfig)
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   }
 }
-
-
-
-
-

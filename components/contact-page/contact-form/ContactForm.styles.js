@@ -14,30 +14,21 @@ const ContactFormContainer = styled.div`
   }
 `;
 
-const InputFieldWrapper = styled.div`
-  padding-bottom: 1.5em;
-`;
-
 const InputBoxWrapper = styled.div`
   padding-top: 0.5em;
   @media ${min.desktop} {
-    padding-top: 1em;
+    padding-top: 0;
   }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 1.5em;
+  padding-top: 2.3em;
   @media ${min.tablet} {
-    padding-top: 1.8em;
+    padding-top: 2em;
     float: right;
   }
 `;
 
-export {
-  ContactFormContainer,
-  InputFieldWrapper,
-  InputBoxWrapper,
-  ButtonWrapper,
-};
+export { ContactFormContainer, InputBoxWrapper, ButtonWrapper };

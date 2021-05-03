@@ -10,10 +10,12 @@ const TextLabel = styled(P)`
 `;
 
 const ErrorText = styled(P)`
+  position: absolute;
   color: red;
   font-size: 0.7em;
-  margin: 0.5em 0 -1em 0;
-  font-weight: ${fontWeights.medium};
+  margin: 0.5em 0 0 0;
+  text-shadow: 0.5px 0 #ff0000;
+  letter-spacing: 0.05em;
 `;
 
 const RedStar = styled.img`
@@ -41,4 +43,15 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-export { TextLabel, TextInput, RedStar, StarLabelContainer, ErrorText };
+const InputFieldWrapper = styled.div`
+  padding-bottom: 2em;
+`;
+
+export {
+  TextLabel,
+  TextInput,
+  RedStar,
+  StarLabelContainer,
+  ErrorText,
+  InputFieldWrapper,
+};
