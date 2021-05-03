@@ -1,17 +1,19 @@
 import styled from 'styled-components';
-import { P } from '../../style/typography';
+import { P, fontWeights } from '../../style/typography';
 import { colors } from '../../style/colors';
 
 const TextLabel = styled(P)`
   color: ${colors.BROWN};
   display: block;
   margin: 0;
+  font-size: 0.8em;
 `;
 
 const ErrorText = styled(P)`
   color: red;
   font-size: 0.7em;
   margin: 0.5em 0 -1em 0;
+  font-weight: ${fontWeights.medium};
 `;
 
 const RedStar = styled.img`

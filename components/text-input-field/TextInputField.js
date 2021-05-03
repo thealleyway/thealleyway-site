@@ -13,10 +13,9 @@ export default function TextInputField({
   label,
   onChange,
   required,
-  showError, 
+  showError,
   ...inputProps
 }) {
-
   return (
     <>
       <StarLabelContainer>
@@ -34,9 +33,7 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-      <ErrorText>
-        FIELD IS REQUIRED!
-      </ErrorText>
+      {showError && <ErrorText>FIELD IS REQUIRED!</ErrorText>}
     </>
   );
 }

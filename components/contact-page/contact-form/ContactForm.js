@@ -13,16 +13,26 @@ export default function ContactForm({ togglePopup }) {
     <>
       <ContactFormContainer>
         <InputFieldWrapper>
-          <TextInputField id="firstName" label="First Name" required />
+          <TextInputField
+            id="firstName"
+            label="First Name"
+            required
+            showError={true}
+          />
         </InputFieldWrapper>
         <InputFieldWrapper>
           <TextInputField id="lastName" label="Last Name" />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField id="email" label="Email" required />
+          <TextInputField id="email" label="Email" required showError={true} />
         </InputFieldWrapper>
         <InputBoxWrapper>
-          <TextInputBox placeholder="Message" showError={true} />
+          <TextInputBox
+            placeholder="Message"
+            label="Message"
+            showError={true}
+            required
+          />
         </InputBoxWrapper>
         <ButtonWrapper>
           <SquareButton
