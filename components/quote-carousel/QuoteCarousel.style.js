@@ -21,6 +21,10 @@ const ContentWrapper = styled.div`
     width: clamp(20em, 80vw, 30em);
     height: 40em;
     margin-bottom: 0;
+    padding-left: 7vw;
+  }
+  @media ${max.tabletSm} {
+    padding-left: 0;
   }
   @media ${max.tablet} {
     height: 35em;
@@ -65,7 +69,7 @@ const QuoteContainer = styled.div`
   height: 14em;
   position relative;
   left: 2em;
-  bottom: 7em;
+  bottom: 9em;
   margin-bottom: -12em;
   overflow: hidden;
 
@@ -173,24 +177,20 @@ const ArchOutline = styled(ArchImage)`
 `;
 
 const ArchSpark = styled.img`
-  --spark-width: min(25%, 100px);
+  --spark-width: min(30%, 100px);
   position: relative;
-  left: 130px;
+  left: 120px;
   bottom: 200px;
   width: var(--spark-width);
   z-index: 4;
 
   @media ${max.tabletLg} {
-    left: calc(
-      (var(--arch-width) / 2) - (var(--spark-width) / 2) + var(--off-set)
-    );
+    left: calc((var(--arch-width) / 2) - (var(--spark-width) / 2));
     bottom: 150px;
   }
 
   @media ${max.tablet} {
-    left: calc(
-      (var(--arch-width) / 2) - (var(--spark-width) / 2) + (var(--off-set) / 2)
-    );
+    left: calc((var(--arch-width) / 2) - (var(--spark-width) / 2));
     bottom: 140px;
   }
 `;
