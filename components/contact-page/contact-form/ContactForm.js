@@ -7,21 +7,12 @@ import {
   InputBoxWrapper,
   ButtonWrapper,
 } from './ContactForm.styles';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 export default function ContactForm({ togglePopup }) {
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [firstNameIsValid, setFirstNameIsValid] = useState(false);
-  const [emailIsValid, setEmailIsValid] = useState(false);
-  const [messageIsValid, setMessageIsValid] = useState(false);
-  const [submittedBefore, setSubmittedBefore] = useState(false);
   const axios = require('axios');
   const emailEndpoint =
-  'https://script.google.com/macros/s/AKfycbxXw7fnNjM-imxAYowQZWlPEO-tIT19CbTg2AttcnCkdEfVWHqCUhwgsKgL7QH9adjo/exec';
+    'https://script.google.com/macros/s/AKfycbxXw7fnNjM-imxAYowQZWlPEO-tIT19CbTg2AttcnCkdEfVWHqCUhwgsKgL7QH9adjo/exec';
   const axiosConfig = {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
@@ -29,24 +20,30 @@ export default function ContactForm({ togglePopup }) {
     },
   };
 
+  const [fields, setFields] = useState({});
+  const [errors, setErrors] = useState({});
+
   const isValidSubmission = () => {
+    let errors = {};
+    let formIsValid = true;
     const validEmail = new RegExp(
       '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
     );
-  //  console.log(firstName, email, message);
-    firstName.length > 0 ? setFirstNameIsValid(true) : setFirstNameIsValid(false);
-    if (!validEmail.test(email)) {
-      setEmailIsValid(false);
+    if (fields["firstName"] == undefined || fields["firstName"].length < 1) {
+      formIsValid = false;
+      errors["firstName"] = "FIRST NAME IS REQUIRED";
     }
-    else {
-      setEmailIsValid(true);
+    if (!validEmail.test(fields["email"])) {
+      formIsValid = false;
+      errors["email"] = "EMAIL IS REQUIRED";
     }
-    message.length > 0 ? setMessageIsValid(true) : setMessageIsValid(false);
-    console.log('first name:' + firstNameIsValid + 'email: ' + emailIsValid + 'message: ' + messageIsValid);
-    return (firstNameIsValid && emailIsValid && messageIsValid);
+    if (fields["message"] == undefined || fields["message"].length < 1) {
+      formIsValid = false;
+      errors["message"] = "MESSAGE IS REQUIRED";
+    }
+    setErrors(errors);
+    return formIsValid;
   }
-
-  console.log(submittedBefore);
 
   return (
     <>
@@ -56,33 +53,33 @@ export default function ContactForm({ togglePopup }) {
             id="firstName"
             label="First Name"
             required
-            showError={!firstNameIsValid && submittedBefore}
-            onChange={(e) => setFirstName(e)}
+            showError={errors["firstName"]}
+            onChange={(e) => setFields({ ...fields, "firstName": e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="lastName" 
-          label="Last Name" 
-          onChange={(e) => setLastName(e)}
+          <TextInputField
+            id="lastName"
+            label="Last Name"
+            onChange={(e) => setFields({ ...fields, "lastName": e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="email" 
-          label="Email" 
-          required 
-          showError={!emailIsValid && submittedBefore} 
-          onChange={(e) => setEmail(e)}
+          <TextInputField
+            id="email"
+            label="Email"
+            required
+            showError={errors["email"]}
+            onChange={(e) => setFields({ ...fields, "email": e })}
           />
         </InputFieldWrapper>
         <InputBoxWrapper>
           <TextInputBox
             placeholder="Message"
             label="Message"
-            showError={!messageIsValid && submittedBefore}
+            showError={errors["message"]}
             required
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => setFields({ ...fields, "message": e.target.value })}
           />
         </InputBoxWrapper>
         <ButtonWrapper>
@@ -90,9 +87,10 @@ export default function ContactForm({ togglePopup }) {
             aria-label="Submission Button"
             buttonText="SUBMIT"
             onClick={() => {
-              document.body.style.overflow = 'hidden';
-              togglePopup();
-              submitRequest();
+              if (submitRequest()) {
+                document.body.style.overflow = 'hidden';
+                togglePopup();
+              }
             }}
           />
         </ButtonWrapper>
@@ -100,14 +98,15 @@ export default function ContactForm({ togglePopup }) {
     </>
   );
   function submitRequest() {
-    const name = `${firstName} ${lastName}`;
+    const name = `${fields["firstName"]} ${fields["lastName"]}`;
     const subject = `Get in touch - ${name}`;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${name}&email=${email}&subject=${subject}&body=${message}`;
+      alert("form submitted");
+      const request = `${emailEndpoint}?name=${fields["name"]}&email=${fields["email"]}&subject=${fields["subject"]}&body=${fields["message"]}`;
+      return true;
     }
     else {
-      setSubmittedBefore(true);
-      return;
+      alert("form has errors");
     }
     // axios
     //   .post(proxyurl + request, axiosConfig)
