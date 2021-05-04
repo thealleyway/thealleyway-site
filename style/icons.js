@@ -31,6 +31,9 @@ const icons = {
   UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
   CLOSE_ICON: '/assets/close-icon.svg',
+  TWITTER_ICON: '/assets/twitter.svg',
+  INSTAGRAM_ICON: '/assets/instagram.svg',
+  DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
 };
 
 export { icons };
