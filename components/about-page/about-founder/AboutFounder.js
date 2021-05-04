@@ -1,9 +1,11 @@
+import React, { useState } from 'react';
 import { getString, renderRichText } from '../../../lib/richText';
 import MainResource from '../main-resource/MainResource';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import { H4, P } from '../../../style/typography';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
+import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import {
   MeetFounderContainer,
   MeetFounderWrapper,
@@ -28,6 +30,7 @@ export default function AboutFounder({ aboutFounderData }) {
     camaryns_resources_title: resourcesTitle,
     camaryns_resources_description: resourcesDescription,
     more_resources_title: moreResourcesTitle,
+    more_resources_image: moreResourcesImage,
     camaryn_image_right: camarynImageRight,
     camaryn_image_left: camarynImageLeft,
     top_quote: camarynImageQuote,
@@ -39,6 +42,22 @@ export default function AboutFounder({ aboutFounderData }) {
   );
 
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const getPopupTitles = resourceData.map((r) => r.resourceTitle);
+
+  const getPopupDescriptions = resourceData.map((r) => r.resourceDescription);
+
+  const popUpData = {
+    popupImage: moreResourcesImage,
+    popupTitles: getPopupTitles,
+    popupDescriptions: getPopupDescriptions,
+  };
 
   return (
     <MeetFounderContainer id="founder">
@@ -61,7 +80,7 @@ export default function AboutFounder({ aboutFounderData }) {
               <MainResource key={r.id} mainResourceData={r} />
             ))}
           </ResourceButtonsWrapper>
-          <MoreResourcesTitleWrapper>
+          <MoreResourcesTitleWrapper onClick={togglePopup}>
             <MoreResourcesTitle>
               {getString(moreResourcesTitle)}
             </MoreResourcesTitle>
@@ -85,6 +104,9 @@ export default function AboutFounder({ aboutFounderData }) {
       <SparkArrowWrapper>
         <LongSparkArrow arrowText={sparkArrowMissionText} />
       </SparkArrowWrapper>
+      {isOpen && (
+        <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
+      )}
     </MeetFounderContainer>
   );
 }

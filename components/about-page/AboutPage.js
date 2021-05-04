@@ -38,7 +38,7 @@ export default function AboutPage({
     camaryns_resources_title,
     camaryns_resources_description,
     more_resources_title,
-    more_resources,
+    more_resources_image,
     spark_arrow_mission_text,
 
     // MISSION
@@ -73,7 +73,7 @@ export default function AboutPage({
     camaryns_resources_title,
     camaryns_resources_description,
     more_resources_title,
-    more_resources,
+    more_resources_image,
     spark_arrow_mission_text,
     top_quote,
   };
