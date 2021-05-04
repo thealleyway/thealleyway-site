@@ -76,7 +76,7 @@ export default function AboutFounder({ aboutFounderData }) {
             src={camarynImageRight.url}
             alt={camarynImageRight.alt}
           />
-          <TopQuoteWrapper>{getString(camarynImageQuote)}</TopQuoteWrapper>
+          <TopQuoteWrapper>{renderRichText(camarynImageQuote)}</TopQuoteWrapper>
         </AboutImageQuoteWrapper>
       </MeetFounderWrapper>
       {isTabletOrMobile && !isMobile && (

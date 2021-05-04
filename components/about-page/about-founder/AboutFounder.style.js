@@ -1,4 +1,4 @@
-import { H2, H3, H4, P, InputInfoText } from '../../../style/typography';
+import { H2, H3, InputInfoText } from '../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
 import { max } from '../../../lib/responsive';
@@ -77,6 +77,7 @@ const AboutImageLeft = styled.img`
   position: relative;
   left: 0;
   opacity: 10%;
+  object-fit: cover;
 
   @media ${max.tabletLg} {
     order: 2;
@@ -118,6 +119,7 @@ const AboutImageRight = styled.img`
   height: 16em;
   width: 16em;
   z-index: 2;
+  object-fit: cover;
 
   @media ${max.tabletLg} {
     width: clamp(11em, 23vw, 16em);
@@ -157,7 +159,8 @@ const AboutImageRightOpacity = styled(AboutImageRight)`
 `;
 
 const TopQuoteWrapper = styled(H3)`
-  margin: 0;
+  font-style: initial !important;
+  margin: -1.3em 0;
   position: relative;
   top: -7em;
   width: 10em;
@@ -169,10 +172,12 @@ const TopQuoteWrapper = styled(H3)`
     width: 8em;
     margin-right: 5em;
   }
+
   @media ${max.tablet} {
     left: -5vw;
-    width: clamp(7em, 35vw, 8em);
+    width: clamp(7em, 40vw, 9em);
     margin-right: 0;
+    margin-left: calc(-1 * clamp(0.5em, 2vw, 1em));
   }
 
   @media ${max.tabletSm} {
@@ -181,6 +186,7 @@ const TopQuoteWrapper = styled(H3)`
     width: 8em;
     padding-right: 1.5em;
     margin-right: -5em;
+    margin-left: 0;
   }
 `;
 
