@@ -93,7 +93,7 @@ export const HamburgerMenu = styled.div`
   height: 100%;
   background-color: ${colors.CREME};
   border: 2px solid ${colors.BLACK};
-  z-index: 5;
+  z-index: 15;
 
   @media ${max.tablet} {
     width: 100%;
