@@ -55,6 +55,8 @@ export default function StoryArchivePage({
     );
   });
 
+  const scrollTo = 'archive';
+
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -69,8 +71,9 @@ export default function StoryArchivePage({
         description={archiveDescription}
         arrowText={sparkArrowDescriptionText}
         img={archiveHeaderImage}
+        scrollTo={scrollTo}
       />
-      <ArchiveContainer>
+      <ArchiveContainer id={scrollTo}>
         <SortingPaginationWrapper>
           <ArchiveSortingWrapper>
             <ArchiveSorting
