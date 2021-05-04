@@ -16,7 +16,6 @@ const Button = styled.a`
   display: flex;
   flex-direction: ${(props) => (props.showHorizontal ? 'row' : 'column')};
   align-items: center;
-  margin-bottom: 2em;
 `;
 
 const ButtonText = styled(P)`
