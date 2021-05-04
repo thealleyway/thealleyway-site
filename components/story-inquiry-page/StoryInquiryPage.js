@@ -148,16 +148,16 @@ export default function StoryInquiryPage({
           alt={storyInquirySideImage3.alt}
         />
       </SideImageContainer>
-      {/* <LongLinesContainer>
+      <LongLinesContainer>
         <LongLines
-          src={icons.LONG_LINES}
+          src={icons.LONG_LINES_DESKTOP}
           alt="long lines with spark at the end"
         />
         <LongLinesFlipped
-          src={icons.LONG_LINES_FLIPPED}
+          src={icons.LONG_LINES_FLIPPED_DESKTOP}
           alt="long lines with spark at the end flipped"
         />
-      </LongLinesContainer> */}
+      </LongLinesContainer>
       <StoryInquiryForm
         storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}

@@ -15,8 +15,8 @@ const icons = {
   HAMBURGER: '/assets/hamburger.svg',
   LONG_FILLED_SPARK_ARROW: '/assets/long-filled-spark-arrow.svg',
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
-  LONG_LINES: '/assets/long-lines.svg',
-  LONG_LINES_FLIPPED: '/assets/long-lines-flipped.svg',
+  LONG_LINES_DESKTOP: '/assets/long-lines-desktop.svg',
+  LONG_LINES_FLIPPED_DESKTOP: '/assets/long-lines-flipped-desktop.svg',
   LONG_UNFILLED_SPARK_ARROW_HORIZONTAL:
     '/assets/long-unfilled-spark-horizontal.svg',
   REFINED_SQUIGGLE: '/assets/refined-squiggle.svg',
