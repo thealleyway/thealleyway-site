@@ -36,7 +36,7 @@ const BottomSparkArrowContainer = styled.div`
   display: none;
   @media ${min.desktop} {
     display: block;
-    margin: -23.4em 0 0 10.9em;
+    margin: -25.3em 0 0 10.9em;
   }
 `;
 

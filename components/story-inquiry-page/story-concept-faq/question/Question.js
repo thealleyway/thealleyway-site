@@ -1,6 +1,6 @@
 import { H4, P } from '../../../../style/typography';
 import { getString } from '../../../../lib/richText';
-import { QuestionStyled, ShortArrow } from './Question.styles';
+import { QuestionStyled, ShortArrow, QuestionAnswerContainer, AnswerStyled } from './Question.styles';
 import React, { useState } from 'react';
 import { icons } from '../../../../style/icons';
 
@@ -10,7 +10,7 @@ export default function Question({ questionAnswerData, setCurrIndex, currIndex, 
   const isSelected = index == currIndex;
 
   return (
-    <>
+    <QuestionAnswerContainer>
       <QuestionStyled onMouseEnter={() => {
         setHover(true);
       }}
@@ -21,7 +21,11 @@ export default function Question({ questionAnswerData, setCurrIndex, currIndex, 
         }}
         isSelected={isSelected}
         hover={isSelected ? false : hover}
-      >{getString(question)} {isSelected && <ShortArrow src={icons.FILLED_SHORT_ARROW} alt="filled short arrow" />} </QuestionStyled>
-    </>
+      >{getString(question)} {isSelected && <ShortArrow src={icons.FILLED_SHORT_ARROW} alt="filled short arrow" />}
+      </QuestionStyled>
+      <AnswerStyled>
+      {isSelected && <P>{getString(answer)}</P>}
+      </AnswerStyled>
+    </QuestionAnswerContainer>
   );
 }

@@ -144,7 +144,7 @@ export default function StoryInquiryPage({
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
       />
-      {/* <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} /> */}
+      <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <BottomSparkArrowContainer>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
       </BottomSparkArrowContainer>
