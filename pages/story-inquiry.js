@@ -13,6 +13,7 @@ import Footer from '../components/footer/Footer';
 import { H1, H2, H3, P } from '../style/typography';
 import { getString } from '../lib/richText';
 import StorySubmissionConfirmation from '../components/story-submission-confirmation/StorySubmissionConfirmation';
+import MoreAboutPopup from '../components/more-about-popup/MoreAboutPopup';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -32,8 +33,9 @@ export default function StoryInquiryPage({
     social_information_subtitle: socialInformationSubtitle,
     venmo_more_info_subtitle: venmoMoreInfoSubtitle,
     venmo_more_info_description: venmoMoreInfoDescription,
-    story_concept_subtitle: storyConceptSubtitle,
-    story_concept_description: storyConceptDescription,
+    story_concept_popup_title: popupTitle,
+    story_concept_popup_description: popupDescription,
+    story_concept_popup_image: popupImage,
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
@@ -45,11 +47,18 @@ export default function StoryInquiryPage({
     footer_image: footerImage,
   } = storyInquiryPageData;
 
+  const storyConceptPopupData = {
+    popupTitle,
+    popupDescription,
+    popupImage,
+  };
+
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
 
   return (
     <>
       <Navigation navigationData={navigationData} />
+      <MoreAboutPopup popupData={storyConceptPopupData} />
       <H1>{getString(storySubmissionTitle)}</H1>
       <P>{getString(storySubmissionDescription)}</P>
       <H2>{getString(submissionFormSubtitle)}</H2>
@@ -59,8 +68,6 @@ export default function StoryInquiryPage({
       <H3>{getString(socialInformationSubtitle)}</H3>
       <H3>{getString(venmoMoreInfoSubtitle)}</H3>
       <P>{getString(venmoMoreInfoDescription)}</P>
-      <H3>{getString(storyConceptSubtitle)}</H3>
-      <P>{getString(storyConceptDescription)}</P>
       <H3>{getString(resourceLinksSubtitle)}</H3>
       <P>{getString(resourceLinksDescription)}</P>
 
