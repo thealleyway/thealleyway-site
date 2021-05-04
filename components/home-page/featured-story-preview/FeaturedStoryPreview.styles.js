@@ -29,6 +29,7 @@ export const PreviewImage = styled.img`
   @media ${max.tabletSm} {
     max-height: 120%;
     filter: grayscale(0%);
+    opacity: 0.1;
   }
 `;
 
