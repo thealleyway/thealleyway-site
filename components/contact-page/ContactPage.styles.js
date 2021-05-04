@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
+
 const HeaderAndSquiggleContainer = styled.div`
   @media ${min.tablet} {
     padding-bottom: 1em;

@@ -12,7 +12,7 @@ const TextLabel = styled(P)`
 
 const ErrorText = styled(P)`
   position: absolute;
-  color: red;
+  color: ${colors.RED};
   font-size: 0.7em;
   margin: 0.5em 0 0 0;
   text-shadow: 0.5px 0 #ff0000;
@@ -39,7 +39,7 @@ const TextInput = styled(P).attrs({
   border: none;
   background-color: ${colors.CREME};
   border-bottom: ${(props) =>
-    props.showError ? `1px solid red` : `1px solid ${colors.BROWN}`};
+    props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
   width: 100%;
   border-radius: 0%;
   &:focus {
