@@ -13,7 +13,7 @@ export const NavigationWrapper = styled.nav`
   justify-content: space-between;
   width: 100%;
   padding: 2em 5em;
-  z-index: 6;
+  z-index: 5;
   background-color: ${colors.CREME};
 
   @media ${max.tablet} {
@@ -93,7 +93,7 @@ export const HamburgerMenu = styled.div`
   height: 100%;
   background-color: ${colors.CREME};
   border: 2px solid ${colors.BLACK};
-  z-index: 6;
+  z-index: 5;
 
   @media ${max.tablet} {
     width: 100%;
@@ -110,16 +110,4 @@ export const CloseXImage = styled.img`
   width: 1.5em;
   top: 3em;
   right: 3em;
-`;
-
-export const Overlay = styled.div`
-  display: ${(props) => (props.showOverlay ? 'block' : 'none')};
-  position: fixed;
-  background-color: ${colors.CREME};
-  opacity: 0.7;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 3;
 `;
