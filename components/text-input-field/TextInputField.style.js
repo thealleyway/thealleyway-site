@@ -28,7 +28,6 @@ const TextInput = styled(P).attrs({
   width: 100%;
   border-radius: 0%;
 
-  margin-left: 2.2em;
   &:focus {
     outline: none;
   }
