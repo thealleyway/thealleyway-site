@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
-export default function BackToStartVerticalButton(props) {
+export default function BackToStartButton(props) {
   const [hover, setHover] = useState(false);
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,

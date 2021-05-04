@@ -8,7 +8,7 @@ import {
 } from './Footer.style';
 import FooterLink from './footer-link/FooterLink';
 import ImageBoxLink from '../image-box-link/ImageBoxLink';
-import BackToStartVerticalButton from '../back-to-start-vertical-button/BackToStartVerticalButton';
+import BackToStartButton from '../back-to-start-button/BackToStartButton';
 
 export default function Footer({ footerData, footerBoxLinkData }) {
   const {
@@ -24,7 +24,7 @@ export default function Footer({ footerData, footerBoxLinkData }) {
       {footerBoxLinkData && <ImageBoxLink boxLinkData={footerBoxLinkData} />}
       {!footerBoxLinkData && (
         <BackToStartButtonContainer>
-          <BackToStartVerticalButton />
+          <BackToStartButton />
         </BackToStartButtonContainer>
       )}
       <FooterSocialsContainer>
