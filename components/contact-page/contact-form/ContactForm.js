@@ -9,8 +9,9 @@ import {
 import React, { useState } from 'react';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 
+const axios = require('axios');
+
 export default function ContactForm({ togglePopup }) {
-  const axios = require('axios');
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
 
