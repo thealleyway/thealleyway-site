@@ -81,7 +81,8 @@ export default function StoryInquiryForm({
         <SignatureCanvasWrapper>
           <SignatureCanvas
             penColor="black"
-            canvasProps={{ width: 450, height: 60 }}
+      //      canvasProps={{ width: 450, height: 60 }}
+            canvasProps={{ width: 300, height: 60 }}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}

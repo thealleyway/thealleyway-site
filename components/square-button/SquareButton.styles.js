@@ -9,7 +9,7 @@ const Button = styled.button`
   color: ${colors.WHITE};
   border: none;
   width: ${(props) =>
-    props.long ? `13em` : `10em`};
+    props.long ? `17em` : `10em`};
   height: 4em;
   @media ${min.tablet} {
     width: ${(props) =>

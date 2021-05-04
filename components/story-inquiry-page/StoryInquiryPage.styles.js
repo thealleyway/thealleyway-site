@@ -21,7 +21,9 @@ const LongLinesContainer = styled.div`
 
 const SparkArrowContainer = styled.div`
   position: absolute;
+  display: none;
   @media ${min.tablet} {
+    display: block;
     margin: ${(props) =>
       props.bottom ? `-23.4em 0 0 10.9em` : `4.5em 0 0 7.8em`};
   }
@@ -58,16 +60,31 @@ const SideImageContainer = styled.div`
   position: absolute;
   right: 0;
   opacity: 10%;
-  margin-top: 10em;
-  display: flex;
-  flex-direction: column;
+display: none;
+
+    @media ${min.tablet} {
+      display: flex;
+      flex-direction: column;
+    margin-top: 7.5em;
+  }
+  @media ${min.desktop} {
+    margin-top: 10em;
+  }
 `;
 
 const SideImage = styled.img`
-  width: 16em;
-  height: 32em;
   object-fit: cover;
-  margin-bottom: 15em;
+  display: none;
+  @media ${min.tablet} {
+    margin-bottom: 20em;
+    width: 8.5em;
+    height: 32em;
+  }
+  @media ${min.desktop} {
+    margin-bottom: 15em;
+    width: 16em;
+    height: 32em;
+  }
 `;
 
 export {
