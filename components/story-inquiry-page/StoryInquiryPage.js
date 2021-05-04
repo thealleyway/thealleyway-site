@@ -10,7 +10,8 @@ import {
   LongLines,
   LongLinesFlipped,
   LongLinesContainer,
-  SparkArrowContainer,
+  TopSparkArrowContainer,
+  BottomSparkArrowContainer,
   SideImageContainer,
   SideImage,
 } from './StoryInquiryPage.styles';
@@ -111,9 +112,9 @@ export default function StoryInquiryPage({
         arrowText={sparkArrowDescriptionText}
         img={storyInquiryTopImage}
       />
-      <SparkArrowContainer>
+      <TopSparkArrowContainer>
         <LongSparkArrow arrowText={sparkArrowFaqText} />
-      </SparkArrowContainer>
+      </TopSparkArrowContainer>
       <SideImageContainer>
         <SideImage
           src={storyInquirySideImage1.url}
@@ -144,9 +145,9 @@ export default function StoryInquiryPage({
         storySubmissionConfirmationData={storySubmissionConfirmationData}
       />
       {/* <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} /> */}
-      <SparkArrowContainer bottom={true}>
+      <BottomSparkArrowContainer>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
-      </SparkArrowContainer>
+      </BottomSparkArrowContainer>
       {/* {authorTestimonies.map((item) => {
         return (
           <AuthorTestimony

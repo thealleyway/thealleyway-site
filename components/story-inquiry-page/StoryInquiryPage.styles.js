@@ -19,17 +19,24 @@ const LongLinesContainer = styled.div`
   margin: 27em 0 0 0;
 `;
 
-const SparkArrowContainer = styled.div`
+const TopSparkArrowContainer = styled.div`
   position: absolute;
   display: none;
   @media ${min.tablet} {
     display: block;
-    margin: ${(props) =>
-      props.bottom ? `-23.4em 0 0 10.9em` : `4.5em 0 0 7.8em`};
+    margin: 4.5em 0 0 7.8em;
   }
   @media ${min.desktop} {
-    margin: ${(props) =>
-      props.bottom ? `-23.4em 0 0 10.9em` : `2em 0 0 10.9em`};
+    margin: 2em 0 0 10.9em;
+  }
+`;
+
+const BottomSparkArrowContainer = styled.div`
+  position: absolute;
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    margin: -23.4em 0 0 10.9em;
   }
 `;
 
@@ -60,11 +67,11 @@ const SideImageContainer = styled.div`
   position: absolute;
   right: 0;
   opacity: 10%;
-display: none;
+  display: none;
 
-    @media ${min.tablet} {
-      display: flex;
-      flex-direction: column;
+  @media ${min.tablet} {
+    display: flex;
+    flex-direction: column;
     margin-top: 7.5em;
   }
   @media ${min.desktop} {
@@ -93,7 +100,8 @@ export {
   LongLines,
   LongLinesFlipped,
   LongLinesContainer,
-  SparkArrowContainer,
+  TopSparkArrowContainer,
+  BottomSparkArrowContainer,
   SideImage,
   SideImageContainer,
 };
