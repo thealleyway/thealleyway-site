@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getString } from '../../lib/richText';
 import PageLink from '../page-link/PageLink';
 import { icons } from '../../style/icons';
+import { Overlay } from '../base-components/BaseComponents';
 import {
   CloseXImage,
   HamburgerImage,
@@ -11,7 +12,6 @@ import {
   LogoWrapper,
   NavigationLinksWrapper,
   NavigationWrapper,
-  Overlay,
 } from './Navigation.styles';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';

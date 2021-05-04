@@ -7,8 +7,8 @@ import ContactForm from './contact-form/ContactForm';
 import { icons } from '../../style/icons';
 import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
+import { Overlay } from '../base-components/BaseComponents';
 import {
-  Overlay,
   FormContainer,
   PageContainer,
   HeaderAndSquiggleContainer,

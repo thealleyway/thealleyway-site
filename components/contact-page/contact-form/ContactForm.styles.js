@@ -18,10 +18,6 @@ const InputFieldWrapper = styled.div`
   padding-bottom: 1.5em;
 `;
 
-const InputFieldsContainer = styled.div`
-  margin: 0 0 -2.5em 0;
-`;
-
 const InputBoxWrapper = styled.div`
   padding-top: 0.5em;
   @media ${min.desktop} {
@@ -44,5 +40,4 @@ export {
   InputFieldWrapper,
   InputBoxWrapper,
   ButtonWrapper,
-  InputFieldsContainer,
 };

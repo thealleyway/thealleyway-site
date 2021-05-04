@@ -6,24 +6,21 @@ import {
   InputFieldWrapper,
   InputBoxWrapper,
   ButtonWrapper,
-  InputFieldsContainer,
 } from './ContactForm.styles';
 
 export default function ContactForm({ togglePopup }) {
   return (
     <>
       <ContactFormContainer>
-        <InputFieldsContainer>
-          <InputFieldWrapper>
-            <TextInputField id="firstName" label="First Name" required={true} />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField id="lastName" label="Last Name" />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField id="email" label="Email" required={true} />
-          </InputFieldWrapper>
-        </InputFieldsContainer>
+        <InputFieldWrapper>
+          <TextInputField id="firstName" label="First Name" required />
+        </InputFieldWrapper>
+        <InputFieldWrapper>
+          <TextInputField id="lastName" label="Last Name" />
+        </InputFieldWrapper>
+        <InputFieldWrapper>
+          <TextInputField id="email" label="Email" required />
+        </InputFieldWrapper>
         <InputBoxWrapper>
           <TextInputBox placeholder="Message" label="Message" required={true} />
         </InputBoxWrapper>

@@ -3,13 +3,13 @@ import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
 import { InputInfoText } from '../../../style/typography';
 import TextInputField from '../../text-input-field/TextInputField';
+import { Overlay } from '../../base-components/BaseComponents';
 import {
   ContentWrapper,
   NewsletterSignUpTextInput,
   NewsletterSignUpTitle,
   NewsletterDescriptionText,
   NewsletterSignUpWrapper,
-  Overlay,
   PrivacyPolicyLinkText,
   SubmitButton,
 } from './NewsletterSignUp.styles';
@@ -44,8 +44,9 @@ export default function NewsletterSignUp({
             label="Name"
             fullWidth
             onChange={(e) => updateName(e)}
+            required={true}
           />
-          <TextInputField id="email" label="Email" fullWidth />
+          <TextInputField id="email" label="Email" fullWidth required={true} />
           <PrivacyPolicyLinkText>
             <InputInfoText
               onClick={() => {
