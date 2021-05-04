@@ -13,7 +13,7 @@ const HeaderandSquiggleContainer = styled.div`
 
 const SquiggleUnderline = styled.img`
   position: absolute;
-  width: clamp(9em, 44vw, 10em); //21vw; //clamp(10em, 95vw, 13em);
+  width: clamp(9em, 44vw, 10em);
   margin-top: 2em;
   margin-left: clamp(2.75em, 18vw, 4.5em);
   padding: 0 1.5em 0 2em;

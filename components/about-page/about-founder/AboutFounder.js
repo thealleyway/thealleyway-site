@@ -46,9 +46,7 @@ export default function AboutFounder({ aboutFounderData }) {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
+  const togglePopup = () => setIsOpen(!isOpen);
 
   const getPopupTitles = resourceData.map((r) => r.resourceTitle);
 
