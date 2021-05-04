@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { max } from '../../lib/responsive';
+import { max, min } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
@@ -55,13 +55,28 @@ const QuoteWrapper = styled(H3)`
   font-style: initial !important;
   margin: 0;
   padding: 0;
-  padding-top: 0.5em;
+  padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.2em' : '0.5em')};
   overflow: hidden;
   text-overflow: ellipsis;
-
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
-  font-size: clamp(1.4em, 6vw, 1.8em);
+  font-size: ${(props) =>
+    props.isAuthorTestimonies
+      ? 'clamp(1.2em, 3vw, 1.3em)'
+      : 'clamp(1.4em, 6vw, 1.8em)'};
+  @media ${min.tabletSm} {
+    padding-top: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0.5em')};
+  }
+  @media ${min.tablet} {
+    padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.5em' : '0.5em')};
+    font-size: ${(props) =>
+      props.isAuthorTestimonies ? '1.4em' : 'clamp(1.4em, 6vw, 1.8em)'};
+  }
+  @media ${min.desktop} {
+    margin-top: ${(props) => (props.isAuthorTestimonies ? '-.65em' : '0')};
+    font-size: ${(props) =>
+      props.isAuthorTestimonies ? '1.5em' : 'clamp(1.4em, 6vw, 1.8em)'};
+  }
 `;
 
 const QuoteContainer = styled.div`

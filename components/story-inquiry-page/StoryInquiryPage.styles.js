@@ -94,6 +94,18 @@ const SideImage = styled.img`
   }
 `;
 
+const QuoteCarouselContainer = styled.div`
+  @media ${min.tabletSm} {
+    margin-left: 0.7em;
+  }
+  @media ${min.tablet} {
+    margin-left: 1em;
+  }
+  @media ${min.desktop} {
+    margin-left: 5em;
+  }
+`;
+
 export {
   SquiggleWavy,
   H1StyledContainer,
@@ -104,4 +116,5 @@ export {
   BottomSparkArrowContainer,
   SideImage,
   SideImageContainer,
+  QuoteCarouselContainer,
 };

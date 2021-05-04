@@ -33,6 +33,7 @@ export default function StoryInquiryForm({
   storyInquiryFormData,
   storyConceptPopupData,
   storySubmissionConfirmationData,
+  authorTestimoniesData,
 }) {
   const {
     authorInformationSubtitle,
@@ -54,7 +55,7 @@ export default function StoryInquiryForm({
   const [trimmedDataUrl, trim] = useState(null);
   const [sigPad, setSigPad] = useState({});
   const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
-  const [isStoryConceptPopup, setIsStoryConceptPopupOpen] = useState(false);
+  const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
 
   return (
@@ -81,8 +82,8 @@ export default function StoryInquiryForm({
         <SignatureCanvasWrapper>
           <SignatureCanvas
             penColor="black"
-      //      canvasProps={{ width: 450, height: 60 }}
-            canvasProps={{ width: 300, height: 60 }}
+            //      canvasProps={{ width: 450, height: 60 }}
+            canvasProps={{ width: 200, height: 60 }}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
@@ -145,7 +146,7 @@ export default function StoryInquiryForm({
             {getString(storyConceptBoxSubtitle)}
           </InputInfoText>
         </StoryConceptInfoTextWrapper>
-        {isStoryConceptPopup && (
+        {isStoryConceptPopupOpen && (
           <MoreAboutPopup
             popupData={storyConceptPopupData}
             setIsPopupOpen={setIsStoryConceptPopupOpen}
@@ -200,7 +201,9 @@ export default function StoryInquiryForm({
       )}
       <Overlay
         showOverlay={
-          isVenmoPolicyOpen || isStoryConceptPopup || isConfirmationPopupOpen
+          isVenmoPolicyOpen ||
+          isStoryConceptPopupOpen ||
+          isConfirmationPopupOpen
         }
       />
     </StoryInquiryFormContainer>

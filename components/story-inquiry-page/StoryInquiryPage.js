@@ -14,10 +14,12 @@ import {
   BottomSparkArrowContainer,
   SideImageContainer,
   SideImage,
+  QuoteCarouselContainer,
 } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
+import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -47,6 +49,9 @@ export default function StoryInquiryPage({
     resource_links_subtitle: resourceLinksSubtitle,
     resource_links_description: resourceLinksDescription,
     faq_title: faqTitle,
+    author_testimonies_title: title,
+    author_testimonies_description: description,
+    author_testimonies_image: quoteImage,
     story_submission_confirmation_title_regular: confirmationTitleRegular,
     story_submission_confirmation_title_italic: confirmationTitleItalic,
     story_submission_confirmation_description: confirmationDescription,
@@ -71,6 +76,17 @@ export default function StoryInquiryPage({
     confirmationTitleItalic,
     confirmationDescription,
     confirmationImage,
+  };
+
+  const quotes = authorTestimonies.map((m) => {
+    return [getString(m.author_testimony), getString(m.author_name)];
+  });
+
+  const authorTestimoniesData = {
+    title,
+    description,
+    quotes,
+    quoteImage,
   };
 
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
@@ -143,6 +159,7 @@ export default function StoryInquiryPage({
         storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
+        authorTestimoniesData={authorTestimoniesData}
       />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <BottomSparkArrowContainer>
@@ -162,6 +179,12 @@ export default function StoryInquiryPage({
       /> */}
       {/* <P>{getString(sparkArrowFaqText)}</P>
       <P>{getString(sparkArrowAuthorTestimoniesText)}</P> */}
+      <QuoteCarouselContainer>
+        <QuoteCarousel
+          quoteCarouselData={authorTestimoniesData}
+          isAuthorTestimonies
+        />
+      </QuoteCarouselContainer>
       <Footer footerData={footerData} footerBoxLinkData={boxLinkFooter} />
     </>
   );

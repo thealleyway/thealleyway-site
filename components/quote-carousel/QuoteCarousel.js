@@ -18,9 +18,11 @@ import { icons } from '../../style/icons';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 
-export default function QuoteCarousel({ quoteCarouselData }) {
+export default function QuoteCarousel({
+  quoteCarouselData,
+  isAuthorTestimonies,
+}) {
   const { title, description, quotes, quoteImage } = quoteCarouselData;
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
 
@@ -45,6 +47,7 @@ export default function QuoteCarousel({ quoteCarouselData }) {
     };
   }, [activeIndex]);
 
+  console.log(Number.parseInt(activeIndex));
   return (
     <ContentWrapper>
       <TextWrapper>
@@ -58,7 +61,11 @@ export default function QuoteCarousel({ quoteCarouselData }) {
             <ArchImage url={quoteImage.url} />
             <ArchOutline />
             <QuoteContainer>
-              <QuoteWrapper key={Number.parseInt(activeIndex)} fadeIn={fadeIn}>
+              <QuoteWrapper
+                key={Number.parseInt(activeIndex)}
+                fadeIn={fadeIn}
+                isAuthorTestimonies={isAuthorTestimonies}
+              >
                 {quotes[Number.parseInt(activeIndex)]}
               </QuoteWrapper>
             </QuoteContainer>
