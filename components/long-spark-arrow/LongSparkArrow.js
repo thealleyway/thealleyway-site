@@ -10,7 +10,7 @@ import { getString } from '../../lib/richText';
 import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 
-export default function LongSparkArrow({ arrowText }) {
+export default function LongSparkArrow({ arrowText, scrollTo }) {
   const [hover, setHover] = useState(false);
   return (
     <div
@@ -28,7 +28,7 @@ export default function LongSparkArrow({ arrowText }) {
         </ArrowContainer>
       )}
       {hover && (
-        <ArrowContainerHover>
+        <ArrowContainerHover href={`#${scrollTo}`}>
           <FilledSparkArrow
             src={icons.LONG_FILLED_SPARK_ARROW}
             alt="Filled long white spark arrow with brown arrow center"

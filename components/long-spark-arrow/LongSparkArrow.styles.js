@@ -76,7 +76,7 @@ const ArrowText = styled(P)`
   }
 `;
 
-const ArrowContainerHover = styled.div`
+const ArrowContainerHover = styled.a`
   position: absolute;
   transform: rotate(270deg);
   top: 5.5em;
@@ -88,6 +88,10 @@ const ArrowContainerHover = styled.div`
   @media ${min.desktop} {
     top: 3.5em;
     left: -9.5em;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
