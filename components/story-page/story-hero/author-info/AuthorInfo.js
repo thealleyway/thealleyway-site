@@ -20,17 +20,17 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
   } = authorInfo;
   return (
     <AuthorInfoWrapper>
-      <DonateLink href={donateLink.url}>
+      <DonateLink href={donateLink.url} target="_blank" rel="noreferrer">
         <DonateCircularText src={icons.DONATE_CIRCULAR_TEXT} />
       </DonateLink>
       <div>
         <AuthorName>{getString(author_name)}</AuthorName>
         <AdditionalInfo>{getString(title)}</AdditionalInfo>
         <AdditionalInfo>{getString(additional_information)}</AdditionalInfo>
-        <SocialMediaLink href={instagram.url}>
+        <SocialMediaLink href={instagram.url} target="_blank" rel="noreferrer">
           <SocialMediaIcon src={icons.INSTAGRAM_ICON} />
         </SocialMediaLink>
-        <SocialMediaLink href={twitter.url}>
+        <SocialMediaLink href={twitter.url} target="_blank" rel="noreferrer">
           <SocialMediaIcon src={icons.TWITTER_ICON} />
         </SocialMediaLink>
       </div>

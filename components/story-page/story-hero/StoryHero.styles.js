@@ -77,7 +77,7 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2em;
-  width: max(65%, 45em);
+  width: max(50%, 35em);
 
   @media ${max.tabletLg} {
     flex-direction: column-reverse;

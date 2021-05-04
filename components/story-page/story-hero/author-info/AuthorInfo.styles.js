@@ -24,8 +24,10 @@ export const AuthorName = styled.h5`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   color: ${colors.BURNTORANGE};
-  font-size: clamp(1em, 1.2vw, 1.2em);
+  font-size: 1vw;
   margin: 0em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 
   @media ${max.tabletSm} {
     font-size: 3.5vw;
