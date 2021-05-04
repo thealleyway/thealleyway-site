@@ -7,8 +7,10 @@ import PageDescription from '../page-description/PageDescription';
 import {
   SquiggleWavy,
   H1StyledContainer,
-  LongLines,
-  LongLinesFlipped,
+  LongLinesDesktop,
+  LongLinesFlippedDesktop,
+  LongLinesTablet,
+  LongLinesFlippedTablet,
   LongLinesContainer,
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
@@ -149,13 +151,21 @@ export default function StoryInquiryPage({
         />
       </SideImageContainer>
       <LongLinesContainer>
-        <LongLines
+        <LongLinesDesktop
           src={icons.LONG_LINES_DESKTOP}
-          alt="long lines with spark at the end"
+          alt="long lines with spark at the end for desktop"
         />
-        <LongLinesFlipped
+        <LongLinesFlippedDesktop
           src={icons.LONG_LINES_FLIPPED_DESKTOP}
-          alt="long lines with spark at the end flipped"
+          alt="long lines with spark at the end flipped for desktop"
+        />
+        <LongLinesTablet
+          src={icons.LONG_LINES_TABLET}
+          alt="long lines with spark at the end for tablet"
+        />
+        <LongLinesFlippedTablet
+          src={icons.LONG_LINES_FLIPPED_TABLET}
+          alt="long lines with spark at the end flipped for tablet"
         />
       </LongLinesContainer>
       <StoryInquiryForm

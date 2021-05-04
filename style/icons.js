@@ -17,6 +17,8 @@ const icons = {
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
   LONG_LINES_DESKTOP: '/assets/long-lines-desktop.svg',
   LONG_LINES_FLIPPED_DESKTOP: '/assets/long-lines-flipped-desktop.svg',
+  LONG_LINES_TABLET: '/assets/long-lines-tablet.svg',
+  LONG_LINES_FLIPPED_TABLET: '/assets/long-lines-flipped-tablet.svg',
   LONG_UNFILLED_SPARK_ARROW_HORIZONTAL:
     '/assets/long-unfilled-spark-horizontal.svg',
   REFINED_SQUIGGLE: '/assets/refined-squiggle.svg',

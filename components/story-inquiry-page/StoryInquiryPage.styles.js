@@ -1,18 +1,54 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 
-const LongLines = styled.img`
+const LongLinesDesktop = styled.img`
+display: none;
+@media ${min.desktop} {
+  display: block;
   position: relative;
   width: 11.2em;
   margin: 0 0 0 5.8em;
+}
 `;
 
-const LongLinesFlipped = styled.img`
+const LongLinesFlippedDesktop = styled.img`
+display: none;
+@media ${min.desktop} {
+  display: block;
+  position: relative;
+  width: 11.2em;
+  top: 20em;
+  margin: 0 0 0 5.8em;
+}
+}
+`;
+
+const LongLinesTablet = styled.img`
+@media ${min.tablet} {
+  display: block;
+  position: relative;
+  width: 11.2em;
+  margin: 0 0 0 5.8em;
+}
+@media ${min.desktop} {
+  display: none;
+}
+`;
+
+const LongLinesFlippedTablet = styled.img`
+@media ${min.tablet} {
+  display: block;
   position: relative;
   width: 11.2em;
   top: 27.5em;
   right: 12.1em;
+  
+}
+@media ${min.desktop} {
+  display: none;
+}
 `;
+
 
 const LongLinesContainer = styled.div`
   position: absolute;
@@ -109,12 +145,14 @@ const QuoteCarouselContainer = styled.div`
 export {
   SquiggleWavy,
   H1StyledContainer,
-  LongLines,
-  LongLinesFlipped,
+  LongLinesDesktop,
+  LongLinesFlippedDesktop,
   LongLinesContainer,
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
   SideImage,
   SideImageContainer,
   QuoteCarouselContainer,
+  LongLinesTablet,
+  LongLinesFlippedTablet,
 };
