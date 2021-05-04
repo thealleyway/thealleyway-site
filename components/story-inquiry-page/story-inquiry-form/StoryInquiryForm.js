@@ -33,7 +33,6 @@ export default function StoryInquiryForm({
   storyInquiryFormData,
   storyConceptPopupData,
   storySubmissionConfirmationData,
-  authorTestimoniesData,
 }) {
   const {
     authorInformationSubtitle,

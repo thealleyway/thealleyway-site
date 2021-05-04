@@ -79,6 +79,15 @@ const QuoteWrapper = styled(H3)`
   }
 `;
 
+const AuthorsWrapper = styled(P)`
+  z-index: 100;
+  color: ${colors.BROWN};
+`;
+
+const AuthorsContainer = styled.div`
+z-index: 100;
+`;
+
 const QuoteContainer = styled.div`
   width: 17em;
   height: 14em;
@@ -102,8 +111,10 @@ const QuoteContainer = styled.div`
   }
 `;
 
+
 const CarouselContainer = styled.div`
   margin-left: -10em;
+  margin-top: ${(props) => props.isAuthorTestimonies ? '-16em' : '0'};
   padding: 0;
   width: 30em;
   height: 30em;
@@ -112,7 +123,9 @@ const CarouselContainer = styled.div`
   flex: 100%;
   justify-content: center;
   align-items: center;
-
+  @media ${min.tabletSm} {
+    margin-top: ${(props) => props.isAuthorTestimonies ? '-8em' : '0'};
+  }
   @media ${max.tabletLg} {
     margin-left: -20em;
   }
@@ -122,6 +135,7 @@ const CarouselContainer = styled.div`
     width: clamp(16em, 80vw, 22em); //25em;;
     height: clamp(16em, 80vw, 22em); //25em;;
   }
+
 `;
 
 const ImageArchWrapper = styled.div`
@@ -223,4 +237,6 @@ export {
   ArchImage,
   ArchOutline,
   ArchSpark,
+  AuthorsContainer,
+  AuthorsWrapper
 };

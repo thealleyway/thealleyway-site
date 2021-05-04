@@ -78,9 +78,12 @@ export default function StoryInquiryPage({
     confirmationImage,
   };
 
-  const quotes = authorTestimonies.map((m) => {
-    return [getString(m.author_testimony), getString(m.author_name)];
-  });
+  const quotes = authorTestimonies.map((q) =>
+    getString(q.author_testimony).length > 154 ?
+      getString(q.author_testimony).slice(0, 154) + "..." :
+      getString(q.author_testimony));
+
+  const authors = authorTestimonies.map((m) => getString(m.author_name));
 
   const authorTestimoniesData = {
     title,
@@ -159,7 +162,6 @@ export default function StoryInquiryPage({
         storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
-        authorTestimoniesData={authorTestimoniesData}
       />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <BottomSparkArrowContainer>
@@ -183,6 +185,7 @@ export default function StoryInquiryPage({
         <QuoteCarousel
           quoteCarouselData={authorTestimoniesData}
           isAuthorTestimonies
+          authors={authors}
         />
       </QuoteCarouselContainer>
       <Footer footerData={footerData} footerBoxLinkData={boxLinkFooter} />

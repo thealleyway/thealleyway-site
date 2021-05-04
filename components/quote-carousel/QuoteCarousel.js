@@ -13,6 +13,8 @@ import {
   ArchImage,
   ArchOutline,
   ArchSpark,
+  AuthorsContainer,
+  AuthorsWrapper
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
 
@@ -21,6 +23,7 @@ const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 export default function QuoteCarousel({
   quoteCarouselData,
   isAuthorTestimonies,
+  authors
 }) {
   const { title, description, quotes, quoteImage } = quoteCarouselData;
   const [activeIndex, setActiveIndex] = useState(0);
@@ -47,14 +50,13 @@ export default function QuoteCarousel({
     };
   }, [activeIndex]);
 
-  console.log(Number.parseInt(activeIndex));
   return (
     <ContentWrapper>
       <TextWrapper>
         <TitleWrapper>{getString(title)}</TitleWrapper>
         <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
       </TextWrapper>
-      <CarouselContainer>
+      <CarouselContainer isAuthorTestimonies={isAuthorTestimonies}>
         <ImageArchWrapper>
           <ImageArchContentWrapper>
             <ArchSpark src={icons.FILLED_SPARK_WHITE} />
@@ -68,6 +70,11 @@ export default function QuoteCarousel({
               >
                 {quotes[Number.parseInt(activeIndex)]}
               </QuoteWrapper>
+              <AuthorsContainer>
+                <AuthorsWrapper>
+                  {authors[Number.parseInt(activeIndex)]}
+                </AuthorsWrapper>
+              </AuthorsContainer>
             </QuoteContainer>
           </ImageArchContentWrapper>
         </ImageArchWrapper>
