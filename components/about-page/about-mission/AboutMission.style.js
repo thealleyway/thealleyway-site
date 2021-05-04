@@ -6,6 +6,7 @@ const OurMissionContainer = styled.div`
   height: fit-content;
   overflow: hidden;
   margin-top: 4em;
+  padding-bottom: 4em;
   margin-bottom: 6em;
 `;
 

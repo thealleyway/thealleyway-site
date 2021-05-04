@@ -4,7 +4,7 @@ import { max } from '../../../lib/responsive';
 const OurValuesContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  height: 53em;
+  height: 58em;
 
   @media ${max.tabletSm} {
     margin-top: 4em;

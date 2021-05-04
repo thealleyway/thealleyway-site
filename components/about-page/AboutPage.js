@@ -1,9 +1,14 @@
 import React from 'react';
+import { icons } from '../../style/icons';
+import { getString } from '../../lib/richText';
 import Navigation from '../navigation/Navigation';
 import Footer from '../footer/Footer';
 import H1Styled from '../h1-styled/H1Styled';
 import PageDescription from '../page-description/PageDescription';
 import AboutFounder from './about-founder/AboutFounder';
+import AboutMission from './about-mission/AboutMission';
+import AboutValue from './about-value/AboutValue';
+import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import {
   HeaderandSquiggleContainer,
   SquiggleUnderline,
@@ -21,47 +26,34 @@ export default function AboutPage({
   mainResourcesData,
 }) {
   const {
-    // HEADER
     about_page_title_regular: aboutPageTitleRegular,
     about_page_title_italic: aboutPageTitleItalic,
     about_page_description: aboutPageDescription,
     spark_arrow_description_text: sparkArrowDescriptionText,
     about_page_title_image: aboutPageTitleImage,
-
-    // CAMARYN
     camaryn_title,
     camaryn_text,
     camaryn_image_right,
     camaryn_image_left,
     top_quote,
-
-    // RESOURCES
     camaryns_resources_title,
     camaryns_resources_description,
     more_resources_title,
     more_resources_image,
     spark_arrow_mission_text,
-
-    // MISSION
-    // our_mission_title: ourMissionTitle,
-    // our_mission_description: ourMissionDescription,
-    // spark_arrow_values_text: sparkArrowValuesText,
-    // TODO: NEED a top box link
-
-    // VALUES
-    // values_title: valuesTitle,
-    // values_description: valuesDescription,
-    // spark_arrow_name_text: sparkArrowNameText,
-
-    // bottom_quote: bottomQuote,
-
-    // spark_arrow_alleyway_text: sparkArrowAlleywayText, // is this used?
-
-    // name meaning
-    // the_alleyway_names_title: theAlleywayNamesTitle,
-    // the_alleyway_names_meaning: theAlleywayNamesMeaning,
-
-    // FOOTER
+    our_mission_title,
+    our_mission_description,
+    our_mission_image_left,
+    our_mission_image_right,
+    spark_arrow_values_text,
+    box_link_1,
+    values_title,
+    values_image,
+    spark_arrow_name_text,
+    the_alleyway_names_title: theAlleywayNamesTitle,
+    the_alleyway_names_description: theAlleywayNamesDescription,
+    the_alleyway_names_meaning: theAlleywayNamesMeaning,
+    the_alleyway_names_image: theAlleywayNamesImage,
     footer_image: footerImage,
   } = aboutPageData;
 
@@ -77,6 +69,35 @@ export default function AboutPage({
     more_resources_image,
     spark_arrow_mission_text,
     top_quote,
+  };
+
+  const missionData = {
+    our_mission_title,
+    our_mission_description,
+    spark_arrow_values_text,
+    our_mission_image_left,
+    boxLinkData: {
+      img: our_mission_image_right,
+      data: box_link_1,
+    },
+  };
+
+  const aboutValueData = {
+    values: valuesData,
+    values_title,
+    values_image,
+    spark_arrow_name_text,
+  };
+
+  const getQuotes = theAlleywayNamesMeaning.map((m) => {
+    return getString(m.meaning);
+  });
+
+  const quoteCarouselData = {
+    title: theAlleywayNamesTitle,
+    description: theAlleywayNamesDescription,
+    quotes: getQuotes,
+    quoteImage: theAlleywayNamesImage,
   };
 
   const footerBoxLinkDate = {
@@ -104,40 +125,9 @@ export default function AboutPage({
         scrollTo={scrollTo}
       />
       <AboutFounder aboutFounderData={aboutFounderData} />
-      {/* {valuesData.map((v) => (
-        <AboutValue key={v.id} valueData={v.data} />
-      ))} */}
-      {/* 
-      <H2>{getString(camarynTitle)}</H2>
-      <img src={camarynImage.url} alt={camarynImage.alt} />
-      <P>{getString(camarynText)}</P>
-      <H3>{getString(camarynsResourcesTitle)}</H3>
-      <P>{getString(camarynsResourcesDescription)}</P>
-      <H3>{getString(moreResourcesTitle)}</H3>
-      <P>{getString(topQuote)}</P>
-      <H2>{getString(theAlleywayTitle)}</H2>
-      <img src={theAlleywayImage.url} alt={theAlleywayImage.alt} />
-      <P>{getString(theAlleywayText)}</P>
-      <H3>{getString(ourMissionTitle)}</H3>
-      <P>{getString(ourMissionDescription)}</P>
-      <H2>{getString(valuesTitle)}</H2>
-      <H3>{getString(valuesDescription)}</H3>
-      
-      <H3>{getString(theAlleywayNamesTitle)}</H3>
-      {theAlleywayNamesMeaning.map((m) => (
-        <P key={m.id}>{getString(m.meaning)}</P>
-      ))}
-      
-      <br />
-      {moreResources.map((r) => (
-        <P key={r.id}>{r.resource.url}</P>
-      ))}
-      <P>{getString(bottomQuote)}</P>
-      <P>{getString(sparkArrowDescriptionText)}</P>
-      <P>{getString(sparkArrowMissionText)}</P>
-      <P>{getString(sparkArrowValuesText)}</P>
-      <P>{getString(sparkArrowNameText)}</P>
-      <P>{getString(sparkArrowAlleywayText)}</P> */}
+      <AboutMission missionData={missionData} />
+      <AboutValue aboutValueData={aboutValueData} />
+      <QuoteCarousel quoteCarouselData={quoteCarouselData} />
       <Footer footerData={footerData} footerBoxLinkData={footerBoxLinkDate} />
     </>
   );
