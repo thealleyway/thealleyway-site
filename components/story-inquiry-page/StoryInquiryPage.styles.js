@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { min, max } from '../../lib/responsive';
+import { min } from '../../lib/responsive';
 
 const LongLines = styled.img`
   position: relative;
@@ -8,11 +8,10 @@ const LongLines = styled.img`
 `;
 
 const LongLinesFlipped = styled.img`
-position: relative;
-width: 11.2em;
-top: 27.5em;
-right: 12.1em;
-
+  position: relative;
+  width: 11.2em;
+  top: 27.5em;
+  right: 12.1em;
 `;
 
 const LongLinesContainer = styled.div`
@@ -22,7 +21,8 @@ const LongLinesContainer = styled.div`
 
 const SparkArrowContainer = styled.div`
   position: absolute;
-  margin: ${(props) => props.bottom ? `-24.5em 0 0 10.9em` : `2em 0 0 10.9em`};
+  margin: ${(props) =>
+    props.bottom ? `-23.4em 0 0 10.9em` : `2em 0 0 10.9em`};
 `;
 
 const SquiggleWavy = styled.img`
@@ -49,12 +49,12 @@ const H1StyledContainer = styled.div`
 `;
 
 const SideImageContainer = styled.div`
-position: absolute;
-right: 0;
-opacity: 10%;
-margin-top: 10em;
-display: flex; 
-flex-direction: column;
+  position: absolute;
+  right: 0;
+  opacity: 10%;
+  margin-top: 10em;
+  display: flex;
+  flex-direction: column;
 `;
 
 const SideImage = styled.img`
@@ -64,12 +64,13 @@ const SideImage = styled.img`
   margin-bottom: 15em;
 `;
 
-export { SquiggleWavy, 
-  H1StyledContainer, 
-  LongLines, 
+export {
+  SquiggleWavy,
+  H1StyledContainer,
+  LongLines,
   LongLinesFlipped,
-   LongLinesContainer, 
-   SparkArrowContainer,
-   SideImage,
-   SideImageContainer,
-  };
+  LongLinesContainer,
+  SparkArrowContainer,
+  SideImage,
+  SideImageContainer,
+};

@@ -27,6 +27,7 @@ import ArchModal from '../../arch-modal/ArchModal';
 import { icons } from '../../../style/icons';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
+import { Overlay } from '../../base-components/BaseComponents';
 
 export default function StoryInquiryForm({
   storyInquiryFormData,
@@ -196,6 +197,11 @@ export default function StoryInquiryForm({
           page="inquiry"
         />
       )}
+      <Overlay
+        showOverlay={
+          isVenmoPolicyOpen || isStoryConceptPopup || isConfirmationPopupOpen
+        }
+      />
     </StoryInquiryFormContainer>
   );
 }
