@@ -11,7 +11,7 @@ import { getString, renderRichText } from '../../lib/richText';
 import { icons } from '../../style/icons';
 
 export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
-  const { popupTitle, popupDescription, popupImage } = popupData;
+  const { popupTitles, popupDescriptions, popupImage } = popupData;
 
   return (
     <PopupBox>
@@ -26,8 +26,14 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
           }}
         />
         <TextContentWrapper>
-          <PopupTitle>{getString(popupTitle)}</PopupTitle>
-          <P>{renderRichText(popupDescription)}</P>
+          {popupTitles.map((title, index) => {
+            return (
+              <>
+                <PopupTitle>{getString(title)}</PopupTitle>
+                <P>{renderRichText(popupDescriptions[index])}</P>
+              </>
+            );
+          })}
         </TextContentWrapper>
       </Box>
     </PopupBox>
