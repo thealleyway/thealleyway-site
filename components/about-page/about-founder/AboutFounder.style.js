@@ -7,6 +7,7 @@ const MeetFounderContainer = styled.div`
   margin-top: 10em;
   overflow: hidden;
   padding-bottom: 5em;
+  padding-top: 3em;
 
   @media ${max.tabletLg} {
     margin-top: 2em;
