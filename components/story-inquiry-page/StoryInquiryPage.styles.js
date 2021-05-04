@@ -16,13 +16,19 @@ const LongLinesFlipped = styled.img`
 
 const LongLinesContainer = styled.div`
   position: absolute;
-  margin: 24em 0 0 0;
+  margin: 27em 0 0 0;
 `;
 
 const SparkArrowContainer = styled.div`
   position: absolute;
-  margin: ${(props) =>
-    props.bottom ? `-23.4em 0 0 10.9em` : `2em 0 0 10.9em`};
+  @media ${min.tablet} {
+    margin: ${(props) =>
+      props.bottom ? `-23.4em 0 0 10.9em` : `4.5em 0 0 7.8em`};
+  }
+  @media ${min.desktop} {
+    margin: ${(props) =>
+      props.bottom ? `-23.4em 0 0 10.9em` : `2em 0 0 10.9em`};
+  }
 `;
 
 const SquiggleWavy = styled.img`

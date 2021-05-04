@@ -12,8 +12,8 @@ const TextLabel = styled(P)`
 const ErrorText = styled(P)`
   color: ${colors.RED};
   font-size: 0.7em;
-  margin: .5em 0 -1em 0;
-  letter-spacing: .07em;
+  margin: 0.5em 0 -1em 0;
+  letter-spacing: 0.07em;
   font-weight: ${fontWeights.medium};
 `;
 
@@ -33,7 +33,8 @@ const TextInput = styled(P).attrs({
   display: block;
   border: none;
   background-color: ${colors.CREME};
-  border-bottom: ${(props) => props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
+  border-bottom: ${(props) =>
+    props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
   width: 100%;
   border-radius: 0%;
   &:focus {
@@ -42,9 +43,9 @@ const TextInput = styled(P).attrs({
 `;
 
 const Icon = styled.img`
-position: absolute;
-margin: -2.6em 0 0 25.8em;
-width: 2.3em;
+  margin: -2.6em 0 0 25.8em;
+  width: 2.3em;
+  float: right;
 `;
 
 export { TextLabel, TextInput, RedStar, StarLabelContainer, ErrorText, Icon };

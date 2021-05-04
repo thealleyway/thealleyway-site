@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
-import { H4, P } from '../../../style/typography';
-import {colors } from '../../../style/colors';
+import { P } from '../../../style/typography';
+import { colors } from '../../../style/colors';
 
 const StoryInquiryFormContainer = styled.div`
   padding-top: 6em;
   width: 70%;
   @media ${min.tablet} {
-    width: 55%;
+    width: 75%;
+    padding-left: 12em;
   }
   @media ${min.desktop} {
     padding-top: 4em;
@@ -17,7 +18,7 @@ const StoryInquiryFormContainer = styled.div`
 `;
 
 const ClearSignatureWrapper = styled.div`
-  margin: -.5em 0;
+  margin: -0.5em 0;
 `;
 
 const InfoTextWrapper = styled.div`
@@ -25,23 +26,43 @@ const InfoTextWrapper = styled.div`
 `;
 
 const StoryConceptInfoTextWrapper = styled.div`
-  margin: -.5em 0;
+  margin: -0.5em 0;
 `;
 
 const AuthorInformationContainer = styled.div`
-  padding-bottom: 1em;
+  @media ${min.tablet} {
+    padding-bottom: 3.5em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2.6em;
+  }
 `;
 
 const AuthorSignatureContainer = styled.div`
-  padding-bottom: 2em;
+  @media ${min.tablet} {
+    padding-bottom: 4em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2em;
+  }
 `;
 
 const SocialInformationContainer = styled.div`
-  padding-bottom: 1em;
+  @media ${min.tablet} {
+    padding-bottom: 3.5em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2.6em;
+  }
 `;
 
 const StoryConceptContainer = styled.div`
-  padding-bottom: 1em;
+  @media ${min.tablet} {
+    padding-bottom: 3.5em;
+  }
+  @media ${min.desktop} {
+    padding-bottom: 2.6em;
+  }
 `;
 
 const ResourceLinksContainer = styled.div`
@@ -75,7 +96,7 @@ const RedStar = styled.img`
 const StarLabelContainer = styled.div`
   display: flex;
   font-size: 0.8em;
-  margin: 0 0 .3em 0;
+  margin: 0 0 0.3em 0;
 `;
 
 const SquareButtonWrapper = styled.div`

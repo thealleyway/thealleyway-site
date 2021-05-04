@@ -62,15 +62,15 @@ export default function StoryInquiryPage({
 
   const storyConceptFaqData = {
     faqTitle,
-    questionsAndAnswers
+    questionsAndAnswers,
   };
 
   const storySubmissionConfirmationData = {
     confirmationTitleRegular,
     confirmationTitleItalic,
     confirmationDescription,
-    confirmationImage
-  }
+    confirmationImage,
+  };
 
   const boxLinkFooter = { img: footerImage, data: boxLinkDataFooter };
 
@@ -115,11 +115,20 @@ export default function StoryInquiryPage({
         <LongSparkArrow arrowText={sparkArrowFaqText} />
       </SparkArrowContainer>
       <SideImageContainer>
-        <SideImage src={storyInquirySideImage1.url} alt={storyInquirySideImage1.alt} />
-        <SideImage src={storyInquirySideImage2.url} alt={storyInquirySideImage2.alt} />
-        <SideImage src={storyInquirySideImage3.url} alt={storyInquirySideImage3.alt} />
+        <SideImage
+          src={storyInquirySideImage1.url}
+          alt={storyInquirySideImage1.alt}
+        />
+        <SideImage
+          src={storyInquirySideImage2.url}
+          alt={storyInquirySideImage2.alt}
+        />
+        <SideImage
+          src={storyInquirySideImage3.url}
+          alt={storyInquirySideImage3.alt}
+        />
       </SideImageContainer>
-      <LongLinesContainer>
+      {/* <LongLinesContainer>
         <LongLines
           src={icons.LONG_LINES}
           alt="long lines with spark at the end"
@@ -128,10 +137,12 @@ export default function StoryInquiryPage({
           src={icons.LONG_LINES_FLIPPED}
           alt="long lines with spark at the end flipped"
         />
-      </LongLinesContainer>
-      <StoryInquiryForm storyInquiryFormData={storyInquiryFormData}
+      </LongLinesContainer> */}
+      <StoryInquiryForm
+        storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}
-        storySubmissionConfirmationData={storySubmissionConfirmationData} />
+        storySubmissionConfirmationData={storySubmissionConfirmationData}
+      />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <SparkArrowContainer bottom={true}>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
