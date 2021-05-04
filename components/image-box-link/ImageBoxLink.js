@@ -6,12 +6,12 @@ import {
 } from './ImageBoxLink.styles';
 import BoxLink from '../box-link/BoxLink';
 
-export default function ImageBoxLink({ boxLinkData }) {
+export default function ImageBoxLink({ boxLinkData, height }) {
   const { img, data } = boxLinkData;
   return (
-    <ImageBoxLinkContainer>
+    <ImageBoxLinkContainer height={height}>
       <BottomImageContainer>
-        <BottomImage src={img.url} alt={img.alt} />
+        <BottomImage src={img.url} alt={img.alt} height={height} />
       </BottomImageContainer>
       <BoxLinkContainer>
         <BoxLink boxLinkData={data} />
