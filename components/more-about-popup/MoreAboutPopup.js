@@ -29,7 +29,7 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
           {popupTitles.map((title, index) => {
             return (
               <>
-                <PopupTitle>{getString(title)}</PopupTitle>
+                <PopupTitle>{getString(title).toUpperCase()}</PopupTitle>
                 <P>{renderRichText(popupDescriptions[index])}</P>
               </>
             );

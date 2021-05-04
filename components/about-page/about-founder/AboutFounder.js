@@ -6,6 +6,7 @@ import { H4, P } from '../../../style/typography';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
+import { Overlay } from '../../base-components/BaseComponents';
 import {
   MeetFounderContainer,
   MeetFounderWrapper,
@@ -107,6 +108,7 @@ export default function AboutFounder({ aboutFounderData }) {
       {isOpen && (
         <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
       )}
+      <Overlay showOverlay={isOpen} />
     </MeetFounderContainer>
   );
 }
