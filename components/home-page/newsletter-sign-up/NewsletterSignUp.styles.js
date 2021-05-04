@@ -74,15 +74,3 @@ export const SubmitButton = styled(P).attrs({
     letter-spacing: 2px;
   }
 `;
-
-export const Overlay = styled.div`
-  display: ${(props) => (props.showOverlay ? 'block' : 'none')};
-  position: fixed;
-  background-color: ${colors.CREME};
-  opacity: 0.7;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 3;
-`;

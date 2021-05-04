@@ -8,7 +8,7 @@ const PopupBox = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 10;
+  z-index: 15;
   top: 20%;
   @media ${min.tablet} {
     top: 30%;
