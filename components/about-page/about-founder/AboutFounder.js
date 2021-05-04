@@ -59,7 +59,7 @@ export default function AboutFounder({ aboutFounderData }) {
   };
 
   return (
-    <MeetFounderContainer id="founder">
+    <MeetFounderContainer id="about-founder">
       <MeetFounderWrapper>
         {!isTabletOrMobile && (
           <AboutImageLeft

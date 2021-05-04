@@ -83,6 +83,8 @@ export default function AboutPage({
     data: boxLinkDataFooter,
   };
 
+  const scrollTo = 'about-founder';
+
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -97,6 +99,7 @@ export default function AboutPage({
         description={aboutPageDescription}
         arrowText={sparkArrowDescriptionText}
         img={aboutPageTitleImage}
+        scrollTo={scrollTo}
       />
       <AboutFounder aboutFounderData={aboutFounderData} />
       {/* {valuesData.map((v) => (
