@@ -141,7 +141,7 @@ const QuoteCarouselContainer = styled.div`
     margin-left: 1em;
   }
   @media ${min.desktop} {
-    margin-left: 5em;
+    margin: 10em 0 0 6em;
   }
 `;
 

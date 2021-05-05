@@ -15,7 +15,6 @@ const ContentWrapper = styled.div`
   align-items: center;
   margin-top: 5em;
   margin-bottom: -2em;
-
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
@@ -33,12 +32,14 @@ const ContentWrapper = styled.div`
 
 const TextWrapper = styled.div`
   width: 19em;
-
+  margin-top: ${(props) => props.isAuthorTestimonies ? '-4em' : '0'};
   @media ${max.tabletLg} {
-    margin-bottom: 2em;
+    margin-bottom: ${(props) => props.isAuthorTestimonies ? '-2em' : '2em'};
+    margin-left: ${(props) => props.isAuthorTestimonies ? '-2em' : '0'};
   }
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
+    margin-left: ${(props) => props.isAuthorTestimonies ? '1em' : '0'};
   }
 `;
 
@@ -69,6 +70,7 @@ const QuoteWrapper = styled(H3)`
   }
   @media ${min.tablet} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.5em' : '0.5em')};
+    padding-bottom: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0')};
     font-size: ${(props) =>
       props.isAuthorTestimonies ? '1.4em' : 'clamp(1.4em, 6vw, 1.8em)'};
   }
@@ -90,6 +92,12 @@ const AuthorsContainer = styled.div`
   display: ${(props) => (props.isAuthorTestimonies ? 'block' : 'none')};
   position: absolute;
   width: 100%;
+  margin: -1.3em 0 0 0;
+  padding-right: 1em;
+  @media ${min.desktop} {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const QuoteContainer = styled.div`
@@ -99,7 +107,6 @@ const QuoteContainer = styled.div`
   left: 2em;
   bottom: 9em;
   margin-bottom: -12em;
- // overflow: hidden;
 
   @media ${max.tabletLg} {
     left: 1em;
@@ -136,8 +143,8 @@ const CarouselContainer = styled.div`
 
   @media ${max.tabletSm} {
     margin-left: -17em;
-    width: clamp(16em, 80vw, 22em); //25em;;
-    height: clamp(16em, 80vw, 22em); //25em;;
+    width: clamp(16em, 80vw, 22em); 
+    height: clamp(16em, 80vw, 22em); 
   }
 
 `;

@@ -52,7 +52,7 @@ export default function QuoteCarousel({
 
   return (
     <ContentWrapper>
-      <TextWrapper>
+      <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
         <TitleWrapper>{getString(title)}</TitleWrapper>
         <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
       </TextWrapper>
