@@ -8,7 +8,6 @@ export default function MainResource({ mainResourceData }) {
     <OvalButton
       buttonText={getString(resourceTitle).toUpperCase()}
       href={resourceLink.url}
-      onClick={() => window.open(resourceLink.url, '_blank')}
     />
   );
 }
