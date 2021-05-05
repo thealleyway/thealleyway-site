@@ -4,6 +4,8 @@ import {
   TextLabel,
   RedStar,
   StarLabelContainer,
+  ErrorText,
+  InputFieldWrapper,
 } from './TextInputField.style';
 import { icons } from '../../style/icons';
 
@@ -12,10 +14,11 @@ export default function TextInputField({
   label,
   onChange,
   required,
+  showError,
   ...inputProps
 }) {
   return (
-    <>
+    <InputFieldWrapper>
       <StarLabelContainer>
         <TextLabel htmlFor={id} required={required}>
           {label}
@@ -27,9 +30,11 @@ export default function TextInputField({
       <TextInput
         type="text"
         name={id}
+        showError={showError}
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-    </>
+      <ErrorText>{showError}</ErrorText>
+    </InputFieldWrapper>
   );
 }

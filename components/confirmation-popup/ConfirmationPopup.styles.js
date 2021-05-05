@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
-import { colors } from '../../style/colors';
 import { P, H2 } from '../../style/typography';
+import { colors } from '../../style/colors';
 
 const PopupBox = styled.div`
   border: none;

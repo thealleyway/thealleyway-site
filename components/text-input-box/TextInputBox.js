@@ -1,7 +1,32 @@
-import { InputBox } from './TextInputBox.styles';
+import {
+  InputBox,
+  InputBoxLabel,
+  StarLabelContainer,
+  ErrorText,
+  RedStar,
+} from './TextInputBox.styles';
+import { icons } from '../../style/icons';
 
-export default function TextInputBox({ placeholder, onChange, height }) {
+export default function TextInputBox({
+  onChange,
+  height,
+  label,
+  required,
+  showError,
+}) {
   return (
-    <InputBox onChange={onChange} placeholder={placeholder} height={height} />
+    <>
+      <StarLabelContainer>
+        <InputBoxLabel>{label}</InputBoxLabel>
+        {required && <RedStar src={icons.RED_STAR} />}
+      </StarLabelContainer>
+      <InputBox
+        onChange={onChange}
+        height={height}
+        showError={showError}
+        id="area"
+      />
+      <ErrorText>{showError}</ErrorText>
+    </>
   );
 }
