@@ -113,13 +113,20 @@ export default function StoryInquiryForm({
   };
 
 
-
-
+console.log(additionalResources);
+  
   // if (typeof window === 'object') {
   //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
   // };
 
   // console.log(additionalResources);
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+
+  
 
   return (
     <StoryInquiryFormContainer>
@@ -165,6 +172,7 @@ export default function StoryInquiryForm({
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
+            onEnd={() => trim(sigPad.getTrimmedCanvas().toDataURL('image/png'))}
           />
           <ErrorText>{errors["signature"]}</ErrorText>
         </SignatureCanvasWrapper>
@@ -283,19 +291,21 @@ export default function StoryInquiryForm({
         <InputFieldWrapper>
           {additionalResources.map((r, index) => {
             // console.log(additionalResources);
+            const randomId = getRandomInt(10000);
+            console.log(randomId);
             return <TextInputField
-              key={index}
-              id={"additional resource" + index}
+              key={randomId}
+              id={"additional resource" + randomId}
               label={index == 0 ? "Additional Resources" : ""}
               isAdd={index == 0}
               hasIcon
               onChange={(e) => { 
-                console.log(additionalResources.map(r => 
-                r.id == index ? console.log({index: r.id, resource: e}) : console.log(r)))}}
+               setAdditionalResources(additionalResources.map(r => 
+                r.id == randomId ? {id: r.id, resource: e.target.value} : r))}}
               // setAdditionalResources(additionalResources.map(r => 
               //r.id == index ? {index: r.id, resource: e} : r))}}
-              addResource={() => setAdditionalResources(additionalResources.concat([{ id: index + 1, resource: "" }]))}
-              deleteResource={() => setAdditionalResources([additionalResources.filter(r => r.id !== index)])}
+              addResource={() => setAdditionalResources(additionalResources.concat([{ id: randomId, resource: "" }]))}
+              deleteResource={() => setAdditionalResources(additionalResources.filter(r => r.id !== randomId))}
               value={r.resource}
             />
           })}
@@ -306,14 +316,14 @@ export default function StoryInquiryForm({
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
-            trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
-            if (submitRequest()) {
-              document.body.style.overflow = 'hidden';
-              document.getElementById('area').value = '';
-              setFields({});
-              setIsConfirmationPopupOpen(true);
-              console.log(trimmedDataUrl);
-            }
+            console.log(trimmedDataUrl);
+            // if (submitRequest()) {
+            //   document.body.style.overflow = 'hidden';
+            //   document.getElementById('area').value = '';
+            //   setFields({});
+            //   setIsConfirmationPopupOpen(true);
+            //   console.log(trimmedDataUrl);
+            // }
           }}
         />
       </SquareButtonWrapper>
