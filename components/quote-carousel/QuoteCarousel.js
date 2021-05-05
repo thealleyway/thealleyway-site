@@ -70,9 +70,12 @@ export default function QuoteCarousel({
               >
                 {quotes[Number.parseInt(activeIndex)]}
               </QuoteWrapper>
-              <AuthorsContainer>
-                <AuthorsWrapper>
-                  {authors[Number.parseInt(activeIndex)]}
+              <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
+                <AuthorsWrapper
+                  key={Number.parseInt(activeIndex)}
+                  fadeIn={fadeIn}
+                >
+                  - {authors[Number.parseInt(activeIndex)]}
                 </AuthorsWrapper>
               </AuthorsContainer>
             </QuoteContainer>

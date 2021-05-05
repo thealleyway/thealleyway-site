@@ -81,9 +81,15 @@ const QuoteWrapper = styled(H3)`
 
 const AuthorsWrapper = styled(P)`
   color: ${colors.BROWN};
+  float: right; 
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: 3s;
 `;
 
 const AuthorsContainer = styled.div`
+  display: ${(props) => (props.isAuthorTestimonies ? 'block' : 'none')};
+  position: absolute;
+  width: 100%;
 `;
 
 const QuoteContainer = styled.div`
@@ -93,7 +99,7 @@ const QuoteContainer = styled.div`
   left: 2em;
   bottom: 9em;
   margin-bottom: -12em;
-  overflow: hidden;
+ // overflow: hidden;
 
   @media ${max.tabletLg} {
     left: 1em;
