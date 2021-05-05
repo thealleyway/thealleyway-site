@@ -73,10 +73,10 @@ export default function StoryInquiryForm({
   const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
   const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
-  const [additionalResources, setAdditionalResources] = useState([{id: 0, resource: ""}]);
+  const [additionalResources, setAdditionalResources] = useState([{ id: 0, resource: "" }]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
- // console.log(trimmedDataUrl)
+  // console.log(trimmedDataUrl)
 
   const isValidSubmission = () => {
     let errors = {};
@@ -111,44 +111,44 @@ export default function StoryInquiryForm({
     setErrors(errors);
     return formIsValid;
   };
-  
 
-  
+
+
 
   // if (typeof window === 'object') {
-   //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
+  //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
   // };
 
- // console.log(additionalResources);
+  // console.log(additionalResources);
 
   return (
     <StoryInquiryFormContainer>
       <AuthorInformationContainer>
         <H4>{getString(authorInformationSubtitle)}</H4>
         <InputFieldWrapper>
-          <TextInputField 
-          id="firstName" 
-          label="First Name"
-          required
-          showError={errors['firstName']}
-          onChange={(e) => setFields({ ...fields, firstName: e })}
-           />
-        </InputFieldWrapper>
-        <InputFieldWrapper>
-          <TextInputField 
-          id="lastName" 
-          label="Last Name" 
-          onChange={(e) => setFields({ ...fields, lastName: e })}
+          <TextInputField
+            id="firstName"
+            label="First Name"
+            required
+            showError={errors['firstName']}
+            onChange={(e) => setFields({ ...fields, firstName: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="email" 
-          label="Email" 
-          required
-          showError={errors['email']}
-          onChange={(e) => setFields({ ...fields, email: e })}
-           />
+          <TextInputField
+            id="lastName"
+            label="Last Name"
+            onChange={(e) => setFields({ ...fields, lastName: e })}
+          />
+        </InputFieldWrapper>
+        <InputFieldWrapper>
+          <TextInputField
+            id="email"
+            label="Email"
+            required
+            showError={errors['email']}
+            onChange={(e) => setFields({ ...fields, email: e })}
+          />
         </InputFieldWrapper>
       </AuthorInformationContainer>
       <AuthorSignatureContainer>
@@ -161,7 +161,7 @@ export default function StoryInquiryForm({
         <SignatureCanvasWrapper id="signature canvas wrapper">
           <SignatureCanvas
             penColor="black"
-            canvasProps={{ width: 100, height: 60}}
+            canvasProps={{ width: 100, height: 60 }}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
@@ -175,31 +175,31 @@ export default function StoryInquiryForm({
       <SocialInformationContainer>
         <H4>{getString(socialInformationSubtitle)}</H4>
         <InputFieldWrapper>
-          <TextInputField 
-          id="website" 
-          label="Website" 
-          onChange={(e) => setFields({ ...fields, website: e })}
+          <TextInputField
+            id="website"
+            label="Website"
+            onChange={(e) => setFields({ ...fields, website: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="instagram" 
-          label="Instagram" 
-          onChange={(e) => setFields({ ...fields, instagram: e })}
+          <TextInputField
+            id="instagram"
+            label="Instagram"
+            onChange={(e) => setFields({ ...fields, instagram: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="twitter" 
-          label="Twitter" 
-          onChange={(e) => setFields({ ...fields, twitter: e })}
+          <TextInputField
+            id="twitter"
+            label="Twitter"
+            onChange={(e) => setFields({ ...fields, twitter: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField 
-          id="venmo" 
-          label="Venmo" 
-          onChange={(e) => setFields({ ...fields, venmo: e })}
+          <TextInputField
+            id="venmo"
+            label="Venmo"
+            onChange={(e) => setFields({ ...fields, venmo: e })}
           />
         </InputFieldWrapper>
         <SocialInfoTextWrapper>
@@ -254,12 +254,12 @@ export default function StoryInquiryForm({
         <H4>{getString(resourceLinksSubtitle)}</H4>
         <Description>{getString(resourceLinksDescription)}</Description>
         <InputFieldWrapper>
-          <TextInputField 
-          id="petition link" 
-          label="Petition link" 
-          required 
-          showError={errors['petitionLink']}
-          onChange={(e) => setFields({ ...fields, petitionLink: e })}
+          <TextInputField
+            id="petition link"
+            label="Petition link"
+            required
+            showError={errors['petitionLink']}
+            onChange={(e) => setFields({ ...fields, petitionLink: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
@@ -281,23 +281,24 @@ export default function StoryInquiryForm({
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-        {additionalResources.map((r, index) => {
-         // console.log(additionalResources);
-        return <TextInputField
-            key={index}
-            id={"additional resource" + index}
-            label={index == 0 ? "Additional Resources" : ""}
-            isAdd={index == 0}
-            hasIcon
-            onChange={(e) => {}}
-            //  console.log(additionalResources.map(r => 
-              //  r.id == index ? console.log({index: r.id, resource: e}) : console.log(r)))}}
-             // setAdditionalResources(additionalResources.map(r => 
+          {additionalResources.map((r, index) => {
+            // console.log(additionalResources);
+            return <TextInputField
+              key={index}
+              id={"additional resource" + index}
+              label={index == 0 ? "Additional Resources" : ""}
+              isAdd={index == 0}
+              hasIcon
+              onChange={(e) => { 
+                console.log(additionalResources.map(r => 
+                r.id == index ? console.log({index: r.id, resource: e}) : console.log(r)))}}
+              // setAdditionalResources(additionalResources.map(r => 
               //r.id == index ? {index: r.id, resource: e} : r))}}
-            addResource={() => setAdditionalResources(additionalResources.concat([{ id: index + 1, resource: ""}]))}
-            deleteResource={() => setAdditionalResources([additionalResources.filter(r => r.id !== index)])}
-            value={r.resource}
-          />})}
+              addResource={() => setAdditionalResources(additionalResources.concat([{ id: index + 1, resource: "" }]))}
+              deleteResource={() => setAdditionalResources([additionalResources.filter(r => r.id !== index)])}
+              value={r.resource}
+            />
+          })}
         </InputFieldWrapper>
       </ResourceLinksContainer>
       <SquareButtonWrapper>
@@ -306,13 +307,13 @@ export default function StoryInquiryForm({
           long={true}
           onClick={() => {
             trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
-           //  if (submitRequest()) {
-               document.body.style.overflow = 'hidden';
-               //document.getElementById('area').value = '';
-               //setFields({});
-               setIsConfirmationPopupOpen(true);
-               console.log(trimmedDataUrl);
-            // }
+            if (submitRequest()) {
+              document.body.style.overflow = 'hidden';
+              document.getElementById('area').value = '';
+              setFields({});
+              setIsConfirmationPopupOpen(true);
+              console.log(trimmedDataUrl);
+            }
           }}
         />
       </SquareButtonWrapper>
@@ -350,7 +351,6 @@ export default function StoryInquiryForm({
     Further Education Link: ${fields["furtherEducationLink"]}\n
     `
     if (isValidSubmission()) {
-      alert("success!")
       const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${body}`;
       axios
         .post(proxyurl + request, axiosConfig)
