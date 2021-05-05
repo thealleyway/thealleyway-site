@@ -62,6 +62,11 @@ const StoryPreviewTitle = styled(H3)`
   font-size: clamp(1.5em, 6vw, 2em);
   bottom: 1vh;
   padding: 0 10%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media only screen and ${max.tabletSm} {
     bottom: 0vh;
