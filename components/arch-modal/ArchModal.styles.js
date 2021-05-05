@@ -112,8 +112,8 @@ export const ArchModalCloseButton = styled.button`
 
   @media ${max.tabletSm} {
     top: -10px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
