@@ -20,6 +20,7 @@ import {
   TextLabel,
   SocialInfoTextWrapper,
   SquareButtonWrapper,
+  ErrorText,
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
@@ -73,6 +74,7 @@ export default function StoryInquiryForm({
   const [additionalResources, setAdditionalResources] = useState([{id: 0, resource: ""}]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
+  console.log(trimmedDataUrl)
 
   const isValidSubmission = () => {
     let errors = {};
@@ -112,7 +114,7 @@ export default function StoryInquiryForm({
    //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
   // };
 
-  console.log(additionalResources);
+ // console.log(additionalResources);
 
   return (
     <StoryInquiryFormContainer>
@@ -159,6 +161,7 @@ export default function StoryInquiryForm({
             minWidth={1.5}
             maxWidth={1.5}
           />
+          <ErrorText>{errors["signature"]}</ErrorText>
         </SignatureCanvasWrapper>
         <ClearSignatureWrapper>
           <InputInfoText onClick={clear}>Reset</InputInfoText>
@@ -297,8 +300,8 @@ export default function StoryInquiryForm({
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
+            sigPad && trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
             if (submitRequest()) {
-              sigPad && trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
               document.body.style.overflow = 'hidden';
               document.getElementById('area').value = '';
               setFields({});
@@ -327,9 +330,17 @@ export default function StoryInquiryForm({
   function submitRequest() {
     const name = `${fields['firstName']} ${fields['lastName']}`;
     const subject = `Story Inquiry - ${name}`;
+    const body = `
+    Name: ${name}\n
+    Email: ${fields["email"]}\n
+    Story Concept: ${fields["storyConcept"]}\n 
+    Petition Link: ${fields["petitionLink"]}\n
+    Donation Page Link: ${fields["donationPageLink"]}\n
+    Further Education Link: ${fields["furtherEducationLink"]}\n
+    `
     if (isValidSubmission()) {
       alert("success!")
-      //const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${fields['message']}`;
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${body}`;
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {

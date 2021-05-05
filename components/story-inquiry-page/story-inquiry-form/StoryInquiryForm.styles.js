@@ -119,6 +119,15 @@ justify-content: center;
   }
 `;
 
+const ErrorText = styled(P)`
+  position: absolute;
+  color: ${colors.RED};
+  font-size: 0.7em;
+  margin: 0.5em 0 0 0;
+  text-shadow: 0.5px 0 #ff0000;
+  letter-spacing: 0.05em;
+`;
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -136,4 +145,5 @@ export {
   TextLabel,
   SquareButtonWrapper,
   SocialInfoTextWrapper,
+  ErrorText
 };
