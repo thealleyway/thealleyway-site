@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 
 const LongLinesDesktop = styled.img`
-display: none;
-@media ${min.desktop} {
-  display: block;
-  position: relative;
-  width: 11.2em;
-  margin: 0 0 0 5.8em;
-}
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    position: relative;
+    width: 11.2em;
+    margin: 0 0 0 5.8em;
+  }
 `;
 
 const LongLinesFlippedDesktop = styled.img`
@@ -17,42 +17,45 @@ display: none;
   display: block;
   position: relative;
   width: 11.2em;
-  top: 20em;
-  margin: 0 0 0 5.8em;
+  margin: -32em 0 0 4.8em;
 }
 }
 `;
 
 const LongLinesTablet = styled.img`
-@media ${min.tablet} {
-  display: block;
-  position: relative;
-  width: 11.2em;
-  margin: 0 0 0 5.8em;
-}
-@media ${min.desktop} {
-  display: none;
-}
+  @media ${min.tablet} {
+    display: block;
+    position: relative;
+    width: 7em;
+    margin: 0 0 0 0.9em;
+  }
+  @media ${min.desktop} {
+    display: none;
+  }
 `;
 
 const LongLinesFlippedTablet = styled.img`
-@media ${min.tablet} {
-  display: block;
-  position: relative;
-  width: 11.2em;
-  top: 27.5em;
-  right: 12.1em;
-  
-}
-@media ${min.desktop} {
-  display: none;
-}
+  @media ${min.tablet} {
+    display: block;
+    position: relative;
+    width: 7em;
+    margin: -27em 0 0 0.3em;
+  }
+  @media ${min.desktop} {
+    display: none;
+  }
 `;
-
 
 const LongLinesContainer = styled.div`
   position: absolute;
-  margin: 27em 0 0 0;
+  display: none;
+  @media ${min.tablet} {
+    display: block;
+    margin: 30em 0 0 0;
+  }
+  @media ${min.desktop} {
+    margin: 32.5em 0 0 0;
+  }
 `;
 
 const TopSparkArrowContainer = styled.div`
