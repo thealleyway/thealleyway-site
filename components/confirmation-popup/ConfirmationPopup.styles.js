@@ -9,7 +9,7 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 15;
-  top: 20%;
+  top: ${(props) => (props.page === 'inquiry' ? 'clamp(4em, 40vw, 15em)' : '20%')};
   left: 0;
   @media ${min.tablet} {
     top: 30%;
@@ -34,7 +34,7 @@ const Box = styled.div`
       case 'home':
         return '34em';
       case 'inquiry':
-        return '39em';
+        return '34em';
       default:
         return '25em';
     }
@@ -114,7 +114,7 @@ const TextContent = styled.div`
 
 const H2Styled = styled(H2)`
   width: ${(props) => (props.page == 'home' ? '5em' : '8em')};
-  font-size: clamp(1.6em, 10vw, 2.5em);
+  font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(1.6em, 6vw, 2.3em)' : 'clamp(1.6em, 10vw, 2.5em)')};
   @media ${min.tablet} {
     font-size: 2.6em;
   }
@@ -126,6 +126,9 @@ const H2Styled = styled(H2)`
 
 const PStyled = styled(P)`
   margin-top: -1em;
+  @media ${min.mobile} {
+    font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(0.8em, 3vw, 1em)' : '1em')};
+  }
 `;
 
 const ImgBackground = styled.img`
