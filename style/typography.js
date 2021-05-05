@@ -67,9 +67,9 @@ const InputInfoText = styled(P)`
   font-size: 0.8em;
   text-transform: lowercase;
   text-align: right;
+  text-decoration: underline;
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
   }
 `;
 
