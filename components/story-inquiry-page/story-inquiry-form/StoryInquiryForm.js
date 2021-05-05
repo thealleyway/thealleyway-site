@@ -33,6 +33,7 @@ import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
+import useResizeObserver from "use-resize-observer";
 
 const axios = require('axios');
 
@@ -77,9 +78,7 @@ export default function StoryInquiryForm({
   const [additionalResources, setAdditionalResources] = useState([{ id: 0, resource: "" }]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
-  const [canvasWidth, setCanvasWidth] = useState('100px');
-  const refElem = React.useRef(0);
-  // console.log(trimmedDataUrl)
+  const { ref, width: canvasWidth } = useResizeObserver();
 
   const isValidSubmission = () => {
     let errors = {};
@@ -116,7 +115,6 @@ export default function StoryInquiryForm({
   };
 
 
-console.log(additionalResources);
   
   // if (typeof window === 'object') {
   //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
@@ -168,10 +166,10 @@ console.log(additionalResources);
           <TextLabel>Signature</TextLabel>
           <RedStar src={icons.RED_STAR} />
         </StarLabelContainer>
-        <SignatureCanvasWrapper id="signature canvas wrapper" >
+        <SignatureCanvasWrapper id="signature canvas wrapper" ref={ref} >
           <SignatureCanvas
-            penColor="blacky"
-            canvasProps={{ width: 100, height: 60 }}
+            penColor="black"
+            canvasProps={{ width: canvasWidth, height: 60 }}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
@@ -293,8 +291,6 @@ console.log(additionalResources);
         </InputFieldWrapper>
         <InputFieldWrapper>
           {additionalResources.map((r, index) => {
-            // console.log(additionalResources);
-            console.log(r);
             return <TextInputField
               key={r.id}
               id={"additional resource" + r.id}
@@ -316,13 +312,11 @@ console.log(additionalResources);
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
-            console.log(trimmedDataUrl);
             // if (submitRequest()) {
             //   document.body.style.overflow = 'hidden';
             //   document.getElementById('area').value = '';
             //   setFields({});
             //   setIsConfirmationPopupOpen(true);
-            //   console.log(trimmedDataUrl);
             // }
           }}
         />
