@@ -134,11 +134,14 @@ const SideImage = styled.img`
 `;
 
 const QuoteCarouselContainer = styled.div`
+  margin: 0 0 -12em 0;
+  padding-top: 3em;
   @media ${min.tabletSm} {
     margin-left: 0.7em;
   }
   @media ${min.tablet} {
-    margin-left: 1em;
+    padding-top: 3em;
+    margin: 0 0 -8em 1em;
   }
   @media ${min.desktop} {
     margin: 10em 0 0 6em;

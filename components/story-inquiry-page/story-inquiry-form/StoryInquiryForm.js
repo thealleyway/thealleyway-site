@@ -158,7 +158,7 @@ export default function StoryInquiryForm({
           <TextLabel>Signature</TextLabel>
           <RedStar src={icons.RED_STAR} />
         </StarLabelContainer>
-        {/* <SignatureCanvasWrapper id="signature canvas wrapper">
+        <SignatureCanvasWrapper id="signature canvas wrapper">
           <SignatureCanvas
             penColor="black"
             canvasProps={{ width: 400, height: 60}}
@@ -167,7 +167,7 @@ export default function StoryInquiryForm({
             maxWidth={1.5}
           />
           <ErrorText>{errors["signature"]}</ErrorText>
-        </SignatureCanvasWrapper> */}
+        </SignatureCanvasWrapper>
         <ClearSignatureWrapper>
           <InputInfoText onClick={clear}>Reset</InputInfoText>
         </ClearSignatureWrapper>
