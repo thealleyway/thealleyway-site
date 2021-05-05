@@ -23,7 +23,7 @@ import {
   ErrorText,
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
 import { icons } from '../../../style/icons';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
@@ -32,6 +32,7 @@ import { Overlay } from '../../base-components/BaseComponents';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
+import { v4 as uuidv4 } from 'uuid';
 
 const axios = require('axios');
 
@@ -60,7 +61,7 @@ export default function StoryInquiryForm({
 
   const getCanvasDimensions = () => {
     if (isDesktop) {
-      return { width: 400, height: 60 }
+      return { width: '100%', height: 60 }
     }
   }
 
@@ -76,6 +77,8 @@ export default function StoryInquiryForm({
   const [additionalResources, setAdditionalResources] = useState([{ id: 0, resource: "" }]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
+  const [canvasWidth, setCanvasWidth] = useState('100px');
+  const refElem = React.useRef(0);
   // console.log(trimmedDataUrl)
 
   const isValidSubmission = () => {
@@ -165,9 +168,9 @@ console.log(additionalResources);
           <TextLabel>Signature</TextLabel>
           <RedStar src={icons.RED_STAR} />
         </StarLabelContainer>
-        <SignatureCanvasWrapper id="signature canvas wrapper">
+        <SignatureCanvasWrapper id="signature canvas wrapper" >
           <SignatureCanvas
-            penColor="black"
+            penColor="blacky"
             canvasProps={{ width: 100, height: 60 }}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
@@ -291,21 +294,18 @@ console.log(additionalResources);
         <InputFieldWrapper>
           {additionalResources.map((r, index) => {
             // console.log(additionalResources);
-            const randomId = getRandomInt(10000);
-            console.log(randomId);
+            console.log(r);
             return <TextInputField
-              key={randomId}
-              id={"additional resource" + randomId}
-              label={index == 0 ? "Additional Resources" : ""}
-              isAdd={index == 0}
+              key={r.id}
+              id={"additional resource" + r.id}
+              label={index === 0 ? "Additional Resources" : ""}
+              isAdd={index === 0}
               hasIcon
               onChange={(e) => { 
-               setAdditionalResources(additionalResources.map(r => 
-                r.id == randomId ? {id: r.id, resource: e.target.value} : r))}}
-              // setAdditionalResources(additionalResources.map(r => 
-              //r.id == index ? {index: r.id, resource: e} : r))}}
-              addResource={() => setAdditionalResources(additionalResources.concat([{ id: randomId, resource: "" }]))}
-              deleteResource={() => setAdditionalResources(additionalResources.filter(r => r.id !== randomId))}
+               setAdditionalResources(previous => previous.map(element => 
+                r.id === element.id ? {id: element.id, resource: e.target.value} : element))}}
+              addResource={() => setAdditionalResources(previous => previous.concat([{ id: uuidv4(), resource: "" }]))}
+              deleteResource={() => setAdditionalResources(previous => previous.filter(resource => r.id !== resource.id))}
               value={r.resource}
             />
           })}
