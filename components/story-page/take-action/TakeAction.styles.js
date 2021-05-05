@@ -72,6 +72,8 @@ export const ShareLinkWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 15em;
+  background: url(${(props) => props.url}) no-repeat;
+  background-position: center;
 
   @media ${max.tabletLg} {
     align-self: center;

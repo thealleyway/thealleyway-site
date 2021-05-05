@@ -83,6 +83,7 @@ export default function TakeAction({
       onMouseEnter={() => setShareHover(true)}
       onMouseLeave={() => setShareHover(false)}
       onClick={copyToClipboard}
+      url={icons.SHARE_STORY_LINE}
     >
       <ShareLinkText>SHARE THIS STORY</ShareLinkText>
       <ShareLinkImage
