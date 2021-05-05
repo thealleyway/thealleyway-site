@@ -20,7 +20,12 @@ export default function TextInputBox({
         <InputBoxLabel>{label}</InputBoxLabel>
         {required && <RedStar src={icons.RED_STAR} />}
       </StarLabelContainer>
-      <InputBox onChange={onChange} height={height} showError={showError} />
+      <InputBox
+        onChange={onChange}
+        height={height}
+        showError={showError}
+        id="area"
+      />
       <ErrorText>{showError}</ErrorText>
     </>
   );

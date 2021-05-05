@@ -78,6 +78,7 @@ export default function ContactForm({ togglePopup }) {
             onClick={() => {
               if (submitRequest()) {
                 document.body.style.overflow = 'hidden';
+                document.getElementById('area').value = '';
                 setFields({});
                 togglePopup();
               }
