@@ -23,7 +23,7 @@ import {
   SparkArrowWrapper,
 } from './AboutFounder.style';
 
-export default function AboutFounder({ aboutFounderData }) {
+export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
   const {
     camaryn_title: camarynTitle,
     camaryn_text: camarynText,
@@ -59,7 +59,7 @@ export default function AboutFounder({ aboutFounderData }) {
   };
 
   return (
-    <MeetFounderContainer id="about-founder">
+    <MeetFounderContainer id={id}>
       <MeetFounderWrapper>
         {!isTabletOrMobile && (
           <AboutImageLeft
@@ -101,7 +101,10 @@ export default function AboutFounder({ aboutFounderData }) {
         <AboutImageLeft src={camarynImageLeft.url} alt={camarynImageLeft.alt} />
       )}
       <SparkArrowWrapper>
-        <LongSparkArrow arrowText={sparkArrowMissionText} />
+        <LongSparkArrow
+          arrowText={sparkArrowMissionText}
+          scrollTo={scrollToId}
+        />
       </SparkArrowWrapper>
       {isOpen && (
         <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />

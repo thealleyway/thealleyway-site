@@ -13,7 +13,7 @@ import {
   SparkArrowWrapper,
 } from './AboutValue.style';
 
-export default function AboutValue({ aboutValueData }) {
+export default function AboutValue({ aboutValueData, id, scrollToId }) {
   const {
     values: valuesData,
     values_title: valuesTitle,
@@ -26,7 +26,7 @@ export default function AboutValue({ aboutValueData }) {
   );
 
   return (
-    <OurValuesContainer>
+    <OurValuesContainer id={id}>
       <ContentWrapper>
         <AboutValueTitleWrapper>
           <H2Wrapper>{getString(valuesTitle)}</H2Wrapper>
@@ -35,7 +35,10 @@ export default function AboutValue({ aboutValueData }) {
       </ContentWrapper>
       {!isTabletLgOrMobile && (
         <SparkArrowWrapper>
-          <LongSparkArrow arrowText={sparkArrowNameText} />
+          <LongSparkArrow
+            arrowText={sparkArrowNameText}
+            scrollTo={scrollToId}
+          />
         </SparkArrowWrapper>
       )}
       <ValuesContainer>

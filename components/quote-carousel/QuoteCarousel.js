@@ -14,7 +14,7 @@ import {
   ArchOutline,
   ArchSpark,
   AuthorsContainer,
-  AuthorsWrapper
+  AuthorsWrapper,
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
 
@@ -23,7 +23,7 @@ const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 export default function QuoteCarousel({
   quoteCarouselData,
   isAuthorTestimonies,
-  authors
+  authors,
 }) {
   const { title, description, quotes, quoteImage } = quoteCarouselData;
   const [activeIndex, setActiveIndex] = useState(0);

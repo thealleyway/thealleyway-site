@@ -15,7 +15,7 @@ import {
   SparkArrowWrapper,
 } from './AboutMission.style';
 
-export default function AboutMission({ missionData }) {
+export default function AboutMission({ missionData, id, scrollToId }) {
   const {
     our_mission_title: ourMissionTitle,
     our_mission_description: ourMissionDescription,
@@ -28,7 +28,7 @@ export default function AboutMission({ missionData }) {
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
   return (
-    <OurMissionContainer>
+    <OurMissionContainer id={id}>
       <OurMissionWrapper>
         <OurMissionImgLeft
           src={ourMissionImage.url}
@@ -54,7 +54,10 @@ export default function AboutMission({ missionData }) {
       </OurMissionWrapper>
       {!isTabletOrMobile && (
         <SparkArrowWrapper>
-          <LongSparkArrow arrowText={sparkArrowValuesText} />
+          <LongSparkArrow
+            arrowText={sparkArrowValuesText}
+            scrollTo={scrollToId}
+          />
         </SparkArrowWrapper>
       )}
     </OurMissionContainer>

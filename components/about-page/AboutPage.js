@@ -105,8 +105,11 @@ export default function AboutPage({
     data: boxLinkDataFooter,
   };
 
-  const scrollTo = 'about-founder';
   const headerAnimation = useSpring(header);
+  const scrollToFounder = 'about-founder';
+  const scrollToMission = 'about-mission';
+  const scrollToValues = 'about-values';
+  const scrollToNames = 'about-names';
 
   return (
     <>
@@ -122,12 +125,24 @@ export default function AboutPage({
         description={aboutPageDescription}
         arrowText={sparkArrowDescriptionText}
         img={aboutPageTitleImage}
-        scrollTo={scrollTo}
+        scrollTo={scrollToFounder}
       />
-      <AboutFounder aboutFounderData={aboutFounderData} />
-      <AboutMission missionData={missionData} />
-      <AboutValue aboutValueData={aboutValueData} />
-      <QuoteCarousel quoteCarouselData={quoteCarouselData} />
+      <AboutFounder
+        aboutFounderData={aboutFounderData}
+        id={scrollToFounder}
+        scrollToId={scrollToMission}
+      />
+      <AboutMission
+        missionData={missionData}
+        id={scrollToMission}
+        scrollToId={scrollToValues}
+      />
+      <AboutValue
+        aboutValueData={aboutValueData}
+        id={scrollToValues}
+        scrollToId={scrollToNames}
+      />
+      <QuoteCarousel quoteCarouselData={quoteCarouselData} id={scrollToNames} />
       <Footer footerData={footerData} footerBoxLinkData={footerBoxLinkDate} />
     </>
   );
