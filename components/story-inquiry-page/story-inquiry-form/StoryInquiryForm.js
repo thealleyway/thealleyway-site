@@ -114,21 +114,6 @@ export default function StoryInquiryForm({
     return formIsValid;
   };
 
-
-  
-  // if (typeof window === 'object') {
-  //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
-  // };
-
-  // console.log(additionalResources);
-
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
-
-  
-
   return (
     <StoryInquiryFormContainer>
       <AuthorInformationContainer>
@@ -312,12 +297,12 @@ export default function StoryInquiryForm({
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
-            // if (submitRequest()) {
-            //   document.body.style.overflow = 'hidden';
-            //   document.getElementById('area').value = '';
-            //   setFields({});
-            //   setIsConfirmationPopupOpen(true);
-            // }
+            if (submitRequest()) {
+               document.body.style.overflow = 'hidden';
+               document.getElementById('area').value = '';
+               setFields({});
+               setIsConfirmationPopupOpen(true);
+             }
           }}
         />
       </SquareButtonWrapper>
@@ -346,13 +331,18 @@ export default function StoryInquiryForm({
     const name = `${fields['firstName']} ${lastName}`;
     const subject = `Story Inquiry - ${name}`;
     const body = `
-    Name: ${name}\n
-    Email: ${fields["email"]}\n
-    Story Concept: ${fields["storyConcept"]}\n 
-    Signature: ${trimmedDataUrl}\n
-    Petition Link: ${fields["petitionLink"]}\n
-    Donation Page Link: ${fields["donationPageLink"]}\n
-    Further Education Link: ${fields["furtherEducationLink"]}\n
+    Name: ${name}\r
+    Email: ${fields["email"]}\r
+    Story Concept: ${fields["storyConcept"]}\r
+    Signature: ${trimmedDataUrl}\r
+    Website: ${fields["website"]}\r
+    Instagram: ${fields["instagram"]}\r
+    Twitter: ${fields["twitter"]}\r
+    Venmo: ${fields["venmo"]}\r
+    Petition Link: ${fields["petitionLink"]}\r
+    Donation Page Link: ${fields["donationPageLink"]}\r
+    Further Education Link: ${fields["furtherEducationLink"]}\r
+    Additional Resources: ${additionalResources.map((r) => r.resource + ', ')}
     `
     if (isValidSubmission()) {
       const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${body}`;
