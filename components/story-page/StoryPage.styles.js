@@ -8,10 +8,10 @@ export const StoryPageWrapper = styled.div`
   float: left;
   height: 90vh;
   display: flex;
+  align-items: center;
 
   @media ${max.tabletLg} {
     flex-direction: column;
-    align-items: center;
     height: 100%;
     width: 100%;
   }
