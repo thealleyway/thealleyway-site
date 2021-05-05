@@ -57,7 +57,7 @@ export default function StoryInquiryForm({
   const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
   const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
-  const [additionalResources, setAdditionalResources] = useState(["", "hello", "example"]);
+  const [additionalResources, setAdditionalResources] = useState([""]);
 
   return (
     <StoryInquiryFormContainer>
@@ -178,10 +178,11 @@ export default function StoryInquiryForm({
         {additionalResources.map((r, index) => <TextInputField
             key={index}
             id={"additional resource" + index}
-            label="Additional Resources"
-            value={r}
+            label={index == 0 ? "Additional Resources" : ""}
             isAdd={index == 0}
             hasIcon
+            onChange={(e) => setAdditionalResources(additionalResources.map(r => r.id == index ? e : r))}
+            value={r}
           />)}
         </InputFieldWrapper>
       </ResourceLinksContainer>
