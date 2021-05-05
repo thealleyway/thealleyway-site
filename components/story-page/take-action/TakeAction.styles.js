@@ -4,9 +4,11 @@ import { colors } from '../../../style/colors';
 import { max } from '../../../lib/responsive';
 
 export const TakeActionWrapper = styled.div`
+  height: 100%;
   margin: 4em;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 const TakeActionHeading = styled.h1`
@@ -66,8 +68,9 @@ export const BackToStartButtonContainer = styled.div`
 `;
 
 export const ShareLinkWrapper = styled.div`
-  align-self: flex-end;
-  margin-right: 20%;
+  position: absolute;
+  bottom: 4em;
+  right: 20%;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -76,6 +79,7 @@ export const ShareLinkWrapper = styled.div`
   background-position: center;
 
   @media ${max.tabletLg} {
+    position: static;
     align-self: center;
     margin-right: 0;
   }
