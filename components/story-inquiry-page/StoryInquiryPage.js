@@ -177,20 +177,6 @@ export default function StoryInquiryPage({
       <BottomSparkArrowContainer>
         <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
       </BottomSparkArrowContainer>
-      {/* {authorTestimonies.map((item) => {
-        return (
-          <AuthorTestimony
-            key={item.author_info.id}
-            authorTestimonyData={item}
-          />
-        );
-      })}  */}
-      {/* <StorySubmissionConfirmation
-        title={storySubmissionConfirmationTitle}
-        description={storySubmissionConfirmationDescription}
-      /> */}
-      {/* <P>{getString(sparkArrowFaqText)}</P>
-      <P>{getString(sparkArrowAuthorTestimoniesText)}</P> */}
       <QuoteCarouselContainer>
         <QuoteCarousel
           quoteCarouselData={authorTestimoniesData}

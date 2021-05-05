@@ -19,6 +19,8 @@ export default function TextInputField({
   showError,
   isAdd,
   hasIcon,
+  addResource,
+  deleteResource,
   ...inputProps
 }) {
   return (
@@ -38,8 +40,8 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-      {isAdd && hasIcon && <AddIcon src={icons.ADD_ICON} />}
-      {!isAdd && hasIcon && <DeleteIcon src={icons.DELETE_ICON} />}
+      {isAdd && hasIcon && <AddIcon src={icons.ADD_ICON} onClick={addResource} />}
+      {!isAdd && hasIcon && <DeleteIcon src={icons.DELETE_ICON} onClick={deleteResource} />}
       <ErrorText>{showError}</ErrorText>
     </InputFieldWrapper>
   );

@@ -80,12 +80,10 @@ const QuoteWrapper = styled(H3)`
 `;
 
 const AuthorsWrapper = styled(P)`
-  z-index: 100;
   color: ${colors.BROWN};
 `;
 
 const AuthorsContainer = styled.div`
-z-index: 100;
 `;
 
 const QuoteContainer = styled.div`

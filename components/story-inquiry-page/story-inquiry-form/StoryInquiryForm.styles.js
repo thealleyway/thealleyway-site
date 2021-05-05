@@ -22,13 +22,6 @@ const ClearSignatureWrapper = styled.div`
   margin: -0.5em 0;
 `;
 
-const InfoTextWrapper = styled.div`
-margin: -2em 0;
-@media ${min.tablet} {
-  margin: -1.4em 0;
-}
-`;
-
 const StoryConceptInfoTextWrapper = styled.div`
   margin: -0.5em 0;
 `;
@@ -88,6 +81,10 @@ const InputFieldWrapper = styled.div`
   padding-bottom: 1.5em;
 `;
 
+const SocialInfoTextWrapper = styled.div`
+  margin-top: -3.8em;
+`;
+
 const SignatureCanvasWrapper = styled.div`
   background-color: white;
   border: 1px solid ${colors.BROWN};
@@ -102,6 +99,9 @@ const TextLabel = styled(P)`
 const RedStar = styled.img`
   width: 2%;
   margin-left: 0.5em;
+  @media ${min.desktopLg} {
+    width: 0.7em;
+  }
 `;
 
 const StarLabelContainer = styled.div`
@@ -128,7 +128,6 @@ export {
   AuthorInformationContainer,
   AuthorSignatureContainer,
   Description,
-  InfoTextWrapper,
   StoryConceptInfoTextWrapper,
   SignatureCanvasWrapper,
   ClearSignatureWrapper,
@@ -136,4 +135,5 @@ export {
   RedStar,
   TextLabel,
   SquareButtonWrapper,
+  SocialInfoTextWrapper,
 };

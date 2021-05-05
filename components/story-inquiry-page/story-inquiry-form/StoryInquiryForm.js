@@ -12,13 +12,13 @@ import {
   AuthorSignatureContainer,
   Description,
   ResourceLinksContainer,
-  InfoTextWrapper,
   StoryConceptInfoTextWrapper,
   SignatureCanvasWrapper,
   ClearSignatureWrapper,
   StarLabelContainer,
   RedStar,
   TextLabel,
+  SocialInfoTextWrapper,
   SquareButtonWrapper,
 } from './StoryInquiryForm.styles';
 import SignatureCanvas from 'react-signature-canvas';
@@ -28,6 +28,8 @@ import { icons } from '../../../style/icons';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import { Overlay } from '../../base-components/BaseComponents';
+import { breakpointsObj } from '../../../lib/responsive';
+import { useMatchMedia } from '../../../lib/hooks';
 
 export default function StoryInquiryForm({
   storyInquiryFormData,
@@ -48,6 +50,16 @@ export default function StoryInquiryForm({
     resourceLinksDescription,
   } = storyInquiryFormData;
 
+  const isDesktop = useMatchMedia(
+    `(min-width: ${breakpointsObj.desktop}px)`,
+  );
+
+  const getCanvasDimensions = () => {
+    if (isDesktop) {
+      return { width: 400, height: 60 }
+    }
+  }
+
   const clear = () => {
     sigPad.clear();
   };
@@ -58,6 +70,12 @@ export default function StoryInquiryForm({
   const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
   const [additionalResources, setAdditionalResources] = useState([""]);
+
+  // if (typeof window === 'object') {
+  //   console.log(document.getElementById('signature canvas wrapper').offsetWidth)
+  // };
+
+  console.log(additionalResources);
 
   return (
     <StoryInquiryFormContainer>
@@ -80,11 +98,10 @@ export default function StoryInquiryForm({
           <TextLabel>Signature</TextLabel>
           <RedStar src={icons.RED_STAR} />
         </StarLabelContainer>
-        <SignatureCanvasWrapper>
+        <SignatureCanvasWrapper id="signature canvas wrapper">
           <SignatureCanvas
             penColor="black"
-            //      canvasProps={{ width: 450, height: 60 }}
-            canvasProps={{ width: 200, height: 60 }}
+            canvasProps={{ width: 400, height: 60}}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
@@ -108,7 +125,7 @@ export default function StoryInquiryForm({
         <InputFieldWrapper>
           <TextInputField id="venmo" label="Venmo" />
         </InputFieldWrapper>
-        <InfoTextWrapper>
+        <SocialInfoTextWrapper>
           <InputInfoText
             onClick={() => {
               document.body.style.overflow = 'hidden';
@@ -117,7 +134,7 @@ export default function StoryInquiryForm({
           >
             {getString(venmoMoreInfoSubtitle)}
           </InputInfoText>
-        </InfoTextWrapper>
+        </SocialInfoTextWrapper>
         {isVenmoPolicyOpen && (
           <ArchModal
             text={venmoMoreInfoDescription}
@@ -182,6 +199,8 @@ export default function StoryInquiryForm({
             isAdd={index == 0}
             hasIcon
             onChange={(e) => setAdditionalResources(additionalResources.map(r => r.id == index ? e : r))}
+            addResource={() => setAdditionalResources(["", ...additionalResources])}
+            deleteResource={() => setAdditionalResources([additionalResources.filter(r => r.id !== index)])}
             value={r}
           />)}
         </InputFieldWrapper>
