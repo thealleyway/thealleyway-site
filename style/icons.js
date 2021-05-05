@@ -37,6 +37,9 @@ const icons = {
   CLOSE_ICON: '/assets/close-icon.svg',
   ADD_ICON: '/assets/add-icon.svg',
   MINUS_ICON: '/assets/minus-icon.svg',
+  TWITTER_ICON: '/assets/twitter.svg',
+  INSTAGRAM_ICON: '/assets/instagram.svg',
+  DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
 };
 
 export { icons };

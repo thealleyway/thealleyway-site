@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { fonts, fontWeights, P } from '../../style/typography';
+import { min } from '../../lib/responsive';
 
 const InputBoxLabel = styled(P)`
   color: ${colors.BROWN};
-  font-size: .8em;
-  margin-bottom: .5em;
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
 `;
 
 const StarLabelContainer = styled.div`
@@ -15,14 +16,27 @@ const StarLabelContainer = styled.div`
 const RedStar = styled.img`
   width: 2%;
   margin-left: 0.5em;
+  @media ${min.desktopLg} {
+    width: 0.7em;
+  }
+`;
+
+const ErrorText = styled(P)`
+  position: absolute;
+  color: ${colors.RED};
+  font-size: 0.7em;
+  margin: 0.1em 0 -1em 0;
+  text-shadow: 0.5px 0 #ff0000;
+  letter-spacing: 0.05em;
 `;
 
 const InputBox = styled.textarea`
   background-color: ${colors.CREME};
   width: 100%;
   height: ${(props) =>
-  props.height ? props.height : `clamp(16em, 4vw, 26em)`};
-  border: ${(props) => props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
+    props.height ? props.height : `clamp(16em, 4vw, 26em)`};
+  border: ${(props) =>
+    props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
   &:focus {
     outline: none;
   }
@@ -30,22 +44,7 @@ const InputBox = styled.textarea`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;
-  ::placeholder {
-    color: ${colors.BROWN};
-    font-family: ${fonts.poppins};
-    font-weight: ${fontWeights.normal};
-  }
   padding: 0.5em;
-`;
-
-
-const ErrorText = styled(P)`
-  position: absolute;
-  color: ${colors.RED};
-  font-size: 0.7em;
-  margin: .5em 0 -1em 0;
-  letter-spacing: .07em;
-  font-weight: ${fontWeights.medium};
 `;
 
 export { InputBox, InputBoxLabel, StarLabelContainer, RedStar, ErrorText };

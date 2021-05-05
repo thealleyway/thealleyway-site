@@ -10,6 +10,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.12.0",
     "moment": "^2.29.1",
     "next": "10.0.7",

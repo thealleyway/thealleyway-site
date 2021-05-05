@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { min } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { H4 } from '../../style/typography';
 
@@ -18,7 +18,7 @@ const PopupImage = styled.img`
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 150%;
   height: 100%;
 `;
 
@@ -31,6 +31,10 @@ const CloseIcon = styled.img`
   @media ${min.desktop} {
     width: 1.3em;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const PopupBox = styled.div`
@@ -40,9 +44,9 @@ const PopupBox = styled.div`
   height: 100vh;
   z-index: 15;
   font-size: 0.9em;
-  top: 20%;
+  top: 15%;
   @media ${min.tablet} {
-    top: 30%;
+    top: 20%;
   }
   @media ${min.desktop} {
     top: 17%;
@@ -59,22 +63,24 @@ const Box = styled.div`
   margin: 1em auto;
   border: 0.15em solid ${colors.BLACK};
   overflow: auto;
-  height: 26em;
+  height: fit-content;
   padding: clamp(0.5em, 5vw, 1.5em);
   width: 83%;
   top: 0;
+
+  @media ${max.mobile} {
+    height: 26em;
+  }
   @media ${min.tabletSm} {
-    height: 25em;
     padding: 1.5em;
     width: 24em;
+    height: fit-content;
   }
   @media ${min.tablet} {
-    height: 24em;
     width: 25em;
     padding: 1.7em 2em 2em 2.5em;
   }
   @media ${min.desktop} {
-    height: 25.5em;
     padding: 2em;
     width: 25em;
   }

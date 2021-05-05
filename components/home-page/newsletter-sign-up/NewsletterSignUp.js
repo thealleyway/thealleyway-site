@@ -46,7 +46,7 @@ export default function NewsletterSignUp({
             onChange={(e) => updateName(e)}
             required={true}
           />
-          <TextInputField id="email" label="Email" fullWidth required={true} />
+          <TextInputField id="email" label="Email" fullWidth required />
           <PrivacyPolicyLinkText>
             <InputInfoText
               onClick={() => {

@@ -1,19 +1,32 @@
-import { InputBox, InputBoxLabel, StarLabelContainer, ErrorText, RedStar } from './TextInputBox.styles';
-import { getString } from '../../lib/richText';
+import {
+  InputBox,
+  InputBoxLabel,
+  StarLabelContainer,
+  ErrorText,
+  RedStar,
+} from './TextInputBox.styles';
 import { icons } from '../../style/icons';
 
-export default function TextInputBox({ placeholder, onChange, height, label, required, showError }) {
+export default function TextInputBox({
+  onChange,
+  height,
+  label,
+  required,
+  showError,
+}) {
   return (
     <>
       <StarLabelContainer>
         <InputBoxLabel>{label}</InputBoxLabel>
         {required && <RedStar src={icons.RED_STAR} />}
       </StarLabelContainer>
-      <InputBox onChange={onChange} placeholder={placeholder} height={height} showError={showError} />
-      {showError &&
-        <ErrorText>
-          FIELD IS REQUIRED!
-          </ErrorText>}
+      <InputBox
+        onChange={onChange}
+        height={height}
+        showError={showError}
+        id="area"
+      />
+      <ErrorText>{showError}</ErrorText>
     </>
   );
 }

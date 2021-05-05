@@ -1,14 +1,10 @@
-import {
-  Button,
-  ButtonText,
-  ButtonImage,
-} from './BackToStartVerticalButton.styles';
+import { Button, ButtonText, ButtonImage } from './BackToStartButton.styles';
 import { icons } from '../../style/icons';
 import React, { useState } from 'react';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
-export default function BackToStartVerticalButton() {
+export default function BackToStartButton(props) {
   const [hover, setHover] = useState(false);
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
@@ -19,6 +15,7 @@ export default function BackToStartVerticalButton() {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => window.scrollTo(0, 0)}
+      {...props}
     >
       <ButtonImage
         src={
@@ -27,8 +24,9 @@ export default function BackToStartVerticalButton() {
             : icons.UNFILLED_BACK_TO_TOP
         }
         alt="Brown unfilled back to top arrow"
+        {...props}
       />
-      <ButtonText>BACK TO START</ButtonText>
+      <ButtonText {...props}>BACK TO START</ButtonText>
     </Button>
   );
 }

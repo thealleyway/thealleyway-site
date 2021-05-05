@@ -52,6 +52,8 @@ export default function ContactPage({
     data: boxLinkData,
   };
 
+  const scrollTo = 'contact-form';
+
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -69,8 +71,9 @@ export default function ContactPage({
         description={contactPageDescription}
         arrowText={sparkArrowDescriptionText}
         img={contactImageTop}
+        scrollTo={scrollTo}
       />
-      <PageContainer>
+      <PageContainer id={scrollTo}>
         <FormContainer>
           <ContactForm togglePopup={togglePopup} />
         </FormContainer>
