@@ -6,7 +6,8 @@ import {
   StarLabelContainer,
   ErrorText,
   InputFieldWrapper,
-  Icon,
+  AddIcon,
+  DeleteIcon,
 } from './TextInputField.style';
 import { icons } from '../../style/icons';
 
@@ -37,8 +38,8 @@ export default function TextInputField({
         onChange={(e) => onChange(e.target.value)}
         {...inputProps}
       />
-      {isAdd && hasIcon && <Icon src={icons.ADD_ICON} />}
-      {!isAdd && hasIcon && <Icon src={icons.DELETE_ICON} />}
+      {isAdd && hasIcon && <AddIcon src={icons.ADD_ICON} />}
+      {!isAdd && hasIcon && <DeleteIcon src={icons.DELETE_ICON} />}
       <ErrorText>{showError}</ErrorText>
     </InputFieldWrapper>
   );

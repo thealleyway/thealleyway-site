@@ -51,11 +51,13 @@ export default function StoryInquiryForm({
   const clear = () => {
     sigPad.clear();
   };
+
   const [trimmedDataUrl, trim] = useState(null);
   const [sigPad, setSigPad] = useState({});
   const [isVenmoPolicyOpen, setIsVenmoPolicyOpen] = useState(false);
   const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
+  const [additionalResources, setAdditionalResources] = useState(["", "hello", "example"]);
 
   return (
     <StoryInquiryFormContainer>
@@ -173,12 +175,14 @@ export default function StoryInquiryForm({
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
-          <TextInputField
-            id="additional resource"
+        {additionalResources.map((r, index) => <TextInputField
+            key={index}
+            id={"additional resource" + index}
             label="Additional Resources"
-            isAdd
+            value={r}
+            isAdd={index == 0}
             hasIcon
-          />
+          />)}
         </InputFieldWrapper>
       </ResourceLinksContainer>
       <SquareButtonWrapper>

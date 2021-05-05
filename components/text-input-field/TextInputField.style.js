@@ -51,9 +51,15 @@ const InputFieldWrapper = styled.div`
   padding-bottom: 2em;
 `;
 
-const Icon = styled.img`
-  margin: -2em 0 0 25.8em;
+const AddIcon = styled.img`
+  margin: -2em 0 0 0;
   width: 1.8em;
+  float: right;
+`;
+
+const DeleteIcon = styled.img`
+  margin: -2.3em -.32em 0 0;
+  width: 2.5em;
   float: right;
 `;
 
@@ -64,5 +70,6 @@ export {
   StarLabelContainer,
   ErrorText,
   InputFieldWrapper,
-  Icon,
+  AddIcon,
+  DeleteIcon
 };
