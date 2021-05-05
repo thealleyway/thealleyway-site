@@ -85,8 +85,6 @@ export const ShareLinkText = styled(H4)`
   font-weight: ${fontWeights.normal};
 `;
 
-export const ShareLinkImage = styled.img``;
-
 // Tablet and Mobile
 
 export const TabletMobileWrapper = styled.div`

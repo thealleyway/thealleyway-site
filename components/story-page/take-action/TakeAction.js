@@ -15,7 +15,6 @@ import {
   ResourceWrapper,
   ShareLinkWrapper,
   ShareLinkText,
-  ShareLinkImage,
   TakeActionHeadingDesktop,
   TabletMobileWrapper,
   TabletMobileTake,
@@ -86,8 +85,9 @@ export default function TakeAction({
       url={icons.SHARE_STORY_LINE}
     >
       <ShareLinkText>SHARE THIS STORY</ShareLinkText>
-      <ShareLinkImage
+      <img
         src={shareHover ? icons.SHARE_STORY_HOVER : icons.SHARE_STORY}
+        alt="link icon"
       />
     </ShareLinkWrapper>
   );
