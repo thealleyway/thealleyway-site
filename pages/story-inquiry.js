@@ -48,8 +48,8 @@ export default function StoryInquiryPage({
   } = storyInquiryPageData;
 
   const storyConceptPopupData = {
-    popupTitle,
-    popupDescription,
+    popupTitles: [popupTitle],
+    popupDescriptions: [popupDescription],
     popupImage,
   };
 

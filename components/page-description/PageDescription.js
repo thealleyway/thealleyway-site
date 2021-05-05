@@ -7,11 +7,16 @@ import {
 } from './PageDescription.styles';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 
-export default function PageDescription({ description, arrowText, img }) {
+export default function PageDescription({
+  description,
+  arrowText,
+  img,
+  scrollTo,
+}) {
   return (
     <div>
       <PageDescriptionContainer>
-        <LongSparkArrow arrowText={arrowText} />
+        <LongSparkArrow arrowText={arrowText} scrollTo={scrollTo} />
         <DescriptionContainer>
           <Description>{getString(description)}</Description>
         </DescriptionContainer>
