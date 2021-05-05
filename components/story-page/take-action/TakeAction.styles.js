@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-import { P, fonts, fontWeights } from '../../../style/typography';
+import { H4, P, fonts, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
 import { max } from '../../../lib/responsive';
 
 export const TakeActionWrapper = styled.div`
   margin: 4em;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TakeActionHeading = styled.h1`
@@ -28,11 +30,7 @@ export const ActionButtonsWrapper = styled.div`
   justify-content: space-between;
 
   @media ${max.tabletLg} {
-    width: 50%;
-  }
-
-  @media ${max.tabletSm} {
-    width: 85%;
+    width: 100%;
   }
 `;
 
@@ -49,7 +47,6 @@ export const DescriptionText = styled(P)`
   width: min(25vw, 25em);
 
   @media ${max.tabletLg} {
-    margin-bottom: em;
     width: 50%;
   }
 
@@ -68,6 +65,26 @@ export const BackToStartButtonContainer = styled.div`
   height: 1em;
 `;
 
+export const ShareLinkWrapper = styled.div`
+  align-self: flex-end;
+  margin-right: 20%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+
+  @media ${max.tabletLg} {
+    align-self: center;
+    margin-right: 0;
+  }
+`;
+
+export const ShareLinkText = styled(H4)`
+  font-weight: ${fontWeights.normal};
+`;
+
+export const ShareLinkImage = styled.img``;
+
 // Tablet and Mobile
 
 export const TabletMobileWrapper = styled.div`
@@ -75,6 +92,7 @@ export const TabletMobileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 4em;
 `;
 
 export const TabletMobileTake = styled(TakeActionHeading)`
@@ -91,7 +109,6 @@ export const TabletMobileAction = styled(TakeActionHeading)`
 export const ResourceWrapper = styled.div`
   width: 25vw;
   max-width: 25em;
-  padding-bottom: 5em;
 
   @media ${max.tabletLg} {
     width: 50%;

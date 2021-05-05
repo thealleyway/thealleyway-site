@@ -13,6 +13,9 @@ import {
   TitleAndButtonWrapper,
   DescriptionText,
   ResourceWrapper,
+  ShareLinkWrapper,
+  ShareLinkText,
+  ShareLinkImage,
   TakeActionHeadingDesktop,
   TabletMobileWrapper,
   TabletMobileTake,
@@ -20,6 +23,20 @@ import {
   TakeActionWrapper,
   UnderlineImage,
 } from './TakeAction.styles';
+
+const copyToClipboard = () => {
+  if (typeof window !== 'undefined') {
+    const text = window.location.href;
+    const textField = document.createElement('textarea');
+    textField.readOnly = true;
+    textField.textContent = text;
+    document.body.append(textField);
+    textField.select();
+    document.execCommand('copy');
+    textField.remove();
+    alert('Copied story link to clipboard');
+  }
+};
 
 export default function TakeAction({
   takeActionDescription,
@@ -29,6 +46,8 @@ export default function TakeAction({
   moreResources,
   moreResourcesBackground,
 }) {
+  const [shareHover, setShareHover] = useState(false);
+
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
@@ -59,10 +78,24 @@ export default function TakeAction({
     </>
   );
 
+  const shareLink = (
+    <ShareLinkWrapper
+      onMouseEnter={() => setShareHover(true)}
+      onMouseLeave={() => setShareHover(false)}
+      onClick={copyToClipboard}
+    >
+      <ShareLinkText>SHARE THIS STORY</ShareLinkText>
+      <ShareLinkImage
+        src={shareHover ? icons.SHARE_STORY_HOVER : icons.SHARE_STORY}
+      />
+    </ShareLinkWrapper>
+  );
+
   return (
     <>
       {isTabletOrMobile ? (
         <TabletMobileWrapper>
+          {shareLink}
           <TabletMobileTake>Take</TabletMobileTake>
           <TabletMobileAction>
             <i>Action</i>
@@ -85,6 +118,7 @@ export default function TakeAction({
             </BackToStartButtonContainer>
           </TitleAndButtonWrapper>
           {takeActionContent}
+          {shareLink}
         </TakeActionWrapper>
       )}
       {showMoreResources && isModalOpen && (
