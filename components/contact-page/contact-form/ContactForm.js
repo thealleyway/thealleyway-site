@@ -1,6 +1,7 @@
+import { colors } from '../../../style/colors';
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
-import SquareButton from '../../square-button/SquareButton';
+import { SubmitButton } from '../../home-page/newsletter-sign-up/NewsletterSignUp.styles';
 import {
   ContactFormContainer,
   InputBoxWrapper,
@@ -72,9 +73,10 @@ export default function ContactForm({ togglePopup }) {
           />
         </InputBoxWrapper>
         <ButtonWrapper>
-          <SquareButton
+          <SubmitButton
             aria-label="Submission Button"
-            buttonText="SUBMIT"
+            color={colors.WHITE}
+            type="submit"
             onClick={() => {
               if (submitRequest()) {
                 document.body.style.overflow = 'hidden';
@@ -83,7 +85,9 @@ export default function ContactForm({ togglePopup }) {
                 togglePopup();
               }
             }}
-          />
+          >
+            SUBMIT
+          </SubmitButton>
         </ButtonWrapper>
       </ContactFormContainer>
     </>
