@@ -4,12 +4,6 @@ import { min } from '../../../lib/responsive';
 import { colors } from '../../../style/colors';
 import {H2, fontWeights} from '../../../style/typography';
 
-const FaqTitle = styled(H2)`
-    @media ${min.mobile} {
-        
-    }
-`;
-
 const FaqContainer = styled.div`
 margin: 8em 3.5em 0 4em;
 @media ${min.tablet} {

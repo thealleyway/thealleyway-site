@@ -13,8 +13,12 @@ const QuestionStyled = styled(H4)`
 
 const ShortArrow = styled.img`
     width: 1.8em;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     margin: 0;
+    margin-left: .6em;
+    @media ${min.tablet} {
+        transform: rotate(90deg);
+    }
 `;
 
 const QuestionAnswerContainer = styled.div`

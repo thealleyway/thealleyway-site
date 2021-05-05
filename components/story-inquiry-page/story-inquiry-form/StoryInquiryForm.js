@@ -161,7 +161,7 @@ export default function StoryInquiryForm({
         <SignatureCanvasWrapper id="signature canvas wrapper">
           <SignatureCanvas
             penColor="black"
-            canvasProps={{ width: 400, height: 60}}
+            canvasProps={{ width: 100, height: 60}}
             ref={(ref) => setSigPad(ref)}
             minWidth={1.5}
             maxWidth={1.5}
@@ -305,15 +305,13 @@ export default function StoryInquiryForm({
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
-            trim(sigPad.getTrimmedCanvas().toDataURL('image/png').toString());
-            console.log(trimmedDataUrl);
-            //trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
-            // if (submitRequest()) {
-            //   document.body.style.overflow = 'hidden';
-            //   document.getElementById('area').value = '';
-            //   setFields({});
-            //   setIsConfirmationPopupOpen(true);
-            //   console.log(trimmedDataUrl);
+            trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
+           //  if (submitRequest()) {
+               document.body.style.overflow = 'hidden';
+               //document.getElementById('area').value = '';
+               //setFields({});
+               setIsConfirmationPopupOpen(true);
+               console.log(trimmedDataUrl);
             // }
           }}
         />
