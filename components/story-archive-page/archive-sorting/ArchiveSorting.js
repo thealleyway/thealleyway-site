@@ -10,7 +10,7 @@ const ALPHA = 'alpha';
 const DATE = 'date';
 
 const sortUrl = (selectedSortType) =>
-  '/archive/' + selectedSortType.toLowerCase() + '/' + 1;
+  '/archive/' + selectedSortType.toLowerCase() + '/' + 1 + '#archive';
 
 export default function ArchiveSorting({ sortType, order }) {
   const label = order == DATE ? 'MOST RECENT' : 'A - Z';
