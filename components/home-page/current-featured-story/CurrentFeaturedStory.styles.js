@@ -59,6 +59,7 @@ export const CurrentFeaturedStoryButton = styled(HoverAnimationButton)`
   background-size: 85%;
   background-position: left center;
   border: none;
+  padding: 0;
 
   &:hover {
     animation: ${LeftRightAnimation} 0.8s forwards;
