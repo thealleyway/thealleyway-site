@@ -51,6 +51,12 @@ const InputFieldWrapper = styled.div`
   padding-bottom: 2em;
 `;
 
+const Icon = styled.img`
+  margin: -2em 0 0 25.8em;
+  width: 1.8em;
+  float: right;
+`;
+
 export {
   TextLabel,
   TextInput,
@@ -58,4 +64,5 @@ export {
   StarLabelContainer,
   ErrorText,
   InputFieldWrapper,
+  Icon,
 };

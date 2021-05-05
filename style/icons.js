@@ -36,6 +36,7 @@ const icons = {
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
   CLOSE_ICON: '/assets/close-icon.svg',
   ADD_ICON: '/assets/add-icon.svg',
+  DELETE_ICON: '/assets/delete-icon.svg',
   MINUS_ICON: '/assets/minus-icon.svg',
   TWITTER_ICON: '/assets/twitter.svg',
   INSTAGRAM_ICON: '/assets/instagram.svg',

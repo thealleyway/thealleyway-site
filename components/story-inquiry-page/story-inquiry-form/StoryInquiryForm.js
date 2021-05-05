@@ -161,7 +161,7 @@ export default function StoryInquiryForm({
         <InputFieldWrapper>
           <TextInputField
             id="donation page link"
-            label="Donate page link"
+            label="Donation page link"
             required
           />
         </InputFieldWrapper>
@@ -174,8 +174,8 @@ export default function StoryInquiryForm({
         </InputFieldWrapper>
         <InputFieldWrapper>
           <TextInputField
-            id="more resources links"
-            label="More resources links"
+            id="additional resource"
+            label="Additional Resources"
             isAdd
             hasIcon
           />
