@@ -33,6 +33,8 @@ import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 
+const axios = require('axios');
+
 export default function StoryInquiryForm({
   storyInquiryFormData,
   storyConceptPopupData,
@@ -74,7 +76,7 @@ export default function StoryInquiryForm({
   const [additionalResources, setAdditionalResources] = useState([{id: 0, resource: ""}]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
-  console.log(trimmedDataUrl)
+ // console.log(trimmedDataUrl)
 
   const isValidSubmission = () => {
     let errors = {};
@@ -109,6 +111,9 @@ export default function StoryInquiryForm({
     setErrors(errors);
     return formIsValid;
   };
+  
+
+  
 
   // if (typeof window === 'object') {
    //  console.log(document.getElementById('signature canvas wrapper').offsetWidth)
@@ -272,7 +277,7 @@ export default function StoryInquiryForm({
             label="Further education link"
             required
             showError={errors['furtherEducationLink']}
-            onChange={(e) => setFields({ ...fields, futherEducationLink: e })}
+            onChange={(e) => setFields({ ...fields, furtherEducationLink: e })}
           />
         </InputFieldWrapper>
         <InputFieldWrapper>
@@ -284,9 +289,9 @@ export default function StoryInquiryForm({
             label={index == 0 ? "Additional Resources" : ""}
             isAdd={index == 0}
             hasIcon
-            onChange={(e) => {
-              console.log(additionalResources.map(r => 
-                r.id == index ? console.log({index: r.id, resource: e}) : console.log(r)))}}
+            onChange={(e) => {}}
+            //  console.log(additionalResources.map(r => 
+              //  r.id == index ? console.log({index: r.id, resource: e}) : console.log(r)))}}
              // setAdditionalResources(additionalResources.map(r => 
               //r.id == index ? {index: r.id, resource: e} : r))}}
             addResource={() => setAdditionalResources(additionalResources.concat([{ id: index + 1, resource: ""}]))}
@@ -300,13 +305,16 @@ export default function StoryInquiryForm({
           buttonText="SUBMIT MY STORY"
           long={true}
           onClick={() => {
-            sigPad && trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
-            if (submitRequest()) {
-              document.body.style.overflow = 'hidden';
-              document.getElementById('area').value = '';
-              setFields({});
-              setIsConfirmationPopupOpen(true);
-            }
+            trim(sigPad.getTrimmedCanvas().toDataURL('image/png').toString());
+            console.log(trimmedDataUrl);
+            //trim(sigPad.getTrimmedCanvas().toDataURL('image/png'));
+            // if (submitRequest()) {
+            //   document.body.style.overflow = 'hidden';
+            //   document.getElementById('area').value = '';
+            //   setFields({});
+            //   setIsConfirmationPopupOpen(true);
+            //   console.log(trimmedDataUrl);
+            // }
           }}
         />
       </SquareButtonWrapper>
@@ -328,12 +336,17 @@ export default function StoryInquiryForm({
   );
 
   function submitRequest() {
-    const name = `${fields['firstName']} ${fields['lastName']}`;
+    let lastName = fields['lastName'];
+    if (!lastName) {
+      lastName = '';
+    }
+    const name = `${fields['firstName']} ${lastName}`;
     const subject = `Story Inquiry - ${name}`;
     const body = `
     Name: ${name}\n
     Email: ${fields["email"]}\n
     Story Concept: ${fields["storyConcept"]}\n 
+    Signature: ${trimmedDataUrl}\n
     Petition Link: ${fields["petitionLink"]}\n
     Donation Page Link: ${fields["donationPageLink"]}\n
     Further Education Link: ${fields["furtherEducationLink"]}\n
