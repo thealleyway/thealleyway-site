@@ -12,7 +12,7 @@ const LongLinesDesktop = styled.img`
 `;
 
 const LongLinesFlippedDesktop = styled.img`
-display: none;
+ display: none;
 @media ${min.desktop} {
   display: block;
   position: relative;
