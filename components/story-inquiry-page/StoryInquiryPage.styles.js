@@ -12,14 +12,13 @@ const LongLinesDesktop = styled.img`
 `;
 
 const LongLinesFlippedDesktop = styled.img`
- display: none;
-@media ${min.desktop} {
-  display: block;
-  position: relative;
-  width: 11.2em;
-  margin: -32em 0 0 4.8em;
-}
-}
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    position: relative;
+    width: 11.2em;
+    margin: -32em 0 0 4.8em;
+  }
 `;
 
 const LongLinesTablet = styled.img`
