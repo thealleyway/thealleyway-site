@@ -70,7 +70,7 @@ export default function TakeAction({
               setIsModalOpen(true);
             }}
           >
-            more on these resources
+            more resources
           </InputInfoText>
         )}
       </ResourceWrapper>
