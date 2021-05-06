@@ -218,6 +218,9 @@ const CloseIcon = styled.img`
   @media ${min.desktop} {
     width: 1.3em;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export {

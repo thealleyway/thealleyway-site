@@ -64,18 +64,26 @@ export const LinkWrapper = styled(HoverAnimationButton)`
   font-size: 1em;
   font-family: ${fonts.poppins};
   color: ${colors.BROWN};
-  font-weight: ${fontWeights.normal};
+  font-weight: ${(props) =>
+    props.onPage ? fontWeights.medium : fontWeights.normal};
   text-transform: uppercase;
   letter-spacing: 0.13em;
 
   @media ${max.tabletLg} {
     margin-bottom: 3em;
     width: min(18em, 100%);
+    font-weight: ${fontWeights.normal};
     &:hover {
       background: url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat;
       background-position: right center;
       background-size: contain;
     }
+    background: ${(props) =>
+      props.onPage
+        ? `url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat`
+        : `inherit`};
+    background-position: center center;
+    background-size: contain;
   }
 `;
 

@@ -33,20 +33,20 @@ export const CurrentFeaturedStoryImage = styled.img`
 
 export const CurrentFeaturedStoryTextWrapper = styled.div`
   width: calc(100% - min(400px, 50%));
-  margin-left: 8%;
+  margin: auto 0 auto 8%;
   z-index: 2;
 `;
 
 export const CurrentFeaturedStoryH1 = styled(H1)`
   color: ${colors.BLACK};
   font-size: clamp(2.5em, 3.5vw, 3.5em);
-  margin-left: -260px;
-  margin-bottom: 0.5em;
+  margin: 0 auto 0 -260px;
+  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  height: 2.6em;
 
   @media ${max.tablet} {
-    margin-bottom: 10px;
+    margin-top: 15px;
     margin-left: -150px;
   }
 `;
@@ -59,6 +59,7 @@ export const CurrentFeaturedStoryButton = styled(HoverAnimationButton)`
   background-size: 85%;
   background-position: left center;
   border: none;
+  padding: 0;
 
   &:hover {
     animation: ${LeftRightAnimation} 0.8s forwards;

@@ -36,6 +36,8 @@ const InputBox = styled.textarea`
   font-weight: ${fontWeights.normal};
   font-size: 1em;
   padding: 0.5em;
+  -webkit-appearance: none;
+  border-radius: 0px;
 `;
 
 export { InputBox, InputBoxLabel, StarLabelContainer, ErrorText };

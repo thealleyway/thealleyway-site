@@ -11,7 +11,7 @@ export default function ArchivePagination({ paginationData, sortType }) {
 
   return (
     <PaginationWrapper>
-      <PageLink href={ARCHIVE + (page - 1)}>
+      <PageLink href={ARCHIVE + (page - 1) + '#archive'}>
         <ArchiveArrow
           src={icons.FILLED_SHORT_ARROW}
           disabled={prevDisabled}
@@ -22,7 +22,7 @@ export default function ArchivePagination({ paginationData, sortType }) {
       <P>
         {page} / {totalPages}
       </P>
-      <PageLink href={ARCHIVE + (page + 1)}>
+      <PageLink href={ARCHIVE + (page + 1) + '#archive'}>
         <ArchiveArrow
           src={icons.FILLED_SHORT_ARROW}
           disabled={nextDisabled}
