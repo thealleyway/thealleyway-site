@@ -43,7 +43,6 @@ export default function Question({
         {isSelected && (
           <ShortArrow src={icons.FILLED_SHORT_ARROW} alt="filled short arrow" />
         )}
-        ;
       </QuestionStyled>
       <AnswerStyled>{isSelected && <P>{getString(answer)}</P>}</AnswerStyled>
     </QuestionAnswerContainer>

@@ -8,6 +8,7 @@ import {
 } from './ContactForm.styles';
 import React, { useState } from 'react';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
+import { fieldNames } from '../../../lib/utils';
 
 const axios = require('axios');
 
@@ -21,86 +22,96 @@ export default function ContactForm({ togglePopup }) {
     const validEmail = new RegExp(
       '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
     );
-    if (fields['firstName'] == undefined || fields['firstName'].length < 1) {
+    if (
+      fields[fieldNames.FIRST_NAME] == undefined ||
+      fields[fieldNames.FIRST_NAME].length < 1
+    ) {
       formIsValid = false;
-      errors['firstName'] = 'FIRST NAME IS REQUIRED!';
+      errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
     }
-    if (!validEmail.test(fields['email'])) {
+    if (!validEmail.test(fields[fieldNames.EMAIL])) {
       formIsValid = false;
-      errors['email'] = 'EMAIL IS REQUIRED!';
+      errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
     }
-    if (fields['message'] == undefined || fields['message'].length < 1) {
+    if (
+      fields[fieldNames.MESSAGE] == undefined ||
+      fields[fieldNames.MESSAGE].length < 1
+    ) {
       formIsValid = false;
-      errors['message'] = 'MESSAGE IS REQUIRED!';
+      errors[fieldNames.MESSAGE] = 'MESSAGE IS REQUIRED!';
     }
     setErrors(errors);
     return formIsValid;
   };
 
   return (
-    <>
-      <ContactFormContainer>
-        <TextInputField
-          id="firstName"
-          label="First Name"
+    <ContactFormContainer>
+      <TextInputField
+        id="firstName"
+        label="First Name"
+        required
+        showError={errors[fieldNames.FIRST_NAME]}
+        value={
+          fields[fieldNames.FIRST_NAME] ? fields[fieldNames.FIRST_NAME] : ''
+        }
+        onChange={(e) => setFields({ ...fields, FIRST_NAME: e.target.value })}
+      />
+      <TextInputField
+        id="lastName"
+        label="Last Name"
+        value={fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''}
+        onChange={(e) => setFields({ ...fields, LAST_NAME: e.target.value })}
+      />
+      <TextInputField
+        id="email"
+        label="Email"
+        required
+        showError={errors[fieldNames.EMAIL]}
+        value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
+        onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
+      />
+      <InputBoxWrapper>
+        <TextInputBox
+          label="Message"
+          showError={errors[fieldNames.MESSAGE]}
           required
-          showError={errors['firstName']}
-          value={fields['firstName'] ? fields['firstName'] : ''}
-          onChange={(e) => setFields({ ...fields, firstName: e.target.value })}
+          value={fields[fieldNames.MESSAGE] ? fields[fieldNames.MESSAGE] : ''}
+          onChange={(e) => setFields({ ...fields, MESSAGE: e.target.value })}
         />
-        <TextInputField
-          id="lastName"
-          label="Last Name"
-          value={fields['lastName'] ? fields['lastName'] : ''}
-          onChange={(e) => setFields({ ...fields, lastName: e.target.value })}
+      </InputBoxWrapper>
+      <ButtonWrapper>
+        <SquareButton
+          aria-label="Submission Button"
+          buttonText="SUBMIT"
+          onClick={() => {
+            if (submitRequest()) {
+              document.body.style.overflow = 'hidden';
+              document.getElementById('area').value = '';
+              setFields({});
+              togglePopup();
+            }
+          }}
         />
-        <TextInputField
-          id="email"
-          label="Email"
-          required
-          showError={errors['email']}
-          value={fields['email'] ? fields['email'] : ''}
-          onChange={(e) => setFields({ ...fields, email: e.target.value })}
-        />
-        <InputBoxWrapper>
-          <TextInputBox
-            label="Message"
-            showError={errors['message']}
-            required
-            value={fields['message'] ? fields['message'] : ''}
-            onChange={(e) => setFields({ ...fields, message: e.target.value })}
-          />
-        </InputBoxWrapper>
-        <ButtonWrapper>
-          <SquareButton
-            aria-label="Submission Button"
-            buttonText="SUBMIT"
-            onClick={() => {
-              if (submitRequest()) {
-                document.body.style.overflow = 'hidden';
-                document.getElementById('area').value = '';
-                setFields({});
-                togglePopup();
-              }
-            }}
-          />
-        </ButtonWrapper>
-      </ContactFormContainer>
-    </>
+      </ButtonWrapper>
+    </ContactFormContainer>
   );
 
   function submitRequest() {
-    const name = `${fields['firstName']} ${fields['lastName']}`;
+    const name = `${fields[fieldNames.FIRST_NAME]} ${
+      fields[fieldNames.LAST_NAME]
+    }`;
     const subject = `Get in touch - ${name}`;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${fields['message']}`;
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${
+        fields[fieldNames.EMAIL]
+      }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
-          console.log(response);
+          return response;
         })
         .catch((error) => {
-          console.log(error);
+          return error;
         });
       return true;
     }

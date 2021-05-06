@@ -9,7 +9,8 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 15;
-  top: ${(props) => (props.page === 'inquiry' ? 'clamp(4em, 19vw, 15em)' : '20%')};
+  top: ${(props) =>
+    props.page === 'inquiry' ? 'clamp(4em, 19vw, 15em)' : '20%'};
   left: 0;
   @media ${min.tabletSm} {
     20%;
@@ -24,8 +25,7 @@ const PopupBox = styled.div`
         default:
           return '20%';
       }
-    }
-  }
+    }}
   @media ${min.desktop} {
     top: 15%;
     left: 1em;
@@ -93,7 +93,16 @@ const Box = styled.div`
     top: -2%;
     padding: 20px;
     width: 58%;
-    top: -3em;
+    top: ${(props) => {
+      switch (props.page) {
+        case 'home':
+          return '-3em';
+        case 'inquiry':
+          return '-10em';
+        default:
+          return '-3';
+      }
+    }};
   }
   @media ${min.desktopLg} {
     top: 22%;
@@ -137,7 +146,10 @@ const TextContent = styled.div`
 
 const H2Styled = styled(H2)`
   width: ${(props) => (props.page == 'home' ? '5em' : '8em')};
-  font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(1.6em, 7vw, 2.3em)' : 'clamp(1.6em, 10vw, 2.5em)')};
+  font-size: ${(props) =>
+    props.page == 'inquiry'
+      ? 'clamp(1.6em, 7vw, 2.3em)'
+      : 'clamp(1.6em, 10vw, 2.5em)'};
   @media ${min.tablet} {
     font-size: 2.6em;
   }
@@ -150,7 +162,8 @@ const H2Styled = styled(H2)`
 const PStyled = styled(P)`
   margin-top: -1em;
   @media ${min.mobile} {
-    font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(0.8em, 3vw, 1em)' : '1em')};
+    font-size: ${(props) =>
+      props.page == 'inquiry' ? 'clamp(0.8em, 3vw, 1em)' : '1em'};
   }
 `;
 

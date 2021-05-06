@@ -22,6 +22,7 @@ import {
   ErrorText,
   ScrollToSubmissionForm,
 } from './StoryInquiryForm.styles';
+import { fieldNames } from '../../../lib/utils';
 import { RedStar } from '../../base-components/BaseComponents';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
@@ -61,7 +62,7 @@ export default function StoryInquiryForm({
   const [isStoryConceptPopupOpen, setIsStoryConceptPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
   const [additionalResources, setAdditionalResources] = useState([
-    { id: 0, resource: '' },
+    { id: 0, RESOURCE: '' },
   ]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
@@ -73,45 +74,49 @@ export default function StoryInquiryForm({
     const validEmail = new RegExp(
       '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
     );
-    if (fields['firstName'] == undefined || fields['firstName'].length === 0) {
+    if (
+      fields[fieldNames.FIRST_NAME] == undefined ||
+      fields[fieldNames.FIRST_NAME].length === 0
+    ) {
       formIsValid = false;
-      errors['firstName'] = 'FIRST NAME IS REQUIRED!';
+      errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
     }
-    if (!validEmail.test(fields['email'])) {
+    if (!validEmail.test(fields[fieldNames.EMAIL])) {
       formIsValid = false;
-      errors['email'] = 'EMAIL IS REQUIRED!';
+      errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
     }
     if (trimmedDataUrl == null) {
       formIsValid = false;
-      errors['signature'] = 'SIGNATURE IS REQUIRED!';
+      errors[fieldNames.SIGNATURE] = 'SIGNATURE IS REQUIRED!';
     }
     if (
-      fields['storyConcept'] == undefined ||
-      fields['storyConcept'].length === 0
+      fields[fieldNames.STORY_CONCEPT] == undefined ||
+      fields[fieldNames.STORY_CONCEPT].length === 0
     ) {
       formIsValid = false;
-      errors['storyConcept'] = 'STORY CONCEPT IS REQUIRED!';
+      errors[fieldNames.STORY_CONCEPT] = 'STORY CONCEPT IS REQUIRED!';
     }
     if (
-      fields['petitionLink'] == undefined ||
-      fields['petitionLink'].length === 0
+      fields[fieldNames.PETITION_LINK] == undefined ||
+      fields[fieldNames.PETITION_LINK].length === 0
     ) {
       formIsValid = false;
-      errors['petitionLink'] = 'PETITION LINK IS REQUIRED!';
+      errors[fieldNames.PETITION_LINK] = 'PETITION LINK IS REQUIRED!';
     }
     if (
-      fields['donationPageLink'] == undefined ||
-      fields['donationPageLink'].length === 0
+      fields[fieldNames.DONATION_PAGE_LINK] == undefined ||
+      fields[fieldNames.DONATION_PAGE_LINK].length === 0
     ) {
       formIsValid = false;
-      errors['donationPageLink'] = 'DONATION PAGE LINK IS REQUIRED!';
+      errors[fieldNames.DONATION_PAGE_LINK] = 'DONATION PAGE LINK IS REQUIRED!';
     }
     if (
-      fields['furtherEducationLink'] == undefined ||
-      fields['furtherEducationLink'].length === 0
+      fields[fieldNames.FURTHER_EDUCATION_LINK] == undefined ||
+      fields[fieldNames.FURTHER_EDUCATION_LINK].length === 0
     ) {
       formIsValid = false;
-      errors['furtherEducationLink'] = 'FURTHER EDUCATION LINK IS REQUIRED!';
+      errors[fieldNames.FURTHER_EDUCATION_LINK] =
+        'FURTHER EDUCATION LINK IS REQUIRED!';
     }
     setErrors(errors);
     return formIsValid;
@@ -133,10 +138,14 @@ export default function StoryInquiryForm({
               id="firstName"
               label="First Name"
               required
-              showError={errors['firstName']}
-              value={fields['firstName']}
+              showError={errors[fieldNames.FIRST_NAME]}
+              value={
+                fields[fieldNames.FIRST_NAME]
+                  ? fields[fieldNames.FIRST_NAME]
+                  : ''
+              }
               onChange={(e) =>
-                setFields({ ...fields, firstName: e.target.value })
+                setFields({ ...fields, FIRST_NAME: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -144,9 +153,11 @@ export default function StoryInquiryForm({
             <TextInputField
               id="lastName"
               label="Last Name"
-              value={fields['lastName']}
+              value={
+                fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''
+              }
               onChange={(e) =>
-                setFields({ ...fields, lastName: e.target.value })
+                setFields({ ...fields, LAST_NAME: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -155,9 +166,9 @@ export default function StoryInquiryForm({
               id="email"
               label="Email"
               required
-              showError={errors['email']}
-              value={fields['email']}
-              onChange={(e) => setFields({ ...fields, email: e.target.value })}
+              showError={errors[fieldNames.EMAIL]}
+              value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
+              onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
             />
           </InputFieldWrapper>
         </AuthorInformationContainer>
@@ -179,7 +190,7 @@ export default function StoryInquiryForm({
                 trim(sigPad.getTrimmedCanvas().toDataURL('image/png'))
               }
             />
-            <ErrorText>{errors['signature']}</ErrorText>
+            <ErrorText>{errors[fieldNames.SIGNATURE]}</ErrorText>
           </SignatureCanvasWrapper>
           <ClearSignatureWrapper>
             <InputInfoText onClick={clear}>Reset</InputInfoText>
@@ -191,9 +202,11 @@ export default function StoryInquiryForm({
             <TextInputField
               id="website"
               label="Website"
-              value={fields['website']}
+              value={
+                fields[fieldNames.WEBSITE] ? fields[fieldNames.WEBSITE] : ''
+              }
               onChange={(e) =>
-                setFields({ ...fields, website: e.target.value })
+                setFields({ ...fields, WEBSITE: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -201,9 +214,11 @@ export default function StoryInquiryForm({
             <TextInputField
               id="instagram"
               label="Instagram"
-              value={fields['instagram']}
+              value={
+                fields[fieldNames.INSTAGRAM] ? fields[fieldNames.INSTAGRAM] : ''
+              }
               onChange={(e) =>
-                setFields({ ...fields, instagram: e.target.value })
+                setFields({ ...fields, INSTAGRAM: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -211,9 +226,11 @@ export default function StoryInquiryForm({
             <TextInputField
               id="twitter"
               label="Twitter"
-              value={fields['twitter']}
+              value={
+                fields[fieldNames.TWITTER] ? fields[fieldNames.TWITTER] : ''
+              }
               onChange={(e) =>
-                setFields({ ...fields, twitter: e.target.value })
+                setFields({ ...fields, TWITTER: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -221,8 +238,8 @@ export default function StoryInquiryForm({
             <TextInputField
               id="venmo"
               label="Venmo"
-              value={fields['venmo']}
-              onChange={(e) => setFields({ ...fields, venmo: e.target.value })}
+              value={fields[fieldNames.VENMO] ? fields[fieldNames.VENMO] : ''}
+              onChange={(e) => setFields({ ...fields, VENMO: e.target.value })}
             />
           </InputFieldWrapper>
           <SocialInfoTextWrapper>
@@ -255,9 +272,9 @@ export default function StoryInquiryForm({
             label="Copy and paste text below"
             required
             onChange={(e) =>
-              setFields({ ...fields, storyConcept: e.target.value })
+              setFields({ ...fields, STORY_CONCEPT: e.target.value })
             }
-            showError={errors['storyConcept']}
+            showError={errors[fieldNames.STORY_CONCEPT]}
           />
           <StoryConceptInfoTextWrapper>
             <InputInfoText
@@ -284,10 +301,14 @@ export default function StoryInquiryForm({
               id="petition link"
               label="Petition link"
               required
-              value={fields['petitionLink']}
-              showError={errors['petitionLink']}
+              value={
+                fields[fieldNames.PETITION_LINK]
+                  ? fields[fieldNames.PETITION_LINK]
+                  : ''
+              }
+              showError={errors[fieldNames.PETITION_LINK]}
               onChange={(e) =>
-                setFields({ ...fields, petitionLink: e.target.value })
+                setFields({ ...fields, PETITION_LINK: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -296,10 +317,14 @@ export default function StoryInquiryForm({
               id="donation page link"
               label="Donation page link"
               required
-              value={fields['donationPageLink']}
-              showError={errors['donationPageLink']}
+              value={
+                fields[fieldNames.DONATION_PAGE_LINK]
+                  ? fields[fieldNames.DONATION_PAGE_LINK]
+                  : ''
+              }
+              showError={errors[fieldNames.DONATION_PAGE_LINK]}
               onChange={(e) =>
-                setFields({ ...fields, donationPageLink: e.target.value })
+                setFields({ ...fields, DONATION_PAGE_LINK: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -308,10 +333,14 @@ export default function StoryInquiryForm({
               id="further education link"
               label="Further education link"
               required
-              value={fields['furtherEducationLink']}
-              showError={errors['furtherEducationLink']}
+              value={
+                fields[fieldNames.FURTHER_EDUCATION_LINK]
+                  ? fields[fieldNames.FURTHER_EDUCATION_LINK]
+                  : ''
+              }
+              showError={errors[fieldNames.FURTHER_EDUCATION_LINK]}
               onChange={(e) =>
-                setFields({ ...fields, furtherEducationLink: e.target.value })
+                setFields({ ...fields, FURTHER_EDUCATION_LINK: e.target.value })
               }
             />
           </InputFieldWrapper>
@@ -328,7 +357,7 @@ export default function StoryInquiryForm({
                     setAdditionalResources((previous) =>
                       previous.map((element) =>
                         r.id === element.id
-                          ? { id: element.id, resource: e.target.value }
+                          ? { id: element.id, RESOURCE: e.target.value }
                           : element,
                       ),
                     );
@@ -336,7 +365,7 @@ export default function StoryInquiryForm({
                   addResource={() =>
                     setAdditionalResources((previous) => [
                       ...previous,
-                      { id: uuidv4(), resource: '' },
+                      { id: uuidv4(), RESOURCE: '' },
                     ])
                   }
                   deleteResource={() =>
@@ -384,29 +413,31 @@ export default function StoryInquiryForm({
   );
 
   function submitRequest() {
-    let lastName = fields['lastName'];
+    let lastName = fields[fieldNames.LAST_NAME];
     if (!lastName) {
       lastName = '';
     }
-    const name = `${fields['firstName']} ${lastName}`;
+    const name = `${fields[fieldNames.FIRST_NAME]} ${lastName}`;
     const subject = `Story Inquiry - ${name}`;
     const body = `Name: ${name}%0
-    Email: ${fields['email']}%0
-    Story Concept: ${fields['storyConcept']}%0A
-    Website: ${fields['website']}%0A
-    Instagram: ${fields['instagram']}%0A
-    Twitter: ${fields['twitter']}%0A
-    Venmo: ${fields['venmo']}%0A
-    Petition Link: ${fields['petitionLink']}%0A
-    Donation Page Link: ${fields['donationPageLink']}%0A
-    Further Education Link: ${fields['furtherEducationLink']}%0A
+    Email: ${fields[fieldNames.EMAIL]}%0
+    Story Concept: ${fields[fieldNames.STORY_CONCEPT]}%0A
+    Website: ${fields[fieldNames.WEBSITE]}%0A
+    Instagram: ${fields[fieldNames.INSTAGRAM]}%0A
+    Twitter: ${fields[fieldNames.TWITTER]}%0A
+    Venmo: ${fields[fieldNames.VENMO]}%0A
+    Petition Link: ${fields[fieldNames.PETITION_LINK]}%0A
+    Donation Page Link: ${fields[fieldNames.DONATION_PAGE_LINK]}%0A
+    Further Education Link: ${fields[fieldNames.FURTHER_EDUCATION_LINK]}%0A
     Additional Resources: ${additionalResources.map(
-      (r, index) => '%0A' + index + 1 + '. ' + r.resource + '%0A',
+      (r, index) => '%0A' + index + 1 + '. ' + r.RESOURCE + '%0A',
     )}%0A%0A%0A
     Signature: ${trimmedDataUrl}%0A
     `;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields['email']}&subject=${subject}&body=${body}`;
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${
+        fields[fieldNames.EMAIL]
+      }&subject=${subject}&body=${body}`;
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
