@@ -17,6 +17,7 @@ import {
   SideImageContainer,
   SideImage,
   QuoteCarouselContainer,
+  ScrollToAuthorTestimonies,
 } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
@@ -35,7 +36,6 @@ export default function StoryInquiryPage({
     story_submission_title_regular: storySubmissionTitleRegular,
     story_submission_title_italic: storySubmissionTitleItalic,
     story_submission_description: storySubmissionDescription,
-    submission_form_subtitle: submissionFormSubtitle,
     author_information_subtitle: authorInformationSubtitle,
     author_signature_subtitle: authorSignatureSubtitle,
     author_signature_description: authorSignatureDescription,
@@ -81,9 +81,10 @@ export default function StoryInquiryPage({
   };
 
   const quotes = authorTestimonies.map((q) =>
-    getString(q.author_testimony).length > 154 ?
-      getString(q.author_testimony).slice(0, 154) + "..." :
-      getString(q.author_testimony));
+    getString(q.author_testimony).length > 154
+      ? getString(q.author_testimony).slice(0, 154) + '...'
+      : getString(q.author_testimony),
+  );
 
   const authors = authorTestimonies.map((m) => getString(m.author_name));
 
@@ -127,14 +128,14 @@ export default function StoryInquiryPage({
         />
         <SquiggleWavy src={icons.SQUIGGLE_WAVY} alt="wavy squiggle underline" />
       </H1StyledContainer>
-
       <PageDescription
         description={storySubmissionDescription}
         arrowText={sparkArrowDescriptionText}
         img={storyInquiryTopImage}
+        scrollTo={'submission form'}
       />
       <TopSparkArrowContainer>
-        <LongSparkArrow arrowText={sparkArrowFaqText} />
+        <LongSparkArrow arrowText={sparkArrowFaqText} scrollTo="faq" />
       </TopSparkArrowContainer>
       <SideImageContainer>
         <SideImage
@@ -175,8 +176,12 @@ export default function StoryInquiryPage({
       />
       <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
       <BottomSparkArrowContainer>
-        <LongSparkArrow arrowText={sparkArrowAuthorTestimoniesText} />
+        <LongSparkArrow
+          arrowText={sparkArrowAuthorTestimoniesText}
+          scrollTo="author testimonies"
+        />
       </BottomSparkArrowContainer>
+      <ScrollToAuthorTestimonies id="author testimonies" />
       <QuoteCarouselContainer>
         <QuoteCarousel
           quoteCarouselData={authorTestimoniesData}

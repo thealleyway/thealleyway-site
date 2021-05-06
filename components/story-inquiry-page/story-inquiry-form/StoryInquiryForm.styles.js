@@ -27,7 +27,7 @@ const StoryConceptInfoTextWrapper = styled.div`
 `;
 
 const AuthorInformationContainer = styled.div`
-padding-bottom: 2.7em;
+  padding-bottom: 2.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
   }
@@ -37,7 +37,7 @@ padding-bottom: 2.7em;
 `;
 
 const AuthorSignatureContainer = styled.div`
-padding-bottom: 2.7em;
+  padding-bottom: 2.7em;
   @media ${min.tablet} {
     padding-bottom: 4em;
   }
@@ -47,7 +47,7 @@ padding-bottom: 2.7em;
 `;
 
 const SocialInformationContainer = styled.div`
-padding-bottom: 3.7em;
+  padding-bottom: 3.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
   }
@@ -57,7 +57,7 @@ padding-bottom: 3.7em;
 `;
 
 const StoryConceptContainer = styled.div`
-padding-bottom: 3.5em;
+  padding-bottom: 3.5em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
   }
@@ -111,8 +111,8 @@ const StarLabelContainer = styled.div`
 `;
 
 const SquareButtonWrapper = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   @media ${min.tablet} {
     float: right;
     margin: -0.3em 0 0 0;
@@ -126,6 +126,11 @@ const ErrorText = styled(P)`
   margin: 0.5em 0 0 0;
   text-shadow: 0.5px 0 #ff0000;
   letter-spacing: 0.05em;
+`;
+
+const ScrollToSubmissionForm = styled.div`
+  position: absolute;
+  margin-top: -3em;
 `;
 
 export {
@@ -145,5 +150,6 @@ export {
   TextLabel,
   SquareButtonWrapper,
   SocialInfoTextWrapper,
-  ErrorText
+  ErrorText,
+  ScrollToSubmissionForm,
 };

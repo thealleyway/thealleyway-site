@@ -148,6 +148,11 @@ const QuoteCarouselContainer = styled.div`
   }
 `;
 
+const ScrollToAuthorTestimonies = styled.div`
+  position: absolute;
+  margin: -1em;
+`;
+
 export {
   SquiggleWavy,
   H1StyledContainer,
@@ -161,4 +166,5 @@ export {
   QuoteCarouselContainer,
   LongLinesTablet,
   LongLinesFlippedTablet,
+  ScrollToAuthorTestimonies,
 };
