@@ -86,7 +86,7 @@ const SocialInfoTextWrapper = styled.div`
 `;
 
 const SignatureCanvasWrapper = styled.div`
-  background-color: white;
+  background-color: ${colors.WHITE};
   border: 1px solid ${colors.BROWN};
 `;
 

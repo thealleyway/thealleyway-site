@@ -16,17 +16,15 @@ export default function StoryInquiry({
   boxLinkDataFooter,
   footerData,
 }) {
-
   return (
-    <>
-      <StoryInquiryPage
-        storyInquiryPageData={storyInquiryPageData}
-        authorTestimonies={authorTestimonies}
-        questionsAndAnswers={questionsAndAnswers}
-        navigationData={navigationData}
-        boxLinkDataFooter={boxLinkDataFooter}
-        footerData={footerData} />
-    </>
+    <StoryInquiryPage
+      storyInquiryPageData={storyInquiryPageData}
+      authorTestimonies={authorTestimonies}
+      questionsAndAnswers={questionsAndAnswers}
+      navigationData={navigationData}
+      boxLinkDataFooter={boxLinkDataFooter}
+      footerData={footerData}
+    />
   );
 }
 
