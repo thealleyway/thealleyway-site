@@ -8,6 +8,7 @@ export const TakeActionWrapper = styled.div`
   margin: 4em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
 `;
 
@@ -69,7 +70,7 @@ export const BackToStartButtonContainer = styled.div`
 
 export const ShareLinkWrapper = styled.div`
   position: absolute;
-  bottom: 4em;
+  bottom: 8%;
   right: 20%;
   cursor: pointer;
   display: flex;
