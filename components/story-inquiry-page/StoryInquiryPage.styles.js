@@ -107,7 +107,6 @@ const SideImageContainer = styled.div`
   right: 0;
   opacity: 10%;
   display: none;
-
   @media ${min.tablet} {
     display: flex;
     flex-direction: column;
@@ -120,7 +119,6 @@ const SideImageContainer = styled.div`
 
 const SideImage = styled.img`
   object-fit: cover;
-  display: none;
   @media ${min.tablet} {
     margin-bottom: 20em;
     width: 8.5em;

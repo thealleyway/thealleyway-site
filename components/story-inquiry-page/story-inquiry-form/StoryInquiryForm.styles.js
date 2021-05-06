@@ -71,8 +71,8 @@ const ResourceLinksContainer = styled.div`
 `;
 
 const Description = styled(P)`
-  width: 100%:
-  @media ${min.desktop} {
+  width: 100%;
+  @media ${min.tablet} {
     width: 80%;
   }
 `;
