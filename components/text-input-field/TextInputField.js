@@ -2,13 +2,13 @@ import React from 'react';
 import {
   TextInput,
   TextLabel,
-  RedStar,
   StarLabelContainer,
   ErrorText,
   InputFieldWrapper,
   AddIcon,
   DeleteIcon,
 } from './TextInputField.style';
+import { RedStar } from '../base-components/BaseComponents';
 import { icons } from '../../style/icons';
 
 export default function TextInputField({
@@ -38,13 +38,17 @@ export default function TextInputField({
         type="text"
         name={id}
         showError={showError}
- //       onChange={(e) => onChange(e.target.value)}
+        //       onChange={(e) => onChange(e.target.value)}
         onChange={onChange}
         value={value}
         {...inputProps}
       />
-      {isAdd && hasIcon && <AddIcon src={icons.ADD_ICON} onClick={addResource} />}
-      {!isAdd && hasIcon && <DeleteIcon src={icons.DELETE_ICON} onClick={deleteResource} />}
+      {isAdd && hasIcon && (
+        <AddIcon src={icons.ADD_ICON} onClick={addResource} />
+      )}
+      {!isAdd && hasIcon && (
+        <DeleteIcon src={icons.DELETE_ICON} onClick={deleteResource} />
+      )}
       <ErrorText>{showError}</ErrorText>
     </InputFieldWrapper>
   );

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { fonts, fontWeights, P } from '../../style/typography';
-import { min } from '../../lib/responsive';
 
 const InputBoxLabel = styled(P)`
   color: ${colors.BROWN};
@@ -11,14 +10,6 @@ const InputBoxLabel = styled(P)`
 
 const StarLabelContainer = styled.div`
   display: flex;
-`;
-
-const RedStar = styled.img`
-  width: 2%;
-  margin-left: 0.5em;
-  @media ${min.desktopLg} {
-    width: 0.7em;
-  }
 `;
 
 const ErrorText = styled(P)`
@@ -47,4 +38,4 @@ const InputBox = styled.textarea`
   padding: 0.5em;
 `;
 
-export { InputBox, InputBoxLabel, StarLabelContainer, RedStar, ErrorText };
+export { InputBox, InputBoxLabel, StarLabelContainer, ErrorText };

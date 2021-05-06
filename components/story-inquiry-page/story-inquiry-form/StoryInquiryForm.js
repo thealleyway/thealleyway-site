@@ -16,13 +16,13 @@ import {
   SignatureCanvasWrapper,
   ClearSignatureWrapper,
   StarLabelContainer,
-  RedStar,
   TextLabel,
   SocialInfoTextWrapper,
   SquareButtonWrapper,
   ErrorText,
   ScrollToSubmissionForm,
 } from './StoryInquiryForm.styles';
+import { RedStar } from '../../base-components/BaseComponents';
 import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
@@ -73,7 +73,7 @@ export default function StoryInquiryForm({
     const validEmail = new RegExp(
       '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
     );
-    if (fields['firstName'] == undefined || fields['firstName'].length < 1) {
+    if (fields['firstName'] == undefined || fields['firstName'].length === 0) {
       formIsValid = false;
       errors['firstName'] = 'FIRST NAME IS REQUIRED!';
     }
@@ -87,28 +87,28 @@ export default function StoryInquiryForm({
     }
     if (
       fields['storyConcept'] == undefined ||
-      fields['storyConcept'].length < 1
+      fields['storyConcept'].length === 0
     ) {
       formIsValid = false;
       errors['storyConcept'] = 'STORY CONCEPT IS REQUIRED!';
     }
     if (
       fields['petitionLink'] == undefined ||
-      fields['petitionLink'].length < 1
+      fields['petitionLink'].length === 0
     ) {
       formIsValid = false;
       errors['petitionLink'] = 'PETITION LINK IS REQUIRED!';
     }
     if (
       fields['donationPageLink'] == undefined ||
-      fields['donationPageLink'].length < 1
+      fields['donationPageLink'].length === 0
     ) {
       formIsValid = false;
       errors['donationPageLink'] = 'DONATION PAGE LINK IS REQUIRED!';
     }
     if (
       fields['furtherEducationLink'] == undefined ||
-      fields['furtherEducationLink'].length < 1
+      fields['furtherEducationLink'].length === 0
     ) {
       formIsValid = false;
       errors['furtherEducationLink'] = 'FURTHER EDUCATION LINK IS REQUIRED!';
@@ -170,7 +170,7 @@ export default function StoryInquiryForm({
           </StarLabelContainer>
           <SignatureCanvasWrapper id="signature canvas wrapper" ref={ref}>
             <SignatureCanvas
-              penColor="black"
+              penColor="white"
               canvasProps={{ width: canvasWidth, height: 60 }}
               ref={(ref) => setSigPad(ref)}
               minWidth={1.5}
@@ -334,9 +334,10 @@ export default function StoryInquiryForm({
                     );
                   }}
                   addResource={() =>
-                    setAdditionalResources((previous) =>
-                      previous.concat([{ id: uuidv4(), resource: '' }]),
-                    )
+                    setAdditionalResources((previous) => [
+                      ...previous,
+                      { id: uuidv4(), resource: '' },
+                    ])
                   }
                   deleteResource={() =>
                     setAdditionalResources((previous) =>
@@ -356,7 +357,7 @@ export default function StoryInquiryForm({
             onClick={() => {
               if (submitRequest()) {
                 document.body.style.overflow = 'hidden';
-                document.getElementById('area').value = '';
+                document.querySelector('#area').value = '';
                 setFields({});
                 clear();
                 setIsConfirmationPopupOpen(true);
@@ -409,10 +410,12 @@ export default function StoryInquiryForm({
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
-          console.log(response);
+          return response;
+          //console.log(response);
         })
         .catch((error) => {
-          console.log(error);
+          return error;
+          //console.log(error);
         });
       return true;
     }

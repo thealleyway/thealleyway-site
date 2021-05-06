@@ -86,7 +86,7 @@ const SocialInfoTextWrapper = styled.div`
 `;
 
 const SignatureCanvasWrapper = styled.div`
-  background-color: ${colors.WHITE};
+  background-color: ${colors.BLACK};
   border: 1px solid ${colors.BROWN};
 `;
 
@@ -94,14 +94,6 @@ const TextLabel = styled(P)`
   color: ${colors.BROWN};
   display: block;
   margin: 0;
-`;
-
-const RedStar = styled.img`
-  width: 2%;
-  margin-left: 0.5em;
-  @media ${min.desktopLg} {
-    width: 0.7em;
-  }
 `;
 
 const StarLabelContainer = styled.div`
@@ -124,7 +116,7 @@ const ErrorText = styled(P)`
   color: ${colors.RED};
   font-size: 0.7em;
   margin: 0.5em 0 0 0;
-  text-shadow: 0.5px 0 #ff0000;
+  text-shadow: 0.5px 0 ${colors.RED};
   letter-spacing: 0.05em;
 `;
 
@@ -146,7 +138,6 @@ export {
   SignatureCanvasWrapper,
   ClearSignatureWrapper,
   StarLabelContainer,
-  RedStar,
   TextLabel,
   SquareButtonWrapper,
   SocialInfoTextWrapper,
