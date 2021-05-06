@@ -46,13 +46,13 @@ export default function ContactForm({ togglePopup }) {
           required
           showError={errors['firstName']}
           value={fields['firstName'] ? fields['firstName'] : ''}
-          onChange={(e) => setFields({ ...fields, firstName: e })}
+          onChange={(e) => setFields({ ...fields, firstName: e.target.value })}
         />
         <TextInputField
           id="lastName"
           label="Last Name"
           value={fields['lastName'] ? fields['lastName'] : ''}
-          onChange={(e) => setFields({ ...fields, lastName: e })}
+          onChange={(e) => setFields({ ...fields, lastName: e.target.value })}
         />
         <TextInputField
           id="email"
@@ -60,7 +60,7 @@ export default function ContactForm({ togglePopup }) {
           required
           showError={errors['email']}
           value={fields['email'] ? fields['email'] : ''}
-          onChange={(e) => setFields({ ...fields, email: e })}
+          onChange={(e) => setFields({ ...fields, email: e.target.value })}
         />
         <InputBoxWrapper>
           <TextInputBox

@@ -9,10 +9,22 @@ const PopupBox = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 15;
-  top: ${(props) => (props.page === 'inquiry' ? 'clamp(4em, 40vw, 15em)' : '20%')};
+  top: ${(props) => (props.page === 'inquiry' ? 'clamp(4em, 19vw, 15em)' : '20%')};
   left: 0;
+  @media ${min.tabletSm} {
+    20%;
+  }
   @media ${min.tablet} {
-    top: 30%;
+    top: ${(props) => {
+      switch (props.page) {
+        case 'home':
+          return '30%';
+        case 'inquiry':
+          return '26%';
+        default:
+          return '20%';
+      }
+    }
   }
   @media ${min.desktop} {
     top: 15%;
@@ -66,11 +78,22 @@ const Box = styled.div`
   @media ${min.tablet} {
     height: 29em;
     width: ${(props) => (props.page == 'inquiry' ? '90%' : '80%')};
+    top: ${(props) => {
+      switch (props.page) {
+        case 'home':
+          return '-2em';
+        case 'inquiry':
+          return '-3em';
+        default:
+          return '0';
+      }
+    }};
   }
   @media ${min.desktop} {
     top: -2%;
     padding: 20px;
     width: 58%;
+    top: -3em;
   }
   @media ${min.desktopLg} {
     top: 22%;
@@ -114,7 +137,7 @@ const TextContent = styled.div`
 
 const H2Styled = styled(H2)`
   width: ${(props) => (props.page == 'home' ? '5em' : '8em')};
-  font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(1.6em, 6vw, 2.3em)' : 'clamp(1.6em, 10vw, 2.5em)')};
+  font-size: ${(props) => (props.page == 'inquiry' ? 'clamp(1.6em, 7vw, 2.3em)' : 'clamp(1.6em, 10vw, 2.5em)')};
   @media ${min.tablet} {
     font-size: 2.6em;
   }
