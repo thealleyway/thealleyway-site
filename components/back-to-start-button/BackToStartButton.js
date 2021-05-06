@@ -14,7 +14,7 @@ export default function BackToStartButton(props) {
     <Button
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => window.scrollTo(0, 0)}
+      onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
       {...props}
     >
       <ButtonImage

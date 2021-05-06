@@ -87,7 +87,7 @@ export default function TakeAction({
       <ShareLinkText>SHARE THIS STORY</ShareLinkText>
       <img
         src={shareHover ? icons.SHARE_STORY_HOVER : icons.SHARE_STORY}
-        alt="link icon"
+        alt="share icon"
       />
     </ShareLinkWrapper>
   );
