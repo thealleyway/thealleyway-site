@@ -411,11 +411,9 @@ export default function StoryInquiryForm({
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
           return response;
-          //console.log(response);
         })
         .catch((error) => {
           return error;
-          //console.log(error);
         });
       return true;
     }

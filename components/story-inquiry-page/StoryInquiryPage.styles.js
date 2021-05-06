@@ -34,16 +34,8 @@ const LongLinesTablet = styled.img`
   }
 `;
 
-const LongLinesFlippedTablet = styled.img`
-  @media ${min.tablet} {
-    display: block;
-    position: relative;
-    width: 7em;
-    margin: -27em 0 0 0.3em;
-  }
-  @media ${min.desktop} {
-    display: none;
-  }
+const LongLinesFlippedTablet = styled(LongLinesTablet)`
+  margin: -27em 0 0 0.3em;
 `;
 
 const LongLinesContainer = styled.div`
