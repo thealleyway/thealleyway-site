@@ -10,13 +10,19 @@ import {
 } from './StoryConceptFaq.styles';
 import Answer from './answer/Answer';
 import React, { useState } from 'react';
+import { breakpointsObj } from '../../../lib/responsive';
+import { useMatchMedia } from '../../../lib/hooks';
 
 export default function StoryConceptFaq({ storyConceptFaqData }) {
-  const { faqTitle, questionsAndAnswers } = storyConceptFaqData;
+  const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
 
+  const { faqTitle, questionsAndAnswers } = storyConceptFaqData;
   const [currIndex, setCurrIndex] = useState(questionsAndAnswers[0].id);
-  const currAnswer = questionsAndAnswers.find((item) => item.id == currIndex)
-    .answer;
+  const currAnswer =
+    isMobile && !currIndex
+      ? ''
+      : questionsAndAnswers.find((item) => item.id == currIndex).answer;
+
   return (
     <>
       <ScrollToFaq id="faq" />
