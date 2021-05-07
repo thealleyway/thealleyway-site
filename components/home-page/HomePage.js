@@ -5,7 +5,9 @@ import {
   HomePageContentWrapper,
   FeaturedStoryPreviews,
   AlleywayLogo,
-  HomePageIntroContainer,
+  AlleywayEmblem,
+  HomePageIntroContainerLarge,
+  HomePageIntroContainerSmall,
 } from './HomePage.styles';
 import CurrentFeaturedStory from './current-featured-story/CurrentFeaturedStory';
 import FeaturedStoryPreview from './featured-story-preview/FeaturedStoryPreview';
@@ -80,19 +82,24 @@ export default function HomePage({
               featuredStories[Number.parseInt(activeIndex)].story.data
                 .author_info.id,
             )}
-            url={`/story/${
-              featuredStories[Number.parseInt(activeIndex)].story.uid
-            }`}
+            url={`/story/${featuredStories[Number.parseInt(activeIndex)].story.uid
+              }`}
           />
         )}
         {!alreadyHovered && (
-          <HomePageIntroContainer>
-            <AlleywayLogo src={icons.FULL_ALLEYWAY_LOGO} />
+          <HomePageIntroContainerLarge>
+            <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
             <FeaturedStoryPreviews>
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
-          </HomePageIntroContainer>
+          </HomePageIntroContainerLarge>
         )}
+        <HomePageIntroContainerSmall>
+          <AlleywayEmblem src={icons.LARGE_ALLEYWAY_EMBLEM} />
+          <FeaturedStoryPreviews>
+            {featuredStories.map(mapFeaturedStories)}
+          </FeaturedStoryPreviews>
+        </HomePageIntroContainerSmall>
         {alreadyHovered && (
           <FeaturedStoryPreviews alreadyHovered>
             {featuredStories.map(mapFeaturedStories)}

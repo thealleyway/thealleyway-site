@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { max, min } from '../../lib/responsive';
 
 export const AlleywayLogo = styled.img`
+display: none;
 @media ${min.tabletSm} {
+  display: block;
   width: 100%;
   margin: 5em 0 2em 0;
 }
@@ -15,8 +17,23 @@ export const AlleywayLogo = styled.img`
 }
 `;
 
-export const HomePageIntroContainer = styled.div`
-  @media ${min.desktop} {
+export const AlleywayEmblem = styled.img`
+display: block;
+margin: 1em 0 -5em 2.3em;
+width: 80%;
+`;
+
+export const HomePageIntroContainerSmall = styled.div`
+  width: 100%;
+  @media ${min.tabletSm} {
+    display: none;
+  }
+`;
+
+export const HomePageIntroContainerLarge = styled.div`
+display: none;
+  @media ${min.tabletSm} {
+    display: block;
     width: 100%;
     max-width: 1050px;
   }
