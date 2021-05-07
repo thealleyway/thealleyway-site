@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { H2, P } from '../../style/typography';
 import { max } from '../../lib/responsive';
+import { animated } from 'react-spring';
 
-const ImgBackground = styled.img`
+const ImgBackground = styled(animated.img)`
   opacity: 10%;
   object-fit: cover;
   position: absolute;
@@ -24,7 +25,7 @@ const ImgBackground = styled.img`
   }
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(animated.div)`
   width: clamp(40em, 65vw, 53em);
   min-height: 30em;
   overflow: hidden;

@@ -9,6 +9,8 @@ import {
   FrontImg,
 } from './FourOhFourPage.style';
 import Navigation from '../navigation/Navigation';
+import { useSpring } from 'react-spring';
+import { fadeIn } from '../../style/animations';
 
 export default function FourOhFourPage({ navigationData, errorPageData }) {
   const {
@@ -19,11 +21,13 @@ export default function FourOhFourPage({ navigationData, errorPageData }) {
     error_page_small_image: frontImage,
   } = errorPageData;
 
+  const fadeInTextAnimation = useSpring(fadeIn);
+
   return (
     <>
       <Navigation navigationData={navigationData} />
       <ImgBackground src={backgroundImage.url} alt={backgroundImage.alt} />
-      <ContentWrapper>
+      <ContentWrapper style={fadeInTextAnimation} >
         <TextWrapper>
           <ErrorTitleText>
             {getString(errorPageTitleRegular) + ' '}

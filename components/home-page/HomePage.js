@@ -14,6 +14,7 @@ import FeaturedStoryPreview from './featured-story-preview/FeaturedStoryPreview'
 import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 import { icons } from '../../style/icons';
 import { useSpring } from 'react-spring';
+import { fadeIn } from '../../style/animations';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
 
@@ -63,12 +64,8 @@ export default function HomePage({
     );
   };
 
-  const fadeInAnimation = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: { tension: 20, friction: 15 },
-  });
-    const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
+  const fadeInAnimation = useSpring(fadeIn);
+  const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
     const id = setTimeout(
