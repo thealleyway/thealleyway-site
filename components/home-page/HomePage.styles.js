@@ -1,13 +1,25 @@
 import styled from 'styled-components';
-import { max } from '../../lib/responsive';
+import { max, min } from '../../lib/responsive';
 
 export const AlleywayLogo = styled.img`
-  width: 86%;
-  margin-left: 3em;
+@media ${min.tabletSm} {
+  width: 100%;
+  margin: 5em 0 2em 0;
+}
+@media ${min.tablet} {
+  margin: 1em 0 1em 0;
+}
+@media ${min.desktop} {
+  width: 95%;
+  margin: -3.5em 0 -2em .8em;
+}
 `;
 
 export const HomePageIntroContainer = styled.div`
-  margin: -1.8em 0 0 4em;
+  @media ${min.desktop} {
+    width: 100%;
+    max-width: 1050px;
+  }
 `;
 
 export const HomePageContentWrapper = styled.div`
@@ -22,7 +34,7 @@ export const HomePageContentWrapper = styled.div`
 export const FeaturedStoryPreviews = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: ${(props) => props.alreadyHovered ? ` 95%` : `100%`};
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-top: 0px;

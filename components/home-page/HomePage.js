@@ -94,7 +94,7 @@ export default function HomePage({
           </HomePageIntroContainer>
         )}
         {alreadyHovered && (
-          <FeaturedStoryPreviews>
+          <FeaturedStoryPreviews alreadyHovered>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>
         )}
