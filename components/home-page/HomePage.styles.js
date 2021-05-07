@@ -3,25 +3,25 @@ import { max, min } from '../../lib/responsive';
 import { animated } from 'react-spring';
 
 export const AlleywayLogo = styled.img`
-display: none;
-@media ${min.tabletSm} {
-  display: block;
-  width: 100%;
-  margin: 5em 0 2em 0;
-}
-@media ${min.tablet} {
-  margin: 1em 0 1em 0;
-}
-@media ${min.desktop} {
-  width: 95%;
-  margin: -3.5em 0 -2em .8em;
-}
+  display: none;
+  @media ${min.tabletSm} {
+    display: block;
+    width: 100%;
+    margin: 5em 0 2em 0;
+  }
+  @media ${min.tablet} {
+    margin: 1em 0 1em 0;
+  }
+  @media ${min.desktop} {
+    width: 95%;
+    margin: -3.5em 0 -2em 0.8em;
+  }
 `;
 
 export const AlleywayEmblem = styled.img`
-display: block;
-margin: 1em 0 -5em 2.3em;
-width: 80%;
+  display: block;
+  margin: 1em 0 -5em 2.3em;
+  width: 80%;
 `;
 
 export const HomePageIntroContainerSmall = styled.div`
@@ -32,7 +32,7 @@ export const HomePageIntroContainerSmall = styled.div`
 `;
 
 export const HomePageIntroContainerLarge = styled(animated.div)`
-display: none;
+  display: none;
   @media ${min.tabletSm} {
     display: block;
     width: 100%;
@@ -52,7 +52,7 @@ export const HomePageContentWrapper = styled.div`
 export const FeaturedStoryPreviews = styled.div`
   display: flex;
   justify-content: space-between;
-  width: ${(props) => props.alreadyHovered ? ` 95%` : `100%`};
+  width: ${(props) => (props.alreadyHovered ? ` 95%` : `100%`)};
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-top: 0px;
