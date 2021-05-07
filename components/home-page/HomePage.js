@@ -54,10 +54,10 @@ export default function HomePage({
         active={index === activeIndex}
         featuredStory={featuredStory.story}
         key={featuredStory.story.id}
-        onHover={(alreadyHovered) => {
+        onHover={() => {
           setAlreadyHovered(true);
           setActiveIndex(index);
-          set({ opacity: alreadyHovered ? 1 : 0 })
+          set({ opacity: 0 });
         }}
         signature={getSignature(featuredStory.story.data.author_info.id)}
       />
@@ -65,6 +65,7 @@ export default function HomePage({
   };
 
   const fadeInAnimation = useSpring(fadeIn);
+  const fadeInAnimationOther = useSpring(fadeIn);
   const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
@@ -81,7 +82,7 @@ export default function HomePage({
       <HomePageContentWrapper>
         {alreadyHovered && (
           <CurrentFeaturedStory
-          style={{ opacity: opacity.to((v) => `opacity(${v}%`) }}
+          style={fadeInAnimationOther}
             featuredStory={
               featuredStories[Number.parseInt(activeIndex)].story.data
             }
