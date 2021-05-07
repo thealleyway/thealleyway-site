@@ -7,8 +7,9 @@ import {
   LeftRightAnimation,
 } from '../../animation-base-components/AnimationBaseComponents';
 import { SignatureImage } from '../HomePage.styles';
+import { motion } from 'framer-motion';
 
-export const CurrentFeaturedStoryWrapper = styled.div`
+export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   display: flex;
   margin-bottom: 60px;
   width: 95%;

@@ -26,10 +26,14 @@ export default function FeaturedStoryPreview({
     story_preview_title_italic: titleItalic,
     story_preview_title_regular: titleRegular,
   } = data;
+  
 
   return (
     <PageLink href={`/story/${uid}`} passHref>
-      <FeaturedStoryPreviewWrapper onMouseOver={onHover} onClick={onClick}>
+      <FeaturedStoryPreviewWrapper
+        onMouseOver={onHover}
+        onClick={onClick}
+      >
         <PreviewImage
           src={previewImage.url}
           alt={previewImage.alt}

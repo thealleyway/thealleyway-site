@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { P, H2 } from '../../style/typography';
 import { colors } from '../../style/colors';
+import { motion } from "framer-motion";
 
 const PopupBox = styled.div`
   border: none;
@@ -120,7 +121,7 @@ const Img = styled.img`
   }
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled(motion.img)`
   position: absolute;
   border: none;
   top: 1em;

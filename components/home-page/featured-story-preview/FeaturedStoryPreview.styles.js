@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { max, min } from '../../../lib/responsive';
 import { H1, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
-export const FeaturedStoryPreviewWrapper = styled.div`
+export const FeaturedStoryPreviewWrapper = styled(motion.div)`
   position: relative;
   width: min(30%, 300px);
 

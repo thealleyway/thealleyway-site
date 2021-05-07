@@ -59,6 +59,7 @@ export default function HomePage({
           setActiveIndex(index);
           set({ opacity: 0 });
         }}
+        alreadyHovered={alreadyHovered}
         signature={getSignature(featuredStory.story.data.author_info.id)}
       />
     );
@@ -67,6 +68,10 @@ export default function HomePage({
   const fadeInAnimation = useSpring(fadeIn);
   const fadeInAnimationOther = useSpring(fadeIn);
   const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
+  const variants = {
+    hovered: { opacity: 0},
+    notHovered: { opacity: 1 },
+  }
 
   useEffect(() => {
     const id = setTimeout(
@@ -82,7 +87,6 @@ export default function HomePage({
       <HomePageContentWrapper>
         {alreadyHovered && (
           <CurrentFeaturedStory
-          style={fadeInAnimationOther}
             featuredStory={
               featuredStories[Number.parseInt(activeIndex)].story.data
             }
