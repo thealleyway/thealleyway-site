@@ -34,6 +34,7 @@ const icons = {
   TWITTER_ICON: '/assets/twitter.svg',
   INSTAGRAM_ICON: '/assets/instagram.svg',
   DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
+  FULL_ALLEYWAY_LOGO: '/assets/full-alleyway-logo.svg',
 };
 
 export { icons };

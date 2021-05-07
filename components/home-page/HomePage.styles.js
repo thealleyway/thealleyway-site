@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { max } from '../../lib/responsive';
 
+export const AlleywayLogo = styled.img`
+  width: 86%;
+  margin-left: 3em;
+`;
+
+export const HomePageIntroContainer = styled.div`
+  margin: -1.8em 0 0 4em;
+`;
+
 export const HomePageContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
