@@ -28,11 +28,11 @@ const ValueWrapper = styled.div`
 const ValueImage = styled.img`
   height: 13em;
   width: 13em;
+  object-fit: cover;
 
   @media ${max.tabletLg} {
     width: clamp(8em, 20vw, 12em);
     height: clamp(12em, 20vw, 13em);
-    object-fit: cover;
   }
 
   @media ${max.tablet} {

@@ -1,16 +1,29 @@
 import { H2, H3, InputInfoText } from '../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
-import { max } from '../../../lib/responsive';
+import { min, max } from '../../../lib/responsive';
 
 const MeetFounderContainer = styled.div`
   margin-top: 10em;
   overflow: hidden;
   padding-bottom: 5em;
-  padding-top: 3em;
+
+  @media ${min.tabletLg} {
+    padding-top: 5em;
+  }
 
   @media ${max.tabletLg} {
     margin-top: 2em;
+    height: 95em;
+  }
+
+  @media ${max.tablet} {
+    margin-top: 2em;
+    height: 105em;
+  }
+  @media ${max.tabletSm} {
+    margin-top: 2em;
+    height: 115em;
   }
 `;
 
@@ -188,13 +201,18 @@ const TopQuoteWrapper = styled(H3)`
     padding-right: 1.5em;
     margin-right: -5em;
     margin-left: 0;
+    top: -1em;
   }
 `;
 
 const SparkArrowWrapper = styled.div`
   position: relative;
   bottom: 17em;
-  left: 13em;
+  left: clamp(12em, 20.75vw, 17em);
+
+  @media ${min.desktop} {
+    left: 14em;
+  }
 
   @media ${max.tabletLg} {
     visibility: hidden;

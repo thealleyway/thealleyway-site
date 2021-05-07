@@ -3,11 +3,24 @@ import { min, max } from '../../../lib/responsive';
 
 const OurMissionContainer = styled.div`
   width: 100%;
-  height: fit-content;
+  height: 45em;
   overflow: hidden;
   margin-top: 4em;
   padding-bottom: 4em;
   margin-bottom: 6em;
+
+  @media ${min.tabletLg} {
+    padding-top: 5em;
+    height: clamp(45em, 65vw, 55em);
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
+  @media ${min.desktop} {
+    padding-top: 5em;
+    height: 55em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+  }
 `;
 
 const OurMissionWrapper = styled.div`
@@ -30,6 +43,10 @@ const OurMissionImgLeft = styled.img`
   @media ${max.tabletSm} {
     width: clamp(2em, 15vw, 5em);
   }
+
+  @media ${min.desktop} {
+    width: 15%;
+  }
 `;
 
 const OurMissionTextContainer = styled.div`
@@ -39,15 +56,22 @@ const OurMissionTextContainer = styled.div`
 
   @media ${max.tabletLg} {
     width: clamp(18em, 45vw, 22em);
+    margin-top: 4em;
   }
 
   @media ${max.tabletSm} {
     width: 60vw;
+    margin-top: 3em;
   }
 `;
 
 const BoxLinkWrapper = styled.div`
-  width: clamp(30em, 45vw, 40em);
+  @media ${max.desktopLg} {
+    width: clamp(30em, 45vw, 40em);
+  }
+  @media ${min.desktop} {
+    width: 45%;
+  }
 `;
 
 const OurMissionImgRight = styled(OurMissionImgLeft)`

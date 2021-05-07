@@ -13,7 +13,7 @@ export default function ImageBoxLink({ boxLinkData, height }) {
       <BottomImageContainer>
         <BottomImage src={img.url} alt={img.alt} height={height} />
       </BottomImageContainer>
-      <BoxLinkContainer>
+      <BoxLinkContainer height={height}>
         <BoxLink boxLinkData={data} />
       </BoxLinkContainer>
     </ImageBoxLinkContainer>

@@ -13,7 +13,6 @@ import {
   HeaderandSquiggleContainer,
   SquiggleUnderline,
 } from './AboutPage.style';
-import { icons } from '../../style/icons';
 import { useSpring } from 'react-spring';
 import { header } from '../../style/animations';
 
@@ -22,7 +21,7 @@ export default function AboutPage({
   navigationData,
   boxLinkDataFooter,
   footerData,
-  //valuesData,
+  valuesData,
   mainResourcesData,
 }) {
   const {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { max, min } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
@@ -15,6 +15,11 @@ const ContentWrapper = styled.div`
   align-items: center;
   margin-top: 5em;
   margin-bottom: -2em;
+
+  @media ${min.tabletLg} {
+    padding-top: 6em;
+  }
+
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
@@ -32,14 +37,14 @@ const ContentWrapper = styled.div`
 
 const TextWrapper = styled.div`
   width: 19em;
-  margin-top: ${(props) => props.isAuthorTestimonies ? '-4em' : '0'};
+  margin-top: ${(props) => (props.isAuthorTestimonies ? '-4em' : '0')};
   @media ${max.tabletLg} {
-    margin-bottom: ${(props) => props.isAuthorTestimonies ? '-2em' : '2em'};
-    margin-left: ${(props) => props.isAuthorTestimonies ? '-2em' : '0'};
+    margin-bottom: ${(props) => (props.isAuthorTestimonies ? '-2em' : '2em')};
+    margin-left: ${(props) => (props.isAuthorTestimonies ? '-2em' : '0')};
   }
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
-    margin-left: ${(props) => props.isAuthorTestimonies ? '1em' : '0'};
+    margin-left: ${(props) => (props.isAuthorTestimonies ? '1em' : '0')};
   }
 `;
 
@@ -83,7 +88,7 @@ const QuoteWrapper = styled(H3)`
 
 const AuthorsWrapper = styled(P)`
   color: ${colors.BROWN};
-  float: right; 
+  float: right;
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
 `;
@@ -122,10 +127,9 @@ const QuoteContainer = styled.div`
   }
 `;
 
-
 const CarouselContainer = styled.div`
   margin-left: -10em;
-  margin-top: ${(props) => props.isAuthorTestimonies ? '-16em' : '0'};
+  margin-top: ${(props) => (props.isAuthorTestimonies ? '-16em' : '0')};
   padding: 0;
   width: 30em;
   height: 30em;
@@ -135,7 +139,7 @@ const CarouselContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media ${min.tabletSm} {
-    margin-top: ${(props) => props.isAuthorTestimonies ? '-8em' : '0'};
+    margin-top: ${(props) => (props.isAuthorTestimonies ? '-8em' : '0')};
   }
   @media ${max.tabletLg} {
     margin-left: -20em;
@@ -143,10 +147,9 @@ const CarouselContainer = styled.div`
 
   @media ${max.tabletSm} {
     margin-left: -17em;
-    width: clamp(16em, 80vw, 22em); 
-    height: clamp(16em, 80vw, 22em); 
+    width: clamp(16em, 80vw, 22em);
+    height: clamp(16em, 80vw, 22em);
   }
-
 `;
 
 const ImageArchWrapper = styled.div`
@@ -249,5 +252,5 @@ export {
   ArchOutline,
   ArchSpark,
   AuthorsContainer,
-  AuthorsWrapper
+  AuthorsWrapper,
 };
