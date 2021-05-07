@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max, min } from '../../lib/responsive';
+import { animated } from 'react-spring';
 
 export const AlleywayLogo = styled.img`
 display: none;
@@ -30,7 +31,7 @@ export const HomePageIntroContainerSmall = styled.div`
   }
 `;
 
-export const HomePageIntroContainerLarge = styled.div`
+export const HomePageIntroContainerLarge = styled(animated.div)`
 display: none;
   @media ${min.tabletSm} {
     display: block;

@@ -13,6 +13,7 @@ import CurrentFeaturedStory from './current-featured-story/CurrentFeaturedStory'
 import FeaturedStoryPreview from './featured-story-preview/FeaturedStoryPreview';
 import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 import { icons } from '../../style/icons';
+import { useSpring } from 'react-spring';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
 
@@ -61,6 +62,12 @@ export default function HomePage({
     );
   };
 
+  const fadeInAnimation = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { tension: 20, friction: 15 },
+  });
+
   useEffect(() => {
     const id = setTimeout(
       () => setActiveIndex((activeIndex + 1) % featuredStories.length),
@@ -87,7 +94,7 @@ export default function HomePage({
           />
         )}
         {!alreadyHovered && (
-          <HomePageIntroContainerLarge>
+          <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
             <FeaturedStoryPreviews>
               {featuredStories.map(mapFeaturedStories)}

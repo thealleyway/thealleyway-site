@@ -36,6 +36,7 @@ const icons = {
   DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
   LARGE_ALLEYWAY_LOGO: '/assets/large-alleyway-logo.svg',
   LARGE_ALLEYWAY_EMBLEM: '/assets/large-alleyway-emblem.svg',
+  SMALL_ALLEYWAY_LOGO: '/assets/small-alleyway-logo.svg',
 };
 
 export { icons };

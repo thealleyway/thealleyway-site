@@ -1,7 +1,7 @@
 import { fonts, fontWeights } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { max } from '../../lib/responsive';
+import { max, min } from '../../lib/responsive';
 import { icons } from '../../style/icons';
 import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
 
@@ -24,6 +24,12 @@ export const NavigationWrapper = styled.nav`
     padding: 1.5em;
     padding-top: 1em;
   }
+`;
+
+export const Logo = styled.img`
+  position: absolute;
+  width: 8em;
+  margin: -1.3em 0 0 0;
 `;
 
 export const LogoWrapper = styled.div`

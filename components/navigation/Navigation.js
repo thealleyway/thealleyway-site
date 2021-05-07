@@ -12,6 +12,7 @@ import {
   LogoWrapper,
   NavigationLinksWrapper,
   NavigationWrapper,
+  Logo
 } from './Navigation.styles';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
@@ -48,7 +49,9 @@ export default function Navigation({ navigationData }) {
     <>
       <NavigationWrapper>
         <PageLink href="/" passHref>
-          <LogoWrapper>The Alleyway</LogoWrapper>
+          <LogoWrapper>
+            <Logo src={icons.SMALL_ALLEYWAY_LOGO}/>
+          </LogoWrapper>
         </PageLink>
         {isTabletOrMobile ? (
           <>
