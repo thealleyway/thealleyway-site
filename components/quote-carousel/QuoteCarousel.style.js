@@ -13,13 +13,11 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5em;
   margin-bottom: -2em;
 
   @media ${min.tabletLg} {
     padding-top: 6em;
   }
-
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
