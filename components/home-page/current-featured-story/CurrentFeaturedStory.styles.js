@@ -9,7 +9,7 @@ import {
 import { SignatureImage } from '../HomePage.styles';
 import { motion } from 'framer-motion';
 
-export const CurrentFeaturedStoryWrapper = styled(motion.div)`
+export const CurrentFeaturedStoryWrapper = styled.div`
   display: flex;
   margin-bottom: 60px;
   width: 95%;
@@ -22,7 +22,7 @@ export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   }
 `;
 
-export const CurrentFeaturedStoryImageWrapper = styled.div`
+export const CurrentFeaturedStoryImageWrapper = styled(motion.div)`
   width: min(400px, 50%);
   max-height: 450px;
   position: relative;

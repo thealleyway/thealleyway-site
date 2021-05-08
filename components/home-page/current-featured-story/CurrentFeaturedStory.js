@@ -27,10 +27,10 @@ export default function CurrentFeaturedStory({
   } = featuredStory;
 
   return (
-    <CurrentFeaturedStoryWrapper 
-    initial={{ opacity: 0 }}
-    animate={{opacity: 1}}
-    transition={{ duration: 1, delay: 0.1 }}
+    <CurrentFeaturedStoryWrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: 'spring', duration: 2 }}
     >
       <CurrentFeaturedStoryImageWrapper>
         <CurrentFeaturedStoryImage
@@ -42,7 +42,7 @@ export default function CurrentFeaturedStory({
           alt={signature.alt}
         />
       </CurrentFeaturedStoryImageWrapper>
-      <CurrentFeaturedStoryTextWrapper>
+      <CurrentFeaturedStoryTextWrapper >
         <CurrentFeaturedStoryH1>
           {getString(titleRegular)} <i>{`${getString(titleItalic)}`}</i>
         </CurrentFeaturedStoryH1>
