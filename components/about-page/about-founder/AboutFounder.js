@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { getString, renderRichText } from '../../../lib/richText';
-import MainResource from '../main-resource/MainResource';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import { H4, P } from '../../../style/typography';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import { Overlay } from '../../base-components/BaseComponents';
+import OvalButton from '../../oval-button/OvalButton';
 import {
   MeetFounderContainer,
   MeetFounderWrapper,
@@ -77,7 +77,12 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
           <br />
           <ResourceButtonsWrapper>
             {resourceData.map((r) => (
-              <MainResource key={r.id} mainResourceData={r} />
+              <OvalButton
+                key={r.id}
+                buttonText={getString(r.resourceTitle).toUpperCase()}
+                href={r.resourceLink.url}
+                onClick={() => window.open(r.resourceLink.url, '_blank')}
+              />
             ))}
           </ResourceButtonsWrapper>
           <MoreResourcesTitleWrapper onClick={togglePopup}>
