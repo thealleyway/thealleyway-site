@@ -24,6 +24,7 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
             document.body.style.overflow = 'visible';
             setIsPopupOpen(false);
           }}
+          whileHover={{ scale: 1.05 }}
         />
         <TextContentWrapper>
           {popupTitles.map((title, index) => {

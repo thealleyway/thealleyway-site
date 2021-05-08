@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { min, max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { H4 } from '../../style/typography';
+import { motion } from 'framer-motion';
 
 const PopupTitle = styled(H4)`
   color: ${colors.MAUVE};
@@ -22,7 +23,7 @@ const PopupImage = styled.img`
   height: 100%;
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled(motion.img)`
   position: absolute;
   border: none;
   top: 1em;
