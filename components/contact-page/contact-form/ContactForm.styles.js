@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 const ContactFormContainer = styled.div`
   padding-top: 6em;

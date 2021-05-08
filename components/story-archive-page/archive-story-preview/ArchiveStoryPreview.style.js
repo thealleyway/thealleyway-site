@@ -100,7 +100,7 @@ const StoryPreviewHover = styled.div`
   }
 `;
 
-const StoryPreviewSignature = styled.img`
+const StoryPreviewSignature = styled(motion.img)`
   position: relative;
   top: 8vh;
   margin: 0 auto 0 auto;
@@ -112,7 +112,7 @@ const StoryPreviewSignature = styled.img`
   }
 `;
 
-const DateArrowWrapper = styled.div`
+const DateArrowWrapper = styled(motion.div)`
   display: flex;
   flex-direction: row;
   align-items: center;

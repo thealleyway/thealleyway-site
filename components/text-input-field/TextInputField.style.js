@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
 const TextLabel = styled(P)`
   color: ${colors.BROWN};
@@ -47,7 +48,7 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-const InputFieldWrapper = styled.div`
+const InputFieldWrapper = styled(motion.div)`
   padding-bottom: 2em;
 `;
 

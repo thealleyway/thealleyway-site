@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../lib/responsive';
 import { colors } from './colors';
+import { motion } from 'framer-motion';
 
 const fonts = {
   swearDisplay: 'swear-display, serif',
