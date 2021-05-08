@@ -15,7 +15,8 @@ import {
   ResourceButtonsWrapper,
   MoreResourcesTitle,
   MoreResourcesTitleWrapper,
-  AboutImageLeft,
+  AboutImageLeftDesktop,
+  AboutImageLeftTablet,
   AboutImageQuoteWrapper,
   AboutImageRight,
   AboutImageRightOpacity,
@@ -62,7 +63,7 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
     <MeetFounderContainer id={id}>
       <MeetFounderWrapper>
         {!isTabletOrMobile && (
-          <AboutImageLeft
+          <AboutImageLeftDesktop
             src={camarynImageLeft.url}
             alt={camarynImageLeft.alt}
           />
@@ -98,14 +99,19 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
         </AboutImageQuoteWrapper>
       </MeetFounderWrapper>
       {isTabletOrMobile && !isMobile && (
-        <AboutImageLeft src={camarynImageLeft.url} alt={camarynImageLeft.alt} />
-      )}
-      <SparkArrowWrapper>
-        <LongSparkArrow
-          arrowText={sparkArrowMissionText}
-          scrollTo={scrollToId}
+        <AboutImageLeftTablet
+          src={camarynImageLeft.url}
+          alt={camarynImageLeft.alt}
         />
-      </SparkArrowWrapper>
+      )}
+      {!isTabletOrMobile && (
+        <SparkArrowWrapper>
+          <LongSparkArrow
+            arrowText={sparkArrowMissionText}
+            scrollTo={scrollToId}
+          />
+        </SparkArrowWrapper>
+      )}
       {isOpen && (
         <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
       )}
