@@ -34,7 +34,7 @@ export const PreviewImage = styled(motion.img)`
   }
 `;
 
-export const DoubleArchways = styled.img`
+export const DoubleArchways = styled(motion.img)`
   display: ${(props) => (props.active ? 'flex' : 'none')};
   width: 85%;
   position: absolute;
