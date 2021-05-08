@@ -4,7 +4,7 @@ import { max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { motion } from 'framer-motion';
 
-export const ArchModalWrapper = styled.div`
+export const ArchModalWrapper = styled(motion.div)`
   --arch-width: 350px;
   --arch-height: 450px;
   --off-set: 25px;

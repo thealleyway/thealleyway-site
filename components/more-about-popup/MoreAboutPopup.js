@@ -14,7 +14,11 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
   const { popupTitles, popupDescriptions, popupImage } = popupData;
 
   return (
-    <PopupBox>
+    <PopupBox
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: 'spring', duration: 1 }}
+    >
       <Box>
         <PopupImage src={popupImage.url} alt={popupImage.alt} />
         <CloseIcon

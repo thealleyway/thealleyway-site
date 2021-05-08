@@ -36,7 +36,11 @@ export default function ConfirmationPopup({
 
   return (
     <>
-      <PopupBox>
+      <PopupBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 1 }}
+      >
         <Box page={page}>
           <TextContent page={page}>
             <H2Styled page={page}>

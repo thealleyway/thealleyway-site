@@ -13,7 +13,11 @@ import {
 
 export default function ArchModal({ text, onClose }) {
   return (
-    <ArchModalWrapper>
+    <ArchModalWrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: 'spring', duration: 1 }}
+    >
       <ArchModalContentWrapper>
         <ArchModalCloseButton onClick={onClose} whileHover={{ scale: 1.03 }}>
           <CloseXImage src={icons.CLOSE_ICON} />

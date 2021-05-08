@@ -38,7 +38,7 @@ const CloseIcon = styled(motion.img)`
   }
 `;
 
-const PopupBox = styled.div`
+const PopupBox = styled(motion.div)`
   border: none;
   position: fixed;
   width: 100%;

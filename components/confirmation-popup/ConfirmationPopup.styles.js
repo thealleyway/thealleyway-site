@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { P, H2 } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-const PopupBox = styled.div`
+const PopupBox = styled(motion.div)`
   border: none;
   position: fixed;
   width: 100%;
