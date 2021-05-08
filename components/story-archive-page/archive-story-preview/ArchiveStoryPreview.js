@@ -31,7 +31,10 @@ export default function ArchiveStoryPreview({ story, signature }) {
   );
 
   return (
-    <StoryPreviewContainer>
+    <StoryPreviewContainer
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+    >
       <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
       <PageLink href={storyUrl}>
         <StoryPreviewHover>

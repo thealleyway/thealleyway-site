@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
 export const ArchModalWrapper = styled.div`
   --arch-width: 350px;
@@ -96,7 +97,7 @@ export const ArchModalText = styled(P)`
   }
 `;
 
-export const ArchModalCloseButton = styled.button`
+export const ArchModalCloseButton = styled(motion.button)`
   display flex;
   align-items: center;
   justify-content: center;

@@ -15,7 +15,7 @@ export default function ArchModal({ text, onClose }) {
   return (
     <ArchModalWrapper>
       <ArchModalContentWrapper>
-        <ArchModalCloseButton onClick={onClose}>
+        <ArchModalCloseButton onClick={onClose} whileHover={{ scale: 1.03 }}>
           <CloseXImage src={icons.CLOSE_ICON} />
         </ArchModalCloseButton>
         <ArchModalSpark src={icons.FILLED_SPARK} />
