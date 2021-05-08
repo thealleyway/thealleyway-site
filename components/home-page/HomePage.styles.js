@@ -50,7 +50,7 @@ export const HomePageContentWrapper = styled.div`
   padding-top: 2em;
 `;
 
-export const FeaturedStoryPreviews = styled.div`
+export const FeaturedStoryPreviews = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   width: ${(props) => (props.alreadyHovered ? ` 95%` : `100%`)};

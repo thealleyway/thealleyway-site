@@ -17,7 +17,7 @@ import {
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
-export default function Navigation({ navigationData }) {
+export default function Navigation({ navigationData, fade }) {
   const { navigation_links: navigationLinks } = navigationData;
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const isTabletOrMobile = useMatchMedia(
@@ -47,10 +47,13 @@ export default function Navigation({ navigationData }) {
 
   return (
     <>
-      <NavigationWrapper>
+      <NavigationWrapper
+        initial={{ opacity: fade ? 0 : 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 2 }}>
         <PageLink href="/" passHref>
           <LogoWrapper>
-            <Logo src={icons.SMALL_ALLEYWAY_LOGO}/>
+            <Logo src={icons.SMALL_ALLEYWAY_LOGO} />
           </LogoWrapper>
         </PageLink>
         {isTabletOrMobile ? (

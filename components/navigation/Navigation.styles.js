@@ -4,8 +4,9 @@ import { colors } from '../../style/colors';
 import { max, min } from '../../lib/responsive';
 import { icons } from '../../style/icons';
 import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
+import { motion } from 'framer-motion';
 
-export const NavigationWrapper = styled.nav`
+export const NavigationWrapper = styled(motion.nav)`
   display: flex;
   position: fixed;
   top: 0;

@@ -84,8 +84,9 @@ export default function HomePage({
 
   return (
     <>
+      {alreadyHovered && <Navigation navigationData={navigationData} fade />}
       {alreadyHovered ||
-        (faded && isMobile && <Navigation navigationData={navigationData} />)}
+        (faded && isMobile && <Navigation navigationData={navigationData} fade />)}
       <HomePageContentWrapper>
         {alreadyHovered && (
           <CurrentFeaturedStory
@@ -96,9 +97,8 @@ export default function HomePage({
               featuredStories[Number.parseInt(activeIndex)].story.data
                 .author_info.id,
             )}
-            url={`/story/${
-              featuredStories[Number.parseInt(activeIndex)].story.uid
-            }`}
+            url={`/story/${featuredStories[Number.parseInt(activeIndex)].story.uid
+              }`}
           />
         )}
         {!alreadyHovered && (
@@ -114,20 +114,32 @@ export default function HomePage({
             <AlleywayEmblem
               src={icons.LARGE_ALLEYWAY_EMBLEM}
               initial={{ opacity: 1 }}
-              animate={{ opacity: 0 }}
+              animate={{ opacity: 0, x: -120, y: -170, scale: .4 }}
               transition={{ type: 'spring', duration: 4, delay: 1 }}
             />
-            <FeaturedStoryPreviews>
+            <FeaturedStoryPreviews
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0, y: -390 }}
+              transition={{ type: 'spring', duration: 6, delay: 1 }}
+            >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerSmall>
         )}
         {alreadyHovered ||
-          (faded && isMobile && (
-            <FeaturedStoryPreviews alreadyHovered>
-              {featuredStories.map(mapFeaturedStories)}
-            </FeaturedStoryPreviews>
-          ))}
+          (faded && isMobile) &&
+          <FeaturedStoryPreviews alreadyHovered
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ type: 'spring', duration: 6 }}>
+            {featuredStories.map(mapFeaturedStories)}
+          </FeaturedStoryPreviews>
+        }
+        {alreadyHovered &&
+          <FeaturedStoryPreviews alreadyHovered>
+            {featuredStories.map(mapFeaturedStories)}
+          </FeaturedStoryPreviews>
+        }
         {alreadyHovered && (
           <NewsletterSignUp
             description={newsletterDescription}
