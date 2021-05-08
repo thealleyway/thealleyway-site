@@ -51,7 +51,7 @@ const H4 = styled.h3`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.medium};
   color: ${colors.BROWN};
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   font-size: 1em;
 `;
 

@@ -65,7 +65,7 @@ export const SubmitButton = styled(P).attrs({
   margin-top: 10px;
   align-self: flex-end;
   font-weight: normal;
-  letter-spacing: 4px;
+  letter-spacing: 0.13em;
   cursor: pointer;
 
   @media ${max.tabletSm} {

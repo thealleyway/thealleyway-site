@@ -12,7 +12,7 @@ const SortLabel = styled(P)`
   color: ${colors.BROWN};
   font-weight: ${(props) =>
     props.enabled ? fontWeights.bold : fontWeights.normal};
-  letter-spacing: 0.25px;
+  letter-spacing: 0.13em;
   margin: 0;
 
   ${SortLabelWrapper}:hover & {
@@ -23,7 +23,7 @@ const SortLabel = styled(P)`
 
 const SortUnderline = styled.img`
   visibility: ${(props) => (props.enabled ? 'visible' : 'hidden')};
-  transform: ${(props) => (props.alpha ? 'scale(4)' : 'scale(1)')};
+  transform: ${(props) => (props.alpha ? 'scale(4)' : 'scale(1.2)')};
   margin-top: ${(props) => (props.alpha ? '0' : '-5px')};
 
   ${SortLabelWrapper}:hover & {

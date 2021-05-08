@@ -13,6 +13,7 @@ const Button = styled(P).attrs({
   width: 120px;
   height: 48px;
   text-align: center;
+  letter-spacing: 0.13em;
 
   &:hover {
     background-color: ${colors.MAUVE};
