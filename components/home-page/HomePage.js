@@ -66,12 +66,7 @@ export default function HomePage({
   };
 
   const fadeInAnimation = useSpring(fadeIn);
-  const fadeInAnimationOther = useSpring(fadeIn);
   const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
-  const variants = {
-    hovered: { opacity: 0},
-    notHovered: { opacity: 1 },
-  }
 
   useEffect(() => {
     const id = setTimeout(

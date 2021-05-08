@@ -61,7 +61,7 @@ export default function ConfirmationPopup({
               document.body.style.overflow = 'visible';
               togglePopup(false);
             }}
-            whileHover={{ scale: 1.2 }}
+            whileHover={{ scale: 1.1 }}
           />
         </Box>
       </PopupBox>

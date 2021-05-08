@@ -33,6 +33,8 @@ export default function FeaturedStoryPreview({
       <FeaturedStoryPreviewWrapper
         onMouseOver={onHover}
         onClick={onClick}
+        whileHover={{scale: 1.02}}
+        whileTap={{scale: .98}}
       >
         <PreviewImage
           src={previewImage.url}

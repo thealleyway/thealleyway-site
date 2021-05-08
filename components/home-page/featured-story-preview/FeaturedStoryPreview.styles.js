@@ -15,7 +15,7 @@ export const FeaturedStoryPreviewWrapper = styled(motion.div)`
   }
 `;
 
-export const PreviewImage = styled.img`
+export const PreviewImage = styled(motion.img)`
   position: relative;
   width: 100%;
   max-height: 330px;
