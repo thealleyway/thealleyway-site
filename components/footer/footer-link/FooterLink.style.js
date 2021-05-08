@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
-import { P, fontWeights } from '../../../style/typography';
+import { P } from '../../../style/typography';
+import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 
-const FooterLinkWrapper = styled(P).attrs({
-  as: 'a',
-})`
+const FooterLinkWrapper = styled(HoverAnimationButton)`
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const FooterLinkText = styled(P)`
   color: ${colors.WHITE};
-
-  &:hover {
-    cursor: pointer;
-    font-weight: ${fontWeights.bold};
-  }
+  margin: 0;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 `;
 
 const FooterLinkContainer = styled.div`
   margin: 0.25em;
 `;
 
-export { FooterLinkWrapper, FooterLinkContainer };
+export { FooterLinkWrapper, FooterLinkContainer, FooterLinkText };
