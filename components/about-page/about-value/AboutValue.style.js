@@ -5,13 +5,15 @@ const OurValuesContainer = styled.div`
   width: 100%;
   overflow: hidden;
   height: 59em;
+
   @media ${min.tabletLg} {
     padding-top: 5em;
   }
 
   @media ${max.tabletSm} {
-    margin-top: 4em;
-    height: 72em;
+    margin-top: 0;
+    padding-top: 0;
+    height: 78em;
   }
 `;
 
@@ -39,7 +41,7 @@ const ContentWrapper = styled.div`
 `;
 
 const ValueImageRight = styled.img`
-  height: 50em;
+  height: 57em;
   width: clamp(30em, 45vw, 40em);
   opacity: 10%;
   object-fit: cover;
@@ -80,6 +82,7 @@ const AboutValueTitleWrapper = styled.div`
   }
 
   @media ${max.tablet} {
+    padding-left: 0;
     margin: 0 auto 1em auto;
   }
 `;
@@ -88,7 +91,7 @@ const ValuesContainer = styled.div`
   width: 65%;
   height: 45em;
   position: relative;
-  bottom: 45em;
+  bottom: 52em;
   margin: 0 auto;
 
   @media ${max.tabletLg} {
@@ -101,21 +104,21 @@ const ValuesContainer = styled.div`
   }
 
   @media ${max.tabletSm} {
-    bottom: clamp(63em, 320vw, 64em);
+    bottom: clamp(64em, 325vw, 67.5em);
   }
 
   @media ${max.mobile} {
-    bottom: 71em;
+    bottom: 73em;
   }
 `;
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 18em;
-  left: clamp(12em, 20.75vw, 17em);
+  bottom: 28em;
+  left: clamp(10em, 18vw, 14em);
 
   @media ${min.desktop} {
-    left: 14em;
+    left: 11em;
   }
 `;
 

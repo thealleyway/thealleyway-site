@@ -10,7 +10,12 @@ const ValueWrapper = styled.div`
     props.offset ? `calc(${props.offset} * clamp(3em, 5vw, 5em))` : '0'};
 
   @media ${max.tabletLg} {
-    height: 16em;
+    height: clamp(12em, 27vw, 15em);
+    margin-bottom: 3em;
+  }
+
+  @media ${max.tablet} {
+    height: 13em;
   }
 
   @media ${max.tabletSm} {
@@ -32,7 +37,7 @@ const ValueImage = styled.img`
 
   @media ${max.tabletLg} {
     width: clamp(8em, 20vw, 12em);
-    height: clamp(12em, 20vw, 13em);
+    height: clamp(12em, 27vw, 15em);
   }
 
   @media ${max.tablet} {
@@ -41,7 +46,7 @@ const ValueImage = styled.img`
 
   @media ${max.tabletSm} {
     width: clamp(4em, 20vw, 8em);
-    height: clamp(16em, 100vw, 20em);
+    height: clamp(18em, 110vw, 22em);
   }
 
   @media ${max.mobile} {
@@ -55,14 +60,13 @@ const ValueTextWrapper = styled.div`
   margin-left: 4em;
 
   @media ${max.tabletLg} {
-    margin-top: -1em;
+    margin: auto;
     margin-left: clamp(1em, 5vw, 4em);
   }
 
   @media ${max.tablet} {
     height: auto;
     padding: 0;
-    margin-left: clamp(1em, 5vw, 4em);
   }
 `;
 
@@ -79,7 +83,7 @@ const ValueDescriptionWrapper = styled(P)`
   margin: -1em 0;
 
   @media ${max.tabletLg} {
-    height: 13em;
+    height: fit-content;
     overflow: visible;
     width: clamp(20em, 45vw, 27em);
   }
