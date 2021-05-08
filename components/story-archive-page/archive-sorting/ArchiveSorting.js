@@ -5,6 +5,7 @@ import {
   SortUnderline,
 } from './ArchiveSorting.style';
 import { icons } from '../../../style/icons';
+import { colors } from '../../../style/colors';
 
 const ALPHA = 'alpha';
 const DATE = 'date';
@@ -17,7 +18,9 @@ export default function ArchiveSorting({ sortType, order }) {
   return (
     <SortLabelWrapper>
       <PageLink href={sortUrl(order)}>
-        <SortLabel enabled={sortType == order}>{label}</SortLabel>
+        <SortLabel enabled={sortType == order} color={colors.BROWN}>
+          {label}
+        </SortLabel>
       </PageLink>
       <SortUnderline
         enabled={sortType == order}
