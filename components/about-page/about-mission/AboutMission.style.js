@@ -5,9 +5,15 @@ const OurMissionContainer = styled.div`
   width: 100%;
   height: 45em;
   overflow: hidden;
-  margin-top: 4em;
+  margin-top: 5em;
   padding-bottom: 4em;
   margin-bottom: 6em;
+
+  @media ${max.tabletLg} {
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 4em;
+  }
 
   @media ${min.tabletLg} {
     padding-top: 5em;
@@ -15,11 +21,14 @@ const OurMissionContainer = styled.div`
     padding-bottom: 0em;
     margin-bottom: 0em;
   }
+
   @media ${min.desktop} {
     padding-top: 5em;
     height: 55em;
-    padding-bottom: 0em;
-    margin-bottom: 0em;
+  }
+
+  @media ${max.mobile} {
+    height: 55em;
   }
 `;
 
