@@ -15,6 +15,8 @@ import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 import { icons } from '../../style/icons';
 import { useSpring } from 'react-spring';
 import { fadeIn } from '../../style/animations';
+import { breakpointsObj } from '../../lib/responsive';
+import { useMatchMedia } from '../../lib/hooks';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
 
@@ -43,6 +45,8 @@ export default function HomePage({
     confirmationImage,
   };
 
+  const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
+
   const getSignature = (authorInfoID) => authorSignatures[String(authorInfoID)];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -67,6 +71,8 @@ export default function HomePage({
 
   const fadeInAnimation = useSpring(fadeIn);
   const [{ opacity }, set] = useSpring(() => ({ opacity: 1 }));
+  const [faded, setFade] = useState(false);
+  setTimeout(() => setFade(true), 3000);
 
   useEffect(() => {
     const id = setTimeout(
@@ -78,7 +84,8 @@ export default function HomePage({
 
   return (
     <>
-      {alreadyHovered && <Navigation navigationData={navigationData} />}
+      {alreadyHovered ||
+        (faded && isMobile && <Navigation navigationData={navigationData} />)}
       <HomePageContentWrapper>
         {alreadyHovered && (
           <CurrentFeaturedStory
@@ -89,8 +96,9 @@ export default function HomePage({
               featuredStories[Number.parseInt(activeIndex)].story.data
                 .author_info.id,
             )}
-            url={`/story/${featuredStories[Number.parseInt(activeIndex)].story.uid
-              }`}
+            url={`/story/${
+              featuredStories[Number.parseInt(activeIndex)].story.uid
+            }`}
           />
         )}
         {!alreadyHovered && (
@@ -101,17 +109,25 @@ export default function HomePage({
             </FeaturedStoryPreviews>
           </HomePageIntroContainerLarge>
         )}
-        <HomePageIntroContainerSmall>
-          <AlleywayEmblem src={icons.LARGE_ALLEYWAY_EMBLEM} />
-          <FeaturedStoryPreviews>
-            {featuredStories.map(mapFeaturedStories)}
-          </FeaturedStoryPreviews>
-        </HomePageIntroContainerSmall>
-        {alreadyHovered && (
-          <FeaturedStoryPreviews alreadyHovered>
-            {featuredStories.map(mapFeaturedStories)}
-          </FeaturedStoryPreviews>
+        {!alreadyHovered && !faded && (
+          <HomePageIntroContainerSmall>
+            <AlleywayEmblem
+              src={icons.LARGE_ALLEYWAY_EMBLEM}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              transition={{ type: 'spring', duration: 4, delay: 1 }}
+            />
+            <FeaturedStoryPreviews>
+              {featuredStories.map(mapFeaturedStories)}
+            </FeaturedStoryPreviews>
+          </HomePageIntroContainerSmall>
         )}
+        {alreadyHovered ||
+          (faded && isMobile && (
+            <FeaturedStoryPreviews alreadyHovered>
+              {featuredStories.map(mapFeaturedStories)}
+            </FeaturedStoryPreviews>
+          ))}
         {alreadyHovered && (
           <NewsletterSignUp
             description={newsletterDescription}

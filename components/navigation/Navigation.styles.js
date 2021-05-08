@@ -29,7 +29,12 @@ export const NavigationWrapper = styled.nav`
 export const Logo = styled.img`
   position: absolute;
   width: 8em;
-  margin: -1.3em 0 0 0;
+  @media ${min.tabletSm} {
+    margin-top: -0.5em;
+  }
+  @media ${min.desktop} {
+    margin-top: -1.3em;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -96,6 +101,10 @@ export const LinkWrapper = styled(HoverAnimationButton)`
 export const HamburgerImage = styled.img`
   &:hover {
     cursor: pointer;
+  }
+  margin-top: 1.5em;
+  @media ${min.tabletSm} {
+    margin-top: 1em;
   }
 `;
 
