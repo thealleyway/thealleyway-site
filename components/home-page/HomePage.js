@@ -114,13 +114,13 @@ export default function HomePage({
             <AlleywayEmblem
               src={icons.LARGE_ALLEYWAY_EMBLEM}
               initial={{ opacity: 1 }}
-              animate={{ opacity: 0, x: -120, y: -170, scale: .4 }}
-              transition={{ type: 'spring', duration: 4, delay: 1 }}
+              animate={{ opacity: 0, x: -120, y: -270, scale: .4 }}
+              transition={{ type: 'spring', duration: 5, delay: 1  }}
             />
             <FeaturedStoryPreviews
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0, y: -390 }}
-              transition={{ type: 'spring', duration: 6, delay: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: -420 }}
+              transition={{ type: 'spring', duration: 5, delay: 1  }}
             >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
@@ -131,7 +131,7 @@ export default function HomePage({
           <FeaturedStoryPreviews alreadyHovered
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ type: 'spring', duration: 6 }}>
+            transition={{ type: 'spring', duration: 4 }}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>
         }

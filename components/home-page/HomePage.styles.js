@@ -21,7 +21,7 @@ export const AlleywayLogo = styled.img`
 
 export const AlleywayEmblem = styled(motion.img)`
   display: block;
-  margin: 1em 0 -5em 2.3em;
+  margin: 6em 0 -5em 2.3em;
   width: 80%;
 `;
 
