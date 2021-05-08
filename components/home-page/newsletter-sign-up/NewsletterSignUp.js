@@ -6,7 +6,6 @@ import TextInputField from '../../text-input-field/TextInputField';
 import { Overlay } from '../../base-components/BaseComponents';
 import {
   ContentWrapper,
-  NewsletterSignUpTextInput,
   NewsletterSignUpTitle,
   NewsletterDescriptionText,
   NewsletterSignUpWrapper,
@@ -25,10 +24,33 @@ export default function NewsletterSignUp({
 }) {
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [fields, setFields] = useState({});
   const [name, updateName] = useState('');
+  const [errors, setErrors] = useState({});
 
   const onSubmitClick = () => {
-    setIsConfirmationOpen(true);
+    if (isValidSubmission()) {
+      setIsConfirmationOpen(true);
+      setFields({});
+    }
+  };
+
+  const isValidSubmission = () => {
+    let errors = {};
+    let formIsValid = true;
+    const validEmail = new RegExp(
+      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
+    );
+    if (fields['name'] == undefined || fields['name'].length === 0) {
+      formIsValid = false;
+      errors['name'] = 'NAME IS REQUIRED!';
+    }
+    if (!validEmail.test(fields['email'])) {
+      formIsValid = false;
+      errors['email'] = 'EMAIL IS REQUIRED!';
+    }
+    setErrors(errors);
+    return formIsValid;
   };
 
   return (
@@ -39,14 +61,27 @@ export default function NewsletterSignUp({
           <NewsletterDescriptionText>
             {getString(description)}
           </NewsletterDescriptionText>
-          <NewsletterSignUpTextInput
+          <TextInputField
             id="name"
             label="Name"
             fullWidth
-            onChange={(e) => updateName(e)}
-            required={true}
+            required
+            showError={errors['name']}
+            value={fields['name'] ? fields['name'] : ''}
+            onChange={(e) => {
+              setFields({ ...fields, name: e });
+              updateName(e);
+            }}
           />
-          <TextInputField id="email" label="Email" fullWidth required />
+          <TextInputField
+            id="email"
+            label="Email"
+            fullWidth
+            required={true}
+            showError={errors['email']}
+            value={fields['email'] ? fields['email'] : ''}
+            onChange={(e) => setFields({ ...fields, email: e })}
+          />
           <PrivacyPolicyLinkText>
             <InputInfoText
               onClick={() => {
