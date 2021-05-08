@@ -12,7 +12,7 @@ import {
   NewsletterSignUpWrapper,
   PrivacyPolicyLinkText,
   SubmitButton,
-  SubmitButtonContainer
+  SubmitButtonContainer,
 } from './NewsletterSignUp.styles';
 import ArchModal from '../../arch-modal/ArchModal';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
@@ -58,15 +58,17 @@ export default function NewsletterSignUp({
               {getString(privacyPolicyLinkTitle)}
             </InputInfoText>
           </PrivacyPolicyLinkText>
-          <SubmitButtonContainer             whileHover={{scale: 1.02}}
-            whileTap={{scale: .98}}>
-          <SubmitButton
-            color={colors.WHITE}
-            type="submit"
-            onClick={onSubmitClick}
+          <SubmitButtonContainer
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
           >
-            SUBMIT
-          </SubmitButton>
+            <SubmitButton
+              color={colors.WHITE}
+              type="submit"
+              onClick={onSubmitClick}
+            >
+              SUBMIT
+            </SubmitButton>
           </SubmitButtonContainer>
         </ContentWrapper>
         {isPrivacyPolicyOpen && (

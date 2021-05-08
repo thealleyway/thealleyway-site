@@ -1,7 +1,10 @@
 import { colors } from '../../../style/colors';
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
-import { SubmitButton } from '../../home-page/newsletter-sign-up/NewsletterSignUp.styles';
+import {
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../home-page/newsletter-sign-up/NewsletterSignUp.styles';
 import {
   ContactFormContainer,
   InputBoxWrapper,
@@ -73,21 +76,26 @@ export default function ContactForm({ togglePopup }) {
           />
         </InputBoxWrapper>
         <ButtonWrapper>
-          <SubmitButton
-            aria-label="Submission Button"
-            color={colors.WHITE}
-            type="submit"
-            onClick={() => {
-              if (submitRequest()) {
-                document.body.style.overflow = 'hidden';
-                document.getElementById('area').value = '';
-                setFields({});
-                togglePopup();
-              }
-            }}
+          <SubmitButtonContainer
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
           >
-            SUBMIT
-          </SubmitButton>
+            <SubmitButton
+              aria-label="Submission Button"
+              color={colors.WHITE}
+              type="submit"
+              onClick={() => {
+                if (submitRequest()) {
+                  document.body.style.overflow = 'hidden';
+                  document.getElementById('area').value = '';
+                  setFields({});
+                  togglePopup();
+                }
+              }}
+            >
+              SUBMIT
+            </SubmitButton>
+          </SubmitButtonContainer>
         </ButtonWrapper>
       </ContactFormContainer>
     </>

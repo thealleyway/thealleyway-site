@@ -3,6 +3,15 @@ import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { fontWeights } from '../../style/typography';
 import { max } from '../../lib/responsive';
+import { motion } from 'framer-motion';
+
+const OvalButtonContainer = styled(motion.button)`
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  align-self: flex-end;
+`;
 
 const Button = styled.a.attrs({
   as: 'button',
@@ -42,4 +51,4 @@ const ButtonText = styled(P)`
   }
 `;
 
-export { Button, ButtonText };
+export { Button, ButtonText, OvalButtonContainer };

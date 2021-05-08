@@ -1,9 +1,14 @@
-import { Button, ButtonText } from './OvalButton.style';
+import { Button, ButtonText, OvalButtonContainer } from './OvalButton.style';
 
 export default function OvalButton({ buttonText, onClick }) {
   return (
-    <Button onClick={onClick}>
-      <ButtonText>{buttonText}</ButtonText>
-    </Button>
+    <OvalButtonContainer
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+    >
+      <Button onClick={onClick}>
+        <ButtonText>{buttonText}</ButtonText>
+      </Button>
+    </OvalButtonContainer>
   );
 }

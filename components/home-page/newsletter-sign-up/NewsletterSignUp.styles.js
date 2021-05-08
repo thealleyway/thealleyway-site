@@ -5,7 +5,7 @@ import { colors } from '../../../style/colors';
 import { icons } from '../../../style/icons';
 import TextInputField from '../../text-input-field/TextInputField';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export const NewsletterSignUpWrapper = styled.div`
   display: flex;
@@ -55,7 +55,15 @@ export const PrivacyPolicyLinkText = styled.div`
   margin: -5px 0;
 `;
 
-export const SubmitButtonContainer = styled(motion.div)`
+export const SubmitButtonContainer = styled(motion.button)`
+  width: 150px;
+  height: 48px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  align-self: flex-end;
 `;
 
 export const SubmitButton = styled(P).attrs({
@@ -66,12 +74,9 @@ export const SubmitButton = styled(P).attrs({
   border: none;
   width: 150px;
   height: 48px;
-  margin-top: 10px;
-  align-self: flex-end;
   font-weight: normal;
   letter-spacing: 4px;
   cursor: pointer;
-
   @media ${max.tabletSm} {
     align-self: center;
     width: 50%;
