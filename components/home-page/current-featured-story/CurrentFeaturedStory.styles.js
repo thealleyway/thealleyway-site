@@ -7,7 +7,6 @@ import {
   LeftRightAnimation,
 } from '../../animation-base-components/AnimationBaseComponents';
 import { SignatureImage } from '../HomePage.styles';
-import { motion } from 'framer-motion';
 
 export const CurrentFeaturedStoryWrapper = styled.div`
   display: flex;
@@ -16,13 +15,18 @@ export const CurrentFeaturedStoryWrapper = styled.div`
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-bottom: 0px;
-
+  @media ${max.tabletLg} {
+    padding-top: 5em;
+  }
+  @media ${max.tablet} {
+    padding-top: 5em;
+  }
   @media ${max.tabletSm} {
     display: none;
   }
 `;
 
-export const CurrentFeaturedStoryImageWrapper = styled(motion.div)`
+export const CurrentFeaturedStoryImageWrapper = styled.div`
   width: min(400px, 50%);
   max-height: 450px;
   position: relative;
