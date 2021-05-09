@@ -74,9 +74,10 @@ const StoryPreviewTitle = styled(H3)`
 `;
 
 const StoryPreviewArrow = styled.img`
-  width: 75px;
+  width: 125px;
+  padding: 0;
   @media only screen and ${max.tabletSm} {
-    width: 60px;
+    width: 80px;
   }
 `;
 
