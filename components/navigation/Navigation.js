@@ -55,7 +55,6 @@ export default function Navigation({ navigationData }) {
             <HamburgerImage
               src={icons.HAMBURGER}
               onClick={() => {
-                document.body.style.overflow = 'hidden';
                 setIsHamburgerOpen(true);
               }}
             />

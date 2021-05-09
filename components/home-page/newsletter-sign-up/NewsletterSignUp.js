@@ -50,7 +50,6 @@ export default function NewsletterSignUp({
           <PrivacyPolicyLinkText>
             <InputInfoText
               onClick={() => {
-                document.body.style.overflow = 'hidden';
                 setIsPrivacyPolicyOpen(true);
               }}
             >
