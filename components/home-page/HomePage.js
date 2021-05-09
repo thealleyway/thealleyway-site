@@ -83,7 +83,7 @@ export default function HomePage({
 
   return (
     <>
-      {alreadyHovered && <Navigation navigationData={navigationData} fade />}
+      {alreadyHovered && <Navigation navigationData={navigationData} fade={!isMobile} />}
       {alreadyHovered ||
         (faded && isMobile && (
           <Navigation navigationData={navigationData} fade />
@@ -106,7 +106,19 @@ export default function HomePage({
         {!alreadyHovered && (
           <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
-            <FeaturedStoryPreviews onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}>
+            <FeaturedStoryPreviews onTap={() => 
+              {
+                if (firstTapped && !isMobile) {
+                   setSecondTapped(true);
+                }
+                else if (!firstTapped && isMobile) {
+                 setSecondTapped(true);
+                }
+                else if (!firstTapped && !isMobile) {
+                  setFirstTapped(true);
+                }
+              }}
+                >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerLarge>
@@ -135,12 +147,36 @@ export default function HomePage({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ type: 'spring', duration: 4 }}
+              onTap={() => 
+                {
+                  if (firstTapped && !isMobile) {
+                    setSecondTapped(true);
+                  }
+                  else if (!firstTapped && isMobile) {
+                    setSecondTapped(true);
+                  }
+                  else if (!firstTapped && !isMobile) {
+                    setFirstTapped(true);
+                  }
+                }}
             >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           ))}
         {alreadyHovered && (
-          <FeaturedStoryPreviews alreadyHovered               onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}>
+          <FeaturedStoryPreviews alreadyHovered               
+          onTap={() => 
+            {
+              if (firstTapped && !isMobile) {
+                setSecondTapped(true);
+              }
+              else if (!firstTapped && isMobile) {
+                setSecondTapped(true);
+              }
+              else if (!firstTapped && !isMobile) {
+                setFirstTapped(true);
+              }
+            }}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>
         )}
