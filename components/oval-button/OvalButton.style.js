@@ -15,6 +15,11 @@ const Button = styled(P).attrs({
   text-align: center;
   letter-spacing: 0.13em;
 
+  transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+  -webkit-transition: background-color 0.3s linear;
+  -ms-transition: background-color 0.3s linear;
+
   &:hover {
     background-color: ${colors.MAUVE};
     color: ${colors.WHITE};
