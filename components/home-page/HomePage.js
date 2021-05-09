@@ -106,18 +106,7 @@ export default function HomePage({
         {!alreadyHovered && (
           <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
-            <FeaturedStoryPreviews onTap={() => 
-              {
-                if (firstTapped && !isMobile) {
-                   setSecondTapped(true);
-                }
-                else if (!firstTapped && isMobile) {
-                 setSecondTapped(true);
-                }
-                else if (!firstTapped && !isMobile) {
-                  setFirstTapped(true);
-                }
-              }}
+            <FeaturedStoryPreviews onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}
                 >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
