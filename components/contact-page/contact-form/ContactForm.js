@@ -10,10 +10,8 @@ import {
   InputBoxWrapper,
   ButtonWrapper,
 } from './ContactForm.styles';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
-import { useInView } from 'react-intersection-observer';
-
 const axios = require('axios');
 
 export default function ContactForm({ togglePopup }) {
@@ -42,15 +40,9 @@ export default function ContactForm({ togglePopup }) {
     return formIsValid;
   };
 
-  const { ref, inView } = useInView();
-  useEffect(() => {
-    console.log("use effect hook, inView= ", inView);
-  });
-
   return (
     <>
-      <ContactFormContainer
-      >
+      <ContactFormContainer>
         <TextInputField
           id="firstName"
           label="First Name"
@@ -72,10 +64,6 @@ export default function ContactForm({ togglePopup }) {
           showError={errors['email']}
           value={fields['email'] ? fields['email'] : ''}
           onChange={(e) => setFields({ ...fields, email: e })}
-          ref={ref}
-          initial={{ x: '-100vw' }}
-          animate={{ x: 0 }}
-          transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
         />
         <InputBoxWrapper>
           <TextInputBox
