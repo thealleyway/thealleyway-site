@@ -74,6 +74,9 @@ export default function HomePage({
           setAlreadyHovered(true);
           setActiveIndex(index);
         }}
+        onClick={() => {
+          setSecondTapped(true); 
+        }}
         change={secondTapped}
         alreadyHovered={alreadyHovered}
         signature={getSignature(featuredStory.story.data.author_info.id)}
@@ -107,6 +110,9 @@ export default function HomePage({
           <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
             <FeaturedStoryPreviews onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}
+                                          onClick={() => {
+                                            setSecondTapped(true); 
+                                          }}
                 >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
@@ -124,18 +130,24 @@ export default function HomePage({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: -420 }}
               transition={{ type: 'spring', duration: 5, delay: 1 }}
+              onClick={() => {
+                setSecondTapped(true); 
+              }}
             >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerSmall>
         )}
         {alreadyHovered ||
-          (faded && isMobile && (
+          (faded && isMobile) && (
             <FeaturedStoryPreviews
               alreadyHovered
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ type: 'spring', duration: 4 }}
+              onClick={() => {
+                setSecondTapped(true); 
+              }}
               onTap={() => 
                 {
                   if (firstTapped && !isMobile) {
@@ -151,7 +163,7 @@ export default function HomePage({
             >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
-          ))}
+          )}
         {alreadyHovered && (
           <FeaturedStoryPreviews alreadyHovered               
           onTap={() => 
@@ -165,11 +177,16 @@ export default function HomePage({
               else if (!firstTapped && !isMobile) {
                 setFirstTapped(true);
               }
-            }}>
+            }}
+            onClick={() => {
+              setSecondTapped(true); 
+            }}
+            >
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>
         )}
-        {alreadyHovered && (
+        {(alreadyHovered ||
+          (faded && isMobile) || firstTapped) && (
           <NewsletterSignUp
             description={newsletterDescription}
             newsletterConfirmationData={newsletterConfirmationData}
@@ -179,7 +196,8 @@ export default function HomePage({
           />
         )}
       </HomePageContentWrapper>
-      {alreadyHovered && <Footer footerData={footerData} />}
+      {(alreadyHovered ||
+          (faded && isMobile) || firstTapped) && <Footer footerData={footerData} />}
     </>
   );
 }
