@@ -40,9 +40,11 @@ const TextWrapper = styled.div`
     margin-bottom: ${(props) => (props.isAuthorTestimonies ? '-2em' : '2em')};
     margin-left: ${(props) => (props.isAuthorTestimonies ? '-2em' : '0')};
   }
+
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
     margin-left: ${(props) => (props.isAuthorTestimonies ? '1em' : '0')};
+    margin-bottom: -4em;
   }
 `;
 
@@ -194,7 +196,6 @@ const ArchImage = styled.span`
     border-top-left-radius: calc(var(--arch-height) / 2);
     border-top-right-radius: calc(var(--arch-height) / 2);
     border: var(--border-width) solid ${colors.WHITE};
-    border-bottom: 0;
     background-image: inherit;
     content: '';
   }
@@ -205,6 +206,10 @@ const ArchOutline = styled(ArchImage)`
   position: absolute;
   left: -25px;
   bottom: 250px;
+
+  &:after {
+    border-bottom: 0;
+  }
 
   @media ${max.tabletLg} {
     left: -20px;
