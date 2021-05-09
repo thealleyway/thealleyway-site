@@ -6,7 +6,7 @@ const ImgBackground = styled.img`
   opacity: 10%;
   object-fit: cover;
   position: absolute;
-  top: 0;
+  top: -4em;
   right: 0;
   width: 100%;
   height: 38em;
@@ -18,6 +18,7 @@ const ImgBackground = styled.img`
     margin-top: 7em;
     height: 39em;
     padding-bottom: 2em;
+    top: 0;
   }
   @media only screen and ${max.tabletSm} {
     padding-bottom: 2em;
@@ -30,13 +31,11 @@ const ContentWrapper = styled.div`
   overflow: hidden;
 
   margin: 2.5em auto auto auto;
-  padding-top: clamp(1em, 5vw, 4em);
-
   display: flex;
   flex: 100%;
   justify-content: space-between;
   align-items: center;
-
+  padding-top: 7em;
   @media ${max.tabletLg} {
     flex-direction: column;
     width: 80%;
