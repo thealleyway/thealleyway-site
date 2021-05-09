@@ -50,6 +50,19 @@ export default function HomePage({
   const [activeIndex, setActiveIndex] = useState(0);
   const [alreadyHovered, setAlreadyHovered] = useState(false);
   const [firstTapped, setFirstTapped]  = useState(false);
+  const [secondTapped, setSecondTapped]  = useState(false);
+  const fadeInAnimation = useSpring(fadeIn);
+  const [faded, setFade] = useState(false);
+  
+  setTimeout(() => setFade(true), 3000);
+
+  useEffect(() => {
+    const id = setTimeout(
+      () => setActiveIndex((activeIndex + 1) % featuredStories.length),
+      PREVIEW_CHANGE_IN_MILLISECONDS,
+    );
+    return () => clearTimeout(id);
+  }, [activeIndex]);
 
   const mapFeaturedStories = (featuredStory, index) => {
     return (
@@ -61,24 +74,12 @@ export default function HomePage({
           setAlreadyHovered(true);
           setActiveIndex(index);
         }}
+        change={secondTapped}
         alreadyHovered={alreadyHovered}
         signature={getSignature(featuredStory.story.data.author_info.id)}
       />
     );
   };
-
-  const fadeInAnimation = useSpring(fadeIn);
-
-  const [faded, setFade] = useState(false);
-  setTimeout(() => setFade(true), 3000);
-
-  useEffect(() => {
-    const id = setTimeout(
-      () => setActiveIndex((activeIndex + 1) % featuredStories.length),
-      PREVIEW_CHANGE_IN_MILLISECONDS,
-    );
-    return () => clearTimeout(id);
-  }, [activeIndex]);
 
   return (
     <>
@@ -105,7 +106,7 @@ export default function HomePage({
         {!alreadyHovered && (
           <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
-            <FeaturedStoryPreviews>
+            <FeaturedStoryPreviews onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}>
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerLarge>
@@ -139,7 +140,7 @@ export default function HomePage({
             </FeaturedStoryPreviews>
           ))}
         {alreadyHovered && (
-          <FeaturedStoryPreviews alreadyHovered>
+          <FeaturedStoryPreviews alreadyHovered               onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>
         )}
