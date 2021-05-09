@@ -73,7 +73,7 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
           <P>{renderRichText(camarynText)}</P>
           <br />
           <H4>{getString(resourcesTitle).toUpperCase()}</H4>
-          <P>{renderRichText(resourcesDescription)}</P>
+          <P>{getString(resourcesDescription)}</P>
           <br />
           <ResourceButtonsWrapper>
             {resourceData.map((r) => (
