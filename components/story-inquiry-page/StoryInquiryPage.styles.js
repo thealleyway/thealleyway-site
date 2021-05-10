@@ -61,15 +61,6 @@ const TopSparkArrowContainer = styled.div`
   }
 `;
 
-const BottomSparkArrowContainer = styled.div`
-  position: absolute;
-  display: none;
-  @media ${min.desktop} {
-    display: block;
-    margin: -25.3em 0 0 10.9em;
-  }
-`;
-
 const SquiggleWavy = styled.img`
   position: absolute;
   width: 8.7em;
@@ -149,7 +140,6 @@ export {
   LongLinesFlippedDesktop,
   LongLinesContainer,
   TopSparkArrowContainer,
-  BottomSparkArrowContainer,
   SideImage,
   SideImageContainer,
   QuoteCarouselContainer,

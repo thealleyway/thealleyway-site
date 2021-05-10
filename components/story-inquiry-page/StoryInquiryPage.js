@@ -13,7 +13,6 @@ import {
   LongLinesFlippedTablet,
   LongLinesContainer,
   TopSparkArrowContainer,
-  BottomSparkArrowContainer,
   SideImageContainer,
   SideImage,
   QuoteCarouselContainer,
@@ -174,13 +173,10 @@ export default function StoryInquiryPage({
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
       />
-      <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
-      <BottomSparkArrowContainer>
-        <LongSparkArrow
-          arrowText={sparkArrowAuthorTestimoniesText}
-          scrollTo="author testimonies"
-        />
-      </BottomSparkArrowContainer>
+      <StoryConceptFaq
+        storyConceptFaqData={storyConceptFaqData}
+        sparkArrowAuthorTestimoniesText={sparkArrowAuthorTestimoniesText}
+      />
       <ScrollToAuthorTestimonies id="author testimonies" />
       <QuoteCarouselContainer>
         <QuoteCarousel

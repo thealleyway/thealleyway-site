@@ -15,6 +15,15 @@ const FaqContainer = styled.div`
   }
 `;
 
+const SparkArrowContainer = styled.div`
+  position: absolute;
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    margin: 11.3em 0 0 10.9em;
+  }
+`;
+
 const QuestionAnswerContainer = styled.div`
   @media ${min.tablet} {
     display: flex;
@@ -50,4 +59,5 @@ export {
   QuestionContainer,
   AnswerContainer,
   ScrollToFaq,
+  SparkArrowContainer,
 };
