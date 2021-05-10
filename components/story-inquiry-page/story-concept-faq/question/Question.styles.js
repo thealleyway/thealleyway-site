@@ -29,6 +29,7 @@ const ShortArrow = styled.img`
 `;
 
 const QuestionAnswerContainer = styled.div`
+  cursor: pointer;
   padding-bottom: 1em;
   @media ${min.tablet} {
     padding-bottom: 0;

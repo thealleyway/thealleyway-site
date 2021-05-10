@@ -43,12 +43,14 @@ const InputFieldWrapper = styled.div`
 `;
 
 const AddIcon = styled.img`
+  cursor: pointer;
   margin: -2em 0 0 0;
   width: 1.8em;
   float: right;
 `;
 
 const DeleteIcon = styled.img`
+  cursor: pointer;
   margin: -2.3em -0.32em 0 0;
   width: 2.5em;
   float: right;

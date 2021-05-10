@@ -5,21 +5,18 @@ import { fontWeights } from '../../style/typography';
 import { min } from '../../lib/responsive';
 
 const Button = styled.button`
+  cursor: pointer;
   background-color: ${colors.OLIVE};
   color: ${colors.WHITE};
   border: none;
-  width: ${(props) =>
-    props.long ? `17em` : `10em`};
+  width: ${(props) => (props.long ? `17em` : `10em`)};
   height: 4em;
   @media ${min.tablet} {
-    width: ${(props) =>
-    props.long ? `16em` : `13em`};
+    width: ${(props) => (props.long ? `16em` : `13em`)};
   }
   @media ${min.desktop} {
-    width: ${(props) =>
-    props.long ? `18em` : `9.5em`};
-      height: ${(props) =>
-    props.long ? `3.4em` : `3.8em`};
+    width: ${(props) => (props.long ? `18em` : `9.5em`)};
+    height: ${(props) => (props.long ? `3.4em` : `3.8em`)};
   }
 `;
 
