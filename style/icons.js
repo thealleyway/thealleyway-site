@@ -34,8 +34,6 @@ const icons = {
   TWITTER_ICON: '/assets/twitter.svg',
   INSTAGRAM_ICON: '/assets/instagram.svg',
   DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
-  SHARE_STORY: '/assets/share-story.svg',
-  SHARE_STORY_HOVER: '/assets/share-story-hover.svg',
   SHARE_STORY_LINE: '/assets/share-story-line.svg',
 };
 

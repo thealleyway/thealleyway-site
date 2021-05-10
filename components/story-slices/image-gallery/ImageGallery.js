@@ -18,7 +18,7 @@ function GalleryItem({ item }) {
   return (
     <>
       <img
-        style={{ width: '500px' }}
+        style={{ width: '200px' }}
         src={galleryImage.url}
         alt={galleryImage.alt}
       />
