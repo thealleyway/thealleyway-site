@@ -8,7 +8,6 @@ import {
   StoryConceptContainer,
   SocialInformationContainer,
   InputFieldWrapper,
-  AuthorInformationContainer,
   AuthorSignatureContainer,
   Description,
   ResourceLinksContainer,
@@ -34,6 +33,7 @@ import { Overlay } from '../../base-components/BaseComponents';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
 import useResizeObserver from 'use-resize-observer';
+import AuthorInformation from './author-information/AuthorInformation';
 
 const axios = require('axios');
 
@@ -131,47 +131,12 @@ export default function StoryInquiryForm({
     <>
       <ScrollToSubmissionForm id="submission form" />
       <StoryInquiryFormContainer>
-        <AuthorInformationContainer>
-          <H4>{getString(authorInformationSubtitle)}</H4>
-          <InputFieldWrapper>
-            <TextInputField
-              id="firstName"
-              label="First Name"
-              required
-              showError={errors[fieldNames.FIRST_NAME]}
-              value={
-                fields[fieldNames.FIRST_NAME]
-                  ? fields[fieldNames.FIRST_NAME]
-                  : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, FIRST_NAME: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="lastName"
-              label="Last Name"
-              value={
-                fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, LAST_NAME: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="email"
-              label="Email"
-              required
-              showError={errors[fieldNames.EMAIL]}
-              value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
-              onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
-            />
-          </InputFieldWrapper>
-        </AuthorInformationContainer>
+        <AuthorInformation
+          authorInformationSubtitle={authorInformationSubtitle}
+          fields={fields}
+          errors={errors}
+          setFields={setFields}
+        />
         <AuthorSignatureContainer>
           <H4>{getString(authorSignatureSubtitle)}</H4>
           <Description>{getString(authorSignatureDescription)}</Description>

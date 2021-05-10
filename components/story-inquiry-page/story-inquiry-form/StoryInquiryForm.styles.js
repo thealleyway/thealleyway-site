@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
 import { P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
 const StoryInquiryFormContainer = styled.div`
   padding-top: 3em;
@@ -29,7 +30,7 @@ const StoryConceptInfoTextWrapper = styled.div`
   }
 `;
 
-const AuthorInformationContainer = styled.div`
+const AuthorInformationContainer = styled(motion.div)`
   padding-bottom: 2.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
@@ -128,6 +129,10 @@ const ScrollToSubmissionForm = styled.div`
   margin-top: -3em;
 `;
 
+const PlaceHolder = styled.div`
+  height: 500em;
+`;
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -146,4 +151,5 @@ export {
   SocialInfoTextWrapper,
   ErrorText,
   ScrollToSubmissionForm,
+  PlaceHolder,
 };
