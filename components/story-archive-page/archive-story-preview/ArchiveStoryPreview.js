@@ -31,20 +31,22 @@ export default function ArchiveStoryPreview({ story, signature }) {
   );
 
   return (
-    <StoryPreviewContainer>
-      <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
-      <PageLink href={storyUrl}>
+    <PageLink href={storyUrl}>
+      <StoryPreviewContainer>
+        <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
         <StoryPreviewHover>
           <DateArrowWrapper>
             <DateWrapper>{formattedDate}</DateWrapper>
             <StoryPreviewArrow src={icons.FILLED_MEDIUM_ARROW_WHITE} />
           </DateArrowWrapper>
           {!isTabletOrMobile && (
-            <StoryPreviewSignature src={signature.url} alt={signature.alt} />
+            <PageLink href={storyUrl}>
+              <StoryPreviewSignature src={signature.url} alt={signature.alt} />
+            </PageLink>
           )}
         </StoryPreviewHover>
-      </PageLink>
-      <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
-    </StoryPreviewContainer>
+        <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
+      </StoryPreviewContainer>
+    </PageLink>
   );
 }
