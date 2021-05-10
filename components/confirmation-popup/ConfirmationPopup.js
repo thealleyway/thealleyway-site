@@ -36,7 +36,7 @@ export default function ConfirmationPopup({
 
   return (
     <>
-      <PopupBox>
+      <PopupBox page={page}>
         <Box page={page}>
           <TextContent page={page}>
             <H2Styled page={page}>
@@ -44,7 +44,7 @@ export default function ConfirmationPopup({
               {name != undefined && firstName + ', '}
               {getString(confirmationTitleRegular)}
             </H2Styled>
-            <PStyled>{getString(confirmationDescription)}</PStyled>
+            <PStyled page={page}>{getString(confirmationDescription)}</PStyled>
           </TextContent>
           <ImgBackground
             src={confirmationImage.url}
@@ -58,7 +58,6 @@ export default function ConfirmationPopup({
             src={icons.CLOSE_ICON}
             alt="Close icon symbol used to close popup"
             onClick={() => {
-              document.body.style.overflow = 'visible';
               togglePopup(false);
             }}
           />

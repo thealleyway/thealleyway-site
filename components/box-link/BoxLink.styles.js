@@ -3,6 +3,7 @@ import { P } from '../../style/typography';
 import { colors } from '../../style/colors';
 import { fontWeights } from '../../style/typography';
 import { min } from '../../lib/responsive';
+import { animated } from 'react-spring';
 
 const BoxLinkContainer = styled.div`
   position: relative;
@@ -38,17 +39,23 @@ const Ellipse = styled.img`
   }
 `;
 
-const MediumArrow = styled.img`
-  height: 3.8em;
-  margin: 0.5em 0 0 9.7em;
-  padding-bottom: 1.5em;
+const MediumArrowContainer = styled.div`
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    height: 3.8em;
+    margin: 0.5em 0 0 9.7em;
+    padding-bottom: 1.5em;
+  }
+`;
 
+const MediumArrow = styled(animated.img)`
   &:hover {
     cursor: pointer;
   }
 `;
 
-const LongArrow = styled.img`
+const LongArrowContainer = styled.div`
   width: 8em;
   height: 3em;
   margin: 0 0 0 6.2em;
@@ -56,7 +63,12 @@ const LongArrow = styled.img`
     height: 4em;
     margin: 0 0 0 8em;
   }
+  @media ${min.desktop} {
+    display: none;
+  }
 `;
+
+const LongArrow = styled(animated.img)``;
 
 const Title = styled(P)`
   color: ${colors.BROWN};
@@ -90,4 +102,6 @@ export {
   Description,
   MediumArrow,
   LongArrow,
+  MediumArrowContainer,
+  LongArrowContainer,
 };

@@ -4,19 +4,20 @@ import Footer from '../footer/Footer';
 import H1Styled from '../h1-styled/H1Styled';
 import PageDescription from '../page-description/PageDescription';
 import AboutFounder from './about-founder/AboutFounder';
-// import AboutValue from './value/AboutValue';
 import {
   HeaderandSquiggleContainer,
   SquiggleUnderline,
 } from './AboutPage.style';
 import { icons } from '../../style/icons';
+import { useSpring } from 'react-spring';
+import { header } from '../../style/animations';
 
 export default function AboutPage({
   aboutPageData,
   navigationData,
   boxLinkDataFooter,
   footerData,
-  valuesData,
+  //valuesData,
   mainResourcesData,
 }) {
   const {
@@ -84,11 +85,12 @@ export default function AboutPage({
   };
 
   const scrollTo = 'about-founder';
+  const headerAnimation = useSpring(header);
 
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <HeaderandSquiggleContainer>
+      <HeaderandSquiggleContainer style={headerAnimation}>
         <H1Styled
           regular={aboutPageTitleRegular}
           italicized={aboutPageTitleItalic}

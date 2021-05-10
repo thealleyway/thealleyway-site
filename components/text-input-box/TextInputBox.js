@@ -3,8 +3,8 @@ import {
   InputBoxLabel,
   StarLabelContainer,
   ErrorText,
-  RedStar,
 } from './TextInputBox.styles';
+import { RedStar } from '../base-components/BaseComponents';
 import { icons } from '../../style/icons';
 
 export default function TextInputBox({

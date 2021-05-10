@@ -23,6 +23,27 @@ export default function Navigation({ navigationData }) {
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
 
+  const currentPage = () => {
+    if (typeof window === 'object') {
+      const splitUrl = window.location.href.split('/');
+      return splitUrl.includes('archive')
+        ? 'archive'
+        : splitUrl[splitUrl.length - 1] || 'home';
+    } else {
+      return '';
+    }
+  };
+
+  const getNavigationLinks = () => {
+    return navigationLinks.map((navigationLink, index) => (
+      <NavigationLink
+        key={index}
+        navigationLink={navigationLink}
+        onPage={currentPage() == navigationLink.link.uid}
+      />
+    ));
+  };
+
   return (
     <>
       <NavigationWrapper>
@@ -34,24 +55,17 @@ export default function Navigation({ navigationData }) {
             <HamburgerImage
               src={icons.HAMBURGER}
               onClick={() => {
-                document.body.style.overflow = 'hidden';
                 setIsHamburgerOpen(true);
               }}
             />
             {isHamburgerOpen && (
               <HamburgerMenu>
                 <HamburgerMenuContent>
-                  {navigationLinks.map((navigationLink, index) => (
-                    <NavigationLink
-                      key={index}
-                      navigationLink={navigationLink}
-                    />
-                  ))}
+                  {getNavigationLinks()}
                 </HamburgerMenuContent>
                 <CloseXImage
                   src={icons.CLOSE_ICON}
                   onClick={() => {
-                    document.body.style.overflow = 'visible';
                     setIsHamburgerOpen(false);
                   }}
                 />
@@ -61,9 +75,7 @@ export default function Navigation({ navigationData }) {
           </>
         ) : (
           <NavigationLinksWrapper>
-            {navigationLinks.map((navigationLink, index) => (
-              <NavigationLink key={index} navigationLink={navigationLink} />
-            ))}
+            {getNavigationLinks()}
           </NavigationLinksWrapper>
         )}
       </NavigationWrapper>
@@ -71,13 +83,13 @@ export default function Navigation({ navigationData }) {
   );
 }
 
-function NavigationLink({ navigationLink }) {
+function NavigationLink({ navigationLink, onPage }) {
   const { link_name: linkName, link } = navigationLink;
 
   switch (link.link_type) {
     case 'Document':
       return (
-        <LinkWrapper>
+        <LinkWrapper onPage={onPage}>
           <PageLink href={link.uid === 'home' ? '/' : `/${link.uid}`}>
             {getString(linkName)}
           </PageLink>

@@ -50,7 +50,6 @@ export default function NewsletterSignUp({
           <PrivacyPolicyLinkText>
             <InputInfoText
               onClick={() => {
-                document.body.style.overflow = 'hidden';
                 setIsPrivacyPolicyOpen(true);
               }}
             >
@@ -69,7 +68,6 @@ export default function NewsletterSignUp({
           <ArchModal
             text={privacyPolicyText}
             onClose={() => {
-              document.body.style.overflow = 'visible';
               setIsPrivacyPolicyOpen(false);
             }}
           />

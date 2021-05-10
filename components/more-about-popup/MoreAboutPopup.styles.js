@@ -45,6 +45,7 @@ const PopupBox = styled.div`
   z-index: 15;
   font-size: 0.9em;
   top: 15%;
+  left: 0;
   @media ${min.tablet} {
     top: 20%;
   }

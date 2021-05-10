@@ -16,6 +16,8 @@ import {
 import H1Styled from '../h1-styled/H1Styled';
 import PageDescription from '../page-description/PageDescription';
 import { icons } from '../../style/icons';
+import { useSpring } from 'react-spring';
+import { header } from '../../style/animations';
 
 const ALPHA = 'alpha';
 const DATE = 'date';
@@ -56,11 +58,12 @@ export default function StoryArchivePage({
   });
 
   const scrollTo = 'archive';
+  const headerAnimation = useSpring(header);
 
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <HeaderandSquiggleContainer>
+      <HeaderandSquiggleContainer style={headerAnimation}>
         <H1Styled
           regular={archiveTitleRegular}
           italicized={archiveTitleItalic}

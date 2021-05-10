@@ -1,6 +1,7 @@
 import React from 'react';
 import TextSection from '../text-section/TextSection';
 import ImageGallery from '../image-gallery/ImageGallery';
+import FullSizeImageSlice from '../full-size-image-slice/FullSizeImageSlice';
 
 export default function SliceZone({ sliceZone }) {
   return (
@@ -10,6 +11,8 @@ export default function SliceZone({ sliceZone }) {
         switch (sliceType) {
           case 'text':
             return <TextSection {...primary} key={`slice-${index}`} />;
+          case 'full_size_image':
+            return <FullSizeImageSlice {...primary} />;
           case 'image_gallery':
             return <ImageGallery images={items} key={`slice-${index}`} />;
           default:
