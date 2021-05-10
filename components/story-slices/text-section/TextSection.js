@@ -1,11 +1,19 @@
 import React from 'react';
 import { renderRichText } from '../../../lib/richText';
+import { P } from '../../../style/typography';
+import { TextSectionWrapper } from './TextSection.styles';
 
-export default function TextSection({ text }) {
+export default function TextSection({
+  vertical_alignment,
+  horizontal_alignment,
+  text,
+}) {
   return (
-    <>
-      <h3>Text Section: </h3>
-      {renderRichText(text)}
-    </>
+    <TextSectionWrapper
+      verticalAlignment={vertical_alignment}
+      horizontalAlignment={horizontal_alignment}
+    >
+      <P>{renderRichText(text)}</P>
+    </TextSectionWrapper>
   );
 }
