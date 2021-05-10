@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
 import { motion } from 'framer-motion';
 
-const ContactFormContainer = styled.div`
+const ContactFormContainer = styled(motion.div)`
   padding-top: 6em;
   width: 70%;
   @media ${min.tablet} {

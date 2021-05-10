@@ -40,6 +40,7 @@ export default function ConfirmationPopup({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: 'spring', duration: 1 }}
+        page={page}
       >
         <Box page={page}>
           <TextContent page={page}>
@@ -48,7 +49,7 @@ export default function ConfirmationPopup({
               {name != undefined && firstName + ', '}
               {getString(confirmationTitleRegular)}
             </H2Styled>
-            <PStyled>{getString(confirmationDescription)}</PStyled>
+            <PStyled page={page}>{getString(confirmationDescription)}</PStyled>
           </TextContent>
           <ImgBackground
             src={confirmationImage.url}
