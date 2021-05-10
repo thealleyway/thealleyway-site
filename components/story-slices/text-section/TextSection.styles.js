@@ -4,19 +4,26 @@ import { max } from '../../../lib/responsive';
 export const TextSectionWrapper = styled.div`
   display: flex;
   align-items: ${(props) =>
-    props.alignment === 'top'
-      ? 'flex-start'
-      : props.alignment === 'center'
+    props.verticalAlignment === 'bottom'
+      ? 'flex-end'
+      : props.verticalAlignment === 'center'
       ? 'center'
-      : 'flex-end'};
+      : 'flex-start'};
   margin: 4em;
   width: 25em;
 
   @media ${max.tabletLg} {
-    width: 50%;
+    width: 40%;
+    align-self: ${(props) =>
+      props.horizontalAlignment === 'right'
+        ? 'flex-end'
+        : props.horizontalAlignment === 'center'
+        ? 'center'
+        : 'flex-start'};
   }
 
   @media ${max.tabletSm} {
     width: 65%;
+    align-self: center;
   }
 `;
