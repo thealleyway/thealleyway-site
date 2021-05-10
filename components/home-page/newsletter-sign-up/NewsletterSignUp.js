@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
-import { InputInfoText } from '../../../style/typography';
 import TextInputField from '../../text-input-field/TextInputField';
 import { Overlay } from '../../base-components/BaseComponents';
 import {
@@ -85,14 +84,12 @@ export default function NewsletterSignUp({
             value={fields['email'] ? fields['email'] : ''}
             onChange={(e) => setFields({ ...fields, email: e.target.value })}
           />
-          <PrivacyPolicyLinkText>
-            <InputInfoText
-              onClick={() => {
-                setIsPrivacyPolicyOpen(true);
-              }}
-            >
-              {getString(privacyPolicyLinkTitle)}
-            </InputInfoText>
+          <PrivacyPolicyLinkText
+            onClick={() => {
+              setIsPrivacyPolicyOpen(true);
+            }}
+          >
+            {getString(privacyPolicyLinkTitle)}
           </PrivacyPolicyLinkText>
           <SubmitButton
             color={colors.WHITE}
