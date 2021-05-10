@@ -68,10 +68,6 @@ const BackToStartButtonContainer = styled.div`
   justify-content: center;
   padding-top: 1em;
   padding-bottom: 4em;
-
-  @media only screen and ${max.tabletLg} {
-    padding-bottom: 8em;
-  }
 `;
 
 export {

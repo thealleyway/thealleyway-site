@@ -3,6 +3,7 @@ import { icons } from '../../../../style/icons';
 import {
   AdditionalInfo,
   AuthorInfoWrapper,
+  AuthorTextWrapper,
   AuthorName,
   DonateLink,
   DonateCircularText,
@@ -23,7 +24,7 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
       <DonateLink href={donateLink.url} target="_blank" rel="noreferrer">
         <DonateCircularText src={icons.DONATE_CIRCULAR_TEXT} />
       </DonateLink>
-      <div>
+      <AuthorTextWrapper>
         <AuthorName>{getString(author_name)}</AuthorName>
         <AdditionalInfo>{getString(title)}</AdditionalInfo>
         <AdditionalInfo>{getString(additional_information)}</AdditionalInfo>
@@ -33,7 +34,7 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
         <SocialMediaLink href={twitter.url} target="_blank" rel="noreferrer">
           <SocialMediaIcon src={icons.TWITTER_ICON} />
         </SocialMediaLink>
-      </div>
+      </AuthorTextWrapper>
     </AuthorInfoWrapper>
   );
 }

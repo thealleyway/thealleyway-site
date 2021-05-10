@@ -22,8 +22,10 @@ export const HeroLeftWrapper = styled.div`
   align-items: center;
   margin-right: 2em;
   margin-left: 5em;
+  width: max(15em, 28vw);
 
   @media ${max.tabletLg} {
+    margin-top: 3em;
     margin-left: 1em;
   }
 `;
@@ -35,12 +37,13 @@ export const PrimaryImage1 = styled.img`
   object-fit: cover;
 
   @media ${max.tabletLg} {
-    width: 28vw;
+    width: max(15em, 28vw);
     height: max(35vh, 22em);
   }
 `;
 
 export const SignatureImage = styled.img`
+  filter: invert(1);
   width: 40%;
   height: auto;
   object-fit: cover;
@@ -51,10 +54,9 @@ export const SignatureImage = styled.img`
     width: 20vw;
   }
 
-  @media ${max.tabletSm} {
-    padding-top: 4em;
+  @media ${max.tablet} {
     width: auto;
-    height: 15vh;
+    height: 8vh;
   }
 `;
 
@@ -65,6 +67,7 @@ export const HeroRightWrapper = styled.div`
   flex-direction: column;
 
   @media ${max.tabletLg} {
+    margin-top: 3em;
     width: 70%;
   }
 `;
@@ -94,7 +97,8 @@ export const StoryTitle = styled(H1)`
   word-wrap: break-word;
   hyphens: auto;
 
-  @media ${max.tabletSm} {
+  @media ${max.tablet} {
+    padding-bottom: 1em;
     font-size: 1.8em;
   }
 `;
@@ -134,7 +138,7 @@ export const MobileHeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4em;
+  padding-top: 5em;
   padding-bottom: 4em;
 `;
 
@@ -151,7 +155,7 @@ export const MobileHeroImage = styled.img`
   top: 0;
   left: 25%;
   width: 100%;
-  max-height: calc(100% + 4em);
+  height: 100%;
   overflow: hidden;
   object-fit: cover;
 `;

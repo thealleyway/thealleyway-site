@@ -28,6 +28,7 @@ const ButtonText = styled(P)`
     letter-spacing: 0.2em;
   }
   width: ${(props) => props.showHorizontal && '12em'};
+  padding-left: ${(props) => props.showHorizontal && '1em'};
 `;
 
 export { Button, ButtonText, ButtonImage };
