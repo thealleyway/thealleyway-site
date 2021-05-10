@@ -48,12 +48,9 @@ export default function HomePage({
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
   const getSignature = (authorInfoID) => authorSignatures[String(authorInfoID)];
   const [activeIndex, setActiveIndex] = useState(0);
-  const [alreadyHovered, setAlreadyHovered] = useState(false);
-  const [firstTapped, setFirstTapped]  = useState(false);
-  const [secondTapped, setSecondTapped]  = useState(false);
   const fadeInAnimation = useSpring(fadeIn);
   const [faded, setFade] = useState(false);
-  
+
   setTimeout(() => setFade(true), 3000);
 
   useEffect(() => {
@@ -71,14 +68,8 @@ export default function HomePage({
         featuredStory={featuredStory.story}
         key={featuredStory.story.id}
         onHover={() => {
-          setAlreadyHovered(true);
           setActiveIndex(index);
         }}
-        onClick={() => {
-          setSecondTapped(true); 
-        }}
-        change={secondTapped}
-        alreadyHovered={alreadyHovered}
         signature={getSignature(featuredStory.story.data.author_info.id)}
       />
     );
@@ -86,13 +77,9 @@ export default function HomePage({
 
   return (
     <>
-      {alreadyHovered && <Navigation navigationData={navigationData} fade={!isMobile} />}
-      {alreadyHovered ||
-        (faded && isMobile && (
-          <Navigation navigationData={navigationData} fade />
-        ))}
+      {faded && <Navigation navigationData={navigationData} fade />}
       <HomePageContentWrapper>
-        {alreadyHovered && (
+        {(faded && !isMobile) &&
           <CurrentFeaturedStory
             featuredStory={
               featuredStories[Number.parseInt(activeIndex)].story.data
@@ -101,24 +88,14 @@ export default function HomePage({
               featuredStories[Number.parseInt(activeIndex)].story.data
                 .author_info.id,
             )}
-            url={`/story/${
-              featuredStories[Number.parseInt(activeIndex)].story.uid
-            }`}
-          />
-        )}
-        {!alreadyHovered && (
+            url={`/story/${featuredStories[Number.parseInt(activeIndex)].story.uid
+              }`}
+          />}
+        {(!faded && !isMobile) &&
           <HomePageIntroContainerLarge style={fadeInAnimation}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
-            <FeaturedStoryPreviews onTap={() => firstTapped ? setSecondTapped(true) : setFirstTapped(true)}
-                                          onClick={() => {
-                                            setSecondTapped(true); 
-                                          }}
-                >
-              {featuredStories.map(mapFeaturedStories)}
-            </FeaturedStoryPreviews>
-          </HomePageIntroContainerLarge>
-        )}
-        {!alreadyHovered && !faded && (
+          </HomePageIntroContainerLarge>}
+        {isMobile && !faded && (
           <HomePageIntroContainerSmall>
             <AlleywayEmblem
               src={icons.LARGE_ALLEYWAY_EMBLEM}
@@ -131,73 +108,32 @@ export default function HomePage({
               animate={{ opacity: 1, y: -420 }}
               transition={{ type: 'spring', duration: 5, delay: 1 }}
               onClick={() => {
-                setSecondTapped(true); 
+                setSecondTapped(true);
               }}
             >
               {featuredStories.map(mapFeaturedStories)}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerSmall>
         )}
-        {alreadyHovered ||
-          (faded && isMobile) && (
-            <FeaturedStoryPreviews
-              alreadyHovered
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ type: 'spring', duration: 4 }}
-              onClick={() => {
-                setSecondTapped(true); 
-              }}
-              onTap={() => 
-                {
-                  if (firstTapped && !isMobile) {
-                    setSecondTapped(true);
-                  }
-                  else if (!firstTapped && isMobile) {
-                    setSecondTapped(true);
-                  }
-                  else if (!firstTapped && !isMobile) {
-                    setFirstTapped(true);
-                  }
-                }}
-            >
-              {featuredStories.map(mapFeaturedStories)}
-            </FeaturedStoryPreviews>
-          )}
-        {alreadyHovered && (
-          <FeaturedStoryPreviews alreadyHovered               
-          onTap={() => 
-            {
-              if (firstTapped && !isMobile) {
-                setSecondTapped(true);
-              }
-              else if (!firstTapped && isMobile) {
-                setSecondTapped(true);
-              }
-              else if (!firstTapped && !isMobile) {
-                setFirstTapped(true);
-              }
-            }}
-            onClick={() => {
-              setSecondTapped(true); 
-            }}
-            >
+        {(isMobile && faded) &&
+          <FeaturedStoryPreviews alreadyHovered>
             {featuredStories.map(mapFeaturedStories)}
-          </FeaturedStoryPreviews>
-        )}
-        {(alreadyHovered ||
-          (faded && isMobile) || firstTapped) && (
+          </FeaturedStoryPreviews>}
+        {!isMobile &&
+          <FeaturedStoryPreviews alreadyHovered>
+            {featuredStories.map(mapFeaturedStories)}
+          </FeaturedStoryPreviews>}
+        {faded && (
           <NewsletterSignUp
             description={newsletterDescription}
             newsletterConfirmationData={newsletterConfirmationData}
             privacyPolicyLinkTitle={privacyPolicyLinkTitle}
             privacyPolicyText={privacyPolicyText}
             title={newsletterSignup}
-          />
-        )}
+          />)
+        }
       </HomePageContentWrapper>
-      {(alreadyHovered ||
-          (faded && isMobile) || firstTapped) && <Footer footerData={footerData} />}
+      {faded && <Footer footerData={footerData} />}
     </>
   );
 }

@@ -53,7 +53,7 @@ export const HomePageContentWrapper = styled.div`
 export const FeaturedStoryPreviews = styled(motion.div)`
   display: flex;
   justify-content: space-between;
-  width: ${(props) => (props.alreadyHovered ? ` 95%` : `100%`)};
+  width: 95%;
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-top: 0px;

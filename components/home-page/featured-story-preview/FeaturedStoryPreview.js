@@ -16,7 +16,6 @@ export default function FeaturedStoryPreview({
   featuredStory,
   onClick,
   onHover,
-  change,
   signature,
 }) {
   const { data, uid } = featuredStory;
@@ -29,7 +28,7 @@ export default function FeaturedStoryPreview({
   } = data;
 
   return (
-    <PageLink href={change ? `/story/${uid}` : '/'} passHref>
+    <PageLink href={`/story/${uid}`} passHref>
       <FeaturedStoryPreviewWrapper
         onMouseOver={onHover}
         onClick={onClick}
