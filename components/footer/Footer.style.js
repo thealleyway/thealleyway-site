@@ -3,7 +3,7 @@ import { colors } from '../../style/colors';
 import { max } from '../../lib/responsive';
 
 const FooterContainer = styled.div`
-  margin-top: ${(props) => (props.topMargin ? '10em' : '0')};
+  margin-top: ${(props) => (props.topMargin ? '8em' : '0')};
   width: 100%;
   bottom: 0;
   right: 0;

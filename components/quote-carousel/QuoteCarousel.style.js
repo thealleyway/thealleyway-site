@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { max } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
@@ -14,6 +14,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: -2em;
+
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
@@ -21,9 +22,11 @@ const ContentWrapper = styled.div`
     margin-bottom: 0;
     padding-left: 7vw;
   }
+
   @media ${max.tabletSm} {
     padding-left: 0;
   }
+
   @media ${max.tablet} {
     height: 35em;
   }
@@ -32,6 +35,7 @@ const ContentWrapper = styled.div`
 const TextWrapper = styled.div`
   width: 19em;
   margin-top: ${(props) => (props.isAuthorTestimonies ? '-4em' : '0')};
+
   @media ${max.tabletLg} {
     margin-bottom: ${(props) => (props.isAuthorTestimonies ? '-2em' : '2em')};
     margin-left: ${(props) => (props.isAuthorTestimonies ? '-2em' : '0')};
@@ -66,15 +70,18 @@ const QuoteWrapper = styled(H3)`
     props.isAuthorTestimonies
       ? 'clamp(1.2em, 3vw, 1.3em)'
       : 'clamp(1.4em, 6vw, 1.8em)'};
+
   @media ${min.tabletSm} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0.5em')};
   }
+
   @media ${min.tablet} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.5em' : '0.5em')};
     padding-bottom: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0')};
     font-size: ${(props) =>
       props.isAuthorTestimonies ? '1.4em' : 'clamp(1.4em, 6vw, 1.8em)'};
   }
+
   @media ${min.desktop} {
     margin-top: ${(props) => (props.isAuthorTestimonies ? '-.65em' : '0')};
     font-size: ${(props) =>
@@ -95,6 +102,7 @@ const AuthorsContainer = styled.div`
   width: 100%;
   margin: -1.3em 0 0 0;
   padding-right: 1em;
+
   @media ${min.desktop} {
     margin: 0;
     padding: 0;
@@ -129,14 +137,15 @@ const CarouselContainer = styled.div`
   padding: 0;
   width: 30em;
   height: 30em;
-
   display: flex;
   flex: 100%;
   justify-content: center;
   align-items: center;
+
   @media ${min.tabletSm} {
     margin-top: ${(props) => (props.isAuthorTestimonies ? '-8em' : '0')};
   }
+
   @media ${max.tabletLg} {
     margin-left: -20em;
   }

@@ -70,14 +70,16 @@ export default function QuoteCarousel({
               >
                 {quotes[Number.parseInt(activeIndex)]}
               </QuoteWrapper>
-              <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
-                <AuthorsWrapper
-                  key={Number.parseInt(activeIndex)}
-                  fadeIn={fadeIn}
-                >
-                  - {authors[Number.parseInt(activeIndex)]}
-                </AuthorsWrapper>
-              </AuthorsContainer>
+              {isAuthorTestimonies && (
+                <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
+                  <AuthorsWrapper
+                    key={Number.parseInt(activeIndex)}
+                    fadeIn={fadeIn}
+                  >
+                    - {authors[Number.parseInt(activeIndex)]}
+                  </AuthorsWrapper>
+                </AuthorsContainer>
+              )}
             </QuoteContainer>
           </ImageArchContentWrapper>
         </ImageArchWrapper>
