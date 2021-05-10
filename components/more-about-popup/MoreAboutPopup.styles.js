@@ -86,7 +86,7 @@ const Box = styled.div`
     width: 25em;
   }
   @media ${min.desktopLg} {
-    top: 22%;
+    top: 15%;
   }
 `;
 

@@ -1,16 +1,32 @@
 import { H2, H3, InputInfoText } from '../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
-import { max } from '../../../lib/responsive';
+import { min, max } from '../../../lib/responsive';
+
+const ScrollToMeetFounder = styled.div`
+  position: absolute;
+  margin: 1em;
+`;
 
 const MeetFounderContainer = styled.div`
-  margin-top: 10em;
+  height: auto;
   overflow: hidden;
-  padding-bottom: 5em;
-  padding-top: 3em;
+  padding-bottom: 9.5em;
 
   @media ${max.tabletLg} {
-    margin-top: 2em;
+    padding-bottom: 12em;
+  }
+
+  @media ${max.tablet} {
+    margin-top: 5em;
+  }
+
+  @media ${min.tabletSm} {
+    margin-top: 6em;
+  }
+
+  @media ${min.desktop} {
+    margin-top: 9em;
   }
 `;
 
@@ -71,20 +87,25 @@ const MoreResourcesTitleWrapper = styled.div`
   }
 `;
 
-const AboutImageLeft = styled.img`
+const AboutImageLeftDesktop = styled.img`
   height: 47em;
-  margin-right: 2em;
-  width: clamp(21em, 28vw, 26em);
-  position: relative;
-  left: 0;
+  width: 30%;
+  padding-right: 2em;
   opacity: 10%;
   object-fit: cover;
+`;
 
-  @media ${max.tabletLg} {
-    order: 2;
-    width: 26em;
-    left: 60vw;
-    bottom: clamp(60em, 95vw, 65em);
+const AboutImageLeftTablet = styled.img`
+  right: 0;
+  position: absolute;
+  opacity: 10%;
+  object-fit: cover;
+  width: 40%;
+  height: 47em;
+  top: clamp(85em, 145vw, 90em);
+
+  @media ${max.tablet} {
+    top: min(240vw, 76em);
   }
 
   @media ${max.tabletSm} {
@@ -101,18 +122,19 @@ const AboutImageQuoteWrapper = styled.div`
     order: -1;
     margin: 0 auto;
     display: flex;
-    padding-top: 3em;
+    padding-top: 0;
     width: 50em;
     margin-bottom: clamp(3em, 13vw, 5em);
   }
 
   @media ${max.tablet} {
     width: 90%;
-    padding-top: 5em;
+    margin-bottom: 2em;
   }
 
   @media ${max.tabletSm} {
     width: 100%;
+    padding-top: 2em;
   }
 `;
 
@@ -169,32 +191,35 @@ const TopQuoteWrapper = styled(H3)`
 
   @media ${max.tabletLg} {
     top: 0;
-    left: clamp(2em, 8vw, 3em);
-    width: 8em;
-    margin-right: 5em;
+    width: 10em;
+    margin-right: 2em;
   }
 
   @media ${max.tablet} {
     left: -5vw;
-    width: clamp(7em, 40vw, 9em);
+    width: clamp(8em, 50vw, 10em);
     margin-right: 0;
     margin-left: calc(-1 * clamp(0.5em, 2vw, 1em));
   }
 
   @media ${max.tabletSm} {
     order: -1;
-    left: 1em;
+    left: 0.5em;
     width: 8em;
-    padding-right: 1.5em;
-    margin-right: -5em;
+    margin-right: -4em;
     margin-left: 0;
+    top: -1em;
   }
 `;
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 17em;
-  left: 13em;
+  bottom: 19em;
+  left: clamp(12em, 20.75vw, 17em);
+
+  @media ${min.desktop} {
+    left: 14em;
+  }
 
   @media ${max.tabletLg} {
     visibility: hidden;
@@ -202,6 +227,7 @@ const SparkArrowWrapper = styled.div`
 `;
 
 export {
+  ScrollToMeetFounder,
   MeetFounderContainer,
   MeetFounderWrapper,
   TextWrapper,
@@ -209,7 +235,8 @@ export {
   ResourceButtonsWrapper,
   MoreResourcesTitle,
   MoreResourcesTitleWrapper,
-  AboutImageLeft,
+  AboutImageLeftDesktop,
+  AboutImageLeftTablet,
   AboutImageQuoteWrapper,
   AboutImageRight,
   AboutImageRightOpacity,
