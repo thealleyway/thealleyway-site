@@ -1,4 +1,4 @@
-import { H2, H3, InputInfoText } from '../../../style/typography';
+import { H2, H3 } from '../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
 import { min, max } from '../../../lib/responsive';
@@ -72,11 +72,6 @@ const ResourceButtonsWrapper = styled.div`
   @media ${max.tabletSm} {
     margin: 0 -2em 0 -2em;
   }
-`;
-
-const MoreResourcesTitle = styled(InputInfoText)`
-  color: ${colors.BROWN};
-  text-decoration: underline;
 `;
 
 const MoreResourcesTitleWrapper = styled.div`
@@ -233,7 +228,6 @@ export {
   TextWrapper,
   H2Wrapper,
   ResourceButtonsWrapper,
-  MoreResourcesTitle,
   MoreResourcesTitleWrapper,
   AboutImageLeftDesktop,
   AboutImageLeftTablet,

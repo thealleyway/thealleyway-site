@@ -122,6 +122,7 @@ const DateArrowWrapper = styled.div`
 
 const DateWrapper = styled(P)`
   font-weight: ${fontWeights.bold};
+  letter-spacing: 0.1em;
 
   @media only screen and ${max.tablet} {
     font-weight: ${fontWeights.normal};

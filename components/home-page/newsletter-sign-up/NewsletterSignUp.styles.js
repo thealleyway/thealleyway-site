@@ -3,7 +3,6 @@ import { max } from '../../../lib/responsive';
 import { H2, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
 import { icons } from '../../../style/icons';
-import TextInputField from '../../text-input-field/TextInputField';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 
 export const NewsletterSignUpWrapper = styled.div`
@@ -46,10 +45,6 @@ export const NewsletterDescriptionText = styled(P)`
   margin-top: 0px;
 `;
 
-export const NewsletterSignUpTextInput = styled(TextInputField)`
-  margin-bottom: 20px;
-`;
-
 export const PrivacyPolicyLinkText = styled.div`
   margin: -5px 0;
 `;
@@ -65,12 +60,11 @@ export const SubmitButton = styled(P).attrs({
   margin-top: 10px;
   align-self: flex-end;
   font-weight: normal;
-  letter-spacing: 4px;
+  letter-spacing: 0.13em;
   cursor: pointer;
 
   @media ${max.tabletSm} {
     align-self: center;
     width: 50%;
-    letter-spacing: 2px;
   }
 `;

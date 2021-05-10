@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getString, renderRichText } from '../../../lib/richText';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
-import { H4, P } from '../../../style/typography';
+import { H4, P, InputInfoText } from '../../../style/typography';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
@@ -14,7 +14,6 @@ import {
   TextWrapper,
   H2Wrapper,
   ResourceButtonsWrapper,
-  MoreResourcesTitle,
   MoreResourcesTitleWrapper,
   AboutImageLeftDesktop,
   AboutImageLeftTablet,
@@ -76,7 +75,7 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
             <P>{renderRichText(camarynText)}</P>
             <br />
             <H4>{getString(resourcesTitle).toUpperCase()}</H4>
-            <P>{getString(resourcesDescription)}</P>
+            <P>{renderRichText(resourcesDescription)}</P>
             <br />
             <ResourceButtonsWrapper>
               {resourceData.map((r) => (
@@ -89,9 +88,7 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
               ))}
             </ResourceButtonsWrapper>
             <MoreResourcesTitleWrapper onClick={togglePopup}>
-              <MoreResourcesTitle>
-                {getString(moreResourcesTitle)}
-              </MoreResourcesTitle>
+              <InputInfoText>{getString(moreResourcesTitle)}</InputInfoText>
             </MoreResourcesTitleWrapper>
           </TextWrapper>
           <AboutImageQuoteWrapper>
