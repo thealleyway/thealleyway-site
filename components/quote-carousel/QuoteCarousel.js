@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { getString } from '../../lib/richText';
 import {
   ContentWrapper,
@@ -49,39 +49,64 @@ export default function QuoteCarousel({
       clearTimeout(fadeOut);
     };
   }, [activeIndex]);
+  const placeHolderRef = useRef(null);
+  const [show, setShow] = useState(false);
 
-  return (
-    <ContentWrapper>
-      <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
-        <TitleWrapper>{getString(title)}</TitleWrapper>
-        <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
-      </TextWrapper>
-      <CarouselContainer isAuthorTestimonies={isAuthorTestimonies}>
-        <ImageArchWrapper>
-          <ImageArchContentWrapper>
-            <ArchSpark src={icons.FILLED_SPARK_WHITE} />
-            <ArchImage url={quoteImage.url} />
-            <ArchOutline />
-            <QuoteContainer>
-              <QuoteWrapper
-                key={Number.parseInt(activeIndex)}
-                fadeIn={fadeIn}
-                isAuthorTestimonies={isAuthorTestimonies}
-              >
-                {quotes[Number.parseInt(activeIndex)]}
-              </QuoteWrapper>
-              <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
-                <AuthorsWrapper
+  useEffect(() => {
+    /**
+     * To Register Observer on the span.
+     */
+    registerObserver(placeHolderRef.current, setShow);
+  }, []);
+
+  const registerObserver = (ref, setShow) => {
+    const observer = new IntersectionObserver((enteries, observer) => {
+      enteries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        setShow(true);
+        observer.disconnect();
+      });
+    });
+    observer.observe(ref);
+  };
+
+  if (show) {
+    return (
+      <ContentWrapper initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 5}}>
+        <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
+          <TitleWrapper>{getString(title)}</TitleWrapper>
+          <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
+        </TextWrapper>
+        <CarouselContainer isAuthorTestimonies={isAuthorTestimonies}>
+          <ImageArchWrapper>
+            <ImageArchContentWrapper>
+              <ArchSpark src={icons.FILLED_SPARK_WHITE} />
+              <ArchImage url={quoteImage.url} />
+              <ArchOutline />
+              <QuoteContainer>
+                <QuoteWrapper
                   key={Number.parseInt(activeIndex)}
                   fadeIn={fadeIn}
+                  isAuthorTestimonies={isAuthorTestimonies}
                 >
-                  - {authors[Number.parseInt(activeIndex)]}
-                </AuthorsWrapper>
-              </AuthorsContainer>
-            </QuoteContainer>
-          </ImageArchContentWrapper>
-        </ImageArchWrapper>
-      </CarouselContainer>
-    </ContentWrapper>
-  );
+                  {quotes[Number.parseInt(activeIndex)]}
+                </QuoteWrapper>
+                <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
+                  <AuthorsWrapper
+                    key={Number.parseInt(activeIndex)}
+                    fadeIn={fadeIn}
+                  >
+                    - {authors[Number.parseInt(activeIndex)]}
+                  </AuthorsWrapper>
+                </AuthorsContainer>
+              </QuoteContainer>
+            </ImageArchContentWrapper>
+          </ImageArchWrapper>
+        </CarouselContainer>
+      </ContentWrapper>
+    );
+  }
+  return <span ref={placeHolderRef} />;
 }

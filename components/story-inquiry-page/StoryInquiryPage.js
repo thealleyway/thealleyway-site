@@ -23,7 +23,6 @@ import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
-import React, { useState, useRef, useEffect } from "react";
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -118,29 +117,9 @@ export default function StoryInquiryPage({
     popupImage,
   };
 
-  const placeHolderRef = useRef(null);
-  const [showFooter, setShowFooter] = useState(false);
-  
-  useEffect(() => {
-    /**
-     * To Register Observer on the span.
-     */
-    registerObserver(placeHolderRef.current, setShowFooter);
-  }, []);
 
 
-  const registerObserver = (ref, setShowImage) => {
-    const observer = new IntersectionObserver((enteries, observer) => {
-      enteries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        setShowImage(true);
-        observer.disconnect();
-      });
-    });
-    observer.observe(ref);
-  };
+
   
 
   return (
