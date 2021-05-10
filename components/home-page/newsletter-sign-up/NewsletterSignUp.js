@@ -24,8 +24,8 @@ export default function NewsletterSignUp({
 }) {
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [name, setName] = useState('');
   const [fields, setFields] = useState({});
-  const [name, updateName] = useState('');
   const [errors, setErrors] = useState({});
 
   const onSubmitClick = () => {
@@ -72,8 +72,8 @@ export default function NewsletterSignUp({
             showError={errors['name']}
             value={fields['name'] ? fields['name'] : ''}
             onChange={(e) => {
-              setFields({ ...fields, name: e });
-              updateName(e);
+              setName(e.target.value);
+              setFields({ ...fields, name: e.target.value });
             }}
           />
           <TextInputField
@@ -83,7 +83,7 @@ export default function NewsletterSignUp({
             required={true}
             showError={errors['email']}
             value={fields['email'] ? fields['email'] : ''}
-            onChange={(e) => setFields({ ...fields, email: e })}
+            onChange={(e) => setFields({ ...fields, email: e.target.value })}
           />
           <PrivacyPolicyLinkText>
             <InputInfoText
