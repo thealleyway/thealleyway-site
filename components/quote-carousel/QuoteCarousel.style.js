@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { max } from '../../lib/responsive';
+import { max, min } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
@@ -15,7 +15,6 @@ const ContentWrapper = styled.div`
   align-items: center;
   margin-top: 5em;
   margin-bottom: -2em;
-
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
@@ -33,12 +32,14 @@ const ContentWrapper = styled.div`
 
 const TextWrapper = styled.div`
   width: 19em;
-
+  margin-top: ${(props) => props.isAuthorTestimonies ? '-4em' : '0'};
   @media ${max.tabletLg} {
-    margin-bottom: 2em;
+    margin-bottom: ${(props) => props.isAuthorTestimonies ? '-2em' : '2em'};
+    margin-left: ${(props) => props.isAuthorTestimonies ? '-2em' : '0'};
   }
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
+    margin-left: ${(props) => props.isAuthorTestimonies ? '1em' : '0'};
   }
 `;
 
@@ -55,13 +56,48 @@ const QuoteWrapper = styled(H3)`
   font-style: initial !important;
   margin: 0;
   padding: 0;
-  padding-top: 0.5em;
+  padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.2em' : '0.5em')};
   overflow: hidden;
   text-overflow: ellipsis;
-
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
-  font-size: clamp(1.4em, 6vw, 1.8em);
+  font-size: ${(props) =>
+    props.isAuthorTestimonies
+      ? 'clamp(1.2em, 3vw, 1.3em)'
+      : 'clamp(1.4em, 6vw, 1.8em)'};
+  @media ${min.tabletSm} {
+    padding-top: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0.5em')};
+  }
+  @media ${min.tablet} {
+    padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.5em' : '0.5em')};
+    padding-bottom: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0')};
+    font-size: ${(props) =>
+      props.isAuthorTestimonies ? '1.4em' : 'clamp(1.4em, 6vw, 1.8em)'};
+  }
+  @media ${min.desktop} {
+    margin-top: ${(props) => (props.isAuthorTestimonies ? '-.65em' : '0')};
+    font-size: ${(props) =>
+      props.isAuthorTestimonies ? '1.5em' : 'clamp(1.4em, 6vw, 1.8em)'};
+  }
+`;
+
+const AuthorsWrapper = styled(P)`
+  color: ${colors.BROWN};
+  float: right; 
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: 3s;
+`;
+
+const AuthorsContainer = styled.div`
+  display: ${(props) => (props.isAuthorTestimonies ? 'block' : 'none')};
+  position: absolute;
+  width: 100%;
+  margin: -1.3em 0 0 0;
+  padding-right: 1em;
+  @media ${min.desktop} {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const QuoteContainer = styled.div`
@@ -71,7 +107,6 @@ const QuoteContainer = styled.div`
   left: 2em;
   bottom: 9em;
   margin-bottom: -12em;
-  overflow: hidden;
 
   @media ${max.tabletLg} {
     left: 1em;
@@ -87,8 +122,10 @@ const QuoteContainer = styled.div`
   }
 `;
 
+
 const CarouselContainer = styled.div`
   margin-left: -10em;
+  margin-top: ${(props) => props.isAuthorTestimonies ? '-16em' : '0'};
   padding: 0;
   width: 30em;
   height: 30em;
@@ -97,16 +134,19 @@ const CarouselContainer = styled.div`
   flex: 100%;
   justify-content: center;
   align-items: center;
-
+  @media ${min.tabletSm} {
+    margin-top: ${(props) => props.isAuthorTestimonies ? '-8em' : '0'};
+  }
   @media ${max.tabletLg} {
     margin-left: -20em;
   }
 
   @media ${max.tabletSm} {
     margin-left: -17em;
-    width: clamp(16em, 80vw, 22em); //25em;;
-    height: clamp(16em, 80vw, 22em); //25em;;
+    width: clamp(16em, 80vw, 22em); 
+    height: clamp(16em, 80vw, 22em); 
   }
+
 `;
 
 const ImageArchWrapper = styled.div`
@@ -208,4 +248,6 @@ export {
   ArchImage,
   ArchOutline,
   ArchSpark,
+  AuthorsContainer,
+  AuthorsWrapper
 };

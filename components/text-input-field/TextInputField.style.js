@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { P } from '../../style/typography';
-import { min } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 
 const TextLabel = styled(P)`
@@ -17,14 +16,6 @@ const ErrorText = styled(P)`
   margin: 0.5em 0 0 0;
   text-shadow: 0.5px 0 #ff0000;
   letter-spacing: 0.05em;
-`;
-
-const RedStar = styled.img`
-  width: 2%;
-  margin-left: 0.5em;
-  @media ${min.desktopLg} {
-    width: 0.7em;
-  }
 `;
 
 const StarLabelContainer = styled.div`
@@ -51,11 +42,26 @@ const InputFieldWrapper = styled.div`
   padding-bottom: 2em;
 `;
 
+const AddIcon = styled.img`
+  cursor: pointer;
+  margin: -2em 0 0 0;
+  width: 1.8em;
+  float: right;
+`;
+
+const DeleteIcon = styled.img`
+  cursor: pointer;
+  margin: -2.3em -0.32em 0 0;
+  width: 2.5em;
+  float: right;
+`;
+
 export {
   TextLabel,
   TextInput,
-  RedStar,
   StarLabelContainer,
   ErrorText,
   InputFieldWrapper,
+  AddIcon,
+  DeleteIcon,
 };
