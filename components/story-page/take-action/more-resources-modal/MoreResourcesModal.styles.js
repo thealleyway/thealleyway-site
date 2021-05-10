@@ -44,7 +44,9 @@ export const MoreResourcesTitle = styled(H4)`
 export const MoreResourcesLink = styled(P).attrs({
   as: 'a',
 })`
-  text-transform: uppercase;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const CloseIcon = styled.img`

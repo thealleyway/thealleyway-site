@@ -6,6 +6,7 @@ import { max } from '../../../lib/responsive';
 export const TakeActionWrapper = styled.div`
   height: 100%;
   margin: 4em;
+  margin-bottom: 8em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,15 +66,16 @@ export const TitleAndButtonWrapper = styled.div`
 `;
 
 export const BackToStartButtonContainer = styled.div`
-  height: 1em;
+  height: auto;
 `;
 
 export const ShareLinkWrapper = styled.div`
   position: absolute;
-  bottom: 8%;
+  bottom: 10%;
   right: 20%;
   cursor: pointer;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 15em;
   background: url(${(props) => props.url}) no-repeat;
@@ -88,6 +90,10 @@ export const ShareLinkWrapper = styled.div`
 
 export const ShareLinkText = styled(H4)`
   font-weight: ${fontWeights.normal};
+`;
+
+export const ShareLinkImage = styled.img`
+  width: 4em;
 `;
 
 // Tablet and Mobile
