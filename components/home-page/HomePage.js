@@ -51,7 +51,8 @@ export default function HomePage({
   const fadeInAnimation = useSpring(fadeIn);
   const [faded, setFade] = useState(false);
 
-  setTimeout(() => setFade(true), 3000);
+  setTimeout(() => setFade(true), 6000);
+  
 
   useEffect(() => {
     const id = setTimeout(
@@ -77,7 +78,8 @@ export default function HomePage({
 
   return (
     <>
-      {faded && <Navigation navigationData={navigationData} fade />}
+      {faded && !isMobile && <Navigation navigationData={navigationData} fade wait/>}
+      {faded && isMobile && <Navigation navigationData={navigationData} />}
       <HomePageContentWrapper>
         {(faded && !isMobile) &&
           <CurrentFeaturedStory
@@ -92,7 +94,9 @@ export default function HomePage({
               }`}
           />}
         {(!faded && !isMobile) &&
-          <HomePageIntroContainerLarge style={fadeInAnimation}>
+          <HomePageIntroContainerLarge
+            animate={{ opacity: [0, 1, 0] }} 
+            transition={{ type: 'spring', duration: 6 }}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
           </HomePageIntroContainerLarge>}
         {isMobile && !faded && (
@@ -116,11 +120,13 @@ export default function HomePage({
           </HomePageIntroContainerSmall>
         )}
         {(isMobile && faded) &&
-          <FeaturedStoryPreviews alreadyHovered>
+          <FeaturedStoryPreviews>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
         {!isMobile &&
-          <FeaturedStoryPreviews alreadyHovered>
+          <FeaturedStoryPreviews             
+          animate={{ opacity: [0, 1] }} 
+          transition={{ type: 'spring', duration: 7 }}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
         {faded && (

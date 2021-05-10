@@ -32,7 +32,7 @@ export const HomePageIntroContainerSmall = styled.div`
   }
 `;
 
-export const HomePageIntroContainerLarge = styled(animated.div)`
+export const HomePageIntroContainerLarge = styled(motion.div)`
   display: none;
   @media ${min.tabletSm} {
     display: block;

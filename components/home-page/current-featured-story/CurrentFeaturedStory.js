@@ -27,7 +27,10 @@ export default function CurrentFeaturedStory({
   } = featuredStory;
 
   return (
-    <CurrentFeaturedStoryWrapper>
+    <CurrentFeaturedStoryWrapper           
+    initial={{opacity: 0}}
+    animate={{opacity: 1}} 
+    transition={{ type: 'spring', duration: 5, delay: 1 }}>
       <CurrentFeaturedStoryImageWrapper>
         <CurrentFeaturedStoryImage
           src={previewImage.url}
