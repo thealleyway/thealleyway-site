@@ -11,10 +11,10 @@ const ScrollToMeetFounder = styled.div`
 const MeetFounderContainer = styled.div`
   height: auto;
   overflow: hidden;
-  padding-bottom: 4.5em;
+  padding-bottom: 9.5em;
 
   @media ${max.tabletLg} {
-    padding-bottom: 3em;
+    padding-bottom: 12em;
   }
 
   @media ${max.tablet} {

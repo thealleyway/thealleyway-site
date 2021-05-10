@@ -10,10 +10,10 @@ const OurValuesContainer = styled.div`
   width: 100%;
   overflow: hidden;
   height: 59em;
-  margin-bottom: 5em;
+  margin-bottom: 10em;
 
   @media ${max.tabletLg} {
-    margin-bottom: 3em;
+    margin-bottom: 12em;
   }
 
   @media ${max.tabletSm} {

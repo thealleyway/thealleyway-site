@@ -7,6 +7,11 @@ import {
   FadeOut,
 } from '../animation-base-components/AnimationBaseComponents';
 
+const ScrollToCarousel = styled.div`
+  position: absolute;
+  margin: -10em;
+`;
+
 const ContentWrapper = styled.div`
   width: 55em;
   margin: auto;
@@ -247,6 +252,7 @@ const ArchSpark = styled.img`
 `;
 
 export {
+  ScrollToCarousel,
   ContentWrapper,
   TextWrapper,
   TitleWrapper,

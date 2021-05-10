@@ -15,12 +15,12 @@ const OurMissionContainer = styled.div`
 
   @media ${max.tabletLg} {
     margin-top: 0;
-    margin-bottom: 4em;
+    margin-bottom: 12em;
   }
 
   @media ${min.tabletLg} {
     height: clamp(41em, 56vw, 50em);
-    margin-bottom: 5em;
+    margin-bottom: 10em;
   }
 
   @media ${min.desktop} {
@@ -115,11 +115,12 @@ const OurMissionImgRight = styled(OurMissionImgLeft)`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 24.5em;
+  bottom: 22em;
   left: clamp(12em, 20.75vw, 17em);
 
   @media ${min.desktop} {
     left: 14em;
+    bottom: 27.5em;
   }
 `;
 
