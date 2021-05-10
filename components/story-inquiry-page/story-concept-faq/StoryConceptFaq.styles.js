@@ -10,7 +10,8 @@ const FaqContainer = styled.div`
     margin: 10em 0 0 3.5em;
   }
   @media ${min.desktop} {
-    margin: 8em 0 0 16.5em;
+    margin: 9em 0 0 16.5em;
+    padding-bottom: 1.5em;
   }
 `;
 

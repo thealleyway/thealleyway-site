@@ -35,7 +35,7 @@ const AuthorInformationContainer = styled.div`
     padding-bottom: 3.5em;
   }
   @media ${min.desktop} {
-    padding-bottom: 2.6em;
+    padding-bottom: 1.5em 0 2.6em 0;
   }
 `;
 
@@ -45,7 +45,7 @@ const AuthorSignatureContainer = styled.div`
     padding-bottom: 4em;
   }
   @media ${min.desktop} {
-    padding-bottom: 2em;
+    padding-bottom: 4em;
   }
 `;
 
