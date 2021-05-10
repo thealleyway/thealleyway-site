@@ -23,7 +23,8 @@
     "react-signature-canvas": "^1.0.3",
     "styled-components": "^5.2.1",
     "use-resize-observer": "^7.0.0",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "react-spring": "^9.1.2"
   },
   "devDependencies": {
     "eslint": "^7.22.0",

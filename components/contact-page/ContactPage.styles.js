@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
+import { animated } from 'react-spring';
 
-const HeaderAndSquiggleContainer = styled.div`
+const HeaderAndSquiggleContainer = styled(animated.div)`
   @media ${min.tablet} {
     padding-bottom: 1em;
   }
