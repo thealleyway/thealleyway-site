@@ -10,7 +10,6 @@ const QuestionStyled = styled(H4)`
   color: ${colors.BROWN};
   padding-bottom: 0.3em;
   @media ${min.tablet} {
-    color: ${(props) => (props.hover ? colors.SANDYYELLOW : colors.BROWN)};
     font-weight: ${(props) =>
       props.isSelected || props.hover
         ? fontWeights.medium
@@ -19,8 +18,9 @@ const QuestionStyled = styled(H4)`
 `;
 
 const ShortArrow = styled.img`
-display: none;
+  display: none;
   @media ${min.tablet} {
+    display: inline;
     transform: rotate(90deg);
     width: 1.8em;
     margin: 0;

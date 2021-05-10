@@ -23,10 +23,7 @@ const ClearSignatureWrapper = styled.div`
 `;
 
 const StoryConceptInfoTextWrapper = styled.div`
-  margin: 1em 0;
-  @media ${min.tabletSm} {
-    margin: -0.5em 0;
-  }
+  margin: -0.5em 0;
 `;
 
 const AuthorInformationContainer = styled.div`
