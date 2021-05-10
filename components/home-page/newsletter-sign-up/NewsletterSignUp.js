@@ -43,7 +43,7 @@ export default function NewsletterSignUp({
             id="name"
             label="Name"
             fullWidth
-            onChange={(e) => updateName(e)}
+            onChange={(e) => updateName(e.target.value)}
             required={true}
           />
           <TextInputField id="email" label="Email" fullWidth required />
