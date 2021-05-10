@@ -6,6 +6,7 @@ import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import ImageBoxLink from '../../image-box-link/ImageBoxLink';
 import { H2Wrapper } from '../about-founder/AboutFounder.style';
 import {
+  ScrollToMission,
   OurMissionContainer,
   OurMissionWrapper,
   OurMissionImgLeft,
@@ -28,38 +29,41 @@ export default function AboutMission({ missionData, id, scrollToId }) {
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
   return (
-    <OurMissionContainer id={id}>
-      <OurMissionWrapper>
-        <OurMissionImgLeft
-          src={ourMissionImage.url}
-          alt={ourMissionImage.alt}
-        />
-        <OurMissionTextContainer>
-          <H2Wrapper>{getString(ourMissionTitle)}</H2Wrapper>
-          <P>{renderRichText(ourMissionDescription)}</P>
-        </OurMissionTextContainer>
-        {!isTabletOrMobile ? (
-          <BoxLinkWrapper>
-            <ImageBoxLink
-              boxLinkData={boxLinkData}
-              height="clamp(30em, 50vw, 40em)"
+    <>
+      <ScrollToMission id={id} />
+      <OurMissionContainer>
+        <OurMissionWrapper>
+          <OurMissionImgLeft
+            src={ourMissionImage.url}
+            alt={ourMissionImage.alt}
+          />
+          <OurMissionTextContainer>
+            <H2Wrapper>{getString(ourMissionTitle)}</H2Wrapper>
+            <P>{renderRichText(ourMissionDescription)}</P>
+          </OurMissionTextContainer>
+          {!isTabletOrMobile ? (
+            <BoxLinkWrapper>
+              <ImageBoxLink
+                boxLinkData={boxLinkData}
+                height="clamp(41em, 56vw, 50em);"
+              />
+            </BoxLinkWrapper>
+          ) : (
+            <OurMissionImgRight
+              src={boxLinkData.img.url}
+              alt={boxLinkData.img.alt}
             />
-          </BoxLinkWrapper>
-        ) : (
-          <OurMissionImgRight
-            src={boxLinkData.img.url}
-            alt={boxLinkData.img.alt}
-          />
+          )}
+        </OurMissionWrapper>
+        {!isTabletOrMobile && (
+          <SparkArrowWrapper>
+            <LongSparkArrow
+              arrowText={sparkArrowValuesText}
+              scrollTo={scrollToId}
+            />
+          </SparkArrowWrapper>
         )}
-      </OurMissionWrapper>
-      {!isTabletOrMobile && (
-        <SparkArrowWrapper>
-          <LongSparkArrow
-            arrowText={sparkArrowValuesText}
-            scrollTo={scrollToId}
-          />
-        </SparkArrowWrapper>
-      )}
-    </OurMissionContainer>
+      </OurMissionContainer>
+    </>
   );
 }

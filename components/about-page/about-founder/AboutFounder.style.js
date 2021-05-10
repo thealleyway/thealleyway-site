@@ -3,19 +3,30 @@ import styled from 'styled-components';
 import { colors } from '../../../style/colors';
 import { min, max } from '../../../lib/responsive';
 
+const ScrollToMeetFounder = styled.div`
+  position: absolute;
+  margin: 1em;
+`;
+
 const MeetFounderContainer = styled.div`
-  margin-top: 10em;
-  padding-bottom: 5em;
   height: auto;
   overflow: hidden;
-  padding-top: 5em;
+  padding-bottom: 4.5em;
 
   @media ${max.tabletLg} {
-    margin-top: 2em;
+    padding-bottom: 3em;
   }
-  @media ${max.tabletSm} {
-    margin-top: 0;
-    padding-top: 1em;
+
+  @media ${max.tablet} {
+    margin-top: 5em;
+  }
+
+  @media ${min.tabletSm} {
+    margin-top: 6em;
+  }
+
+  @media ${min.desktop} {
+    margin-top: 9em;
   }
 `;
 
@@ -111,19 +122,19 @@ const AboutImageQuoteWrapper = styled.div`
     order: -1;
     margin: 0 auto;
     display: flex;
-    padding-top: 3em;
+    padding-top: 0;
     width: 50em;
     margin-bottom: clamp(3em, 13vw, 5em);
   }
 
   @media ${max.tablet} {
     width: 90%;
-    padding-top: 5em;
     margin-bottom: 2em;
   }
 
   @media ${max.tabletSm} {
     width: 100%;
+    padding-top: 2em;
   }
 `;
 
@@ -180,7 +191,6 @@ const TopQuoteWrapper = styled(H3)`
 
   @media ${max.tabletLg} {
     top: 0;
-    left: clamp(2em, 8vw, 3em);
     width: 10em;
     margin-right: 2em;
   }
@@ -204,7 +214,7 @@ const TopQuoteWrapper = styled(H3)`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 17em;
+  bottom: 19em;
   left: clamp(12em, 20.75vw, 17em);
 
   @media ${min.desktop} {
@@ -217,6 +227,7 @@ const SparkArrowWrapper = styled.div`
 `;
 
 export {
+  ScrollToMeetFounder,
   MeetFounderContainer,
   MeetFounderWrapper,
   TextWrapper,

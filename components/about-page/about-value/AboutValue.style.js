@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 import { min, max } from '../../../lib/responsive';
 
+const ScrollToValues = styled.div`
+  position: absolute;
+  margin: -6em;
+`;
+
 const OurValuesContainer = styled.div`
   width: 100%;
   overflow: hidden;
   height: 59em;
+  margin-bottom: 5em;
 
-  @media ${min.tabletLg} {
-    padding-top: 5em;
+  @media ${max.tabletLg} {
+    margin-bottom: 3em;
   }
 
   @media ${max.tabletSm} {
     margin-top: 0;
     padding-top: 0;
-    height: 78em;
+    height: 76em;
   }
 `;
 
@@ -22,10 +28,7 @@ const ContentWrapper = styled.div`
   overflow: hidden;
   display: flex;
   flex: 100%;
-
-  @media ${min.desktop} {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 
   @media ${max.desktop} {
     justify-content: flex-end;
@@ -41,7 +44,7 @@ const ContentWrapper = styled.div`
 `;
 
 const ValueImageRight = styled.img`
-  height: 57em;
+  height: 59em;
   width: clamp(30em, 45vw, 40em);
   opacity: 10%;
   object-fit: cover;
@@ -58,9 +61,6 @@ const ValueImageRight = styled.img`
 
   @media ${max.tabletSm} {
     width: clamp(5em, 30vw, 10em);
-    height: 70em;
-  }
-  @media ${max.mobile} {
     height: 76em;
   }
 
@@ -78,11 +78,13 @@ const AboutValueTitleWrapper = styled.div`
   }
 
   @media ${max.tabletLg} {
-    margin-left: clamp(2em, 4vw, 3em);
+    padding-left: 0;
+    margin-left: calc(
+      clamp(8em, 20vw, 12em) + clamp(2em, 4vw, 3em) + clamp(1em, 5vw, 4em)
+    );
   }
 
   @media ${max.tablet} {
-    padding-left: 0;
     margin: 0 auto 1em auto;
   }
 `;
@@ -104,7 +106,7 @@ const ValuesContainer = styled.div`
   }
 
   @media ${max.tabletSm} {
-    bottom: clamp(64em, 325vw, 67.5em);
+    bottom: clamp(64em, 325vw, 67em);
   }
 
   @media ${max.mobile} {
@@ -114,7 +116,7 @@ const ValuesContainer = styled.div`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 28em;
+  bottom: 25.5em;
   left: clamp(10em, 18vw, 14em);
 
   @media ${min.desktop} {
@@ -123,6 +125,7 @@ const SparkArrowWrapper = styled.div`
 `;
 
 export {
+  ScrollToValues,
   OurValuesContainer,
   ContentWrapper,
   ValueImageRight,

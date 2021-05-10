@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { min, max } from '../../lib/responsive';
+import { max } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
@@ -14,10 +14,6 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: -2em;
-
-  @media ${min.tabletLg} {
-    padding-top: 6em;
-  }
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);

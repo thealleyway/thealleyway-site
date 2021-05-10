@@ -1,30 +1,30 @@
 import styled from 'styled-components';
 import { min, max } from '../../../lib/responsive';
 
+const ScrollToMission = styled.div`
+  position: absolute;
+  margin: -5.8em;
+`;
+
 const OurMissionContainer = styled.div`
   width: 100%;
   height: 45em;
   overflow: hidden;
-  margin-top: 5em;
   padding-bottom: 4em;
   margin-bottom: 6em;
 
   @media ${max.tabletLg} {
     margin-top: 0;
-    padding-bottom: 0;
     margin-bottom: 4em;
   }
 
   @media ${min.tabletLg} {
-    padding-top: 5em;
-    height: clamp(45em, 65vw, 55em);
-    padding-bottom: 0em;
-    margin-bottom: 0em;
+    height: clamp(41em, 56vw, 50em);
+    margin-bottom: 5em;
   }
 
   @media ${min.desktop} {
-    padding-top: 5em;
-    height: 55em;
+    height: 45em;
   }
 
   @media ${max.mobile} {
@@ -36,21 +36,29 @@ const OurMissionWrapper = styled.div`
   display: flex;
   flex: 100%;
   justify-content: center;
+  align-items: center;
 `;
 
 const OurMissionImgLeft = styled.img`
-  height: clamp(30em, 50vw, 40em);
   width: clamp(9em, 15vw, 12.5em);
   opacity: 10%;
   object-fit: cover;
 
   @media ${max.tabletLg} {
+    height: 45em;
     width: clamp(5em, 14vw, 9em);
-    height: auto;
   }
 
   @media ${max.tabletSm} {
     width: clamp(2em, 15vw, 5em);
+  }
+
+  @media ${max.mobile} {
+    height: 55em;
+  }
+
+  @media ${min.tabletLg} {
+    height: clamp(41em, 56vw, 50em);
   }
 
   @media ${min.desktop} {
@@ -65,12 +73,18 @@ const OurMissionTextContainer = styled.div`
 
   @media ${max.tabletLg} {
     width: clamp(18em, 45vw, 22em);
-    margin-top: 4em;
   }
 
   @media ${max.tabletSm} {
     width: 60vw;
-    margin-top: 3em;
+  }
+
+  @media ${min.tabletLg} {
+    margin-top: calc((clamp(41em, 56vw, 50em) - 5em) / 8);
+  }
+
+  @media ${min.desktop} {
+    margin-top: calc((clamp(41em, 56vw, 50em) - 5em) / 6);
   }
 `;
 
@@ -101,7 +115,7 @@ const OurMissionImgRight = styled(OurMissionImgLeft)`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 18em;
+  bottom: 24.5em;
   left: clamp(12em, 20.75vw, 17em);
 
   @media ${min.desktop} {
@@ -110,6 +124,7 @@ const SparkArrowWrapper = styled.div`
 `;
 
 export {
+  ScrollToMission,
   OurMissionContainer,
   OurMissionWrapper,
   OurMissionImgLeft,
