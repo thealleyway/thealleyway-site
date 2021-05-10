@@ -32,27 +32,27 @@ export default function BoxLink({ boxLinkData }) {
       <InnerContentContainer>
         <Title>{getString(boxLinkTitle).toUpperCase()}</Title>
         <Description>{getString(boxLinkDescription)}</Description>
-        <MediumArrowContainer
-          onMouseEnter={() => set({ x: 100 })}
-          onMouseLeave={() => set({ x: 0 })}
-        >
-          <PageLink href={`/${boxLinkLink.uid}`}>
+        <PageLink href={`/${boxLinkLink.uid}`}>
+          <MediumArrowContainer
+            onMouseEnter={() => set({ x: 100 })}
+            onMouseLeave={() => set({ x: 0 })}
+          >
             <MediumArrow
               src={icons.FILLED_MEDIUM_ARROW}
               alt="Filled mauve medium arrow"
               style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
             />
-          </PageLink>
-        </MediumArrowContainer>
-        <LongArrowContainer onTouchStart={() => set({ x: 40 })}>
-          <PageLink href={`/${boxLinkLink.uid}`}>
+          </MediumArrowContainer>
+        </PageLink>
+        <PageLink href={`/${boxLinkLink.uid}`}>
+          <LongArrowContainer onTouchStart={() => set({ x: 40 })}>
             <LongArrow
               src={icons.FILLED_LONG_ARROW_MAUVE}
               alt="Filled mauve long arrow"
               style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
             />
-          </PageLink>
-        </LongArrowContainer>
+          </LongArrowContainer>
+        </PageLink>
       </InnerContentContainer>
     </BoxLinkContainer>
   );
