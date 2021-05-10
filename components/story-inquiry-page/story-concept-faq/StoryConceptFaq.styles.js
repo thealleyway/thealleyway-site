@@ -3,6 +3,7 @@ import { min } from '../../../lib/responsive';
 
 const FaqContainer = styled.div`
   margin: 8em 3.5em 0 4em;
+  padding-bottom: 2.5em;
   @media ${min.tablet} {
     margin: 8em 0 0 3.5em;
   }

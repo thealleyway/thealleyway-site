@@ -19,12 +19,12 @@ const QuestionStyled = styled(H4)`
 `;
 
 const ShortArrow = styled.img`
-  width: 1.8em;
-  transform: rotate(180deg);
-  margin: 0;
-  margin-left: 0.6em;
+display: none;
   @media ${min.tablet} {
     transform: rotate(90deg);
+    width: 1.8em;
+    margin: 0;
+    margin-left: 0.6em;
   }
 `;
 
