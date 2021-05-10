@@ -48,7 +48,7 @@ export default function HomePage({
   const [activeIndex, setActiveIndex] = useState(0);
   const [fadedLong, setFadedLong] = useState(false);
   const [fadedShort, setFadedShort] = useState(false);
-  
+
   setTimeout(() => setFadedLong(true), 6000);
   setTimeout(() => setFadedShort(true), 3000);
 
@@ -76,8 +76,8 @@ export default function HomePage({
 
   return (
     <>
-      {fadedLong && !isMobile && <Navigation navigationData={navigationData} fade wait/>}
-      {fadedShort && isMobile && <Navigation navigationData={navigationData} fade wait/>}
+      {fadedLong && !isMobile && <Navigation navigationData={navigationData} fade wait />}
+      {fadedShort && isMobile && <Navigation navigationData={navigationData} fade wait />}
       <HomePageContentWrapper>
         {(fadedLong && !isMobile) &&
           <CurrentFeaturedStory
@@ -93,7 +93,7 @@ export default function HomePage({
           />}
         {(!fadedLong && !isMobile) &&
           <HomePageIntroContainerLarge
-            animate={{ opacity: [0, 1, 0] }} 
+            animate={{ opacity: [0, 1, 0] }}
             transition={{ type: 'spring', duration: 6 }}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
           </HomePageIntroContainerLarge>}
@@ -122,9 +122,9 @@ export default function HomePage({
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
         {!isMobile &&
-          <FeaturedStoryPreviews             
-          animate={{ opacity: [0, 1] }} 
-          transition={{ type: 'spring', duration: 7 }}>
+          <FeaturedStoryPreviews
+            animate={{ opacity: [0, 1] }}
+            transition={{ type: 'spring', duration: 7 }}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
         {fadedLong && (
@@ -136,7 +136,7 @@ export default function HomePage({
             title={newsletterSignup}
           />)
         }
-                {fadedShort && (
+        {fadedShort && !fadedLong && (
           <NewsletterSignUp
             description={newsletterDescription}
             newsletterConfirmationData={newsletterConfirmationData}
@@ -147,7 +147,7 @@ export default function HomePage({
         }
       </HomePageContentWrapper>
       {fadedLong && <Footer footerData={footerData} />}
-      {fadedShort && <Footer footerData={footerData} />}
+      {fadedShort && !fadedLong && <Footer footerData={footerData} />}
     </>
   );
 }

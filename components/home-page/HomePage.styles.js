@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { max, min } from '../../lib/responsive';
-import { animated } from 'react-spring';
 import { motion } from 'framer-motion';
 
 export const AlleywayLogo = styled.img`
