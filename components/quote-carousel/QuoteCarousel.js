@@ -17,6 +17,7 @@ import {
   AuthorsWrapper
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
+import { registerObserver } from '../../lib/intersectionObserver';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 
@@ -49,32 +50,18 @@ export default function QuoteCarousel({
       clearTimeout(fadeOut);
     };
   }, [activeIndex]);
+
   const placeHolderRef = useRef(null);
-  const [show, setShow] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    /**
-     * To Register Observer on the span.
-     */
-    registerObserver(placeHolderRef.current, setShow);
+    registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  const registerObserver = (ref, setShow) => {
-    const observer = new IntersectionObserver((enteries, observer) => {
-      enteries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        setShow(true);
-        observer.disconnect();
-      });
-    });
-    observer.observe(ref);
-  };
 
-  if (show) {
+  if (visible) {
     return (
-      <ContentWrapper initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 5}}>
+      <ContentWrapper initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2}}>
         <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
           <TitleWrapper>{getString(title)}</TitleWrapper>
           <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
