@@ -18,7 +18,7 @@ export default function ArchiveSorting({ sortType, order }) {
   return (
     <SortLabelWrapper>
       <PageLink href={sortUrl(order)}>
-        <SortLabel enabled={sortType == order} color={colors.BROWN}>
+        <SortLabel selected={sortType == order} color={colors.BROWN}>
           {label}
         </SortLabel>
       </PageLink>

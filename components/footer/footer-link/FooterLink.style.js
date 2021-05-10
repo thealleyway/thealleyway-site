@@ -3,7 +3,9 @@ import { colors } from '../../../style/colors';
 import { P } from '../../../style/typography';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 
-const FooterLinkWrapper = styled(HoverAnimationButton)`
+const FooterLinkWrapper = styled(HoverAnimationButton).attrs({
+  as: 'a',
+})`
   border: none;
   cursor: pointer;
   background: none;

@@ -31,17 +31,16 @@ const FooterSocialsContainer = styled.div`
 `;
 
 const EmailWrapper = styled.div`
-  padding-top: 4em;
+  padding-top: 3.4em;
   padding-left: 4em;
   width: 35%;
 
   @media only screen and ${max.tabletLg} {
     width: 50%;
-    padding-top: 4em;
     padding-left: 1.8em;
   }
 
-  @media only screen and ${max.tabletSm} {
+  @media only screen and ${max.tablet} {
     width: 60%;
     padding-left: clamp(1.5em, 3vw, 2em);
   }

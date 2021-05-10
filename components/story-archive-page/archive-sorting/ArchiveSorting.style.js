@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { P } from '../../../style/typography';
+import { P, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 
@@ -20,6 +20,8 @@ const SortLabel = styled(P).attrs({
   border: none;
   padding: 0;
   background: none;
+  font-weight: ${(props) =>
+    props.selected ? fontWeights.bold : fontWeights.normal};
 
   ${SortLabelWrapper}:hover & {
     cursor: pointer;
