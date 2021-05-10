@@ -27,7 +27,7 @@ export const FadeOut = keyframes`
 
 export const HoverAnimationButton = styled.button`
   &:hover {
-    --shadow: 0.02em;
+    --shadow: ${(props) => (props.selected ? '0' : '0.02em')};
     --neg-shadow: calc(-1 * var(--shadow));
 
     text-shadow: var(--neg-shadow) var(--neg-shadow) 0 ${(props) => props.color},

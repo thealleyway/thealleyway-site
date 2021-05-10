@@ -45,9 +45,12 @@ export default function NewsletterSignUp({
       formIsValid = false;
       errors['name'] = 'NAME IS REQUIRED!';
     }
-    if (!validEmail.test(fields['email'])) {
+    if (fields['email'] == undefined || fields['email'].length === 0) {
       formIsValid = false;
       errors['email'] = 'EMAIL IS REQUIRED!';
+    } else if (!validEmail.test(fields['email'])) {
+      formIsValid = false;
+      errors['email'] = 'INVALID EMAIL!';
     }
     setErrors(errors);
     return formIsValid;
