@@ -14,7 +14,7 @@ export const NavigationWrapper = styled(motion.nav)`
   justify-content: space-between;
   width: 100%;
   padding: 2em 5em;
-  z-index: 5;
+  z-index: 60;
   background-color: ${colors.CREME};
 
   @media ${max.tablet} {

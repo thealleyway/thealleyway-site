@@ -3,7 +3,7 @@ import { min } from '../../lib/responsive';
 import { animated } from 'react-spring';
 
 const HeaderAndSquiggleContainer = styled(animated.div)`
-  z-index: 100;
+  z-index: 50;
   position: relative;
   @media ${min.tablet} {
     padding-bottom: 1em;
