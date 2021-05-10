@@ -13,8 +13,6 @@ const SortLabel = styled(P).attrs({
   as: HoverAnimationButton,
 })`
   color: ${colors.BROWN};
-  font-weight: ${(props) =>
-    props.enabled ? fontWeights.bold : fontWeights.normal};
   letter-spacing: 0.13em;
   margin: 0;
   border: none;
