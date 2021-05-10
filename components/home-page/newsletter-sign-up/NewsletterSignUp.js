@@ -68,7 +68,6 @@ export default function NewsletterSignUp({
           <ArchModal
             text={privacyPolicyText}
             onClose={() => {
-              document.body.style.overflow = 'visible';
               setIsPrivacyPolicyOpen(false);
             }}
           />

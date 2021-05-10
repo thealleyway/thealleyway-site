@@ -66,7 +66,6 @@ export default function Navigation({ navigationData }) {
                 <CloseXImage
                   src={icons.CLOSE_ICON}
                   onClick={() => {
-                    document.body.style.overflow = 'visible';
                     setIsHamburgerOpen(false);
                   }}
                 />
