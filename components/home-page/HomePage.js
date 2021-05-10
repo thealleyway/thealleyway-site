@@ -13,8 +13,6 @@ import CurrentFeaturedStory from './current-featured-story/CurrentFeaturedStory'
 import FeaturedStoryPreview from './featured-story-preview/FeaturedStoryPreview';
 import NewsletterSignUp from './newsletter-sign-up/NewsletterSignUp';
 import { icons } from '../../style/icons';
-import { useSpring } from 'react-spring';
-import { fadeIn } from '../../style/animations';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
@@ -48,11 +46,11 @@ export default function HomePage({
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
   const getSignature = (authorInfoID) => authorSignatures[String(authorInfoID)];
   const [activeIndex, setActiveIndex] = useState(0);
-  const fadeInAnimation = useSpring(fadeIn);
-  const [faded, setFade] = useState(false);
-
-  setTimeout(() => setFade(true), 6000);
+  const [fadedLong, setFadedLong] = useState(false);
+  const [fadedShort, setFadedShort] = useState(false);
   
+  setTimeout(() => setFadedLong(true), 6000);
+  setTimeout(() => setFadedShort(true), 3000);
 
   useEffect(() => {
     const id = setTimeout(
@@ -78,10 +76,10 @@ export default function HomePage({
 
   return (
     <>
-      {faded && !isMobile && <Navigation navigationData={navigationData} fade wait/>}
-      {faded && isMobile && <Navigation navigationData={navigationData} />}
+      {fadedLong && !isMobile && <Navigation navigationData={navigationData} fade wait/>}
+      {fadedShort && isMobile && <Navigation navigationData={navigationData} fade wait/>}
       <HomePageContentWrapper>
-        {(faded && !isMobile) &&
+        {(fadedLong && !isMobile) &&
           <CurrentFeaturedStory
             featuredStory={
               featuredStories[Number.parseInt(activeIndex)].story.data
@@ -93,13 +91,13 @@ export default function HomePage({
             url={`/story/${featuredStories[Number.parseInt(activeIndex)].story.uid
               }`}
           />}
-        {(!faded && !isMobile) &&
+        {(!fadedLong && !isMobile) &&
           <HomePageIntroContainerLarge
             animate={{ opacity: [0, 1, 0] }} 
             transition={{ type: 'spring', duration: 6 }}>
             <AlleywayLogo src={icons.LARGE_ALLEYWAY_LOGO} />
           </HomePageIntroContainerLarge>}
-        {isMobile && !faded && (
+        {isMobile && !fadedShort && (
           <HomePageIntroContainerSmall>
             <AlleywayEmblem
               src={icons.LARGE_ALLEYWAY_EMBLEM}
@@ -119,7 +117,7 @@ export default function HomePage({
             </FeaturedStoryPreviews>
           </HomePageIntroContainerSmall>
         )}
-        {(isMobile && faded) &&
+        {(isMobile && fadedShort) &&
           <FeaturedStoryPreviews>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
@@ -129,7 +127,16 @@ export default function HomePage({
           transition={{ type: 'spring', duration: 7 }}>
             {featuredStories.map(mapFeaturedStories)}
           </FeaturedStoryPreviews>}
-        {faded && (
+        {fadedLong && (
+          <NewsletterSignUp
+            description={newsletterDescription}
+            newsletterConfirmationData={newsletterConfirmationData}
+            privacyPolicyLinkTitle={privacyPolicyLinkTitle}
+            privacyPolicyText={privacyPolicyText}
+            title={newsletterSignup}
+          />)
+        }
+                {fadedShort && (
           <NewsletterSignUp
             description={newsletterDescription}
             newsletterConfirmationData={newsletterConfirmationData}
@@ -139,7 +146,8 @@ export default function HomePage({
           />)
         }
       </HomePageContentWrapper>
-      {faded && <Footer footerData={footerData} />}
+      {fadedLong && <Footer footerData={footerData} />}
+      {fadedShort && <Footer footerData={footerData} />}
     </>
   );
 }
