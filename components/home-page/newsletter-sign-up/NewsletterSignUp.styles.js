@@ -48,7 +48,7 @@ export const NewsletterDescriptionText = styled(P)`
 `;
 
 export const PrivacyPolicyLinkText = styled(InputInfoText)`
-  margin: -1em 0 -5px 0;
+  margin: -1.5em 0 1em 0;
 `;
 
 export const SubmitButton = styled(P).attrs({
