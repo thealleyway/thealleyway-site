@@ -95,7 +95,8 @@ export const ArchModalText = styled(P)`
   right: calc(var(--off-set) * 2);
   bottom: 28px;
   top: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @media ${max.tabletSm} {
     top: 45vw;

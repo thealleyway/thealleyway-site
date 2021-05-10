@@ -42,13 +42,13 @@ const StoryPreviewImage = styled.img`
   filter: grayscale(100%);
 
   ${StoryPreviewContainer}:hover & {
-    -webkit-filter: none;
-    filter: none;
+    -webkit-filter: brightness(65%); /* Safari 6.0 - 9.0 */
+    filter: brightness(65%);
   }
 
   @media only screen and ${max.tabletLg} {
-    -webkit-filter: none;
-    filter: none;
+    -webkit-filter: brightness(65%); /* Safari 6.0 - 9.0 */
+    filter: brightness(65%);
   }
 
   @media only screen and ${max.tabletSm} {
@@ -74,9 +74,10 @@ const StoryPreviewTitle = styled(H3)`
 `;
 
 const StoryPreviewArrow = styled.img`
-  width: 75px;
+  width: 125px;
+  padding: 0;
   @media only screen and ${max.tabletSm} {
-    width: 60px;
+    width: 80px;
   }
 `;
 

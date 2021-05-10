@@ -84,7 +84,7 @@ const Title = styled(P)`
 const Description = styled(P)`
   line-height: 1.7em;
   width: 13em;
-  margin: 0 0 0 4.3em;
+  margin: 0 0 0 5em;
   @media ${min.tablet} {
     margin: 0 0 0 5.6em;
   }

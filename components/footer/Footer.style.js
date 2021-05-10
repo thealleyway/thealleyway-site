@@ -7,7 +7,6 @@ const FooterContainer = styled.div`
   width: 100%;
   bottom: 0;
   right: 0;
-
   display: flex;
   flex: 100%;
   flex-direction: column;
@@ -17,7 +16,6 @@ const FooterSocialsContainer = styled.div`
   background-color: ${colors.OLIVE};
   width: 100%;
   min-height: 15em;
-
   display: flex;
   flex: 100%;
 
@@ -33,30 +31,26 @@ const FooterSocialsContainer = styled.div`
 `;
 
 const EmailWrapper = styled.div`
-  padding-top: 4em;
+  padding-top: 3.4em;
   padding-left: 4em;
   width: 35%;
 
-  @media only screen and ${max.tablet} {
+  @media only screen and ${max.tabletLg} {
     width: 50%;
-    padding-top: clamp(1em, 5vw, 3em);
     padding-left: 1.8em;
   }
 
-  @media only screen and ${max.tabletSm} {
+  @media only screen and ${max.tablet} {
     width: 60%;
     padding-left: clamp(1.5em, 3vw, 2em);
   }
 `;
 
 const SocialsWrapper = styled.div`
-  padding-top: 4em;
   padding-left: clamp(3em, 8vw, 4em);
   width: 40%;
+  margin: auto 0;
 
-  @media only screen and ${max.tablet} {
-    padding-top: clamp(1em, 5vw, 3em);
-  }
   @media only screen and ${max.tabletSm} {
     padding-left: clamp(1.5em, 3vw, 2em);
   }

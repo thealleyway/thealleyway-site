@@ -35,34 +35,33 @@ export default function ConfirmationPopup({
   }
 
   return (
-    <>
-      <PopupBox page={page}>
-        <Box page={page}>
-          <TextContent page={page}>
-            <H2Styled page={page}>
-              <i>{getString(confirmationTitleItalic) + ' '}</i>
-              {name != undefined && firstName + ', '}
-              {getString(confirmationTitleRegular)}
-            </H2Styled>
-            <PStyled page={page}>{getString(confirmationDescription)}</PStyled>
-          </TextContent>
-          <ImgBackground
-            src={confirmationImage.url}
-            alt={confirmationImage.alt}
-          />
-          <ArchImgContainer>
-            <Img src={confirmationImage.url} alt={confirmationImage.alt} />
-            <Arch src={icons.SINGLE_ARCHWAY} alt="White single archway" />
-          </ArchImgContainer>
-          <CloseIcon
-            src={icons.CLOSE_ICON}
-            alt="Close icon symbol used to close popup"
-            onClick={() => {
-              togglePopup(false);
-            }}
-          />
-        </Box>
-      </PopupBox>
-    </>
+    <PopupBox>
+      <Box page={page}>
+        <TextContent page={page}>
+          <H2Styled page={page}>
+            <i>{getString(confirmationTitleItalic) + ' '}</i>
+            {name != undefined && firstName + ', '}
+            {getString(confirmationTitleRegular)}
+          </H2Styled>
+          <PStyled>{getString(confirmationDescription)}</PStyled>
+        </TextContent>
+        <ImgBackground
+          src={confirmationImage.url}
+          alt={confirmationImage.alt}
+        />
+        <ArchImgContainer>
+          <Img src={confirmationImage.url} alt={confirmationImage.alt} />
+          <Arch src={icons.SINGLE_ARCHWAY} alt="White single archway" />
+        </ArchImgContainer>
+        <CloseIcon
+          src={icons.CLOSE_ICON}
+          alt="Close icon symbol used to close popup"
+          onClick={() => {
+            document.body.style.overflow = 'visible';
+            togglePopup(false);
+          }}
+        />
+      </Box>
+    </PopupBox>
   );
 }

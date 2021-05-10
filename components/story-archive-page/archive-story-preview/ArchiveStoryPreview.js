@@ -37,7 +37,7 @@ export default function ArchiveStoryPreview({ story, signature }) {
         <StoryPreviewHover>
           <DateArrowWrapper>
             <DateWrapper>{formattedDate}</DateWrapper>
-            <StoryPreviewArrow src={icons.FILLED_MEDIUM_ARROW_WHITE} />
+            <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
           </DateArrowWrapper>
           {!isTabletOrMobile && (
             <PageLink href={storyUrl}>
