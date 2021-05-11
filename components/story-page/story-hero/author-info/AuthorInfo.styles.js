@@ -37,17 +37,9 @@ export const AuthorName = styled.h5`
   font-size: 1.2em;
   margin: 0em;
   text-transform: uppercase;
-<<<<<<< HEAD
-  letter-spacing: 0.12em;
   overflow: hidden;
   text-overflow: ellipsis;
-=======
   letter-spacing: 0.13em;
-
-  @media ${max.tabletSm} {
-    font-size: 3.5vw;
-  }
->>>>>>> Adding consistent 0.13em tracking to CTA's and all caps
 `;
 
 export const AdditionalInfo = styled(P)`
