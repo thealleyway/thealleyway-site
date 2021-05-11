@@ -101,7 +101,7 @@ function NavigationLink({ navigationLink, onPage }) {
   switch (link.link_type) {
     case 'Document':
       return (
-        <LinkWrapper onPage={onPage} selected={onPage}>
+        <LinkWrapper selected={onPage}>
           <PageLink href={link.uid === 'home' ? '/' : `/${link.uid}`}>
             {getString(linkName)}
           </PageLink>
