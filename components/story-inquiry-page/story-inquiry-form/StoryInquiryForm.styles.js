@@ -70,7 +70,7 @@ const StoryConceptContainer = styled(motion.div)`
   }
 `;
 
-const ResourceLinksContainer = styled.div`
+const ResourceLinksContainer = styled(motion.div)`
   padding-bottom: 1em;
 `;
 
