@@ -50,7 +50,7 @@ const AuthorSignatureContainer = styled(motion.div)`
   }
 `;
 
-const SocialInformationContainer = styled.div`
+const SocialInformationContainer = styled(motion.div)`
   padding-bottom: 3.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;

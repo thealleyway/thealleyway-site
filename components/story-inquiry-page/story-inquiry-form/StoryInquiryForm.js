@@ -6,18 +6,15 @@ import { getString } from '../../../lib/richText';
 import {
   StoryInquiryFormContainer,
   StoryConceptContainer,
-  SocialInformationContainer,
   InputFieldWrapper,
   Description,
   ResourceLinksContainer,
   StoryConceptInfoTextWrapper,
-  SocialInfoTextWrapper,
   SquareButtonWrapper,
   ScrollToSubmissionForm,
 } from './StoryInquiryForm.styles';
 import { fieldNames } from '../../../lib/utils';
 import React, { useState } from 'react';
-import ArchModal from '../../arch-modal/ArchModal';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import { Overlay } from '../../base-components/BaseComponents';
@@ -25,6 +22,7 @@ import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
 import AuthorInformation from './author-information/AuthorInformation';
 import AuthorSignature from './author-signature/AuthorSignature';
+import SocialInformation from './social-information/SocialInformation';
 
 const axios = require('axios');
 
@@ -136,7 +134,16 @@ export default function StoryInquiryForm({
           trim={trim}
           sigPad={sigPad}
         />
-        <SocialInformationContainer>
+        <SocialInformation 
+            fields={fields}
+            setFields={setFields}
+            socialInformationSubtitle={socialInformationSubtitle}
+            venmoMoreInfoDescription={venmoMoreInfoDescription}
+            venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
+            isVenmoPolicyOpen={isVenmoPolicyOpen}
+            setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
+        />
+        {/* <SocialInformationContainer>
           <H4>{getString(socialInformationSubtitle)}</H4>
           <InputFieldWrapper>
             <TextInputField
@@ -201,7 +208,7 @@ export default function StoryInquiryForm({
               }}
             />
           )}
-        </SocialInformationContainer>
+        </SocialInformationContainer> */}
         <StoryConceptContainer>
           <H4>{getString(storyConceptSubtitle)}</H4>
           <Description>{getString(storyConceptDescription)}</Description>
