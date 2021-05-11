@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import { getString } from '../../../lib/richText';
 import { icons } from '../../../style/icons';
@@ -30,7 +30,7 @@ export default function ArchiveStoryPreview({ story, signature }) {
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
   const [hover, setHover] = useState(false);
-  // initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1}}
+
   return (
     <StoryPreviewContainer
       whileHover={{ scale: 1.01 }}
@@ -41,16 +41,24 @@ export default function ArchiveStoryPreview({ story, signature }) {
       <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
       <PageLink href={storyUrl}>
         <StoryPreviewHover>
-          <DateArrowWrapper animate={{opacity: hover ? 1 : 0}} transition={{duration: .6}}>
+          <DateArrowWrapper
+            animate={{ opacity: hover ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <DateWrapper>{formattedDate}</DateWrapper>
             <StoryPreviewArrow src={icons.FILLED_MEDIUM_ARROW_WHITE} />
           </DateArrowWrapper>
           {!isTabletOrMobile && (
-            <StoryPreviewSignature src={signature.url} alt={signature.alt} animate={{opacity: hover ? 1 : 0}} transition={{duration: .6}} />
+            <StoryPreviewSignature
+              src={signature.url}
+              alt={signature.alt}
+              animate={{ opacity: hover ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+            />
           )}
         </StoryPreviewHover>
       </PageLink>
-      <StoryPreviewTitle >{getString(storyTitle)}</StoryPreviewTitle>
+      <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
     </StoryPreviewContainer>
   );
 }

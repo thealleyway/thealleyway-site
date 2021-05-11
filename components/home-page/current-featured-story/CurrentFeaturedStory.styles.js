@@ -19,9 +19,6 @@ export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   @media ${max.tabletLg} {
     padding-top: 5em;
   }
-  @media ${max.tablet} {
-    padding-top: 5em;
-  }
   @media ${max.tabletSm} {
     display: none;
   }
