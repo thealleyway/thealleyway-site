@@ -45,7 +45,7 @@ export default function FeaturedStoryPreview({
           alt={'double-archway'}
           active={active}
           animate={{ opacity: active ? [0, 1, 0] : 0 }}
-          transition={{ type: 'spring', duration: 2 }}
+          transition={{ type: 'spring', duration: 8 }}
         />
         <SignatureImage src={signature.url} alt={signature.alt} />
         <FeaturedStoryPreviewTitle>
