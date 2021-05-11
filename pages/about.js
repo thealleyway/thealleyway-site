@@ -38,10 +38,14 @@ export async function getStaticProps() {
   );
   const mainResourcesData = await getMainResources(mainResourceIds);
   const boxLinkDataFooter = await getBoxLink(aboutPageData.box_link_footer.id);
+  const boxLink1Data = await getBoxLink(aboutPageData.box_link_1.id);
 
   return {
     props: {
-      aboutPageData,
+      aboutPageData: {
+        ...aboutPageData,
+        box_link_1: boxLink1Data,
+      },
       boxLinkDataFooter,
       footerData,
       navigationData,

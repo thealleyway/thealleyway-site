@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getString } from '../../lib/richText';
 import PageLink from '../page-link/PageLink';
 import { icons } from '../../style/icons';
@@ -12,35 +12,40 @@ import {
   LogoWrapper,
   NavigationLinksWrapper,
   NavigationWrapper,
-  Logo
+  Logo,
 } from './Navigation.styles';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
+const currentPage = () => {
+  if (typeof window === 'object') {
+    const splitUrl = window.location.href.split('/');
+    return splitUrl.includes('archive')
+      ? 'archive'
+      : splitUrl[splitUrl.length - 1] || 'home';
+  } else {
+    return '';
+  }
+};
+
 export default function Navigation({ navigationData, fade, wait }) {
   const { navigation_links: navigationLinks } = navigationData;
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [currPage, setCurrPage] = useState('home');
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
 
-  const currentPage = () => {
-    if (typeof window === 'object') {
-      const splitUrl = window.location.href.split('/');
-      return splitUrl.includes('archive')
-        ? 'archive'
-        : splitUrl[splitUrl.length - 1] || 'home';
-    } else {
-      return '';
-    }
-  };
+  useEffect(() => {
+    setCurrPage(currentPage());
+  }, []);
 
   const getNavigationLinks = () => {
     return navigationLinks.map((navigationLink, index) => (
       <NavigationLink
         key={index}
         navigationLink={navigationLink}
-        onPage={currentPage() == navigationLink.link.uid}
+        onPage={currPage == navigationLink.link.uid}
       />
     ));
   };
@@ -50,7 +55,8 @@ export default function Navigation({ navigationData, fade, wait }) {
       <NavigationWrapper
         initial={{ opacity: fade ? 0 : 1 }}
         animate={{ opacity: 1 }}
-        transition={{ type: 'spring', duration: wait ? 3 : 1 }}>
+        transition={{ type: 'spring', duration: wait ? 3 : 1 }}
+      >
         <PageLink href="/" passHref>
           <LogoWrapper>
             <Logo src={icons.SMALL_ALLEYWAY_LOGO} />
@@ -61,7 +67,6 @@ export default function Navigation({ navigationData, fade, wait }) {
             <HamburgerImage
               src={icons.HAMBURGER}
               onClick={() => {
-                document.body.style.overflow = 'hidden';
                 setIsHamburgerOpen(true);
               }}
             />
@@ -73,7 +78,6 @@ export default function Navigation({ navigationData, fade, wait }) {
                 <CloseXImage
                   src={icons.CLOSE_ICON}
                   onClick={() => {
-                    document.body.style.overflow = 'visible';
                     setIsHamburgerOpen(false);
                   }}
                 />
@@ -97,7 +101,7 @@ function NavigationLink({ navigationLink, onPage }) {
   switch (link.link_type) {
     case 'Document':
       return (
-        <LinkWrapper onPage={onPage}>
+        <LinkWrapper onPage={onPage} selected={onPage}>
           <PageLink href={link.uid === 'home' ? '/' : `/${link.uid}`}>
             {getString(linkName)}
           </PageLink>

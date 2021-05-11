@@ -22,7 +22,7 @@ const Button = styled.button`
 
 const ButtonText = styled(P)`
   margin: 0;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.13em;
   &:hover {
     font-weight: ${fontWeights.bold};
   }

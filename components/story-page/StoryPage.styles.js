@@ -6,12 +6,12 @@ export const StoryPageWrapper = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   float: left;
-  height: 90vh;
+  height: 100vh;
   display: flex;
+  align-items: center;
 
   @media ${max.tabletLg} {
     flex-direction: column;
-    align-items: center;
     height: 100%;
     width: 100%;
   }

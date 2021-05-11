@@ -13,13 +13,19 @@ export const ArchModalWrapper = styled(motion.div)`
   position: fixed;
   top: 20%;
   left: 70%;
-  z-index: 15;
+  z-index: 150;
 
   @media ${max.desktop} {
     left: 50%;
   }
 
+  @media ${max.tabletLg} {
+    top: 25%;
+    left: calc(50% - (var(--arch-width) / 4));
+  }
+
   @media ${max.tablet} {
+    top: 30%;
     left: calc(50% - (var(--arch-width) / 2));
   }
 
@@ -90,7 +96,8 @@ export const ArchModalText = styled(P)`
   right: calc(var(--off-set) * 2);
   bottom: 28px;
   top: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @media ${max.tabletSm} {
     top: 45vw;

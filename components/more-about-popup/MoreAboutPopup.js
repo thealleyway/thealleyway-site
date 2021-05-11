@@ -25,7 +25,6 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
           src={icons.CLOSE_ICON}
           alt="Close icon symbol used to close popup"
           onClick={() => {
-            document.body.style.overflow = 'visible';
             setIsPopupOpen(false);
           }}
           whileHover={{ scale: 1.05 }}

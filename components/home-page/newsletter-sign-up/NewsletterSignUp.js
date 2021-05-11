@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { getString } from '../../../lib/richText';
 import { colors } from '../../../style/colors';
-import { InputInfoText } from '../../../style/typography';
 import TextInputField from '../../text-input-field/TextInputField';
 import { Overlay } from '../../base-components/BaseComponents';
 import {
   ContentWrapper,
-  NewsletterSignUpTextInput,
   NewsletterSignUpTitle,
   NewsletterDescriptionText,
   NewsletterSignUpWrapper,
@@ -26,10 +24,36 @@ export default function NewsletterSignUp({
 }) {
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
-  const [name, updateName] = useState('');
+  const [name, setName] = useState('');
+  const [fields, setFields] = useState({});
+  const [errors, setErrors] = useState({});
 
   const onSubmitClick = () => {
-    setIsConfirmationOpen(true);
+    if (isValidSubmission()) {
+      setIsConfirmationOpen(true);
+      setFields({});
+    }
+  };
+
+  const isValidSubmission = () => {
+    let errors = {};
+    let formIsValid = true;
+    const validEmail = new RegExp(
+      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
+    );
+    if (fields['name'] == undefined || fields['name'].length === 0) {
+      formIsValid = false;
+      errors['name'] = 'NAME IS REQUIRED!';
+    }
+    if (fields['email'] == undefined || fields['email'].length === 0) {
+      formIsValid = false;
+      errors['email'] = 'EMAIL IS REQUIRED!';
+    } else if (!validEmail.test(fields['email'])) {
+      formIsValid = false;
+      errors['email'] = 'INVALID EMAIL!';
+    }
+    setErrors(errors);
+    return formIsValid;
   };
 
   return (
@@ -40,23 +64,33 @@ export default function NewsletterSignUp({
           <NewsletterDescriptionText>
             {getString(description)}
           </NewsletterDescriptionText>
-          <NewsletterSignUpTextInput
+          <TextInputField
             id="name"
             label="Name"
             fullWidth
-            onChange={(e) => updateName(e)}
-            required={true}
+            required
+            showError={errors['name']}
+            value={fields['name'] ? fields['name'] : ''}
+            onChange={(e) => {
+              setName(e.target.value);
+              setFields({ ...fields, name: e.target.value });
+            }}
           />
-          <TextInputField id="email" label="Email" fullWidth required />
-          <PrivacyPolicyLinkText>
-            <InputInfoText
-              onClick={() => {
-                document.body.style.overflow = 'hidden';
-                setIsPrivacyPolicyOpen(true);
-              }}
-            >
-              {getString(privacyPolicyLinkTitle)}
-            </InputInfoText>
+          <TextInputField
+            id="email"
+            label="Email"
+            fullWidth
+            required={true}
+            showError={errors['email']}
+            value={fields['email'] ? fields['email'] : ''}
+            onChange={(e) => setFields({ ...fields, email: e.target.value })}
+          />
+          <PrivacyPolicyLinkText
+            onClick={() => {
+              setIsPrivacyPolicyOpen(true);
+            }}
+          >
+            {getString(privacyPolicyLinkTitle)}
           </PrivacyPolicyLinkText>
           <SubmitButtonContainer
             whileHover={{ scale: 1.01 }}
@@ -75,7 +109,6 @@ export default function NewsletterSignUp({
           <ArchModal
             text={privacyPolicyText}
             onClose={() => {
-              document.body.style.overflow = 'visible';
               setIsPrivacyPolicyOpen(false);
             }}
           />

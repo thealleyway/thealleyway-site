@@ -9,14 +9,24 @@ export const AuthorInfoWrapper = styled.div`
   justify-content: space-evenly;
 
   @media ${max.tabletLg} {
-    width: 28vw;
+    width: max(15em, 28vw);
   }
 
-  @media ${max.tabletSm} {
+  @media ${max.tablet} {
     flex-direction: row-reverse;
     align-self: flex-start;
-    padding-left: 25%;
+    padding-left: 18%;
     width: 100%;
+    justify-content: flex-start;
+  }
+`;
+
+export const AuthorTextWrapper = styled.div`
+  width: 65%;
+
+  @media ${max.tablet} {
+    width: auto;
+    padding-right: 5%;
   }
 `;
 
@@ -24,23 +34,23 @@ export const AuthorName = styled.h5`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   color: ${colors.BURNTORANGE};
-  font-size: 1vw;
+  font-size: 1.2em;
   margin: 0em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-
-  @media ${max.tabletSm} {
-    font-size: 3.5vw;
-  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.13em;
 `;
 
 export const AdditionalInfo = styled(P)`
   margin: 0em;
   color: ${colors.BROWN};
-  font-size: clamp(0.7em, 0.9vw, 1em);
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-  @media ${max.tabletSm} {
-    font-size: 2.5vw;
+  @media ${max.tablet} {
+    font-size: 1em;
   }
 `;
 
@@ -54,21 +64,12 @@ export const SocialMediaIcon = styled.img`
   width: 15%;
   height: 15%;
   margin-right: 5%;
-
-  @media ${max.tabletSm} {
-    width: 10%;
-    height: 10%;
-  }
 `;
 
-export const DonateLink = styled.a`
-  @media ${max.tabletSm} {
-    padding-left: 5%;
-  }
-`;
+export const DonateLink = styled.a``;
 
 export const DonateCircularText = styled.img`
-  width: 70%;
+  width: 85%;
   &:hover {
     cursor: pointer;
   }

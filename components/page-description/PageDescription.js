@@ -1,4 +1,4 @@
-import { getString } from '../../lib/richText';
+import { renderRichText } from '../../lib/richText';
 import {
   PageDescriptionContainer,
   DescriptionContainer,
@@ -32,7 +32,7 @@ export default function PageDescription({
       <PageDescriptionContainer style={descriptionAnimation}>
         <LongSparkArrow arrowText={arrowText} scrollTo={scrollTo} />
         <DescriptionContainer>
-          <Description>{getString(description)}</Description>
+          <Description>{renderRichText(description)}</Description>
         </DescriptionContainer>
       </PageDescriptionContainer>
       <Img src={img.url} alt={img.alt} style={imgAnimation} />

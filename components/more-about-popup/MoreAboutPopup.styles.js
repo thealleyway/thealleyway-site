@@ -43,7 +43,7 @@ const PopupBox = styled(motion.div)`
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 15;
+  z-index: 150;
   font-size: 0.9em;
   top: 15%;
   left: 0;
@@ -87,7 +87,7 @@ const Box = styled.div`
     width: 25em;
   }
   @media ${min.desktopLg} {
-    top: 22%;
+    top: 15%;
   }
 `;
 

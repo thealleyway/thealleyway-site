@@ -82,7 +82,7 @@ export default function StoryHero({
   donateLink,
 }) {
   const date = getFormattedDate(new Date(storyDate));
-  const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
+  const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tablet}px)`);
 
   return isMobile ? (
     <MobileHero

@@ -78,7 +78,7 @@ export const CurrentFeaturedStoryButtonText = styled(P)`
   color: ${colors.BROWN};
   text-transform: uppercase;
   text-align: left;
-  letter-spacing: 4px;
+  letter-spacing: 0.13em;
 `;
 
 export const PreviewText = styled(P)`

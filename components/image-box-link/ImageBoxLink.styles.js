@@ -12,10 +12,11 @@ const ImageBoxLinkContainer = styled.div`
   flex: 100%;
   flex-direction: row;
   overflow: hidden;
+  height: ${(props) => (props.height ? props.height : 'auto')};
 `;
 
 const BoxLinkContainer = styled.div`
-  margin: 2.5em 10% 1em 0;
+  margin: ${(props) => (props.height ? 'auto' : '2.5em 10% 1em 0')};
 
   @media ${max.tabletLg} {
     margin-top: 2.5em;
@@ -28,7 +29,7 @@ const BoxLinkContainer = styled.div`
 const BottomImage = styled.img`
   opacity: 10%;
   object-fit: cover;
-  height: 30em;
+  height: ${(props) => (props.height ? props.height : '30em')};
   width: 200vw;
 `;
 

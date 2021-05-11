@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { getString, renderRichText } from '../../../lib/richText';
-import MainResource from '../main-resource/MainResource';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
-import { H4, P } from '../../../style/typography';
+import { H4, P, InputInfoText } from '../../../style/typography';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import { Overlay } from '../../base-components/BaseComponents';
+import OvalButton from '../../oval-button/OvalButton';
 import {
+  ScrollToMeetFounder,
   MeetFounderContainer,
   MeetFounderWrapper,
   TextWrapper,
   H2Wrapper,
   ResourceButtonsWrapper,
-  MoreResourcesTitle,
   MoreResourcesTitleWrapper,
-  AboutImageLeft,
+  AboutImageLeftDesktop,
+  AboutImageLeftTablet,
   AboutImageQuoteWrapper,
   AboutImageRight,
   AboutImageRightOpacity,
@@ -23,7 +24,7 @@ import {
   SparkArrowWrapper,
 } from './AboutFounder.style';
 
-export default function AboutFounder({ aboutFounderData }) {
+export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
   const {
     camaryn_title: camarynTitle,
     camaryn_text: camarynText,
@@ -59,54 +60,70 @@ export default function AboutFounder({ aboutFounderData }) {
   };
 
   return (
-    <MeetFounderContainer id="about-founder">
-      <MeetFounderWrapper>
-        {!isTabletOrMobile && (
-          <AboutImageLeft
+    <>
+      <ScrollToMeetFounder id={id} />
+      <MeetFounderContainer>
+        <MeetFounderWrapper>
+          {!isTabletOrMobile && (
+            <AboutImageLeftDesktop
+              src={camarynImageLeft.url}
+              alt={camarynImageLeft.alt}
+            />
+          )}
+          <TextWrapper>
+            <H2Wrapper>{getString(camarynTitle)}</H2Wrapper>
+            <P>{renderRichText(camarynText)}</P>
+            <br />
+            <H4>{getString(resourcesTitle).toUpperCase()}</H4>
+            <P>{renderRichText(resourcesDescription)}</P>
+            <br />
+            <ResourceButtonsWrapper>
+              {resourceData.map((r) => (
+                <OvalButton
+                  key={r.id}
+                  buttonText={getString(r.resourceTitle).toUpperCase()}
+                  href={r.resourceLink.url}
+                  onClick={() => window.open(r.resourceLink.url, '_blank')}
+                />
+              ))}
+            </ResourceButtonsWrapper>
+            <MoreResourcesTitleWrapper onClick={togglePopup}>
+              <InputInfoText>{getString(moreResourcesTitle)}</InputInfoText>
+            </MoreResourcesTitleWrapper>
+          </TextWrapper>
+          <AboutImageQuoteWrapper>
+            <AboutImageRight
+              src={camarynImageRight.url}
+              alt={camarynImageRight.alt}
+            />
+            <AboutImageRightOpacity
+              src={camarynImageRight.url}
+              alt={camarynImageRight.alt}
+            />
+            <TopQuoteWrapper>
+              {renderRichText(camarynImageQuote)}
+            </TopQuoteWrapper>
+          </AboutImageQuoteWrapper>
+        </MeetFounderWrapper>
+        {isTabletOrMobile && !isMobile && (
+          <AboutImageLeftTablet
             src={camarynImageLeft.url}
             alt={camarynImageLeft.alt}
           />
         )}
-        <TextWrapper>
-          <H2Wrapper>{getString(camarynTitle)}</H2Wrapper>
-          <P>{renderRichText(camarynText)}</P>
-          <br />
-          <H4>{getString(resourcesTitle).toUpperCase()}</H4>
-          <P>{renderRichText(resourcesDescription)}</P>
-          <br />
-          <ResourceButtonsWrapper>
-            {resourceData.map((r) => (
-              <MainResource key={r.id} mainResourceData={r} />
-            ))}
-          </ResourceButtonsWrapper>
-          <MoreResourcesTitleWrapper onClick={togglePopup}>
-            <MoreResourcesTitle>
-              {getString(moreResourcesTitle)}
-            </MoreResourcesTitle>
-          </MoreResourcesTitleWrapper>
-        </TextWrapper>
-        <AboutImageQuoteWrapper>
-          <AboutImageRight
-            src={camarynImageRight.url}
-            alt={camarynImageRight.alt}
-          />
-          <AboutImageRightOpacity
-            src={camarynImageRight.url}
-            alt={camarynImageRight.alt}
-          />
-          <TopQuoteWrapper>{renderRichText(camarynImageQuote)}</TopQuoteWrapper>
-        </AboutImageQuoteWrapper>
-      </MeetFounderWrapper>
-      {isTabletOrMobile && !isMobile && (
-        <AboutImageLeft src={camarynImageLeft.url} alt={camarynImageLeft.alt} />
-      )}
-      <SparkArrowWrapper>
-        <LongSparkArrow arrowText={sparkArrowMissionText} />
-      </SparkArrowWrapper>
-      {isOpen && (
-        <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
-      )}
-      <Overlay showOverlay={isOpen} />
-    </MeetFounderContainer>
+        {!isTabletOrMobile && (
+          <SparkArrowWrapper>
+            <LongSparkArrow
+              arrowText={sparkArrowMissionText}
+              scrollTo={scrollToId}
+            />
+          </SparkArrowWrapper>
+        )}
+        {isOpen && (
+          <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
+        )}
+        <Overlay showOverlay={isOpen} />
+      </MeetFounderContainer>
+    </>
   );
 }

@@ -32,33 +32,35 @@ export default function ArchiveStoryPreview({ story, signature }) {
   const [hover, setHover] = useState(false);
 
   return (
-    <StoryPreviewContainer
-      whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
-      onMouseOver={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-    >
-      <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
-      <PageLink href={storyUrl}>
+    <PageLink href={storyUrl}>
+      <StoryPreviewContainer
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+      >
+        <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
         <StoryPreviewHover>
           <DateArrowWrapper
             animate={{ opacity: hover ? 1 : 0 }}
             transition={{ duration: 0.6 }}
           >
             <DateWrapper>{formattedDate}</DateWrapper>
-            <StoryPreviewArrow src={icons.FILLED_MEDIUM_ARROW_WHITE} />
+            <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
           </DateArrowWrapper>
           {!isTabletOrMobile && (
-            <StoryPreviewSignature
-              src={signature.url}
-              alt={signature.alt}
-              animate={{ opacity: hover ? 1 : 0 }}
-              transition={{ duration: 0.6 }}
-            />
+            <PageLink href={storyUrl}>
+              <StoryPreviewSignature
+                src={signature.url}
+                alt={signature.alt}
+                animate={{ opacity: hover ? 1 : 0 }}
+                transition={{ duration: 0.6 }}
+              />
+            </PageLink>
           )}
         </StoryPreviewHover>
-      </PageLink>
-      <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
-    </StoryPreviewContainer>
+        <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
+      </StoryPreviewContainer>
+    </PageLink>
   );
 }

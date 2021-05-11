@@ -1,7 +1,6 @@
 import { P } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { min } from '../../lib/responsive';
 
 const ButtonImage = styled.img`
   width: 4.5em;
@@ -21,13 +20,9 @@ const Button = styled.a`
 const ButtonText = styled(P)`
   color: ${colors.BROWN};
   margin: 0;
-  @media ${min.tablet} {
-    letter-spacing: 0.1em;
-  }
-  @media ${min.desktop} {
-    letter-spacing: 0.2em;
-  }
+  letter-spacing: 0.13em;
   width: ${(props) => props.showHorizontal && '12em'};
+  padding-left: ${(props) => props.showHorizontal && '1em'};
 `;
 
 export { Button, ButtonText, ButtonImage };
