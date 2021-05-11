@@ -3,6 +3,7 @@ import { H3, P, fontWeights } from '../../../style/typography';
 import { max } from '../../../lib/responsive';
 import { colors } from '../../../style/colors';
 import { STORY_SPACING } from '../StoryArchivePage.style';
+import { motion } from 'framer-motion';
 
 const STORY_PREVIEW_DIMENSION = {
   width: 'clamp(18.5em, 20vw, 19em)',
@@ -11,7 +12,7 @@ const STORY_PREVIEW_DIMENSION = {
   height_mobile: 'clamp(10em, 45vw, 11em)',
 };
 
-const StoryPreviewContainer = styled.div`
+const StoryPreviewContainer = styled(motion.div)`
   position: relative;
   color: ${colors.WHITE};
   width: ${STORY_PREVIEW_DIMENSION.width};

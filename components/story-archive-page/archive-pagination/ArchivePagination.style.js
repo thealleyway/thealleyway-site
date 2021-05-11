@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 const ArchiveArrow = styled.img`
   width: 2em;
@@ -22,7 +23,7 @@ const ArchiveArrow = styled.img`
   }
 `;
 
-const PaginationWrapper = styled.div`
+const PaginationWrapper = styled(motion.div)`
   width: 20em;
   right: 0;
   display: flex;

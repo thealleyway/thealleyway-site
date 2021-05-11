@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { P, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
-const SortLabelWrapper = styled.div`
+const SortLabelWrapper = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;

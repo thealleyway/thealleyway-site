@@ -1,4 +1,3 @@
-import React from 'react';
 import moment from 'moment';
 import { getString } from '../../../lib/richText';
 import { icons } from '../../../style/icons';
@@ -15,6 +14,9 @@ import {
   DateWrapper,
 } from './ArchiveStoryPreview.style';
 import { useMatchMedia } from '../../../lib/hooks';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 
 export default function ArchiveStoryPreview({ story, signature }) {
   const {
@@ -29,9 +31,19 @@ export default function ArchiveStoryPreview({ story, signature }) {
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+  if (visible) {
   return (
-    <StoryPreviewContainer>
+    <StoryPreviewContainer 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ type: "spring", duration: 4 }}>
       <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
       <PageLink href={storyUrl}>
         <StoryPreviewHover>
@@ -47,4 +59,6 @@ export default function ArchiveStoryPreview({ story, signature }) {
       <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
     </StoryPreviewContainer>
   );
+          }
+  return <PlaceHolder ref={placeHolderRef} />;
 }
