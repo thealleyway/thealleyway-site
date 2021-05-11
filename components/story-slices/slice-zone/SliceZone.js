@@ -4,6 +4,7 @@ import ImageGallery from '../image-gallery/ImageGallery';
 import FullSizeImageSlice from '../full-size-image-slice/FullSizeImageSlice';
 import LargeImageWithQuote from '../large-image-with-quote/LargeImageWithQuote';
 import TextWithFadedImageBackground from '../text-with-faded-image-background/TextWithFadedImageBackground';
+import HalfImageHalfText from '../half-image-half-text/HalfImageHalfText';
 
 export default function SliceZone({ sliceZone }) {
   return (
@@ -22,6 +23,8 @@ export default function SliceZone({ sliceZone }) {
             return <LargeImageWithQuote {...primary} key={key} />;
           case 'text_with_faded_image_background':
             return <TextWithFadedImageBackground {...primary} key={key} />;
+          case 'half_image_half_text':
+            return <HalfImageHalfText {...primary} key={key} />;
           default:
             return null;
         }
