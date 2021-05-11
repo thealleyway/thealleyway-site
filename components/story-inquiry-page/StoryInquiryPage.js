@@ -15,7 +15,6 @@ import {
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
   SideImageContainer,
-  SideImage,
   QuoteCarouselContainer,
   ScrollToAuthorTestimonies,
 } from './StoryInquiryPage.styles';
@@ -23,6 +22,7 @@ import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
+import SideImage from './side-image/SideImage';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -117,11 +117,6 @@ export default function StoryInquiryPage({
     popupImage,
   };
 
-
-
-
-  
-
   return (
     <>
       <Navigation navigationData={navigationData} />
@@ -144,16 +139,13 @@ export default function StoryInquiryPage({
       </TopSparkArrowContainer>
       <SideImageContainer>
         <SideImage
-          src={storyInquirySideImage1.url}
-          alt={storyInquirySideImage1.alt}
+          image={storyInquirySideImage1}
         />
         <SideImage
-          src={storyInquirySideImage2.url}
-          alt={storyInquirySideImage2.alt}
+          image={storyInquirySideImage2}
         />
         <SideImage
-          src={storyInquirySideImage3.url}
-          alt={storyInquirySideImage3.alt}
+          image={storyInquirySideImage3}
         />
       </SideImageContainer>
       <LongLinesContainer>

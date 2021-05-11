@@ -108,20 +108,6 @@ const SideImageContainer = styled.div`
   }
 `;
 
-const SideImage = styled.img`
-  object-fit: cover;
-  @media ${min.tablet} {
-    margin-bottom: 20em;
-    width: 8.5em;
-    height: 32em;
-  }
-  @media ${min.desktop} {
-    margin-bottom: 15em;
-    width: 16em;
-    height: 32em;
-  }
-`;
-
 const QuoteCarouselContainer = styled.div`
   margin: 0 0 -12em 0;
   padding-top: 3em;
@@ -150,7 +136,6 @@ export {
   LongLinesContainer,
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
-  SideImage,
   SideImageContainer,
   QuoteCarouselContainer,
   LongLinesTablet,
