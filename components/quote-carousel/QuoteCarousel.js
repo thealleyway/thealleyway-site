@@ -1,4 +1,3 @@
-import React, { useState, useRef, useEffect } from "react";
 import { getString } from '../../lib/richText';
 import {
   ContentWrapper,
@@ -17,7 +16,9 @@ import {
   AuthorsWrapper
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
+import React, { useState, useRef, useEffect } from "react";
 import { registerObserver } from '../../lib/intersectionObserver';
+import { PlaceHolder } from '../base-components/BaseComponents';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 
@@ -61,7 +62,7 @@ export default function QuoteCarousel({
 
   if (visible) {
     return (
-      <ContentWrapper initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2}}>
+      <ContentWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
         <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
           <TitleWrapper>{getString(title)}</TitleWrapper>
           <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
@@ -95,5 +96,5 @@ export default function QuoteCarousel({
       </ContentWrapper>
     );
   }
-  return <span ref={placeHolderRef} />;
+  return <PlaceHolder ref={placeHolderRef} />;
 }
