@@ -8,32 +8,23 @@ import {
   StoryConceptContainer,
   SocialInformationContainer,
   InputFieldWrapper,
-  AuthorSignatureContainer,
   Description,
   ResourceLinksContainer,
   StoryConceptInfoTextWrapper,
-  SignatureCanvasWrapper,
-  ClearSignatureWrapper,
-  StarLabelContainer,
-  TextLabel,
   SocialInfoTextWrapper,
   SquareButtonWrapper,
-  ErrorText,
   ScrollToSubmissionForm,
 } from './StoryInquiryForm.styles';
 import { fieldNames } from '../../../lib/utils';
-import { RedStar } from '../../base-components/BaseComponents';
-import SignatureCanvas from 'react-signature-canvas';
 import React, { useState } from 'react';
 import ArchModal from '../../arch-modal/ArchModal';
-import { icons } from '../../../style/icons';
 import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import { Overlay } from '../../base-components/BaseComponents';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
-import useResizeObserver from 'use-resize-observer';
 import AuthorInformation from './author-information/AuthorInformation';
+import AuthorSignature from './author-signature/AuthorSignature';
 
 const axios = require('axios');
 
@@ -66,7 +57,6 @@ export default function StoryInquiryForm({
   ]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
-  const { ref, width: canvasWidth } = useResizeObserver();
 
   const isValidSubmission = () => {
     let errors = {};
@@ -137,30 +127,15 @@ export default function StoryInquiryForm({
           errors={errors}
           setFields={setFields}
         />
-        <AuthorSignatureContainer>
-          <H4>{getString(authorSignatureSubtitle)}</H4>
-          <Description>{getString(authorSignatureDescription)}</Description>
-          <StarLabelContainer>
-            <TextLabel>Signature</TextLabel>
-            <RedStar src={icons.RED_STAR} />
-          </StarLabelContainer>
-          <SignatureCanvasWrapper id="signature canvas wrapper" ref={ref}>
-            <SignatureCanvas
-              penColor="white"
-              canvasProps={{ width: canvasWidth, height: 60 }}
-              ref={(ref) => setSigPad(ref)}
-              minWidth={1.5}
-              maxWidth={1.5}
-              onEnd={() =>
-                trim(sigPad.getTrimmedCanvas().toDataURL('image/png'))
-              }
-            />
-            <ErrorText>{errors[fieldNames.SIGNATURE]}</ErrorText>
-          </SignatureCanvasWrapper>
-          <ClearSignatureWrapper>
-            <InputInfoText onClick={clear}>Reset</InputInfoText>
-          </ClearSignatureWrapper>
-        </AuthorSignatureContainer>
+        <AuthorSignature
+          authorSignatureSubtitle={authorSignatureSubtitle}
+          authorSignatureDescription={authorSignatureDescription}
+          errors={errors}
+          clear={clear}
+          setSigPad={setSigPad}
+          trim={trim}
+          sigPad={sigPad}
+        />
         <SocialInformationContainer>
           <H4>{getString(socialInformationSubtitle)}</H4>
           <InputFieldWrapper>
@@ -400,9 +375,8 @@ export default function StoryInquiryForm({
     Signature: ${trimmedDataUrl}%0A
     `;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${
-        fields[fieldNames.EMAIL]
-      }&subject=${subject}&body=${body}`;
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields[fieldNames.EMAIL]
+        }&subject=${subject}&body=${body}`;
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
