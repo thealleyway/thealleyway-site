@@ -3,6 +3,7 @@ import TextSection from '../text-section/TextSection';
 import ImageGallery from '../image-gallery/ImageGallery';
 import FullSizeImageSlice from '../full-size-image-slice/FullSizeImageSlice';
 import LargeImageWithQuote from '../large-image-with-quote/LargeImageWithQuote';
+import HalfImageHalfText from '../half-image-half-text/HalfImageHalfText';
 
 export default function SliceZone({ sliceZone }) {
   return (
@@ -19,6 +20,8 @@ export default function SliceZone({ sliceZone }) {
             return <ImageGallery images={items} key={key} />;
           case 'large_image_with_small_quote':
             return <LargeImageWithQuote {...primary} key={key} />;
+          case 'half_image_half_text':
+            return <HalfImageHalfText {...primary} key={key} />;
           default:
             return null;
         }
