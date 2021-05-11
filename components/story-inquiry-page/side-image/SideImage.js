@@ -19,7 +19,7 @@ export default function SideImage({ image }) {
                 alt={image.alt}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ type: "spring", duration: 7, bounce: 0, delay: 1}}
+                transition={{ type: "spring", duration: 5, bounce: 0, delay: 1}}
             />
         )
     }

@@ -23,6 +23,7 @@ import { icons } from '../../style/icons';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import SideImage from './side-image/SideImage';
+import LongLines from './long-lines/LongLines';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -148,7 +149,8 @@ export default function StoryInquiryPage({
           image={storyInquirySideImage3}
         />
       </SideImageContainer>
-      <LongLinesContainer>
+      <LongLines />
+      {/* <LongLinesContainer>
         <LongLinesDesktop
           src={icons.LONG_LINES_DESKTOP}
           alt="long lines with spark at the end for desktop"
@@ -165,7 +167,7 @@ export default function StoryInquiryPage({
           src={icons.LONG_LINES_FLIPPED_TABLET}
           alt="long lines with spark at the end flipped for tablet"
         />
-      </LongLinesContainer>
+      </LongLinesContainer> */}
       <StoryInquiryForm
         storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}
