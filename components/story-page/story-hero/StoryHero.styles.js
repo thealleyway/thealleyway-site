@@ -139,7 +139,6 @@ export const MobileHeroWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 5em;
-  padding-bottom: 4em;
 `;
 
 export const MobileTextWrapper = styled.div`
