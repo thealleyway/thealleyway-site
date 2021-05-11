@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import { H2, H3, P } from '../../style/typography';
 import { colors } from '../../style/colors';
-import { max, min } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 import {
   FadeIn,
   FadeOut,
 } from '../animation-base-components/AnimationBaseComponents';
 import { motion } from 'framer-motion';
+
+const ScrollToCarousel = styled.div`
+  position: absolute;
+  margin: -10em;
+`;
 
 const ContentWrapper = styled(motion.div)`
   width: 55em;
@@ -14,8 +19,8 @@ const ContentWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5em;
   margin-bottom: -2em;
+
   @media ${max.tabletLg} {
     flex-direction: column;
     width: clamp(20em, 80vw, 30em);
@@ -23,9 +28,11 @@ const ContentWrapper = styled(motion.div)`
     margin-bottom: 0;
     padding-left: 7vw;
   }
+
   @media ${max.tabletSm} {
     padding-left: 0;
   }
+
   @media ${max.tablet} {
     height: 35em;
   }
@@ -33,14 +40,17 @@ const ContentWrapper = styled(motion.div)`
 
 const TextWrapper = styled.div`
   width: 19em;
-  margin-top: ${(props) => props.isAuthorTestimonies ? '-4em' : '0'};
+  margin-top: ${(props) => (props.isAuthorTestimonies ? '-4em' : '0')};
+
   @media ${max.tabletLg} {
-    margin-bottom: ${(props) => props.isAuthorTestimonies ? '-2em' : '2em'};
-    margin-left: ${(props) => props.isAuthorTestimonies ? '-2em' : '0'};
+    margin-bottom: ${(props) => (props.isAuthorTestimonies ? '-2em' : '2em')};
+    margin-left: ${(props) => (props.isAuthorTestimonies ? '-2em' : '0')};
   }
+
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
-    margin-left: ${(props) => props.isAuthorTestimonies ? '1em' : '0'};
+    margin-left: ${(props) => (props.isAuthorTestimonies ? '1em' : '0')};
+    margin-bottom: -4em;
   }
 `;
 
@@ -66,15 +76,18 @@ const QuoteWrapper = styled(H3)`
     props.isAuthorTestimonies
       ? 'clamp(1.2em, 3vw, 1.3em)'
       : 'clamp(1.4em, 6vw, 1.8em)'};
+
   @media ${min.tabletSm} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0.5em')};
   }
+
   @media ${min.tablet} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '-1.5em' : '0.5em')};
     padding-bottom: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0')};
     font-size: ${(props) =>
       props.isAuthorTestimonies ? '1.4em' : 'clamp(1.4em, 6vw, 1.8em)'};
   }
+
   @media ${min.desktop} {
     margin-top: ${(props) => (props.isAuthorTestimonies ? '-.65em' : '0')};
     font-size: ${(props) =>
@@ -84,7 +97,7 @@ const QuoteWrapper = styled(H3)`
 
 const AuthorsWrapper = styled(P)`
   color: ${colors.BROWN};
-  float: right; 
+  float: right;
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
 `;
@@ -95,6 +108,7 @@ const AuthorsContainer = styled.div`
   width: 100%;
   margin: -1.3em 0 0 0;
   padding-right: 1em;
+
   @media ${min.desktop} {
     margin: 0;
     padding: 0;
@@ -123,31 +137,30 @@ const QuoteContainer = styled.div`
   }
 `;
 
-
 const CarouselContainer = styled.div`
   margin-left: -10em;
-  margin-top: ${(props) => props.isAuthorTestimonies ? '-16em' : '0'};
+  margin-top: ${(props) => (props.isAuthorTestimonies ? '-16em' : '0')};
   padding: 0;
   width: 30em;
   height: 30em;
-
   display: flex;
   flex: 100%;
   justify-content: center;
   align-items: center;
+
   @media ${min.tabletSm} {
-    margin-top: ${(props) => props.isAuthorTestimonies ? '-8em' : '0'};
+    margin-top: ${(props) => (props.isAuthorTestimonies ? '-8em' : '0')};
   }
+
   @media ${max.tabletLg} {
     margin-left: -20em;
   }
 
   @media ${max.tabletSm} {
     margin-left: -17em;
-    width: clamp(16em, 80vw, 22em); 
-    height: clamp(16em, 80vw, 22em); 
+    width: clamp(16em, 80vw, 22em);
+    height: clamp(16em, 80vw, 22em);
   }
-
 `;
 
 const ImageArchWrapper = styled.div`
@@ -194,7 +207,6 @@ const ArchImage = styled.span`
     border-top-left-radius: calc(var(--arch-height) / 2);
     border-top-right-radius: calc(var(--arch-height) / 2);
     border: var(--border-width) solid ${colors.WHITE};
-    border-bottom: 0;
     background-image: inherit;
     content: '';
   }
@@ -205,6 +217,10 @@ const ArchOutline = styled(ArchImage)`
   position: absolute;
   left: -25px;
   bottom: 250px;
+
+  &:after {
+    border-bottom: 0;
+  }
 
   @media ${max.tabletLg} {
     left: -20px;
@@ -237,6 +253,7 @@ const ArchSpark = styled.img`
 `;
 
 export {
+  ScrollToCarousel,
   ContentWrapper,
   TextWrapper,
   TitleWrapper,
@@ -250,5 +267,5 @@ export {
   ArchOutline,
   ArchSpark,
   AuthorsContainer,
-  AuthorsWrapper
+  AuthorsWrapper,
 };

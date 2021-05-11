@@ -3,7 +3,6 @@ import { H3, P, fontWeights } from '../../../style/typography';
 import { max } from '../../../lib/responsive';
 import { colors } from '../../../style/colors';
 import { STORY_SPACING } from '../StoryArchivePage.style';
-import { motion } from 'framer-motion';
 
 const STORY_PREVIEW_DIMENSION = {
   width: 'clamp(18.5em, 20vw, 19em)',
@@ -12,7 +11,7 @@ const STORY_PREVIEW_DIMENSION = {
   height_mobile: 'clamp(10em, 45vw, 11em)',
 };
 
-const StoryPreviewContainer = styled(motion.div)`
+const StoryPreviewContainer = styled.div`
   position: relative;
   color: ${colors.WHITE};
   width: ${STORY_PREVIEW_DIMENSION.width};
@@ -43,13 +42,13 @@ const StoryPreviewImage = styled.img`
   filter: grayscale(100%);
 
   ${StoryPreviewContainer}:hover & {
-    -webkit-filter: none;
-    filter: none;
+    -webkit-filter: brightness(65%); /* Safari 6.0 - 9.0 */
+    filter: brightness(65%);
   }
 
   @media only screen and ${max.tabletLg} {
-    -webkit-filter: none;
-    filter: none;
+    -webkit-filter: brightness(65%); /* Safari 6.0 - 9.0 */
+    filter: brightness(65%);
   }
 
   @media only screen and ${max.tabletSm} {
@@ -75,9 +74,10 @@ const StoryPreviewTitle = styled(H3)`
 `;
 
 const StoryPreviewArrow = styled.img`
-  width: 75px;
+  width: 125px;
+  padding: 0;
   @media only screen and ${max.tabletSm} {
-    width: 60px;
+    width: 80px;
   }
 `;
 
@@ -123,6 +123,7 @@ const DateArrowWrapper = styled.div`
 
 const DateWrapper = styled(P)`
   font-weight: ${fontWeights.bold};
+  letter-spacing: 0.1em;
 
   @media only screen and ${max.tablet} {
     font-weight: ${fontWeights.normal};

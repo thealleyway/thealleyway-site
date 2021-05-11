@@ -17,6 +17,7 @@ import { useMatchMedia } from '../../../lib/hooks';
 import React, { useState, useRef, useEffect } from "react";
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
+import { motion } from 'framer-motion';
 
 export default function ArchiveStoryPreview({ story, signature }) {
   const {
@@ -39,26 +40,31 @@ export default function ArchiveStoryPreview({ story, signature }) {
   }, []);
 
   if (visible) {
-  return (
-    <StoryPreviewContainer 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ type: "spring", duration: 4 }}>
-      <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
-      <PageLink href={storyUrl}>
-        <StoryPreviewHover>
-          <DateArrowWrapper>
-            <DateWrapper>{formattedDate}</DateWrapper>
-            <StoryPreviewArrow src={icons.FILLED_MEDIUM_ARROW_WHITE} />
-          </DateArrowWrapper>
-          {!isTabletOrMobile && (
-            <StoryPreviewSignature src={signature.url} alt={signature.alt} />
-          )}
-        </StoryPreviewHover>
-      </PageLink>
-      <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
-    </StoryPreviewContainer>
-  );
-          }
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "spring", duration: 4 }}>
+        <PageLink href={storyUrl}
+        >
+          <StoryPreviewContainer>
+            <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
+            <StoryPreviewHover>
+              <DateArrowWrapper>
+                <DateWrapper>{formattedDate}</DateWrapper>
+                <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
+              </DateArrowWrapper>
+              {!isTabletOrMobile && (
+                <PageLink href={storyUrl}>
+                  <StoryPreviewSignature src={signature.url} alt={signature.alt} />
+                </PageLink>
+              )}
+            </StoryPreviewHover>
+            <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>
+          </StoryPreviewContainer>
+        </PageLink>
+      </motion.div>
+    );
+  }
   return <PlaceHolder ref={placeHolderRef} />;
 }

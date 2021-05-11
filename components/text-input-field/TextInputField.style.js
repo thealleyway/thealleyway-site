@@ -15,7 +15,7 @@ const ErrorText = styled(P)`
   font-size: 0.7em;
   margin: 0.5em 0 0 0;
   text-shadow: 0.5px 0 #ff0000;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.13em;
 `;
 
 const StarLabelContainer = styled.div`

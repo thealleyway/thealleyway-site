@@ -1,18 +1,21 @@
 import { P } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { fontWeights } from '../../style/typography';
 import { max } from '../../lib/responsive';
 
-const Button = styled.a.attrs({
+const Button = styled(P).attrs({
   as: 'button',
 })`
   background-color: ${colors.CREME};
   color: ${colors.MAUVE};
   border: 2px solid ${colors.MAUVE};
   border-radius: 240%;
-  width: clamp(7.5em, 10vw, 8em);
-  height: 3.8em;
+  width: 120px;
+  height: 48px;
+  text-align: center;
+  letter-spacing: 0.13em;
+
+  transition: background-color 0.3s linear;
 
   &:hover {
     background-color: ${colors.MAUVE};
@@ -20,26 +23,13 @@ const Button = styled.a.attrs({
     cursor: pointer;
   }
 
+  @media ${max.tabletSm} {
+    align-self: center;
+  }
+
   @media ${max.tabletLg} {
-    height: 3.5em;
-  }
-
-  @media ${max.tabletSm} {
-    width: 10em;
-    height: 4em;
+    width: 30%;
   }
 `;
 
-const ButtonText = styled(P)`
-  margin: 0;
-  letter-spacing: 0.25em;
-  ${Button}:hover & {
-    font-weight: ${fontWeights.bold};
-  }
-
-  @media ${max.tabletSm} {
-    font-size: 1.2em;
-  }
-`;
-
-export { Button, ButtonText };
+export { Button };
