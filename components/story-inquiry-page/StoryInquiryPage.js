@@ -21,6 +21,8 @@ import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import SideImage from './side-image/SideImage';
 import LongLines from './long-lines/LongLines';
 import LongLinesFlipped from './long-lines-flipped/LongLinesFlipped';
+import { useSpring } from 'react-spring';
+import { header } from '../../style/animations';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -115,10 +117,12 @@ export default function StoryInquiryPage({
     popupImage,
   };
 
+  const headerAnimation = useSpring(header);
+
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1StyledContainer>
+      <H1StyledContainer style={headerAnimation}>
         <H1Styled
           regular={storySubmissionTitleRegular}
           italicized={storySubmissionTitleItalic}
@@ -136,15 +140,9 @@ export default function StoryInquiryPage({
         <LongSparkArrow arrowText={sparkArrowFaqText} scrollTo="faq" />
       </TopSparkArrowContainer>
       <SideImageContainer>
-        <SideImage
-          image={storyInquirySideImage1}
-        />
-        <SideImage
-          image={storyInquirySideImage2}
-        />
-        <SideImage
-          image={storyInquirySideImage3}
-        />
+        <SideImage image={storyInquirySideImage1} />
+        <SideImage image={storyInquirySideImage2} />
+        <SideImage image={storyInquirySideImage3} />
       </SideImageContainer>
       <LongLinesContainer>
         <LongLines />

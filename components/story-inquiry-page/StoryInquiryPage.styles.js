@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { motion } from 'framer-motion';
+import { animated } from 'react-spring';
 
 const TopSparkArrowContainer = styled.div`
   position: absolute;
@@ -37,7 +38,7 @@ const SquiggleWavy = styled.img`
   }
 `;
 
-const H1StyledContainer = styled.div`
+const H1StyledContainer = styled(animated.div)`
   @media ${min.tablet} {
     padding-bottom: 0.5em;
   }
@@ -84,13 +85,13 @@ const ScrollToAuthorTestimonies = styled.div`
 const LongLinesContainer = styled(motion.div)`
   position: absolute;
   display: none;
-@media ${min.tablet} {
-  display: block;
-  margin: 30em 0 0 0;
-}
-@media ${min.desktop} {
-  margin: 32.5em 0 0 0;
-}
+  @media ${min.tablet} {
+    display: block;
+    margin: 30em 0 0 0;
+  }
+  @media ${min.desktop} {
+    margin: 32.5em 0 0 0;
+  }
 `;
 
 export {
