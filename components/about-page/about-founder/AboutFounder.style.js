@@ -109,7 +109,7 @@ const AboutImageLeftTablet = styled.img`
   }
 `;
 
-const AboutImageQuoteWrapper = styled.div`
+const AboutImageQuoteWrapper = styled(motion.div)`
   width: clamp(21em, 30vw, 25em);
   padding-top: 7em;
   margin-left: 2em;
