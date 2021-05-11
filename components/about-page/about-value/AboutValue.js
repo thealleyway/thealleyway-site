@@ -44,7 +44,7 @@ export default function AboutValue({ aboutValueData, id, scrollToId }) {
             />
           </SparkArrowWrapper>
         )}
-        <ValuesContainer>
+        <ValuesContainer >
           {valuesData.map((v, index) => {
             if (index < 3) {
               return <Value key={v.id} valueData={v.data} offset={index} />;

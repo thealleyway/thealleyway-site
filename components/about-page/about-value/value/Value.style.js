@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { H4, P } from '../../../../style/typography';
 import { max } from '../../../../lib/responsive';
 import { colors } from '../../../../style/colors';
+import { motion } from 'framer-motion';
 
-const ValueWrapper = styled.div`
+const ValueWrapper = styled(motion.div)`
   display: flex;
   height: 15em;
   margin-left: ${(props) =>

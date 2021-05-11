@@ -9,8 +9,11 @@ import {
   ValueTitleWrapper,
   ValueDescriptionWrapper,
 } from './Value.style';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../../base-components/BaseComponents';
 
-export default function Value({ valueData, offset }) {
+export default function Value({ valueData, offset, v }) {
   const {
     value_title: title,
     value_description: description,
@@ -20,16 +23,28 @@ export default function Value({ valueData, offset }) {
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
-  return (
-    <ValueWrapper offset={isTabletOrMobile ? null : offset}>
-      <ValueImage src={image.url} alt={image.alt} />
-      <ValueTextWrapper>
-        <ValueTitleWrapper>{getString(title).toUpperCase()}</ValueTitleWrapper>
-        <ValueDescriptionWrapper>
-          <P>{getString(description)}</P>
-        </ValueDescriptionWrapper>
-      </ValueTextWrapper>
-    </ValueWrapper>
-  );
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+  if (visible) {
+    return (
+      <ValueWrapper offset={isTabletOrMobile ? null : offset}               
+      variants={v}>
+        <ValueImage src={image.url} alt={image.alt} />
+        <ValueTextWrapper>
+          <ValueTitleWrapper>{getString(title).toUpperCase()}</ValueTitleWrapper>
+          <ValueDescriptionWrapper>
+            <P>{getString(description)}</P>
+          </ValueDescriptionWrapper>
+        </ValueTextWrapper>
+      </ValueWrapper>
+    );
+  }
+
+  return <PlaceHolder ref={placeHolderRef} />;
+
 }
