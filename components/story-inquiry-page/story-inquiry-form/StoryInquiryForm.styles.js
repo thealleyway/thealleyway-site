@@ -60,7 +60,7 @@ const SocialInformationContainer = styled(motion.div)`
   }
 `;
 
-const StoryConceptContainer = styled.div`
+const StoryConceptContainer = styled(motion.div)`
   padding-bottom: 3.5em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;

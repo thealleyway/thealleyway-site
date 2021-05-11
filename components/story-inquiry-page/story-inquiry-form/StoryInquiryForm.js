@@ -1,21 +1,17 @@
 import TextInputField from '../../text-input-field/TextInputField';
-import TextInputBox from '../../text-input-box/TextInputBox';
 import SquareButton from '../../square-button/SquareButton';
-import { H4, InputInfoText } from '../../../style/typography';
+import { H4 } from '../../../style/typography';
 import { getString } from '../../../lib/richText';
 import {
   StoryInquiryFormContainer,
-  StoryConceptContainer,
   InputFieldWrapper,
   Description,
   ResourceLinksContainer,
-  StoryConceptInfoTextWrapper,
   SquareButtonWrapper,
   ScrollToSubmissionForm,
 } from './StoryInquiryForm.styles';
 import { fieldNames } from '../../../lib/utils';
 import React, { useState } from 'react';
-import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import { Overlay } from '../../base-components/BaseComponents';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
@@ -23,6 +19,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AuthorInformation from './author-information/AuthorInformation';
 import AuthorSignature from './author-signature/AuthorSignature';
 import SocialInformation from './social-information/SocialInformation';
+import StoryConcept from './story-concept/StoryConcept';
 
 const axios = require('axios');
 
@@ -143,103 +140,17 @@ export default function StoryInquiryForm({
             isVenmoPolicyOpen={isVenmoPolicyOpen}
             setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
         />
-        {/* <SocialInformationContainer>
-          <H4>{getString(socialInformationSubtitle)}</H4>
-          <InputFieldWrapper>
-            <TextInputField
-              id="website"
-              label="Website"
-              value={
-                fields[fieldNames.WEBSITE] ? fields[fieldNames.WEBSITE] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, WEBSITE: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="instagram"
-              label="Instagram"
-              value={
-                fields[fieldNames.INSTAGRAM] ? fields[fieldNames.INSTAGRAM] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, INSTAGRAM: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="twitter"
-              label="Twitter"
-              value={
-                fields[fieldNames.TWITTER] ? fields[fieldNames.TWITTER] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, TWITTER: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="venmo"
-              label="Venmo"
-              value={fields[fieldNames.VENMO] ? fields[fieldNames.VENMO] : ''}
-              onChange={(e) => setFields({ ...fields, VENMO: e.target.value })}
-            />
-          </InputFieldWrapper>
-          <SocialInfoTextWrapper>
-            <InputInfoText
-              onClick={() => {
-                document.body.style.overflow = 'hidden';
-                setIsVenmoPolicyOpen(true);
-              }}
-            >
-              {getString(venmoMoreInfoSubtitle)}
-            </InputInfoText>
-          </SocialInfoTextWrapper>
-          {isVenmoPolicyOpen && (
-            <ArchModal
-              text={venmoMoreInfoDescription}
-              onClose={() => {
-                document.body.style.overflow = 'visible';
-                setIsVenmoPolicyOpen(false);
-              }}
-            />
-          )}
-        </SocialInformationContainer> */}
-        <StoryConceptContainer>
-          <H4>{getString(storyConceptSubtitle)}</H4>
-          <Description>{getString(storyConceptDescription)}</Description>
-          <TextInputBox
-            id="area"
-            placeholder="Copy and paste here"
-            height="clamp(10em, 4vw, 26em)"
-            label="Copy and paste text below"
-            required
-            onChange={(e) =>
-              setFields({ ...fields, STORY_CONCEPT: e.target.value })
-            }
-            showError={errors[fieldNames.STORY_CONCEPT]}
-          />
-          <StoryConceptInfoTextWrapper>
-            <InputInfoText
-              onClick={() => {
-                document.body.style.overflow = 'hidden';
-                setIsStoryConceptPopupOpen(true);
-              }}
-            >
-              {getString(storyConceptBoxSubtitle)}
-            </InputInfoText>
-          </StoryConceptInfoTextWrapper>
-          {isStoryConceptPopupOpen && (
-            <MoreAboutPopup
-              popupData={storyConceptPopupData}
-              setIsPopupOpen={setIsStoryConceptPopupOpen}
-            />
-          )}
-        </StoryConceptContainer>
+        <StoryConcept 
+            fields={fields}
+            errors={errors}
+            setFields={setFields}
+            storyConceptBoxSubtitle={storyConceptBoxSubtitle}
+            storyConceptDescription={storyConceptDescription}
+            storyConceptPopupData={storyConceptPopupData}
+            storyConceptSubtitle={storyConceptSubtitle}
+            isStoryConceptPopupOpen={isStoryConceptPopupOpen}
+            setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
+        />
         <ResourceLinksContainer>
           <H4>{getString(resourceLinksSubtitle)}</H4>
           <Description>{getString(resourceLinksDescription)}</Description>
