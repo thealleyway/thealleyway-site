@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
-const FaqContainer = styled.div`
+const FaqContainer = styled(motion.div)`
   margin: 8em 3.5em 0 4em;
   @media ${min.tablet} {
     margin: 8em 0 0 3.5em;
