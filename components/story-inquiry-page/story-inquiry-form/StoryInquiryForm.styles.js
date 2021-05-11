@@ -129,6 +129,10 @@ const ScrollToSubmissionForm = styled.div`
   margin-top: -3em;
 `;
 
+const OverflowDiv = styled.div`
+  overflow: hidden;
+`;
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -147,4 +151,5 @@ export {
   SocialInfoTextWrapper,
   ErrorText,
   ScrollToSubmissionForm,
+  OverflowDiv,
 };

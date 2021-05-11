@@ -3,6 +3,7 @@ import {
   StoryInquiryFormContainer,
   SquareButtonWrapper,
   ScrollToSubmissionForm,
+  OverflowDiv,
 } from './StoryInquiryForm.styles';
 import { fieldNames } from '../../../lib/utils';
 import React, { useState } from 'react';
@@ -109,81 +110,83 @@ export default function StoryInquiryForm({
   return (
     <>
       <ScrollToSubmissionForm id="submission form" />
-      <StoryInquiryFormContainer>
-        <AuthorInformation
-          authorInformationSubtitle={authorInformationSubtitle}
-          fields={fields}
-          errors={errors}
-          setFields={setFields}
-        />
-        <AuthorSignature
-          authorSignatureSubtitle={authorSignatureSubtitle}
-          authorSignatureDescription={authorSignatureDescription}
-          errors={errors}
-          clear={clear}
-          setSigPad={setSigPad}
-          trim={trim}
-          sigPad={sigPad}
-        />
-        <SocialInformation
-          fields={fields}
-          setFields={setFields}
-          socialInformationSubtitle={socialInformationSubtitle}
-          venmoMoreInfoDescription={venmoMoreInfoDescription}
-          venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
-          isVenmoPolicyOpen={isVenmoPolicyOpen}
-          setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
-        />
-        <StoryConcept
-          fields={fields}
-          errors={errors}
-          setFields={setFields}
-          storyConceptBoxSubtitle={storyConceptBoxSubtitle}
-          storyConceptDescription={storyConceptDescription}
-          storyConceptPopupData={storyConceptPopupData}
-          storyConceptSubtitle={storyConceptSubtitle}
-          isStoryConceptPopupOpen={isStoryConceptPopupOpen}
-          setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
-        />
-        <ResourceLinks
-          fields={fields}
-          setFields={setFields}
-          resourceLinksDescription={resourceLinksDescription}
-          resourceLinksSubtitle={resourceLinksSubtitle}
-          setAdditionalResources={setAdditionalResources}
-          errors={errors}
-          additionalResources={additionalResources}
-        />
-        <SquareButtonWrapper>
-          <SquareButton
-            buttonText="SUBMIT MY STORY"
-            long
-            onClick={() => {
-              if (submitRequest()) {
-                document.body.style.overflow = 'hidden';
-                document.querySelector('#area').value = '';
-                setFields({});
-                clear();
-                setIsConfirmationPopupOpen(true);
-              }
-            }}
+      <OverflowDiv>
+        <StoryInquiryFormContainer>
+          <AuthorInformation
+            authorInformationSubtitle={authorInformationSubtitle}
+            fields={fields}
+            errors={errors}
+            setFields={setFields}
           />
-        </SquareButtonWrapper>
-        {isConfirmationPopupOpen && (
-          <ConfirmationPopup
-            confirmationData={storySubmissionConfirmationData}
-            togglePopup={setIsConfirmationPopupOpen}
-            page="inquiry"
+          <AuthorSignature
+            authorSignatureSubtitle={authorSignatureSubtitle}
+            authorSignatureDescription={authorSignatureDescription}
+            errors={errors}
+            clear={clear}
+            setSigPad={setSigPad}
+            trim={trim}
+            sigPad={sigPad}
           />
-        )}
-        <Overlay
-          showOverlay={
-            isVenmoPolicyOpen ||
-            isStoryConceptPopupOpen ||
-            isConfirmationPopupOpen
-          }
-        />
-      </StoryInquiryFormContainer>
+          <SocialInformation
+            fields={fields}
+            setFields={setFields}
+            socialInformationSubtitle={socialInformationSubtitle}
+            venmoMoreInfoDescription={venmoMoreInfoDescription}
+            venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
+            isVenmoPolicyOpen={isVenmoPolicyOpen}
+            setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
+          />
+          <StoryConcept
+            fields={fields}
+            errors={errors}
+            setFields={setFields}
+            storyConceptBoxSubtitle={storyConceptBoxSubtitle}
+            storyConceptDescription={storyConceptDescription}
+            storyConceptPopupData={storyConceptPopupData}
+            storyConceptSubtitle={storyConceptSubtitle}
+            isStoryConceptPopupOpen={isStoryConceptPopupOpen}
+            setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
+          />
+          <ResourceLinks
+            fields={fields}
+            setFields={setFields}
+            resourceLinksDescription={resourceLinksDescription}
+            resourceLinksSubtitle={resourceLinksSubtitle}
+            setAdditionalResources={setAdditionalResources}
+            errors={errors}
+            additionalResources={additionalResources}
+          />
+          <SquareButtonWrapper>
+            <SquareButton
+              buttonText="SUBMIT MY STORY"
+              long
+              onClick={() => {
+                if (submitRequest()) {
+                  document.body.style.overflow = 'hidden';
+                  document.querySelector('#area').value = '';
+                  setFields({});
+                  clear();
+                  setIsConfirmationPopupOpen(true);
+                }
+              }}
+            />
+          </SquareButtonWrapper>
+          {isConfirmationPopupOpen && (
+            <ConfirmationPopup
+              confirmationData={storySubmissionConfirmationData}
+              togglePopup={setIsConfirmationPopupOpen}
+              page="inquiry"
+            />
+          )}
+          <Overlay
+            showOverlay={
+              isVenmoPolicyOpen ||
+              isStoryConceptPopupOpen ||
+              isConfirmationPopupOpen
+            }
+          />
+        </StoryInquiryFormContainer>
+      </OverflowDiv>
     </>
   );
 
@@ -210,9 +213,10 @@ export default function StoryInquiryForm({
     Signature: ${trimmedDataUrl}%0A
     `;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields[fieldNames.EMAIL]
-        }&subject=${subject}&body=${body}`;
-        console.log(request);
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${
+        fields[fieldNames.EMAIL]
+      }&subject=${subject}&body=${body}`;
+      console.log(request);
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
