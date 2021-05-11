@@ -17,9 +17,9 @@ export default function SideImage({ image }) {
             <SideImageStyled
                 src={image.url}
                 alt={image.alt}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ type: "spring", duration: 4, damping: 40, bounce: 0, delay: 1}}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ type: "spring", duration: 7, bounce: 0, delay: 1}}
             />
         )
     }
