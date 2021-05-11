@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { min, max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 const ScrollToMission = styled.div`
   position: absolute;
   margin: -5.8em;
 `;
 
-const OurMissionContainer = styled.div`
+const OurMissionContainer = styled(motion.div)`
   width: 100%;
   height: 45em;
   overflow: hidden;
