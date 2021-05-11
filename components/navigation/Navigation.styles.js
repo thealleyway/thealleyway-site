@@ -65,7 +65,7 @@ export const LinkWrapper = styled(HoverAnimationButton)`
   font-family: ${fonts.poppins};
   color: ${colors.BROWN};
   font-weight: ${(props) =>
-    props.onPage ? fontWeights.medium : fontWeights.normal};
+    props.selected ? fontWeights.medium : fontWeights.normal};
   text-transform: uppercase;
   letter-spacing: 0.13em;
 
@@ -79,7 +79,7 @@ export const LinkWrapper = styled(HoverAnimationButton)`
       background-size: contain;
     }
     background: ${(props) =>
-      props.onPage
+      props.selected
         ? `url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat`
         : `inherit`};
     background-position: center center;
