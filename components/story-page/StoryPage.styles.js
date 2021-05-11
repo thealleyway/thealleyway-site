@@ -7,7 +7,6 @@ export const StoryPageWrapper = styled.div`
   overflow-y: hidden;
   float: left;
   height: 90vh;
-  display: flex;
   align-items: center;
   padding-top: 5vh;
 

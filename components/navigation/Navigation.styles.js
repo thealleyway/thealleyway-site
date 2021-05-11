@@ -12,10 +12,12 @@ export const NavigationWrapper = styled(motion.nav)`
   top: 0;
   left: 0;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 2em 5em;
   z-index: 60;
   background-color: ${colors.CREME};
+  height: 8%;
 
   @media ${max.tablet} {
     padding: 2em;
