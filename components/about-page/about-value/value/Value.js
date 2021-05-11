@@ -13,7 +13,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { registerObserver } from '../../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../../base-components/BaseComponents';
 
-export default function Value({ valueData, offset, v }) {
+export default function Value({ valueData, offset }) {
   const {
     value_title: title,
     value_description: description,
@@ -32,8 +32,10 @@ export default function Value({ valueData, offset, v }) {
 
   if (visible) {
     return (
-      <ValueWrapper offset={isTabletOrMobile ? null : offset}               
-      variants={v}>
+      <ValueWrapper offset={isTabletOrMobile ? null : offset}         
+                   initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: "spring", duration: 4 }} >
         <ValueImage src={image.url} alt={image.alt} />
         <ValueTextWrapper>
           <ValueTitleWrapper>{getString(title).toUpperCase()}</ValueTitleWrapper>
