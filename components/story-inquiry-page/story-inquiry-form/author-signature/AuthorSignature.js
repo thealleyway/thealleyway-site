@@ -2,7 +2,6 @@ import {
     AuthorSignatureContainer,
     ClearSignatureWrapper,
     SignatureCanvasWrapper,
-    PlaceHolder,
     Description,
     StarLabelContainer,
     TextLabel,
@@ -17,6 +16,7 @@ import { RedStar } from '../../../base-components/BaseComponents';
 import { icons } from '../../../../style/icons';
 import useResizeObserver from 'use-resize-observer';
 import { H4, InputInfoText } from '../../../../style/typography';
+import { PlaceHolder } from '../../../base-components/BaseComponents';
 
 export default function AuthorSignature({
     authorSignatureSubtitle,

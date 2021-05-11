@@ -129,10 +129,6 @@ const ScrollToSubmissionForm = styled.div`
   margin-top: -3em;
 `;
 
-const PlaceHolder = styled.div`
-  height: 500em;
-`;
-
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -151,5 +147,4 @@ export {
   SocialInfoTextWrapper,
   ErrorText,
   ScrollToSubmissionForm,
-  PlaceHolder,
 };

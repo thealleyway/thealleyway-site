@@ -13,9 +13,7 @@ import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
-import {
-  PlaceHolder,
-} from '../story-inquiry-form/StoryInquiryForm.styles';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 
 export default function StoryConceptFaq({ storyConceptFaqData }) {
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);

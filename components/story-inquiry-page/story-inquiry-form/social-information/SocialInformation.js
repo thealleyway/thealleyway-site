@@ -1,6 +1,5 @@
 import {
     InputFieldWrapper,
-    PlaceHolder,
     SocialInformationContainer,
     SocialInfoTextWrapper,
 } from '../StoryInquiryForm.styles';
@@ -11,6 +10,7 @@ import { getString } from '../../../../lib/richText';
 import { fieldNames } from '../../../../lib/utils';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../../base-components/BaseComponents';
 
 export default function SocialInformation({
     fields,

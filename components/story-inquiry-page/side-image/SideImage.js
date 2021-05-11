@@ -1,9 +1,7 @@
 import { SideImageStyled } from './SideImage.styles';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
-import {
-    PlaceHolder
-} from '../story-inquiry-form/StoryInquiryForm.styles';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 
 export default function SideImage({ image }) {
 

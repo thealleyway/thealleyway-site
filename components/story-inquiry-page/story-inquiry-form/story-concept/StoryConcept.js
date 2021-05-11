@@ -1,5 +1,4 @@
 import {
-    PlaceHolder,
     StoryConceptInfoTextWrapper,
     StoryConceptContainer,
     Description
@@ -11,6 +10,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../../lib/intersectionObserver';
 import MoreAboutPopup from '../../../more-about-popup/MoreAboutPopup';
 import TextInputBox from '../../../text-input-box/TextInputBox';
+import { PlaceHolder } from '../../../base-components/BaseComponents';
 
 export default function StoryConcept({
     fields,

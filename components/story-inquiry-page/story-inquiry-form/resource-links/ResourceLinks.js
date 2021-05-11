@@ -1,6 +1,5 @@
 import {
     InputFieldWrapper,
-    PlaceHolder,
     Description,
     ResourceLinksContainer,
 } from '../StoryInquiryForm.styles';
@@ -11,6 +10,7 @@ import { fieldNames } from '../../../../lib/utils';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../../lib/intersectionObserver';
 import { v4 as uuidv4 } from 'uuid';
+import { PlaceHolder } from '../../../base-components/BaseComponents';
 
 export default function ResourceLinks({
     fields,

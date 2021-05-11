@@ -10,7 +10,7 @@ import { getString } from '../../lib/richText';
 import { icons } from '../../style/icons';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../lib/intersectionObserver';
-import { PlaceHolder } from '../story-inquiry-page/story-inquiry-form/StoryInquiryForm.styles';
+import { PlaceHolder } from '../base-components/BaseComponents';
 import { motion } from 'framer-motion';
 
 export default function LongSparkArrow({ arrowText, scrollTo }) {

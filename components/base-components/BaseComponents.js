@@ -21,3 +21,7 @@ export const RedStar = styled.img`
     width: 0.7em;
   }
 `;
+
+export const PlaceHolder = styled.div`
+  height: 500em;
+`;
