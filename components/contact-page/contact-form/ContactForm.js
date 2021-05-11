@@ -1,6 +1,9 @@
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
-import SquareButton from '../../square-button/SquareButton';
+import {
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../home-page/newsletter-sign-up/NewsletterSignUp.styles';
 import {
   ContactFormContainer,
   InputBoxWrapper,
@@ -9,6 +12,7 @@ import {
 import React, { useState } from 'react';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { fieldNames } from '../../../lib/utils';
+import { colors } from '../../../style/colors'; 
 
 const axios = require('axios');
 
@@ -79,20 +83,29 @@ export default function ContactForm({ togglePopup }) {
           onChange={(e) => setFields({ ...fields, MESSAGE: e.target.value })}
         />
       </InputBoxWrapper>
-      <ButtonWrapper>
-        <SquareButton
-          aria-label="Submission Button"
-          buttonText="SUBMIT"
-          onClick={() => {
-            if (submitRequest()) {
-              document.getElementById('area').value = '';
-              setFields({});
-              togglePopup();
-            }
-          }}
-        />
-      </ButtonWrapper>
-    </ContactFormContainer>
+        <ButtonWrapper>
+          <SubmitButtonContainer
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+          >
+            <SubmitButton
+              aria-label="Submission Button"
+              color={colors.WHITE}
+              type="submit"
+              onClick={() => {
+                if (submitRequest()) {
+                  document.body.style.overflow = 'hidden';
+                  document.getElementById('area').value = '';
+                  setFields({});
+                  togglePopup();
+                }
+              }}
+            >
+              SUBMIT
+            </SubmitButton>
+          </SubmitButtonContainer>
+          </ButtonWrapper>
+      </ContactFormContainer>
   );
 
   function submitRequest() {

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { max, min } from '../../../lib/responsive';
 import { H1, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
-export const FeaturedStoryPreviewWrapper = styled.div`
+export const FeaturedStoryPreviewWrapper = styled(motion.div)`
   position: relative;
   width: min(30%, 300px);
 
@@ -14,7 +15,7 @@ export const FeaturedStoryPreviewWrapper = styled.div`
   }
 `;
 
-export const PreviewImage = styled.img`
+export const PreviewImage = styled(motion.img)`
   position: relative;
   width: 100%;
   max-height: 330px;
@@ -33,7 +34,7 @@ export const PreviewImage = styled.img`
   }
 `;
 
-export const DoubleArchways = styled.img`
+export const DoubleArchways = styled(motion.img)`
   display: ${(props) => (props.active ? 'flex' : 'none')};
   width: 85%;
   position: absolute;

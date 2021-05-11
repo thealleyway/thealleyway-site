@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
-export const ArchModalWrapper = styled.div`
+export const ArchModalWrapper = styled(motion.div)`
   --arch-width: 350px;
   --arch-height: 450px;
   --off-set: 25px;
@@ -12,7 +13,7 @@ export const ArchModalWrapper = styled.div`
   position: fixed;
   top: 20%;
   left: 70%;
-  z-index: 15;
+  z-index: 150;
 
   @media ${max.desktop} {
     left: 50%;
@@ -103,7 +104,7 @@ export const ArchModalText = styled(P)`
   }
 `;
 
-export const ArchModalCloseButton = styled.button`
+export const ArchModalCloseButton = styled(motion.button)`
   display flex;
   align-items: center;
   justify-content: center;

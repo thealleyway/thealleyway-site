@@ -29,17 +29,24 @@ export default function FeaturedStoryPreview({
 
   return (
     <PageLink href={`/story/${uid}`} passHref>
-      <FeaturedStoryPreviewWrapper onMouseOver={onHover} onClick={onClick}>
+      <FeaturedStoryPreviewWrapper
+        onMouseOver={onHover}
+        onClick={onClick}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
+      >
         <PreviewImage
           src={previewImage.url}
           alt={previewImage.alt}
           active={active}
         />
-        <DoubleArchways
-          src={icons.DOUBLE_ARCHWAY_NO_BACKGROUND}
-          alt={'double-archway'}
-          active={active}
-        />
+          <DoubleArchways
+            src={icons.DOUBLE_ARCHWAY_NO_BACKGROUND}
+            alt={'double-archway'}
+            active={active}
+            animate={{ opacity: active ? [0, 1, 0] : 0 }}
+            transition={{ type: 'spring', duration: 2 }}
+          />
         <SignatureImage src={signature.url} alt={signature.alt} />
         <FeaturedStoryPreviewTitle>
           {getString(titleRegular)} <i>{`${getString(titleItalic)}`}</i>

@@ -7,15 +7,18 @@ import {
   LeftRightAnimation,
 } from '../../animation-base-components/AnimationBaseComponents';
 import { SignatureImage } from '../HomePage.styles';
+import { motion } from 'framer-motion';
 
-export const CurrentFeaturedStoryWrapper = styled.div`
+export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   display: flex;
   margin-bottom: 60px;
   width: 95%;
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-bottom: 0px;
-
+  @media ${max.tabletLg} {
+    padding-top: 5em;
+  }
   @media ${max.tabletSm} {
     display: none;
   }

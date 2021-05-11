@@ -40,7 +40,7 @@ export default function BoxLink({ boxLinkData }) {
             <MediumArrow
               src={icons.FILLED_MEDIUM_ARROW}
               alt="Filled mauve medium arrow"
-              style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
+              style={{ transform: x.to((v) => `translateX(${v}%`) }}
             />
           </PageLink>
         </MediumArrowContainer>
@@ -49,7 +49,7 @@ export default function BoxLink({ boxLinkData }) {
             <LongArrow
               src={icons.FILLED_LONG_ARROW_MAUVE}
               alt="Filled mauve long arrow"
-              style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
+              style={{ transform: x.to((v) => `translateX(${v}%`) }}
             />
           </PageLink>
         </LongArrowContainer>

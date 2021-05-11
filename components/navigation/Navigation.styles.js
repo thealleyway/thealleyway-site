@@ -1,11 +1,12 @@
 import { fonts, fontWeights } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { max } from '../../lib/responsive';
+import { max, min } from '../../lib/responsive';
 import { icons } from '../../style/icons';
 import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
+import { motion } from 'framer-motion';
 
-export const NavigationWrapper = styled.nav`
+export const NavigationWrapper = styled(motion.nav)`
   display: flex;
   position: fixed;
   top: 0;
@@ -13,7 +14,7 @@ export const NavigationWrapper = styled.nav`
   justify-content: space-between;
   width: 100%;
   padding: 2em 5em;
-  z-index: 5;
+  z-index: 60;
   background-color: ${colors.CREME};
 
   @media ${max.tablet} {
@@ -23,6 +24,17 @@ export const NavigationWrapper = styled.nav`
   @media ${max.tabletSm} {
     padding: 1.5em;
     padding-top: 1em;
+  }
+`;
+
+export const Logo = styled.img`
+  position: absolute;
+  width: 8em;
+  @media ${min.tabletSm} {
+    margin-top: -0.5em;
+  }
+  @media ${min.desktop} {
+    margin-top: -1.3em;
   }
 `;
 
@@ -90,6 +102,10 @@ export const LinkWrapper = styled(HoverAnimationButton)`
 export const HamburgerImage = styled.img`
   &:hover {
     cursor: pointer;
+  }
+  margin-top: 1.5em;
+  @media ${min.tabletSm} {
+    margin-top: 1em;
   }
 `;
 
