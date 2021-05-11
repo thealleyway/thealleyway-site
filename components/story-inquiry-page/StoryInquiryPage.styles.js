@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { min } from '../../lib/responsive';
+import { motion } from 'framer-motion';
 
 const TopSparkArrowContainer = styled.div`
   position: absolute;
@@ -80,12 +81,25 @@ const ScrollToAuthorTestimonies = styled.div`
   margin: -1em;
 `;
 
+const LongLinesContainer = styled(motion.div)`
+  position: absolute;
+  display: none;
+@media ${min.tablet} {
+  display: block;
+  margin: 30em 0 0 0;
+}
+@media ${min.desktop} {
+  margin: 32.5em 0 0 0;
+}
+`;
+
 export {
   SquiggleWavy,
   H1StyledContainer,
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
   SideImageContainer,
+  LongLinesContainer,
   QuoteCarouselContainer,
   ScrollToAuthorTestimonies,
 };

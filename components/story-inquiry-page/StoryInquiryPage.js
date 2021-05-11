@@ -7,10 +7,6 @@ import PageDescription from '../page-description/PageDescription';
 import {
   SquiggleWavy,
   H1StyledContainer,
-  LongLinesDesktop,
-  LongLinesFlippedDesktop,
-  LongLinesTablet,
-  LongLinesFlippedTablet,
   LongLinesContainer,
   TopSparkArrowContainer,
   BottomSparkArrowContainer,
@@ -24,6 +20,7 @@ import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import SideImage from './side-image/SideImage';
 import LongLines from './long-lines/LongLines';
+import LongLinesFlipped from './long-lines-flipped/LongLinesFlipped';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -149,25 +146,10 @@ export default function StoryInquiryPage({
           image={storyInquirySideImage3}
         />
       </SideImageContainer>
-      <LongLines />
-      {/* <LongLinesContainer>
-        <LongLinesDesktop
-          src={icons.LONG_LINES_DESKTOP}
-          alt="long lines with spark at the end for desktop"
-        />
-        <LongLinesFlippedDesktop
-          src={icons.LONG_LINES_FLIPPED_DESKTOP}
-          alt="long lines with spark at the end flipped for desktop"
-        />
-        <LongLinesTablet
-          src={icons.LONG_LINES_TABLET}
-          alt="long lines with spark at the end for tablet"
-        />
-        <LongLinesFlippedTablet
-          src={icons.LONG_LINES_FLIPPED_TABLET}
-          alt="long lines with spark at the end flipped for tablet"
-        />
-      </LongLinesContainer> */}
+      <LongLinesContainer>
+        <LongLines />
+        <LongLinesFlipped />
+      </LongLinesContainer>
       <StoryInquiryForm
         storyInquiryFormData={storyInquiryFormData}
         storyConceptPopupData={storyConceptPopupData}

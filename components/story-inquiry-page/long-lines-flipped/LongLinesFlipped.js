@@ -3,11 +3,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 import {
-    LongLinesDesktop,
-    LongLinesTablet
-} from './LongLines.styles';
+    LongLinesFlippedDesktop,
+    LongLinesFlippedTablet,
+} from './LongLinesFlipped.styles';
 
-export default function LongLines() {
+export default function LongLinesFlipped() {
 
     const placeHolderRef = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -19,19 +19,19 @@ export default function LongLines() {
     if (visible) {
         return (
             <>
-                <LongLinesDesktop
+                <LongLinesFlippedDesktop
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ type: "spring", duration: 4, delay: 2 }}
-                    src={icons.LONG_LINES_DESKTOP}
-                    alt="long lines with spark at the end for desktop"
+                    transition={{ type: "spring", duration: 4, delay: 4 }}
+                    src={icons.LONG_LINES_FLIPPED_DESKTOP}
+                    alt="long lines with spark at the end flipped for desktop"
                 />
-                <LongLinesTablet
+                <LongLinesFlippedTablet
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: "spring", duration: 4 }}
-                    src={icons.LONG_LINES_TABLET}
-                    alt="long lines with spark at the end for tablet"
+                    src={icons.LONG_LINES_FLIPPED_TABLET}
+                    alt="long lines with spark at the end flipped for tablet"
                 />
             </>
         )
