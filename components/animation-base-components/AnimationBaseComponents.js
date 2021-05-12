@@ -5,6 +5,11 @@ export const LeftRightAnimation = keyframes`
   to { background-position: right center };
 `;
 
+export const TopBottomAnimation = keyframes`
+  from { background-position: 0 0% };
+  to { background-position: 0 100%};
+`;
+
 export const FadeIn = keyframes`
   from {
     opacity: 0;
