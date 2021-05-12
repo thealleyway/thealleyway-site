@@ -52,7 +52,7 @@ const UnfilledSparkArrow = styled(HoverAnimationButton)`
   ${(props) =>
     props.hover
       ? css`
-          animation: ${TopBottomAnimation} 1s forwards;
+          animation: ${TopBottomAnimation} 0.8s forwards;
         `
       : ''};
 `;
