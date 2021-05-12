@@ -49,15 +49,6 @@ export default function StoryPage({
         <BackToArchiveBanner target={target} />
       )}
       <StoryPageWrapper ref={target}>
-        {!isTabletOrMobile && (
-          <TakeActionModal
-            takeActionDescription={takeActionDescription}
-            donateLink={donateLink}
-            learnLink={learnLink}
-            signLink={signLink}
-            modalBackground={modalBackground}
-          />
-        )}
         <StoryHero
           authorInfo={authorInfo}
           storyTitle={storyTitle}
@@ -76,6 +67,15 @@ export default function StoryPage({
           moreResources={moreResources}
           moreResourcesBackground={modalBackground}
         />
+        {!isTabletOrMobile && (
+          <TakeActionModal
+            takeActionDescription={takeActionDescription}
+            donateLink={donateLink}
+            learnLink={learnLink}
+            signLink={signLink}
+            modalBackground={modalBackground}
+          />
+        )}
       </StoryPageWrapper>
       {isTabletOrMobile && <Footer footerData={footerData} />}
     </>
