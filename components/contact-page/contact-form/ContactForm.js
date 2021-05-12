@@ -42,7 +42,7 @@ export default function ContactForm({ togglePopup }) {
     ) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
-    } else if (!useValidEmail.test(fields[fieldNames.EMAIL])) {
+    } else if (useValidEmail(fields[fieldNames.EMAIL])) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
