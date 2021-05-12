@@ -79,9 +79,9 @@ export const FadedImage1 = styled.img`
   top: 25%;
   opacity: 0.15;
   z-index: -1;
+  width: 30%;
 
   @media ${max.tabletLg} {
-    width: 30%;
     z-index: 0;
     left: 10%;
     top: 0;
@@ -95,9 +95,9 @@ export const FadedImage2 = styled.img`
   right: 0;
   opacity: 0.15;
   z-index: -1;
+  width: 30%;
 
   @media ${max.tabletLg} {
-    width: 30%;
     z-index: 0;
     right: 10%;
     bottom: 0;
