@@ -41,6 +41,9 @@ const Ellipse = styled.img`
 
 const MediumArrowContainer = styled.div`
   display: none;
+  &:hover {
+    cursor: pointer;
+  }
   @media ${min.desktop} {
     display: block;
     height: 3.8em;
@@ -50,9 +53,7 @@ const MediumArrowContainer = styled.div`
 `;
 
 const MediumArrow = styled(animated.img)`
-  &:hover {
-    cursor: pointer;
-  }
+
 `;
 
 const LongArrowContainer = styled.div`
