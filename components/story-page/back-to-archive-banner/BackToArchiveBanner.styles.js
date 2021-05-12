@@ -9,6 +9,7 @@ export const BackToArchiveBannerWrapper = styled.div`
   height: calc(5vh + 2em);
   width: 100vw;
   background-color: ${colors.CREME};
+  z-index: 10;
 `;
 
 export const ButtonWrapper = styled.div`
