@@ -6,7 +6,7 @@ export const BackToArchiveBannerWrapper = styled.div`
   display: flex;
   align-items: center;
   position: fixed;
-  height: calc(5vh + 2em);
+  height: 4em;
   width: 100vw;
   background-color: ${colors.CREME};
   z-index: 10;
