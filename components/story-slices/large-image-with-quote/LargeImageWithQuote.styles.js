@@ -7,6 +7,11 @@ export const LargeImageWithQuoteWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4em;
+  height: 100%;
+
+  @media ${max.tabletLg} {
+    width: 100%;
+  }
 
   @media ${max.tabletSm} {
     padding: 2em;

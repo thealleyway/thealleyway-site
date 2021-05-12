@@ -14,7 +14,7 @@ import {
 import { icons } from '../../style/icons';
 import PageLink from '../page-link/PageLink';
 import { useSpring } from 'react-spring';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../lib/intersectionObserver';
 import { PlaceHolder } from '../base-components/BaseComponents';
 
@@ -36,9 +36,9 @@ export default function BoxLink({ boxLinkData }) {
   if (visible) {
     return (
       <BoxLinkContainer
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ type: "spring", duration: 3, delay: 1 }}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ type: 'spring', duration: 3, delay: 1 }}
       >
         <EllipseContainer>
           <Ellipse src={icons.DOUBLE_ELLIPSES} alt="White double ellipses" />
@@ -46,27 +46,27 @@ export default function BoxLink({ boxLinkData }) {
         <InnerContentContainer>
           <Title>{getString(boxLinkTitle).toUpperCase()}</Title>
           <Description>{getString(boxLinkDescription)}</Description>
-          <MediumArrowContainer
-            onMouseEnter={() => set({ x: 100 })}
-            onMouseLeave={() => set({ x: 0 })}
-          >
-            <PageLink href={`/${boxLinkLink.uid}`}>
+          <PageLink href={`/${boxLinkLink.uid}`}>
+            <MediumArrowContainer
+              onMouseEnter={() => set({ x: 100 })}
+              onMouseLeave={() => set({ x: 0 })}
+            >
               <MediumArrow
                 src={icons.FILLED_MEDIUM_ARROW}
                 alt="Filled mauve medium arrow"
-                style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
+                style={{ transform: x.to((v) => `translateX(${v}%`) }}
               />
-            </PageLink>
-          </MediumArrowContainer>
-          <LongArrowContainer onTouchStart={() => set({ x: 40 })}>
-            <PageLink href={`/${boxLinkLink.uid}`}>
+            </MediumArrowContainer>
+          </PageLink>
+          <PageLink href={`/${boxLinkLink.uid}`}>
+            <LongArrowContainer onTouchStart={() => set({ x: 40 })}>
               <LongArrow
                 src={icons.FILLED_LONG_ARROW_MAUVE}
                 alt="Filled mauve long arrow"
-                style={{ transform: x.interpolate((v) => `translateX(${v}%`) }}
+                style={{ transform: x.to((v) => `translateX(${v}%`) }}
               />
-            </PageLink>
-          </LongArrowContainer>
+            </LongArrowContainer>
+          </PageLink>
         </InnerContentContainer>
       </BoxLinkContainer>
     );

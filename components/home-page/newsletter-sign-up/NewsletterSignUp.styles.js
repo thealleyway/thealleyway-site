@@ -50,6 +50,21 @@ export const NewsletterDescriptionText = styled(P)`
 
 export const PrivacyPolicyLinkText = styled(InputInfoText)`
   margin: -1.5em 0 1em 0;
+
+  @media ${max.tabletLg} {
+    margin-top: -0.5em;
+  }
+`;
+
+export const SubmitButtonContainer = styled(motion.button)`
+  width: 150px;
+  height: 48px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  align-self: flex-end;
 `;
 
 export const SubmitButton = styled(P).attrs({
@@ -60,11 +75,9 @@ export const SubmitButton = styled(P).attrs({
   border: none;
   width: 150px;
   height: 48px;
-  align-self: flex-end;
   font-weight: normal;
   letter-spacing: 0.13em;
   cursor: pointer;
-
   @media ${max.tabletSm} {
     align-self: center;
     width: 50%;

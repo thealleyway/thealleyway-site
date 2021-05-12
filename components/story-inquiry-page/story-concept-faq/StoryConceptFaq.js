@@ -38,7 +38,8 @@ export default function StoryConceptFaq({ storyConceptFaqData }) {
         <FaqContainer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}>
+          transition={{ duration: 2 }}
+        >
           <H2>{getString(faqTitle)}</H2>
           <QuestionAnswerContainer>
             <QuestionContainer>

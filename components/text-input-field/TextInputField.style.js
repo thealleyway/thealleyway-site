@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
 const TextLabel = styled(P)`
   color: ${colors.BROWN};
@@ -38,18 +39,18 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-const InputFieldWrapper = styled.div`
+const InputFieldWrapper = styled(motion.div)`
   padding-bottom: 2em;
 `;
 
-const AddIcon = styled.img`
+const AddIcon = styled(motion.img)`
   cursor: pointer;
   margin: -2em 0 0 0;
   width: 1.8em;
   float: right;
 `;
 
-const DeleteIcon = styled.img`
+const DeleteIcon = styled(motion.img)`
   cursor: pointer;
   margin: -2.3em -0.32em 0 0;
   width: 2.5em;

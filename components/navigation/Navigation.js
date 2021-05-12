@@ -12,6 +12,7 @@ import {
   LogoWrapper,
   NavigationLinksWrapper,
   NavigationWrapper,
+  Logo,
 } from './Navigation.styles';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
@@ -27,7 +28,7 @@ const currentPage = () => {
   }
 };
 
-export default function Navigation({ navigationData }) {
+export default function Navigation({ navigationData, fade, wait }) {
   const { navigation_links: navigationLinks } = navigationData;
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [currPage, setCurrPage] = useState('home');
@@ -51,9 +52,15 @@ export default function Navigation({ navigationData }) {
 
   return (
     <>
-      <NavigationWrapper>
+      <NavigationWrapper
+        initial={{ opacity: fade ? 0 : 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: wait ? 3 : 1 }}
+      >
         <PageLink href="/" passHref>
-          <LogoWrapper>The Alleyway</LogoWrapper>
+          <LogoWrapper>
+            <Logo src={icons.SMALL_ALLEYWAY_LOGO} />
+          </LogoWrapper>
         </PageLink>
         {isTabletOrMobile ? (
           <>
@@ -94,7 +101,7 @@ function NavigationLink({ navigationLink, onPage }) {
   switch (link.link_type) {
     case 'Document':
       return (
-        <LinkWrapper onPage={onPage} selected={onPage}>
+        <LinkWrapper selected={onPage}>
           <PageLink href={link.uid === 'home' ? '/' : `/${link.uid}`}>
             {getString(linkName)}
           </PageLink>

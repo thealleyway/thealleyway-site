@@ -9,12 +9,15 @@ import {
   NewsletterSignUpWrapper,
   PrivacyPolicyLinkText,
   SubmitButton,
+  SubmitButtonContainer,
 } from './NewsletterSignUp.styles';
 import ArchModal from '../../arch-modal/ArchModal';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
+import { fieldNames, addToList } from '../../../lib/utils';
+import { useValidEmail } from '../../../lib/hooks';
 
 export default function NewsletterSignUp({
   description,
@@ -30,28 +33,51 @@ export default function NewsletterSignUp({
   const [errors, setErrors] = useState({});
 
   const onSubmitClick = () => {
+    const firstName = name ? name.trim().split(' ')[0] : '';
+    const lastName =
+      name && name.trim().split(' ').length > 1
+        ? name.trim().split(' ')[1]
+        : '';
+
     if (isValidSubmission()) {
-      setIsConfirmationOpen(true);
-      setFields({});
+      addToList(
+        fields['email'],
+        (_, data) => {
+          if ('error' in data) {
+            alert(
+              'Unable to subscribe to the newsletter, please try again later.',
+            );
+          } else {
+            setIsConfirmationOpen(true);
+            setFields({});
+          }
+        },
+        firstName,
+        lastName,
+      );
     }
   };
 
   const isValidSubmission = () => {
     let errors = {};
     let formIsValid = true;
-    const validEmail = new RegExp(
-      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
-    );
-    if (fields['name'] == undefined || fields['name'].length === 0) {
+
+    if (
+      fields[fieldNames.NAME] == undefined ||
+      fields[fieldNames.NAME].length === 0
+    ) {
       formIsValid = false;
-      errors['name'] = 'NAME IS REQUIRED!';
+      errors[fieldNames.NAME] = 'NAME IS REQUIRED!';
     }
-    if (fields['email'] == undefined || fields['email'].length === 0) {
+    if (
+      fields[fieldNames.EMAIL] == undefined ||
+      fields[fieldNames.EMAIL].length === 0
+    ) {
       formIsValid = false;
-      errors['email'] = 'EMAIL IS REQUIRED!';
-    } else if (!validEmail.test(fields['email'])) {
+      errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
+    } else if (useValidEmail(fields[fieldNames.EMAIL])) {
       formIsValid = false;
-      errors['email'] = 'INVALID EMAIL!';
+      errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
     setErrors(errors);
     return formIsValid;
@@ -70,7 +96,7 @@ export default function NewsletterSignUp({
         <NewsletterSignUpWrapper
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: "spring", duration: 4 }}
+          transition={{ type: 'spring', duration: 4 }}
         >
           <NewsletterSignUpTitle>{getString(title)}</NewsletterSignUpTitle>
           <ContentWrapper>
@@ -82,11 +108,11 @@ export default function NewsletterSignUp({
               label="Name"
               fullWidth
               required
-              showError={errors['name']}
-              value={fields['name'] ? fields['name'] : ''}
+              showError={errors[fieldNames.NAME]}
+              value={fields[fieldNames.NAME] ? fields[fieldNames.NAME] : ''}
               onChange={(e) => {
                 setName(e.target.value);
-                setFields({ ...fields, name: e.target.value });
+                setFields({ ...fields, NAME: e.target.value });
               }}
             />
             <TextInputField
@@ -94,9 +120,9 @@ export default function NewsletterSignUp({
               label="Email"
               fullWidth
               required={true}
-              showError={errors['email']}
-              value={fields['email'] ? fields['email'] : ''}
-              onChange={(e) => setFields({ ...fields, email: e.target.value })}
+              showError={errors[fieldNames.EMAIL]}
+              value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
+              onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
             />
             <PrivacyPolicyLinkText
               onClick={() => {
@@ -105,13 +131,18 @@ export default function NewsletterSignUp({
             >
               {getString(privacyPolicyLinkTitle)}
             </PrivacyPolicyLinkText>
-            <SubmitButton
-              color={colors.WHITE}
-              type="submit"
-              onClick={onSubmitClick}
+            <SubmitButtonContainer
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
-              SUBMIT
-          </SubmitButton>
+              <SubmitButton
+                color={colors.WHITE}
+                type="submit"
+                onClick={onSubmitClick}
+              >
+                SUBMIT
+              </SubmitButton>
+            </SubmitButtonContainer>
           </ContentWrapper>
           {isPrivacyPolicyOpen && (
             <ArchModal

@@ -24,10 +24,7 @@ const ClearSignatureWrapper = styled.div`
 `;
 
 const StoryConceptInfoTextWrapper = styled.div`
-  margin: 1em 0;
-  @media ${min.tabletSm} {
-    margin: -0.5em 0;
-  }
+  margin: -0.5em 0;
 `;
 
 const AuthorInformationContainer = styled(motion.div)`
@@ -36,7 +33,7 @@ const AuthorInformationContainer = styled(motion.div)`
     padding-bottom: 3.5em;
   }
   @media ${min.desktop} {
-    padding-bottom: 2.6em;
+    padding-bottom: 1.5em 0 2.6em 0;
   }
 `;
 
@@ -46,7 +43,7 @@ const AuthorSignatureContainer = styled(motion.div)`
     padding-bottom: 4em;
   }
   @media ${min.desktop} {
-    padding-bottom: 2em;
+    padding-bottom: 4em;
   }
 `;
 

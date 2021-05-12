@@ -38,16 +38,25 @@ export default function TextInputField({
         type="text"
         name={id}
         showError={showError}
-        //       onChange={(e) => onChange(e.target.value)}
         onChange={onChange}
         value={value}
         {...inputProps}
       />
       {isAdd && hasIcon && (
-        <AddIcon src={icons.ADD_ICON} onClick={addResource} />
+        <AddIcon
+          src={icons.ADD_ICON}
+          onClick={addResource}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        />
       )}
       {!isAdd && hasIcon && (
-        <DeleteIcon src={icons.DELETE_ICON} onClick={deleteResource} />
+        <DeleteIcon
+          src={icons.DELETE_ICON}
+          onClick={deleteResource}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        />
       )}
       <ErrorText>{showError}</ErrorText>
     </InputFieldWrapper>

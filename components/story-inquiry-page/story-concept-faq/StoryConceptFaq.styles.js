@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 const FaqContainer = styled(motion.div)`
   margin: 8em 3.5em 0 4em;
+  padding-bottom: 2.5em;
   @media ${min.tablet} {
     margin: 8em 0 0 3.5em;
   }
@@ -11,7 +12,17 @@ const FaqContainer = styled(motion.div)`
     margin: 10em 0 0 3.5em;
   }
   @media ${min.desktop} {
-    margin: 8em 0 0 16.5em;
+    margin: 9em 0 0 16.5em;
+    padding-bottom: 1.5em;
+  }
+`;
+
+const SparkArrowContainer = styled.div`
+  position: absolute;
+  display: none;
+  @media ${min.desktop} {
+    display: block;
+    margin: 11.3em 0 0 10.9em;
   }
 `;
 
@@ -50,4 +61,5 @@ export {
   QuestionContainer,
   AnswerContainer,
   ScrollToFaq,
+  SparkArrowContainer,
 };

@@ -9,7 +9,6 @@ import {
   H1StyledContainer,
   LongLinesContainer,
   TopSparkArrowContainer,
-  BottomSparkArrowContainer,
   SideImageContainer,
   QuoteCarouselContainer,
   ScrollToAuthorTestimonies,
@@ -81,8 +80,8 @@ export default function StoryInquiryPage({
   };
 
   const quotes = authorTestimonies.map((q) =>
-    getString(q.author_testimony).length > 154
-      ? getString(q.author_testimony).slice(0, 154) + '...'
+    getString(q.author_testimony).length > 150
+      ? getString(q.author_testimony).slice(0, 150) + '...'
       : getString(q.author_testimony),
   );
 
@@ -153,13 +152,10 @@ export default function StoryInquiryPage({
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
       />
-      <StoryConceptFaq storyConceptFaqData={storyConceptFaqData} />
-      <BottomSparkArrowContainer>
-        <LongSparkArrow
-          arrowText={sparkArrowAuthorTestimoniesText}
-          scrollTo="author testimonies"
-        />
-      </BottomSparkArrowContainer>
+      <StoryConceptFaq
+        storyConceptFaqData={storyConceptFaqData}
+        sparkArrowAuthorTestimoniesText={sparkArrowAuthorTestimoniesText}
+      />
       <ScrollToAuthorTestimonies id="author testimonies" />
       <QuoteCarouselContainer>
         <QuoteCarousel

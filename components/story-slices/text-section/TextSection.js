@@ -1,6 +1,5 @@
 import React from 'react';
 import { renderRichText } from '../../../lib/richText';
-import { P } from '../../../style/typography';
 import { TextSectionWrapper } from './TextSection.styles';
 
 export default function TextSection({
@@ -13,7 +12,7 @@ export default function TextSection({
       verticalAlignment={vertical_alignment}
       horizontalAlignment={horizontal_alignment}
     >
-      <P>{renderRichText(text)}</P>
+      {renderRichText(text)}
     </TextSectionWrapper>
   );
 }

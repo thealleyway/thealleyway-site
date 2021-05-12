@@ -39,5 +39,13 @@ module.exports = {
     'unicorn/no-null': 'off',
     'unicorn/no-nested-ternary': 'off',
     'sonarjs/cognitive-complexity': 'off',
+    'security/detect-object-injection': 'off',
+    'react-hooks/rules-of-hooks': 'off',
+    'sonarjs/no-duplicate-string': 'off',
+    'unicorn/no-array-callback-reference': 'off',
+    'security/detect-non-literal-fs-filename': 'off',
+    'no-undef': 'off',
+    'no-unused-vars': 'off',
+    'no-dupe-keys': 'off',
   },
 };
