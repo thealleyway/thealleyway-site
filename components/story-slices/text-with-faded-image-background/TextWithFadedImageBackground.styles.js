@@ -11,9 +11,9 @@ export const TextWithFadedImageBackgroundWrapper = styled.div`
   height: 100%;
 
   @media ${max.tabletLg} {
+    width: 100%;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
 
   @media ${max.tabletSm} {
@@ -37,7 +37,7 @@ export const Text = styled(P)`
   }
 
   @media ${max.tablet} {
-    width: 65%;
+    width: 75%;
   }
 `;
 
@@ -47,7 +47,6 @@ export const Image = styled.img`
   width: 50%;
   object-fit: cover;
   opacity: 0.15;
-  z-index: -1;
   padding-top: 4em;
 
   @media ${min.tabletLg} {

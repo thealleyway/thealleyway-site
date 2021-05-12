@@ -16,6 +16,7 @@ export const TextSectionWrapper = styled(P).attrs({
   width: 40em;
 
   @media ${max.tabletLg} {
+    margin: 2em;
     width: 40%;
     align-self: ${(props) =>
       props.horizontalAlignment === 'right'

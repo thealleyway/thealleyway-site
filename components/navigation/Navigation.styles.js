@@ -1,7 +1,7 @@
 import { fonts, fontWeights } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { max, min } from '../../lib/responsive';
+import { max } from '../../lib/responsive';
 import { icons } from '../../style/icons';
 import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
 import { motion } from 'framer-motion';
@@ -12,30 +12,25 @@ export const NavigationWrapper = styled(motion.nav)`
   top: 0;
   left: 0;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 2em 5em;
   z-index: 60;
   background-color: ${colors.CREME};
+  height: 5em;
 
   @media ${max.tablet} {
     padding: 2em;
   }
 
   @media ${max.tabletSm} {
-    padding: 1.5em;
+    padding: 1em;
     padding-top: 1em;
   }
 `;
 
 export const Logo = styled.img`
-  position: absolute;
-  width: 8em;
-  @media ${min.tabletSm} {
-    margin-top: -0.5em;
-  }
-  @media ${min.desktop} {
-    margin-top: -1.3em;
-  }
+  width: 6em;
 `;
 
 export const LogoWrapper = styled.div`
@@ -102,10 +97,6 @@ export const LinkWrapper = styled(HoverAnimationButton)`
 export const HamburgerImage = styled.img`
   &:hover {
     cursor: pointer;
-  }
-  margin-top: 1.5em;
-  @media ${min.tabletSm} {
-    margin-top: 1em;
   }
 `;
 
