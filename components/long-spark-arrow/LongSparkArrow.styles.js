@@ -33,7 +33,7 @@ const ArrowText = styled(P)`
   text-align: right;
   right: 0;
   letter-spacing: 0.13em;
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
 
   width: 20em;
   padding-right: 0;

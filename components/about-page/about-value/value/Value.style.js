@@ -67,7 +67,7 @@ const ValueTextWrapper = styled.div`
 `;
 
 const ValueTitleWrapper = styled(H4)`
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   margin-bottom: 0;
 `;
 

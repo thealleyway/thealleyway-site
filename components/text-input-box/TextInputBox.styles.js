@@ -3,7 +3,7 @@ import { colors } from '../../style/colors';
 import { fonts, fontWeights, P } from '../../style/typography';
 
 const InputBoxLabel = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-size: 0.8em;
   margin-bottom: 0.5em;
 `;
@@ -22,16 +22,18 @@ const ErrorText = styled(P)`
 `;
 
 const InputBox = styled.textarea`
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   width: 100%;
   height: ${(props) =>
     props.height ? props.height : `clamp(16em, 4vw, 26em)`};
   border: ${(props) =>
-    props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
+    props.showError
+      ? `1px solid ${colors.RED}`
+      : `1px solid ${colors.STONEPATH}`};
   &:focus {
     outline: none;
   }
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;

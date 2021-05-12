@@ -8,7 +8,7 @@ import { HoverAnimationButton } from '../animation-base-components/AnimationBase
 export const Overlay = styled.div`
   display: ${(props) => (props.showOverlay ? 'block' : 'none')};
   position: fixed;
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   opacity: 0.7;
   top: 0;
   left: 0;
@@ -45,8 +45,8 @@ export const SubmitButton = styled(P).attrs({
   as: HoverAnimationButton,
   ariaLabel: 'Submission button',
 })`
-  color: ${colors.WHITE};
-  background-color: ${colors.OLIVE};
+  color: ${colors.FRESHSNOW};
+  background-color: ${colors.DEWYGRASS};
   border: none;
   width: ${(props) => (props.long ? `230px` : `150px`)};
   height: 48px;

@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="https://use.typekit.net/jds8ebt.css" />
         </Head>
-        <body style={{ backgroundColor: colors.CREME }}>
+        <body style={{ backgroundColor: colors.CANVAS }}>
           <Main />
           <NextScript />
         </body>

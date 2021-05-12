@@ -14,7 +14,7 @@ const FooterLinkWrapper = styled(HoverAnimationButton).attrs({
 `;
 
 const FooterLinkText = styled(P)`
-  color: ${colors.WHITE};
+  color: ${colors.FRESHSNOW};
   margin: 0;
   letter-spacing: 0.13em;
   text-transform: uppercase;

@@ -13,7 +13,7 @@ const SortLabelWrapper = styled(motion.div)`
 const SortLabel = styled(P).attrs({
   as: HoverAnimationButton,
 })`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   letter-spacing: 0.13em;
   margin: 0;
   border: none;

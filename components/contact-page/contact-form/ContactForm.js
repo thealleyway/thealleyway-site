@@ -132,7 +132,7 @@ export default function ContactForm({ togglePopup }) {
           >
             <SubmitButton
               aria-label="Submission Button"
-              color={colors.WHITE}
+              color={colors.FRESHSNOW}
               type="submit"
               role="button"
               onClick={async () => {

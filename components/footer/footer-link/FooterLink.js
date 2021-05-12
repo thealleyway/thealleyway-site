@@ -8,7 +8,7 @@ import { colors } from '../../../style/colors';
 export default function FooterLink({ label, link }) {
   return (
     <FooterLinkContainer>
-      <FooterLinkWrapper href={link} target="_blank" color={colors.WHITE}>
+      <FooterLinkWrapper href={link} target="_blank" color={colors.FRESHSNOW}>
         <FooterLinkText>{label}</FooterLinkText>
       </FooterLinkWrapper>
     </FooterLinkContainer>

@@ -33,7 +33,7 @@ export const Quote = styled.h2`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   font-size: 2em;
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   width: 60%;
 
   @media ${max.tabletLg} {

@@ -18,9 +18,9 @@ const OvalButtonContainer = styled(motion.div)`
 const Button = styled(P).attrs({
   as: 'button',
 })`
-  background-color: ${colors.CREME};
-  color: ${colors.MAUVE};
-  border: 2px solid ${colors.MAUVE};
+  background-color: ${colors.CANVAS};
+  color: ${colors.ROSEMAUVE};
+  border: 2px solid ${colors.ROSEMAUVE};
   border-radius: 240%;
   width: 120px;
   height: 48px;
@@ -30,8 +30,8 @@ const Button = styled(P).attrs({
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.MAUVE};
-    color: ${colors.WHITE};
+    background-color: ${colors.ROSEMAUVE};
+    color: ${colors.FRESHSNOW};
     cursor: pointer;
   }
 

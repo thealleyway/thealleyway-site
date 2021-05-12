@@ -8,7 +8,7 @@ export const BackToArchiveBannerWrapper = styled.div`
   position: fixed;
   height: 4em;
   width: 100vw;
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   z-index: 10;
 `;
 

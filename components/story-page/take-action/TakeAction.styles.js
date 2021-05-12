@@ -16,7 +16,7 @@ export const TakeActionWrapper = styled.div`
 const TakeActionHeading = styled.h1`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
-  color: ${colors.BURNTORANGE};
+  color: ${colors.SUNSETORANGE};
   text-transform: lowercase;
   margin: 0;
 `;
