@@ -1,10 +1,10 @@
 import React from 'react';
-import TextSection from '../text-section/TextSection';
-import ImageGallery from '../image-gallery/ImageGallery';
 import FullSizeImageSlice from '../full-size-image-slice/FullSizeImageSlice';
-import LargeImageWithQuote from '../large-image-with-quote/LargeImageWithQuote';
-import TextWithFadedImageBackground from '../text-with-faded-image-background/TextWithFadedImageBackground';
 import HalfImageHalfText from '../half-image-half-text/HalfImageHalfText';
+import ImageGallery from '../image-gallery/ImageGallery';
+import LargeImageWithQuote from '../large-image-with-quote/LargeImageWithQuote';
+import TextSection from '../text-section/TextSection';
+import TextWithFadedImageBackground from '../text-with-faded-image-background/TextWithFadedImageBackground';
 
 export default function SliceZone({ sliceZone }) {
   return (
