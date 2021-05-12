@@ -8,7 +8,6 @@ export const StoryPageWrapper = styled.div`
   float: left;
   height: 100vh;
   align-items: center;
-  padding-top: 5vh;
 
   @media ${max.tabletLg} {
     flex-direction: column;

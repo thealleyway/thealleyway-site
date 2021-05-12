@@ -5,12 +5,12 @@ import { max } from '../../../lib/responsive';
 
 export const TakeActionWrapper = styled.div`
   height: 100%;
-  margin: 4em;
-  margin-bottom: 8em;
+  margin-left: 4em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  width: 80vw;
 `;
 
 const TakeActionHeading = styled.h1`
@@ -22,7 +22,7 @@ const TakeActionHeading = styled.h1`
 `;
 
 export const TakeActionHeadingDesktop = styled(TakeActionHeading)`
-  font-size: 12em;
+  font-size: 20vh;
   width: 5em;
   position: relative;
 `;
