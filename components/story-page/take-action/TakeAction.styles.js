@@ -28,8 +28,7 @@ export const TakeActionHeadingDesktop = styled(TakeActionHeading)`
 `;
 
 export const ActionButtonsWrapper = styled.div`
-  width: 30vw;
-  max-width: 25em;
+  width: min(30vw, 25em);
   display: flex;
   justify-content: space-between;
 
@@ -118,8 +117,7 @@ export const TabletMobileAction = styled(TakeActionHeading)`
 `;
 
 export const ResourceWrapper = styled.div`
-  width: 30vw;
-  max-width: 25em;
+  width: min(30vw, 25em);
 
   @media ${max.tabletLg} {
     width: 50%;
