@@ -4,7 +4,7 @@ import { colors } from '../../style/colors';
 import { max } from '../../lib/responsive';
 import { motion } from 'framer-motion';
 
-const OvalButtonContainer = styled(motion.button)`
+const OvalButtonContainer = styled(motion.div)`
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
