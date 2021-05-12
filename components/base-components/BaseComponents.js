@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { min } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
+import { motion } from 'framer-motion';
+import { P } from '../../style/typography';
+import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
 
 export const Overlay = styled.div`
   display: ${(props) => (props.showOverlay ? 'block' : 'none')};
@@ -24,4 +27,32 @@ export const RedStar = styled.img`
 
 export const PlaceHolder = styled.div`
   height: 500em;
+`;
+
+export const SubmitButtonContainer = styled(motion.button)`
+  width: 150px;
+  height: 48px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  align-self: flex-end;
+`;
+
+export const SubmitButton = styled(P).attrs({
+  as: HoverAnimationButton,
+})`
+  color: ${colors.WHITE};
+  background-color: ${colors.OLIVE};
+  border: none;
+  width: 150px;
+  height: 48px;
+  font-weight: normal;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  @media ${max.tabletSm} {
+    align-self: center;
+    width: 50%;
+  }
 `;

@@ -8,8 +8,6 @@ import {
   NewsletterDescriptionText,
   NewsletterSignUpWrapper,
   PrivacyPolicyLinkText,
-  SubmitButton,
-  SubmitButtonContainer,
 } from './NewsletterSignUp.styles';
 import ArchModal from '../../arch-modal/ArchModal';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
@@ -18,6 +16,10 @@ import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 import { fieldNames, addToList } from '../../../lib/utils';
 import { useValidEmail } from '../../../lib/hooks';
+import {
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../base-components/BaseComponents';
 
 export default function NewsletterSignUp({
   description,
