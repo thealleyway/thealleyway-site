@@ -43,7 +43,7 @@ export default function NewsletterSignUp({
         (_, data) => {
           if ('error' in data) {
             alert(
-              'Unable to subscribe to the newsletter, please try again later',
+              'Unable to subscribe to the newsletter, please try again later.',
             );
           } else {
             setIsConfirmationOpen(true);
