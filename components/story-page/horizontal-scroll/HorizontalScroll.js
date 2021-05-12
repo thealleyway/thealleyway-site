@@ -8,13 +8,15 @@ import {
 const calcDynamicHeight = (objectWidth) => {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
-  return objectWidth - vw + vh + 150;
+  return objectWidth - vw + vh;
 };
 
 const handleDynamicHeight = (ref, setDynamicHeight) => {
-  const objectWidth = ref.current.scrollWidth;
-  const dynamicHeight = calcDynamicHeight(objectWidth);
-  setDynamicHeight(dynamicHeight);
+  setTimeout(() => {
+    const objectWidth = ref.current.scrollWidth;
+    const dynamicHeight = calcDynamicHeight(objectWidth);
+    setDynamicHeight(dynamicHeight);
+  }, 1000);
 };
 
 const applyScrollListener = (ref, setTranslateX) => {
