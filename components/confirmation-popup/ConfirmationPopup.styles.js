@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { min, max } from '../../lib/responsive';
+import { min } from '../../lib/responsive';
 import { P, H2 } from '../../style/typography';
 import { colors } from '../../style/colors';
 import { motion } from 'framer-motion';
@@ -10,6 +10,7 @@ const PopupBox = styled(motion.div)`
   width: 100%;
   height: 100vh;
   z-index: 150;
+  top: 30%;
 
   left: 0;
 

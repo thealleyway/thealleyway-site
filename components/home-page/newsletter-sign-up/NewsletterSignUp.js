@@ -14,6 +14,8 @@ import {
 } from './NewsletterSignUp.styles';
 import ArchModal from '../../arch-modal/ArchModal';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
+import { fieldNames } from '../../../lib/utils';
+import { useValidEmail } from '../../../lib/hooks';
 
 export default function NewsletterSignUp({
   description,
@@ -38,19 +40,23 @@ export default function NewsletterSignUp({
   const isValidSubmission = () => {
     let errors = {};
     let formIsValid = true;
-    const validEmail = new RegExp(
-      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
-    );
-    if (fields['name'] == undefined || fields['name'].length === 0) {
+
+    if (
+      fields[fieldNames.NAME] == undefined ||
+      fields[fieldNames.NAME].length === 0
+    ) {
       formIsValid = false;
-      errors['name'] = 'NAME IS REQUIRED!';
+      errors[fieldNames.NAME] = 'NAME IS REQUIRED!';
     }
-    if (fields['email'] == undefined || fields['email'].length === 0) {
+    if (
+      fields[fieldNames.EMAIL] == undefined ||
+      fields[fieldNames.EMAIL].length === 0
+    ) {
       formIsValid = false;
-      errors['email'] = 'EMAIL IS REQUIRED!';
-    } else if (!validEmail.test(fields['email'])) {
+      errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
+    } else if (useValidEmail(fields[fieldNames.EMAIL])) {
       formIsValid = false;
-      errors['email'] = 'INVALID EMAIL!';
+      errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
     setErrors(errors);
     return formIsValid;
@@ -69,11 +75,11 @@ export default function NewsletterSignUp({
             label="Name"
             fullWidth
             required
-            showError={errors['name']}
-            value={fields['name'] ? fields['name'] : ''}
+            showError={errors[fieldNames.NAME]}
+            value={fields[fieldNames.NAME] ? fields[fieldNames.NAME] : ''}
             onChange={(e) => {
               setName(e.target.value);
-              setFields({ ...fields, name: e.target.value });
+              setFields({ ...fields, NAME: e.target.value });
             }}
           />
           <TextInputField
@@ -81,9 +87,9 @@ export default function NewsletterSignUp({
             label="Email"
             fullWidth
             required={true}
-            showError={errors['email']}
-            value={fields['email'] ? fields['email'] : ''}
-            onChange={(e) => setFields({ ...fields, email: e.target.value })}
+            showError={errors[fieldNames.EMAIL]}
+            value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
+            onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
           />
           <PrivacyPolicyLinkText
             onClick={() => {
