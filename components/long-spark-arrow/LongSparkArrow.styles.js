@@ -81,7 +81,7 @@ const ArrowText = styled(P)`
   padding-top: 4.5em;
 
   @media ${min.desktop} {
-    padding-right: 0.4em;
+    padding-right: 0.9em;
     padding-top: 11.9em;
   }
 `;
@@ -113,7 +113,7 @@ const ArrowContainer = styled(HoverAnimationButton).attrs({
   }
 
   @media ${min.desktop} {
-    top: 16.8em;
+    top: 16.25em;
     left: -10em;
   }
 `;
