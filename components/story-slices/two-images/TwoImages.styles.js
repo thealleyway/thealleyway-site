@@ -7,6 +7,7 @@ export const TwoImagesWrapper = styled.div`
   height: 100%;
   flex-direction column;
   padding: 4em;
+  padding-top: calc(5vh + 2em);
 
   @media ${max.tabletLg} {
     flex-direction row;
