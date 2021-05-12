@@ -16,7 +16,7 @@ import { icons } from '../../style/icons';
 import { breakpointsObj } from '../../lib/responsive';
 import { useMatchMedia } from '../../lib/hooks';
 
-const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
+const PREVIEW_CHANGE_IN_MILLISECONDS = 4000;
 
 export default function HomePage({
   authorSignatures,
@@ -51,13 +51,26 @@ export default function HomePage({
 
   setTimeout(() => setFadedLong(true), 4000);
   setTimeout(() => setFadedShort(true), 3000);
+  const [fadeInCurrentFeatured, setFadeInCurrentFeatured] = useState(true);
 
   useEffect(() => {
-    const id = setTimeout(
-      () => setActiveIndex((activeIndex + 1) % featuredStories.length),
-      PREVIEW_CHANGE_IN_MILLISECONDS,
-    );
-    return () => clearTimeout(id);
+    var fadeIn;
+    var fadeOut;
+    const id = setTimeout(() => {
+      fadeIn = setTimeout(() => {
+        setFadeInCurrentFeatured(true);
+        setActiveIndex((activeIndex + 1) % featuredStories.length);
+      }, PREVIEW_CHANGE_IN_MILLISECONDS);
+
+      fadeOut = setTimeout(() => {
+        setFadeInCurrentFeatured(false);
+      }, PREVIEW_CHANGE_IN_MILLISECONDS / 2);
+    }, PREVIEW_CHANGE_IN_MILLISECONDS);
+    return () => {
+      clearTimeout(id);
+      clearTimeout(fadeIn);
+      clearTimeout(fadeOut);
+    };
   }, [activeIndex]);
 
   const mapFeaturedStories = (featuredStory, index) => {
@@ -85,6 +98,7 @@ export default function HomePage({
       <HomePageContentWrapper>
         {fadedLong && !isMobile && (
           <CurrentFeaturedStory
+            fadeIn={fadeInCurrentFeatured}
             featuredStory={
               featuredStories[Number.parseInt(activeIndex)].story.data
             }

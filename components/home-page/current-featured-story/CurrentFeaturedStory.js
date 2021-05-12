@@ -15,6 +15,7 @@ import {
 } from './CurrentFeaturedStory.styles';
 
 export default function CurrentFeaturedStory({
+  fadeIn,
   featuredStory,
   signature,
   url,
@@ -31,6 +32,7 @@ export default function CurrentFeaturedStory({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ type: 'spring', duration: 3, delay: 0.5 }}
+      fadeIn={fadeIn}
     >
       <CurrentFeaturedStoryImageWrapper>
         <CurrentFeaturedStoryImage

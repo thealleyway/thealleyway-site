@@ -2,19 +2,22 @@ import { H4, fontWeights } from '../../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../../style/colors';
 import { min } from '../../../../lib/responsive';
+import { HoverAnimationButton } from '../../../animation-base-components/AnimationBaseComponents';
 
-const QuestionStyled = styled(H4)`
+const QuestionStyled = styled(H4).attrs({
+  as: HoverAnimationButton,
+})`
   font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  margin: 0.5em 0;
   font-weight: ${(props) =>
-    props.isSelected ? fontWeights.medium : fontWeights.normal};
+    props.selected ? fontWeights.medium : fontWeights.normal};
   color: ${colors.BROWN};
   padding-bottom: 0.3em;
-  @media ${min.tablet} {
-    font-weight: ${(props) =>
-      props.isSelected || props.hover
-        ? fontWeights.medium
-        : fontWeights.normal};
-  }
+  text-align: left;
 `;
 
 const ShortArrow = styled.img`
