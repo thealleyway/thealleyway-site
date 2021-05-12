@@ -10,6 +10,10 @@ const OvalButtonContainer = styled(motion.button)`
   border: none;
   outline: none;
   align-self: flex-end;
+
+  @media ${max.tabletLg} {
+    width: 100%;
+  }
 `;
 
 const Button = styled(P).attrs({
@@ -37,7 +41,7 @@ const Button = styled(P).attrs({
   }
 
   @media ${max.tabletLg} {
-    width: 30%;
+    width: 100%;
   }
 `;
 
