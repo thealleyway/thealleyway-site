@@ -8,7 +8,7 @@ const HorizontalStyling = css`
 
 const VerticalStyling = css`
   position: sticky;
-  top: 8%;
+  top: 5em;
 `;
 
 const PercentageIndicatorStyles = css`
