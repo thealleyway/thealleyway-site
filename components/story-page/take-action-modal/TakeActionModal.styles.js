@@ -30,7 +30,7 @@ export const TakeActionModalWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  width: 65%;
+  width: 60%;
   padding-left: 2em;
 `;
 
@@ -47,6 +47,7 @@ export const TakeActionModalDescription = styled(P).attrs({
 export const ActionButtonsWrapper = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
 `;
 
 export const TakeActionModalButton = styled.img`

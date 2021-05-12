@@ -22,7 +22,7 @@ export const TextWithFadedImageBackgroundWrapper = styled.div`
 `;
 
 export const Text = styled(P)`
-  padding-top: ${(props) => (props.imageRight ? '0vh' : '30vh')};
+  padding-top: ${(props) => (props.imageRight ? '5vh' : '30vh')};
   padding-left: ${(props) => (props.imageRight ? '0vh' : '30vh')};
   padding-right: ${(props) => (props.imageRight ? '30vh' : '0vh')};
   width: 40em;
