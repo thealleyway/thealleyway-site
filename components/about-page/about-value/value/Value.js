@@ -9,7 +9,7 @@ import {
   ValueTitleWrapper,
   ValueDescriptionWrapper,
 } from './Value.style';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../../base-components/BaseComponents';
 
@@ -32,13 +32,17 @@ export default function Value({ valueData, offset }) {
 
   if (visible) {
     return (
-      <ValueWrapper offset={isTabletOrMobile ? null : offset}         
-                   initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ type: "spring", duration: 4 }} >
+      <ValueWrapper
+        offset={isTabletOrMobile ? null : offset}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 4 }}
+      >
         <ValueImage src={image.url} alt={image.alt} />
         <ValueTextWrapper>
-          <ValueTitleWrapper>{getString(title).toUpperCase()}</ValueTitleWrapper>
+          <ValueTitleWrapper>
+            {getString(title).toUpperCase()}
+          </ValueTitleWrapper>
           <ValueDescriptionWrapper>
             <P>{getString(description)}</P>
           </ValueDescriptionWrapper>
@@ -48,5 +52,4 @@ export default function Value({ valueData, offset }) {
   }
 
   return <PlaceHolder ref={placeHolderRef} />;
-
 }

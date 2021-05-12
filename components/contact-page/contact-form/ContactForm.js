@@ -8,7 +8,7 @@ import {
 } from './ContactForm.styles';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { fieldNames } from '../../../lib/utils';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 
@@ -26,7 +26,7 @@ export default function ContactForm({ togglePopup }) {
     );
     if (
       fields[fieldNames.FIRST_NAME] == undefined ||
-      fields[fieldNames.FIRST_NAME].length < 1
+      fields[fieldNames.FIRST_NAME].length === 0
     ) {
       formIsValid = false;
       errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
@@ -37,7 +37,7 @@ export default function ContactForm({ togglePopup }) {
     }
     if (
       fields[fieldNames.MESSAGE] == undefined ||
-      fields[fieldNames.MESSAGE].length < 1
+      fields[fieldNames.MESSAGE].length === 0
     ) {
       formIsValid = false;
       errors[fieldNames.MESSAGE] = 'MESSAGE IS REQUIRED!';
@@ -56,10 +56,9 @@ export default function ContactForm({ togglePopup }) {
   if (visible) {
     return (
       <ContactFormContainer
-
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: "spring", duration: 4 }}
+        transition={{ type: 'spring', duration: 4 }}
       >
         <TextInputField
           id="firstName"
@@ -74,7 +73,9 @@ export default function ContactForm({ togglePopup }) {
         <TextInputField
           id="lastName"
           label="Last Name"
-          value={fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''}
+          value={
+            fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''
+          }
           onChange={(e) => setFields({ ...fields, LAST_NAME: e.target.value })}
         />
         <TextInputField
@@ -100,7 +101,7 @@ export default function ContactForm({ togglePopup }) {
             buttonText="SUBMIT"
             onClick={() => {
               if (submitRequest()) {
-                document.getElementById('area').value = '';
+                document.querySelector('#area').value = '';
                 setFields({});
                 togglePopup();
               }
@@ -113,12 +114,14 @@ export default function ContactForm({ togglePopup }) {
   return <PlaceHolder ref={placeHolderRef} />;
 
   function submitRequest() {
-    const name = `${fields[fieldNames.FIRST_NAME]} ${fields[fieldNames.LAST_NAME]
-      }`;
+    const name = `${fields[fieldNames.FIRST_NAME]} ${
+      fields[fieldNames.LAST_NAME]
+    }`;
     const subject = `Get in touch - ${name}`;
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${fields[fieldNames.EMAIL]
-        }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${
+        fields[fieldNames.EMAIL]
+      }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
       axios
         .post(proxyurl + request, axiosConfig)
         .then((response) => {
