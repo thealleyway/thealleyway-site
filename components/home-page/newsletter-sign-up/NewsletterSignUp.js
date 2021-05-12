@@ -140,6 +140,7 @@ export default function NewsletterSignUp({
               <SubmitButton
                 color={colors.WHITE}
                 type="submit"
+                role="button"
                 onClick={onSubmitClick}
               >
                 SUBMIT

@@ -172,6 +172,7 @@ export default function StoryInquiryForm({
             <SubmitButton
               color={colors.WHITE}
               type="submit"
+              role="button"
               long
               onClick={() => {
                 if (submitRequest()) {

@@ -138,6 +138,7 @@ export default function ContactForm({ togglePopup }) {
               aria-label="Submission Button"
               color={colors.WHITE}
               type="submit"
+              role="button"
               onClick={() => {
                 if (submitRequest()) {
                   document.body.style.overflow = 'hidden';

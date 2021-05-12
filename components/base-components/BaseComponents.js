@@ -42,6 +42,7 @@ export const SubmitButtonContainer = styled(motion.button)`
 
 export const SubmitButton = styled(P).attrs({
   as: HoverAnimationButton,
+  ariaLabel: 'Submission button',
 })`
   color: ${colors.WHITE};
   background-color: ${colors.OLIVE};
