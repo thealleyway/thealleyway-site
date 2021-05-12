@@ -56,6 +56,7 @@ const SideImageContainer = styled.div`
 const QuoteCarouselContainer = styled.div`
   margin: 7em 0 -10em 0;
   @media ${min.tabletSm} {
+    padding-top: 3em;
     margin: 3em 0 -8em 0.7em;
   }
   @media ${min.tablet} {
