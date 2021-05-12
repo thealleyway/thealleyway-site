@@ -41,7 +41,6 @@ const ContentWrapper = styled(motion.div)`
 const TextWrapper = styled.div`
   width: 19em;
   margin-top: ${(props) => (props.isAuthorTestimonies ? '-4em' : '0')};
-
   @media ${max.tabletLg} {
     margin-bottom: ${(props) => (props.isAuthorTestimonies ? '-2em' : '2em')};
     margin-left: ${(props) => (props.isAuthorTestimonies ? '-2em' : '0')};
@@ -50,7 +49,7 @@ const TextWrapper = styled.div`
   @media ${max.tabletSm} {
     width: clamp(15em, 70vw, 18em);
     margin-left: ${(props) => (props.isAuthorTestimonies ? '1em' : '0')};
-    margin-bottom: -4em;
+    margin-bottom: ${(props) => (props.isAuthorTestimonies ? 0 : '-4em')};
   }
 `;
 
