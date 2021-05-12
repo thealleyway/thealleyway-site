@@ -66,6 +66,27 @@ export default function ContactForm({ togglePopup }) {
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
+  function submitRequest() {
+    const name = `${fields[fieldNames.FIRST_NAME]} ${
+      fields[fieldNames.LAST_NAME]
+    }`;
+    const subject = `Get in touch - ${name}`;
+    if (isValidSubmission()) {
+      const request = `${emailEndpoint}?name=${fields['name']}&email=${
+        fields[fieldNames.EMAIL]
+      }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
+      axios
+        .post(proxyurl + request, axiosConfig)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          return error;
+        });
+      return true;
+    }
+  }
+
   if (visible) {
     return (
       <ContactFormContainer
@@ -134,25 +155,4 @@ export default function ContactForm({ togglePopup }) {
     );
   }
   return <PlaceHolder ref={placeHolderRef} />;
-}
-
-function submitRequest() {
-  const name = `${fields[fieldNames.FIRST_NAME]} ${
-    fields[fieldNames.LAST_NAME]
-  }`;
-  const subject = `Get in touch - ${name}`;
-  if (isValidSubmission()) {
-    const request = `${emailEndpoint}?name=${fields['name']}&email=${
-      fields[fieldNames.EMAIL]
-    }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
-    axios
-      .post(proxyurl + request, axiosConfig)
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
-    return true;
-  }
 }
