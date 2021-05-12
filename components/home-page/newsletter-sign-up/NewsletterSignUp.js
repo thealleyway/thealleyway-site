@@ -14,7 +14,7 @@ import {
 } from './NewsletterSignUp.styles';
 import ArchModal from '../../arch-modal/ArchModal';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
-import { fieldNames } from '../../../lib/utils';
+import { fieldNames, addToList } from '../../../lib/utils';
 import { useValidEmail } from '../../../lib/hooks';
 
 export default function NewsletterSignUp({
@@ -31,9 +31,28 @@ export default function NewsletterSignUp({
   const [errors, setErrors] = useState({});
 
   const onSubmitClick = () => {
+    const firstName = name ? name.trim().split(' ')[0] : '';
+    const lastName =
+      name && name.trim().split(' ').length > 1
+        ? name.trim().split(' ')[1]
+        : '';
+
     if (isValidSubmission()) {
-      setIsConfirmationOpen(true);
-      setFields({});
+      addToList(
+        fields['email'],
+        (_, data) => {
+          if ('error' in data) {
+            alert(
+              'Unable to subscribe to the newsletter, please try again later.',
+            );
+          } else {
+            setIsConfirmationOpen(true);
+            setFields({});
+          }
+        },
+        firstName,
+        lastName,
+      );
     }
   };
 
