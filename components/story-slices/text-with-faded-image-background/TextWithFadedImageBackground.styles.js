@@ -43,7 +43,7 @@ export const Text = styled(P)`
 
 export const Image = styled.img`
   position: absolute;
-  height: auto;
+  height: 70%;
   width: 50%;
   object-fit: cover;
   opacity: 0.15;
