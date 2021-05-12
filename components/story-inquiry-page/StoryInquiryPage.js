@@ -7,14 +7,9 @@ import PageDescription from '../page-description/PageDescription';
 import {
   SquiggleWavy,
   H1StyledContainer,
-  LongLinesDesktop,
-  LongLinesFlippedDesktop,
-  LongLinesTablet,
-  LongLinesFlippedTablet,
   LongLinesContainer,
   TopSparkArrowContainer,
   SideImageContainer,
-  SideImage,
   QuoteCarouselContainer,
   ScrollToAuthorTestimonies,
 } from './StoryInquiryPage.styles';
@@ -22,6 +17,11 @@ import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
 import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
+import SideImage from './side-image/SideImage';
+import LongLines from './long-lines/LongLines';
+import LongLinesFlipped from './long-lines-flipped/LongLinesFlipped';
+import { useSpring } from 'react-spring';
+import { header } from '../../style/animations';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -116,10 +116,12 @@ export default function StoryInquiryPage({
     popupImage,
   };
 
+  const headerAnimation = useSpring(header);
+
   return (
     <>
       <Navigation navigationData={navigationData} />
-      <H1StyledContainer>
+      <H1StyledContainer style={headerAnimation}>
         <H1Styled
           regular={storySubmissionTitleRegular}
           italicized={storySubmissionTitleItalic}
@@ -137,36 +139,13 @@ export default function StoryInquiryPage({
         <LongSparkArrow arrowText={sparkArrowFaqText} scrollTo="faq" />
       </TopSparkArrowContainer>
       <SideImageContainer>
-        <SideImage
-          src={storyInquirySideImage1.url}
-          alt={storyInquirySideImage1.alt}
-        />
-        <SideImage
-          src={storyInquirySideImage2.url}
-          alt={storyInquirySideImage2.alt}
-        />
-        <SideImage
-          src={storyInquirySideImage3.url}
-          alt={storyInquirySideImage3.alt}
-        />
+        <SideImage image={storyInquirySideImage1} />
+        <SideImage image={storyInquirySideImage2} />
+        <SideImage image={storyInquirySideImage3} />
       </SideImageContainer>
       <LongLinesContainer>
-        <LongLinesDesktop
-          src={icons.LONG_LINES_DESKTOP}
-          alt="long lines with spark at the end for desktop"
-        />
-        <LongLinesFlippedDesktop
-          src={icons.LONG_LINES_FLIPPED_DESKTOP}
-          alt="long lines with spark at the end flipped for desktop"
-        />
-        <LongLinesTablet
-          src={icons.LONG_LINES_TABLET}
-          alt="long lines with spark at the end for tablet"
-        />
-        <LongLinesFlippedTablet
-          src={icons.LONG_LINES_FLIPPED_TABLET}
-          alt="long lines with spark at the end flipped for tablet"
-        />
+        <LongLines />
+        <LongLinesFlipped />
       </LongLinesContainer>
       <StoryInquiryForm
         storyInquiryFormData={storyInquiryFormData}

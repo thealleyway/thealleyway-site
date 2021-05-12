@@ -5,7 +5,7 @@ export const header = {
 };
 
 export const fadeIn = {
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: { tension: 20, friction: 15 },
-  };
+  to: { opacity: 1 },
+  from: { opacity: 0 },
+  config: { tension: 20, friction: 15 },
+};

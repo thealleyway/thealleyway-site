@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { P, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 
-const SortLabelWrapper = styled.div`
+const SortLabelWrapper = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;

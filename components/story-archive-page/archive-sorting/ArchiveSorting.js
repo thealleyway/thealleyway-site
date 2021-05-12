@@ -5,6 +5,9 @@ import {
   SortUnderline,
 } from './ArchiveSorting.style';
 import { icons } from '../../../style/icons';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 import { colors } from '../../../style/colors';
 
 const ALPHA = 'alpha';
@@ -15,8 +18,19 @@ const sortUrl = (selectedSortType) =>
 
 export default function ArchiveSorting({ sortType, order }) {
   const label = order == DATE ? 'MOST RECENT' : 'A - Z';
-  return (
-    <SortLabelWrapper>
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+  if (visible) {
+    return (
+      <SortLabelWrapper
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "spring", duration: 4 }}>
       <PageLink href={sortUrl(order)}>
         <SortLabel selected={sortType == order} color={colors.BROWN}>
           {label}
@@ -28,6 +42,8 @@ export default function ArchiveSorting({ sortType, order }) {
         alpha={ALPHA == order}
         alt=""
       />
-    </SortLabelWrapper>
-  );
+      </SortLabelWrapper>
+    );
+  }
+  return <PlaceHolder ref={placeHolderRef} />;
 }

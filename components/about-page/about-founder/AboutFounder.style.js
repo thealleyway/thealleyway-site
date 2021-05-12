@@ -2,13 +2,14 @@ import { H2, H3 } from '../../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../../style/colors';
 import { min, max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 const ScrollToMeetFounder = styled.div`
   position: absolute;
   margin: 1em;
 `;
 
-const MeetFounderContainer = styled.div`
+const MeetFounderContainer = styled(motion.div)`
   height: auto;
   overflow: hidden;
   padding-bottom: 9.5em;
@@ -108,7 +109,7 @@ const AboutImageLeftTablet = styled.img`
   }
 `;
 
-const AboutImageQuoteWrapper = styled.div`
+const AboutImageQuoteWrapper = styled(motion.div)`
   width: clamp(21em, 30vw, 25em);
   padding-top: 7em;
   margin-left: 2em;

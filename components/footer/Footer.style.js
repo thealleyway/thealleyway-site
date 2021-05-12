@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
 import { max } from '../../lib/responsive';
+import { motion } from 'framer-motion';
 
-const FooterContainer = styled.div`
+const FooterContainer = styled(motion.div)`
   margin-top: ${(props) => (props.topMargin ? '8em' : '0')};
   width: 100%;
   bottom: 0;

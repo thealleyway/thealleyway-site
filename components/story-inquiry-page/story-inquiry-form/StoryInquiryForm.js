@@ -1,43 +1,20 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import useResizeObserver from 'use-resize-observer';
-import SignatureCanvas from 'react-signature-canvas';
-import TextInputField from '../../text-input-field/TextInputField';
-import TextInputBox from '../../text-input-box/TextInputBox';
 import SquareButton from '../../square-button/SquareButton';
-import { H4, InputInfoText } from '../../../style/typography';
-import { getString } from '../../../lib/richText';
 import {
   StoryInquiryFormContainer,
-  StoryConceptContainer,
-  SocialInformationContainer,
-  InputFieldWrapper,
-  AuthorInformationContainer,
-  AuthorSignatureContainer,
-  Description,
-  ResourceLinksContainer,
-  StoryConceptInfoTextWrapper,
-  SignatureCanvasWrapper,
-  ClearSignatureWrapper,
-  StarLabelContainer,
-  TextLabel,
-  SocialInfoTextWrapper,
   SquareButtonWrapper,
-  ErrorText,
   ScrollToSubmissionForm,
+  OverflowDiv,
 } from './StoryInquiryForm.styles';
-import { RedStar } from '../../base-components/BaseComponents';
-import ArchModal from '../../arch-modal/ArchModal';
-import { icons } from '../../../style/icons';
-import MoreAboutPopup from '../../more-about-popup/MoreAboutPopup';
+import { fieldNames } from '../../../lib/utils';
+import React, { useState } from 'react';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
 import { Overlay } from '../../base-components/BaseComponents';
-import {
-  emailEndpoint,
-  axiosConfig,
-  proxyurl,
-  fieldNames,
-} from '../../../lib/utils';
+import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
+import AuthorInformation from './author-information/AuthorInformation';
+import AuthorSignature from './author-signature/AuthorSignature';
+import SocialInformation from './social-information/SocialInformation';
+import StoryConcept from './story-concept/StoryConcept';
+import ResourceLinks from './resource-links/ResourceLinks';
 import { useValidEmail } from '../../../lib/hooks';
 
 const axios = require('axios');
@@ -71,7 +48,6 @@ export default function StoryInquiryForm({
   ]);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
-  const { ref, width: canvasWidth } = useResizeObserver();
 
   const isValidSubmission = () => {
     let errors = {};
@@ -139,285 +115,83 @@ export default function StoryInquiryForm({
   return (
     <>
       <ScrollToSubmissionForm id="submission form" />
-      <StoryInquiryFormContainer>
-        <AuthorInformationContainer>
-          <H4>{getString(authorInformationSubtitle)}</H4>
-          <InputFieldWrapper>
-            <TextInputField
-              id="firstName"
-              label="First Name"
-              required
-              showError={errors[fieldNames.FIRST_NAME]}
-              value={
-                fields[fieldNames.FIRST_NAME]
-                  ? fields[fieldNames.FIRST_NAME]
-                  : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, FIRST_NAME: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="lastName"
-              label="Last Name"
-              value={
-                fields[fieldNames.LAST_NAME] ? fields[fieldNames.LAST_NAME] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, LAST_NAME: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="email"
-              label="Email"
-              required
-              showError={errors[fieldNames.EMAIL]}
-              value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
-              onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
-            />
-          </InputFieldWrapper>
-        </AuthorInformationContainer>
-        <AuthorSignatureContainer>
-          <H4>{getString(authorSignatureSubtitle)}</H4>
-          <Description>{getString(authorSignatureDescription)}</Description>
-          <StarLabelContainer>
-            <TextLabel>Signature</TextLabel>
-            <RedStar src={icons.RED_STAR} />
-          </StarLabelContainer>
-          <SignatureCanvasWrapper id="signature canvas wrapper" ref={ref}>
-            <SignatureCanvas
-              penColor="white"
-              canvasProps={{ width: canvasWidth, height: 60 }}
-              ref={(ref) => setSigPad(ref)}
-              minWidth={1.5}
-              maxWidth={1.5}
-              onEnd={() =>
-                trim(sigPad.getTrimmedCanvas().toDataURL('image/png'))
-              }
-            />
-            <ErrorText>{errors[fieldNames.SIGNATURE]}</ErrorText>
-          </SignatureCanvasWrapper>
-          <ClearSignatureWrapper>
-            <InputInfoText onClick={clear}>Reset</InputInfoText>
-          </ClearSignatureWrapper>
-        </AuthorSignatureContainer>
-        <SocialInformationContainer>
-          <H4>{getString(socialInformationSubtitle)}</H4>
-          <InputFieldWrapper>
-            <TextInputField
-              id="website"
-              label="Website"
-              value={
-                fields[fieldNames.WEBSITE] ? fields[fieldNames.WEBSITE] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, WEBSITE: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="instagram"
-              label="Instagram"
-              value={
-                fields[fieldNames.INSTAGRAM] ? fields[fieldNames.INSTAGRAM] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, INSTAGRAM: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="twitter"
-              label="Twitter"
-              value={
-                fields[fieldNames.TWITTER] ? fields[fieldNames.TWITTER] : ''
-              }
-              onChange={(e) =>
-                setFields({ ...fields, TWITTER: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="venmo"
-              label="Venmo"
-              value={fields[fieldNames.VENMO] ? fields[fieldNames.VENMO] : ''}
-              onChange={(e) => setFields({ ...fields, VENMO: e.target.value })}
-            />
-          </InputFieldWrapper>
-          <SocialInfoTextWrapper>
-            <InputInfoText
+      <OverflowDiv>
+        <StoryInquiryFormContainer>
+          <AuthorInformation
+            authorInformationSubtitle={authorInformationSubtitle}
+            fields={fields}
+            errors={errors}
+            setFields={setFields}
+          />
+          <AuthorSignature
+            authorSignatureSubtitle={authorSignatureSubtitle}
+            authorSignatureDescription={authorSignatureDescription}
+            errors={errors}
+            clear={clear}
+            setSigPad={setSigPad}
+            trim={trim}
+            sigPad={sigPad}
+          />
+          <SocialInformation
+            fields={fields}
+            setFields={setFields}
+            socialInformationSubtitle={socialInformationSubtitle}
+            venmoMoreInfoDescription={venmoMoreInfoDescription}
+            venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
+            isVenmoPolicyOpen={isVenmoPolicyOpen}
+            setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
+          />
+          <StoryConcept
+            fields={fields}
+            errors={errors}
+            setFields={setFields}
+            storyConceptBoxSubtitle={storyConceptBoxSubtitle}
+            storyConceptDescription={storyConceptDescription}
+            storyConceptPopupData={storyConceptPopupData}
+            storyConceptSubtitle={storyConceptSubtitle}
+            isStoryConceptPopupOpen={isStoryConceptPopupOpen}
+            setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
+          />
+          <ResourceLinks
+            fields={fields}
+            setFields={setFields}
+            resourceLinksDescription={resourceLinksDescription}
+            resourceLinksSubtitle={resourceLinksSubtitle}
+            setAdditionalResources={setAdditionalResources}
+            errors={errors}
+            additionalResources={additionalResources}
+          />
+          <SquareButtonWrapper>
+            <SquareButton
+              buttonText="SUBMIT MY STORY"
+              long
               onClick={() => {
-                document.body.style.overflow = 'hidden';
-                setIsVenmoPolicyOpen(true);
+                if (submitRequest()) {
+                  document.body.style.overflow = 'hidden';
+                  document.querySelector('#area').value = '';
+                  setFields({});
+                  clear();
+                  setIsConfirmationPopupOpen(true);
+                }
               }}
-            >
-              {getString(venmoMoreInfoSubtitle)}
-            </InputInfoText>
-          </SocialInfoTextWrapper>
-          {isVenmoPolicyOpen && (
-            <ArchModal
-              text={venmoMoreInfoDescription}
-              onClose={() => {
-                document.body.style.overflow = 'visible';
-                setIsVenmoPolicyOpen(false);
-              }}
+            />
+          </SquareButtonWrapper>
+          {isConfirmationPopupOpen && (
+            <ConfirmationPopup
+              confirmationData={storySubmissionConfirmationData}
+              togglePopup={setIsConfirmationPopupOpen}
+              page="inquiry"
             />
           )}
-        </SocialInformationContainer>
-        <StoryConceptContainer>
-          <H4>{getString(storyConceptSubtitle)}</H4>
-          <Description>{getString(storyConceptDescription)}</Description>
-          <TextInputBox
-            id="area"
-            placeholder="Copy and paste here"
-            height="clamp(10em, 4vw, 26em)"
-            label="Copy and paste text below"
-            required
-            onChange={(e) =>
-              setFields({ ...fields, STORY_CONCEPT: e.target.value })
+          <Overlay
+            showOverlay={
+              isVenmoPolicyOpen ||
+              isStoryConceptPopupOpen ||
+              isConfirmationPopupOpen
             }
-            showError={errors[fieldNames.STORY_CONCEPT]}
           />
-          <StoryConceptInfoTextWrapper>
-            <InputInfoText
-              onClick={() => {
-                document.body.style.overflow = 'hidden';
-                setIsStoryConceptPopupOpen(true);
-              }}
-            >
-              {getString(storyConceptBoxSubtitle)}
-            </InputInfoText>
-          </StoryConceptInfoTextWrapper>
-          {isStoryConceptPopupOpen && (
-            <MoreAboutPopup
-              popupData={storyConceptPopupData}
-              setIsPopupOpen={setIsStoryConceptPopupOpen}
-            />
-          )}
-        </StoryConceptContainer>
-        <ResourceLinksContainer>
-          <H4>{getString(resourceLinksSubtitle)}</H4>
-          <Description>{getString(resourceLinksDescription)}</Description>
-          <InputFieldWrapper>
-            <TextInputField
-              id="petition link"
-              label="Petition link"
-              required
-              value={
-                fields[fieldNames.PETITION_LINK]
-                  ? fields[fieldNames.PETITION_LINK]
-                  : ''
-              }
-              showError={errors[fieldNames.PETITION_LINK]}
-              onChange={(e) =>
-                setFields({ ...fields, PETITION_LINK: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="donation page link"
-              label="Donation page link"
-              required
-              value={
-                fields[fieldNames.DONATION_PAGE_LINK]
-                  ? fields[fieldNames.DONATION_PAGE_LINK]
-                  : ''
-              }
-              showError={errors[fieldNames.DONATION_PAGE_LINK]}
-              onChange={(e) =>
-                setFields({ ...fields, DONATION_PAGE_LINK: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            <TextInputField
-              id="further education link"
-              label="Further education link"
-              required
-              value={
-                fields[fieldNames.FURTHER_EDUCATION_LINK]
-                  ? fields[fieldNames.FURTHER_EDUCATION_LINK]
-                  : ''
-              }
-              showError={errors[fieldNames.FURTHER_EDUCATION_LINK]}
-              onChange={(e) =>
-                setFields({ ...fields, FURTHER_EDUCATION_LINK: e.target.value })
-              }
-            />
-          </InputFieldWrapper>
-          <InputFieldWrapper>
-            {additionalResources.map((r, index) => {
-              return (
-                <TextInputField
-                  key={r.id}
-                  id={'additional resource' + r.id}
-                  label={index === 0 ? 'Additional Resources' : ''}
-                  isAdd={index === 0}
-                  hasIcon
-                  onChange={(e) => {
-                    setAdditionalResources((previous) =>
-                      previous.map((element) =>
-                        r.id === element.id
-                          ? { id: element.id, RESOURCE: e.target.value }
-                          : element,
-                      ),
-                    );
-                  }}
-                  addResource={() =>
-                    setAdditionalResources((previous) => [
-                      ...previous,
-                      { id: uuidv4(), RESOURCE: '' },
-                    ])
-                  }
-                  deleteResource={() =>
-                    setAdditionalResources((previous) =>
-                      previous.filter((resource) => r.id !== resource.id),
-                    )
-                  }
-                  value={r.resource}
-                />
-              );
-            })}
-          </InputFieldWrapper>
-        </ResourceLinksContainer>
-        <SquareButtonWrapper>
-          <SquareButton
-            buttonText="SUBMIT MY STORY"
-            long
-            onClick={() => {
-              if (submitRequest()) {
-                document.body.style.overflow = 'hidden';
-                document.querySelector('#area').value = '';
-                setFields({});
-                clear();
-                setIsConfirmationPopupOpen(true);
-              }
-            }}
-          />
-        </SquareButtonWrapper>
-        {isConfirmationPopupOpen && (
-          <ConfirmationPopup
-            confirmationData={storySubmissionConfirmationData}
-            togglePopup={setIsConfirmationPopupOpen}
-            page="inquiry"
-          />
-        )}
-        <Overlay
-          showOverlay={
-            isVenmoPolicyOpen ||
-            isStoryConceptPopupOpen ||
-            isConfirmationPopupOpen
-          }
-        />
-      </StoryInquiryFormContainer>
+        </StoryInquiryFormContainer>
+      </OverflowDiv>
     </>
   );
 

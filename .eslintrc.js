@@ -38,5 +38,8 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-null': 'off',
     'unicorn/no-nested-ternary': 'off',
+    'sonarjs/cognitive-complexity': 'off',
+    'security/detect-object-injection': 'off',
+    'react-hooks/rules-of-hooks': 'off',
   },
 };

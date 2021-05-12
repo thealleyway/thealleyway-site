@@ -27,7 +27,7 @@ export default function FourOhFourPage({ navigationData, errorPageData }) {
     <>
       <Navigation navigationData={navigationData} />
       <ImgBackground src={backgroundImage.url} alt={backgroundImage.alt} />
-      <ContentWrapper style={fadeInTextAnimation} >
+      <ContentWrapper style={fadeInTextAnimation}>
         <TextWrapper>
           <ErrorTitleText>
             {getString(errorPageTitleRegular) + ' '}

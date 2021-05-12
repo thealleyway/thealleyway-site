@@ -6,13 +6,14 @@ import {
   FadeIn,
   FadeOut,
 } from '../animation-base-components/AnimationBaseComponents';
+import { motion } from 'framer-motion';
 
 const ScrollToCarousel = styled.div`
   position: absolute;
   margin: -10em;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.div)`
   width: 55em;
   margin: auto;
   display: flex;

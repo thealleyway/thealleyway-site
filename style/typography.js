@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { min } from '../lib/responsive';
 import { colors } from './colors';
+import { motion } from 'framer-motion';
 
 const fonts = {
   swearDisplay: 'swear-display, serif',
@@ -30,7 +31,7 @@ const H1 = styled.h1`
   }
 `;
 
-const H2 = styled.h2`
+const H2 = styled(motion.h2)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};

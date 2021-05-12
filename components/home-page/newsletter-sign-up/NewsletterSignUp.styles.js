@@ -6,7 +6,7 @@ import { icons } from '../../../style/icons';
 import { HoverAnimationButton } from '../../animation-base-components/AnimationBaseComponents';
 import { motion } from 'framer-motion';
 
-export const NewsletterSignUpWrapper = styled.div`
+export const NewsletterSignUpWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

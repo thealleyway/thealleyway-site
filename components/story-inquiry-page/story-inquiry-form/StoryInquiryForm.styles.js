@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { min } from '../../../lib/responsive';
 import { P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
 const StoryInquiryFormContainer = styled.div`
   padding-top: 3em;
@@ -26,7 +27,7 @@ const StoryConceptInfoTextWrapper = styled.div`
   margin: -0.5em 0;
 `;
 
-const AuthorInformationContainer = styled.div`
+const AuthorInformationContainer = styled(motion.div)`
   padding-bottom: 2.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
@@ -36,7 +37,7 @@ const AuthorInformationContainer = styled.div`
   }
 `;
 
-const AuthorSignatureContainer = styled.div`
+const AuthorSignatureContainer = styled(motion.div)`
   padding-bottom: 2.7em;
   @media ${min.tablet} {
     padding-bottom: 4em;
@@ -46,7 +47,7 @@ const AuthorSignatureContainer = styled.div`
   }
 `;
 
-const SocialInformationContainer = styled.div`
+const SocialInformationContainer = styled(motion.div)`
   padding-bottom: 3.7em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
@@ -56,7 +57,7 @@ const SocialInformationContainer = styled.div`
   }
 `;
 
-const StoryConceptContainer = styled.div`
+const StoryConceptContainer = styled(motion.div)`
   padding-bottom: 3.5em;
   @media ${min.tablet} {
     padding-bottom: 3.5em;
@@ -66,7 +67,7 @@ const StoryConceptContainer = styled.div`
   }
 `;
 
-const ResourceLinksContainer = styled.div`
+const ResourceLinksContainer = styled(motion.div)`
   padding-bottom: 1em;
 `;
 
@@ -125,6 +126,10 @@ const ScrollToSubmissionForm = styled.div`
   margin-top: -3em;
 `;
 
+const OverflowDiv = styled.div`
+  overflow: hidden;
+`;
+
 export {
   StoryInquiryFormContainer,
   SocialInformationContainer,
@@ -143,4 +148,5 @@ export {
   SocialInfoTextWrapper,
   ErrorText,
   ScrollToSubmissionForm,
+  OverflowDiv,
 };

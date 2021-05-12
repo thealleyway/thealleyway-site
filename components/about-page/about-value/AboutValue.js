@@ -1,7 +1,5 @@
-import { getString } from '../../../lib/richText';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
-import { H2Wrapper } from '../about-founder/AboutFounder.style';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import Value from './value/Value';
 import {
@@ -9,10 +7,10 @@ import {
   OurValuesContainer,
   ContentWrapper,
   ValueImageRight,
-  AboutValueTitleWrapper,
   ValuesContainer,
   SparkArrowWrapper,
 } from './AboutValue.style';
+import ValuesTitle from './values-title/ValuesTitle';
 
 export default function AboutValue({ aboutValueData, id, scrollToId }) {
   const {
@@ -31,9 +29,7 @@ export default function AboutValue({ aboutValueData, id, scrollToId }) {
       <ScrollToValues id={id} />
       <OurValuesContainer id={id}>
         <ContentWrapper>
-          <AboutValueTitleWrapper>
-            <H2Wrapper>{getString(valuesTitle)}</H2Wrapper>
-          </AboutValueTitleWrapper>
+          <ValuesTitle valuesTitle={valuesTitle} />
           <ValueImageRight src={valuesImage.url} alt={valuesImage.alt} />
         </ContentWrapper>
         {!isTabletLgOrMobile && (

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { getString, renderRichText } from '../../../lib/richText';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import { H4, P, InputInfoText } from '../../../style/typography';
@@ -23,6 +22,9 @@ import {
   TopQuoteWrapper,
   SparkArrowWrapper,
 } from './AboutFounder.style';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 
 export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
   const {
@@ -59,71 +61,86 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
     popupDescriptions: getPopupDescriptions,
   };
 
-  return (
-    <>
-      <ScrollToMeetFounder id={id} />
-      <MeetFounderContainer>
-        <MeetFounderWrapper>
-          {!isTabletOrMobile && (
-            <AboutImageLeftDesktop
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+  if (visible) {
+    return (
+      <>
+        <ScrollToMeetFounder id={id} />
+        <MeetFounderContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "spring", duration: 4 }}
+
+        >
+          <MeetFounderWrapper>
+            {!isTabletOrMobile && (
+              <AboutImageLeftDesktop
+                src={camarynImageLeft.url}
+                alt={camarynImageLeft.alt}
+              />
+            )}
+            <TextWrapper>
+              <H2Wrapper>{getString(camarynTitle)}</H2Wrapper>
+              <P>{renderRichText(camarynText)}</P>
+              <br />
+              <H4>{getString(resourcesTitle).toUpperCase()}</H4>
+              <P>{renderRichText(resourcesDescription)}</P>
+              <br />
+              <ResourceButtonsWrapper>
+                {resourceData.map((r) => (
+                  <OvalButton
+                    key={r.id}
+                    buttonText={getString(r.resourceTitle).toUpperCase()}
+                    href={r.resourceLink.url}
+                    onClick={() => window.open(r.resourceLink.url, '_blank')}
+                  />
+                ))}
+              </ResourceButtonsWrapper>
+              <MoreResourcesTitleWrapper onClick={togglePopup}>
+                <InputInfoText>{getString(moreResourcesTitle)}</InputInfoText>
+              </MoreResourcesTitleWrapper>
+            </TextWrapper>
+            <AboutImageQuoteWrapper>
+              <AboutImageRight
+                src={camarynImageRight.url}
+                alt={camarynImageRight.alt}
+              />
+              <AboutImageRightOpacity
+                src={camarynImageRight.url}
+                alt={camarynImageRight.alt}
+              />
+              <TopQuoteWrapper>
+                {renderRichText(camarynImageQuote)}
+              </TopQuoteWrapper>
+            </AboutImageQuoteWrapper>
+          </MeetFounderWrapper>
+          {isTabletOrMobile && !isMobile && (
+            <AboutImageLeftTablet
               src={camarynImageLeft.url}
               alt={camarynImageLeft.alt}
             />
           )}
-          <TextWrapper>
-            <H2Wrapper>{getString(camarynTitle)}</H2Wrapper>
-            <P>{renderRichText(camarynText)}</P>
-            <br />
-            <H4>{getString(resourcesTitle).toUpperCase()}</H4>
-            <P>{renderRichText(resourcesDescription)}</P>
-            <br />
-            <ResourceButtonsWrapper>
-              {resourceData.map((r) => (
-                <OvalButton
-                  key={r.id}
-                  buttonText={getString(r.resourceTitle).toUpperCase()}
-                  href={r.resourceLink.url}
-                  onClick={() => window.open(r.resourceLink.url, '_blank')}
-                />
-              ))}
-            </ResourceButtonsWrapper>
-            <MoreResourcesTitleWrapper onClick={togglePopup}>
-              <InputInfoText>{getString(moreResourcesTitle)}</InputInfoText>
-            </MoreResourcesTitleWrapper>
-          </TextWrapper>
-          <AboutImageQuoteWrapper>
-            <AboutImageRight
-              src={camarynImageRight.url}
-              alt={camarynImageRight.alt}
-            />
-            <AboutImageRightOpacity
-              src={camarynImageRight.url}
-              alt={camarynImageRight.alt}
-            />
-            <TopQuoteWrapper>
-              {renderRichText(camarynImageQuote)}
-            </TopQuoteWrapper>
-          </AboutImageQuoteWrapper>
-        </MeetFounderWrapper>
-        {isTabletOrMobile && !isMobile && (
-          <AboutImageLeftTablet
-            src={camarynImageLeft.url}
-            alt={camarynImageLeft.alt}
-          />
-        )}
-        {!isTabletOrMobile && (
-          <SparkArrowWrapper>
-            <LongSparkArrow
-              arrowText={sparkArrowMissionText}
-              scrollTo={scrollToId}
-            />
-          </SparkArrowWrapper>
-        )}
-        {isOpen && (
-          <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
-        )}
-        <Overlay showOverlay={isOpen} />
-      </MeetFounderContainer>
-    </>
-  );
+          {!isTabletOrMobile && (
+            <SparkArrowWrapper>
+              <LongSparkArrow
+                arrowText={sparkArrowMissionText}
+                scrollTo={scrollToId}
+              />
+            </SparkArrowWrapper>
+          )}
+          {isOpen && (
+            <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
+          )}
+          <Overlay showOverlay={isOpen} />
+        </MeetFounderContainer>
+      </>
+    );
+  }
+  return <PlaceHolder ref={placeHolderRef} />;
 }

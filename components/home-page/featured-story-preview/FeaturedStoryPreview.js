@@ -40,13 +40,13 @@ export default function FeaturedStoryPreview({
           alt={previewImage.alt}
           active={active}
         />
-          <DoubleArchways
-            src={icons.DOUBLE_ARCHWAY_NO_BACKGROUND}
-            alt={'double-archway'}
-            active={active}
-            animate={{ opacity: active ? [0, 1, 0] : 0 }}
-            transition={{ type: 'spring', duration: 2 }}
-          />
+        <DoubleArchways
+          src={icons.DOUBLE_ARCHWAY_NO_BACKGROUND}
+          alt={'double-archway'}
+          active={active}
+          animate={{ opacity: active ? [0, 1, 0] : 0 }}
+          transition={{ type: 'spring', duration: 2 }}
+        />
         <SignatureImage src={signature.url} alt={signature.alt} />
         <FeaturedStoryPreviewTitle>
           {getString(titleRegular)} <i>{`${getString(titleItalic)}`}</i>

@@ -15,6 +15,9 @@ import {
   BoxLinkWrapper,
   SparkArrowWrapper,
 } from './AboutMission.style';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../../lib/intersectionObserver';
+import { PlaceHolder } from '../../base-components/BaseComponents';
 
 export default function AboutMission({ missionData, id, scrollToId }) {
   const {
@@ -28,42 +31,57 @@ export default function AboutMission({ missionData, id, scrollToId }) {
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
-  return (
-    <>
-      <ScrollToMission id={id} />
-      <OurMissionContainer>
-        <OurMissionWrapper>
-          <OurMissionImgLeft
-            src={ourMissionImage.url}
-            alt={ourMissionImage.alt}
-          />
-          <OurMissionTextContainer>
-            <H2Wrapper>{getString(ourMissionTitle)}</H2Wrapper>
-            <P>{renderRichText(ourMissionDescription)}</P>
-          </OurMissionTextContainer>
-          {!isTabletOrMobile ? (
-            <BoxLinkWrapper>
-              <ImageBoxLink
-                boxLinkData={boxLinkData}
-                height="clamp(41em, 56vw, 50em);"
+
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+  if (visible) {
+
+    return (
+      <>
+        <ScrollToMission id={id} />
+        <OurMissionContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "spring", duration: 4 }}>
+          <OurMissionWrapper>
+            <OurMissionImgLeft
+              src={ourMissionImage.url}
+              alt={ourMissionImage.alt}
+            />
+            <OurMissionTextContainer          >
+              <H2Wrapper>{getString(ourMissionTitle)}</H2Wrapper>
+              <P>{renderRichText(ourMissionDescription)}</P>
+            </OurMissionTextContainer>
+            {!isTabletOrMobile ? (
+              <BoxLinkWrapper>
+                <ImageBoxLink
+                  boxLinkData={boxLinkData}
+                  height="clamp(41em, 56vw, 50em);"
+                />
+              </BoxLinkWrapper>
+            ) : (
+              <OurMissionImgRight
+                src={boxLinkData.img.url}
+                alt={boxLinkData.img.alt}
               />
-            </BoxLinkWrapper>
-          ) : (
-            <OurMissionImgRight
-              src={boxLinkData.img.url}
-              alt={boxLinkData.img.alt}
-            />
+            )}
+          </OurMissionWrapper>
+          {!isTabletOrMobile && (
+            <SparkArrowWrapper>
+              <LongSparkArrow
+                arrowText={sparkArrowValuesText}
+                scrollTo={scrollToId}
+              />
+            </SparkArrowWrapper>
           )}
-        </OurMissionWrapper>
-        {!isTabletOrMobile && (
-          <SparkArrowWrapper>
-            <LongSparkArrow
-              arrowText={sparkArrowValuesText}
-              scrollTo={scrollToId}
-            />
-          </SparkArrowWrapper>
-        )}
-      </OurMissionContainer>
-    </>
-  );
+        </OurMissionContainer>
+      </>
+    );
+  }
+  return <PlaceHolder ref={placeHolderRef} />;
 }

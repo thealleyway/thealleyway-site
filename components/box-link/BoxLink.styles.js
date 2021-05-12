@@ -4,8 +4,9 @@ import { colors } from '../../style/colors';
 import { fontWeights } from '../../style/typography';
 import { min } from '../../lib/responsive';
 import { animated } from 'react-spring';
+import { motion } from 'framer-motion';
 
-const BoxLinkContainer = styled.div`
+const BoxLinkContainer = styled(motion.div)`
   position: relative;
 `;
 
@@ -52,9 +53,7 @@ const MediumArrowContainer = styled.div`
   }
 `;
 
-const MediumArrow = styled(animated.img)`
-
-`;
+const MediumArrow = styled(animated.img)``;
 
 const LongArrowContainer = styled.div`
   width: 8em;

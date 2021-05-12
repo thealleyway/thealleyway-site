@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { getString } from '../../lib/richText';
 import {
   ScrollToCarousel,
@@ -18,6 +17,9 @@ import {
   AuthorsWrapper,
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
+import React, { useState, useRef, useEffect } from "react";
+import { registerObserver } from '../../lib/intersectionObserver';
+import { PlaceHolder } from '../base-components/BaseComponents';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 5000;
 
@@ -52,43 +54,54 @@ export default function QuoteCarousel({
     };
   }, [activeIndex]);
 
-  return (
-    <>
-      <ScrollToCarousel id={id} />
-      <ContentWrapper>
-        <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
-          <TitleWrapper>{getString(title)}</TitleWrapper>
-          <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
-        </TextWrapper>
-        <CarouselContainer isAuthorTestimonies={isAuthorTestimonies}>
-          <ImageArchWrapper>
-            <ImageArchContentWrapper>
-              <ArchSpark src={icons.FILLED_SPARK_WHITE} />
-              <ArchImage url={quoteImage.url} />
-              <ArchOutline />
-              <QuoteContainer>
-                <QuoteWrapper
-                  key={Number.parseInt(activeIndex)}
-                  fadeIn={fadeIn}
-                  isAuthorTestimonies={isAuthorTestimonies}
-                >
-                  {quotes[Number.parseInt(activeIndex)]}
-                </QuoteWrapper>
-                {isAuthorTestimonies && (
-                  <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
-                    <AuthorsWrapper
-                      key={Number.parseInt(activeIndex)}
-                      fadeIn={fadeIn}
-                    >
-                      - {authors[Number.parseInt(activeIndex)]}
-                    </AuthorsWrapper>
-                  </AuthorsContainer>
-                )}
-              </QuoteContainer>
-            </ImageArchContentWrapper>
-          </ImageArchWrapper>
-        </CarouselContainer>
-      </ContentWrapper>
-    </>
-  );
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
+
+
+  if (visible) {
+    return (
+      <>
+        <ScrollToCarousel id={id} />
+        <ContentWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+          <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
+            <TitleWrapper>{getString(title)}</TitleWrapper>
+            <DescriptionWrapper>{getString(description)}</DescriptionWrapper>
+          </TextWrapper>
+          <CarouselContainer isAuthorTestimonies={isAuthorTestimonies}>
+            <ImageArchWrapper>
+              <ImageArchContentWrapper>
+                <ArchSpark src={icons.FILLED_SPARK_WHITE} />
+                <ArchImage url={quoteImage.url} />
+                <ArchOutline />
+                <QuoteContainer>
+                  <QuoteWrapper
+                    key={Number.parseInt(activeIndex)}
+                    fadeIn={fadeIn}
+                    isAuthorTestimonies={isAuthorTestimonies}
+                  >
+                    {quotes[Number.parseInt(activeIndex)]}
+                  </QuoteWrapper>
+                  {isAuthorTestimonies && (
+                    <AuthorsContainer isAuthorTestimonies={isAuthorTestimonies}>
+                      <AuthorsWrapper
+                        key={Number.parseInt(activeIndex)}
+                        fadeIn={fadeIn}
+                      >
+                        - {authors[Number.parseInt(activeIndex)]}
+                      </AuthorsWrapper>
+                    </AuthorsContainer>
+                  )}
+                </QuoteContainer>
+              </ImageArchContentWrapper>
+            </ImageArchWrapper>
+          </CarouselContainer>
+        </ContentWrapper>
+      </>
+    );
+  }
+  return <PlaceHolder ref={placeHolderRef} />;
 }
