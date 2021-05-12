@@ -6,7 +6,20 @@ import {
   VerticalWhiteBackground,
 } from './ProgressBar.styles';
 
-export default function ProgressBar({ target, isHorizontalScroll }) {
+export default function ProgressBar({
+  target,
+  isHorizontalScroll,
+  progressPercentage,
+}) {
+  if (isHorizontalScroll) {
+    return (
+      <>
+        <HorizontalProgressBarComponent readingProgress={progressPercentage} />
+        <HorizontalWhiteBackground />
+      </>
+    );
+  }
+
   const [readingProgress, setReadingProgress] = useState(0);
 
   const scrollListener = () => {
@@ -15,18 +28,13 @@ export default function ProgressBar({ target, isHorizontalScroll }) {
     }
 
     const element = target.current;
-    const totalHeight = isHorizontalScroll
-      ? element.clientWidth - element.offsetLeft - window.innerWidth
-      : element.clientHeight - element.offsetTop - window.innerHeight;
-    const windowScrollTop = isHorizontalScroll
-      ? window.pageXOffset ||
-        document.documentElement.scrollLeft ||
-        document.body.scrollLeft ||
-        0
-      : window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop ||
-        0;
+    const totalHeight =
+      element.clientHeight - element.offsetTop - window.innerHeight;
+    const windowScrollTop =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
 
     if (windowScrollTop === 0) {
       return setReadingProgress(0);
@@ -44,12 +52,7 @@ export default function ProgressBar({ target, isHorizontalScroll }) {
     return () => window.removeEventListener('scroll', scrollListener);
   });
 
-  return isHorizontalScroll ? (
-    <>
-      <HorizontalProgressBarComponent readingProgress={readingProgress} />
-      <HorizontalWhiteBackground />
-    </>
-  ) : (
+  return (
     <>
       <VerticalProgressBarComponent readingProgress={readingProgress} />
       <VerticalWhiteBackground />
