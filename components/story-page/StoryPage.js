@@ -8,6 +8,7 @@ import StoryHero from './story-hero/StoryHero';
 import TakeAction from './take-action/TakeAction';
 import BackToArchiveBanner from './back-to-archive-banner/BackToArchiveBanner';
 import ProgressBar from './progress-bar/ProgressBar';
+import TakeActionModal from './take-action-modal/TakeActionModal';
 import { StoryPageWrapper } from './StoryPage.styles';
 
 export default function StoryPage({
@@ -28,7 +29,7 @@ export default function StoryPage({
     sign_link: signLink,
     take_action_description: takeActionDescription,
     more_resources: moreResources,
-    more_resources_background: moreResourcesBackground,
+    modal_background: modalBackground,
   } = storyData;
 
   const target = createRef();
@@ -47,7 +48,6 @@ export default function StoryPage({
       ) : (
         <BackToArchiveBanner target={target} />
       )}
-
       <StoryPageWrapper ref={target}>
         <StoryHero
           authorInfo={authorInfo}
@@ -65,8 +65,17 @@ export default function StoryPage({
           learnLink={learnLink}
           signLink={signLink}
           moreResources={moreResources}
-          moreResourcesBackground={moreResourcesBackground}
+          moreResourcesBackground={modalBackground}
         />
+        {!isTabletOrMobile && (
+          <TakeActionModal
+            takeActionDescription={takeActionDescription}
+            donateLink={donateLink}
+            learnLink={learnLink}
+            signLink={signLink}
+            modalBackground={modalBackground}
+          />
+        )}
       </StoryPageWrapper>
       {isTabletOrMobile && <Footer footerData={footerData} />}
     </>

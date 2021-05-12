@@ -19,9 +19,9 @@ export const GalleryImage1 = styled.img`
   padding: 2em;
   width: 30em;
   object-fit: cover;
-  z-index: 1;
 
   @media ${max.tabletLg} {
+    z-index: 1;
     padding: 2%;
     width: 50%;
     position: absolute;
@@ -37,9 +37,9 @@ export const GalleryImage2 = styled.img`
   padding: 2em;
   width: 30em;
   object-fit: cover;
-  z-index: 1;
 
   @media ${max.tabletLg} {
+    z-index: 1;
     padding: 2%;
     width: 50%;
   }
@@ -54,9 +54,9 @@ export const GalleryImage3 = styled.img`
   padding: 2em;
   width: 30em;
   object-fit: cover;
-  z-index: 1;
 
   @media ${max.tabletLg} {
+    z-index: 1;
     padding: 2%;
     width: 50%;
     position: absolute;

@@ -1,4 +1,6 @@
 const icons = {
+  BLACK_ARROW_BUTTON: '/assets/black-arrow-button.svg',
+  BLACK_ARROW_BUTTON_HOVER: '/assets/black-arrow-button-focused.svg',
   DOUBLE_ARCHWAY_NO_BACKGROUND: '/assets/double-archway-no-background.svg',
   DOUBLE_ARCHWAY: '/assets/double-archway.svg',
   DOUBLE_ELLIPSES: '/assets/double-ellipses.svg',
