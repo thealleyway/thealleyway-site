@@ -50,6 +50,10 @@ export const NewsletterDescriptionText = styled(P)`
 
 export const PrivacyPolicyLinkText = styled(InputInfoText)`
   margin: -1.5em 0 1em 0;
+
+  @media ${max.tabletLg} {
+    margin-top: -0.5em;
+  }
 `;
 
 export const SubmitButtonContainer = styled(motion.button)`
