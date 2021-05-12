@@ -7,6 +7,7 @@ export const TakeActionModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
+  top: calc(50vh - 35vh);
   left: 0;
   height: 70vh;
   width: 50vw;
@@ -51,7 +52,7 @@ export const ActionButtonsWrapper = styled.div`
 `;
 
 export const TakeActionModalButton = styled.img`
-  display: ${(props) => (props.display ? 'block' : 'none')};
+  display: ${(props) => (props.show ? 'block' : 'none')};
   cursor: pointer;
   position: fixed;
   height: 3.5em;
@@ -61,7 +62,7 @@ export const TakeActionModalButton = styled.img`
 `;
 
 export const TakeActionButtonBox = styled.div`
-  display: ${(props) => props.isModalOpen && 'none'};
+  display: ${(props) => (props.show ? 'block' : 'none')};
   cursor: pointer;
   position: fixed;
   border: 2px ${colors.BLACK} solid;
