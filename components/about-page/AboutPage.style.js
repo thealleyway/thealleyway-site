@@ -36,13 +36,13 @@ const QuoteCarouselContainer = styled.div`
     margin-left: 0.7em;
   }
   @media ${min.tablet} {
-    margin-left: 0 0 0 1em;
+    margin-left: 1em;
   }
   @media ${min.tabletLg} {
-    margin-left: 0 0 0 1em;
+    margin-left: 1em;
   }
   @media ${min.desktop} {
-    margin-left: 0 0 0 6em;
+    margin-left: 6em;
   }
 `;
 
