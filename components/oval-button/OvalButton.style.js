@@ -9,7 +9,6 @@ const OvalButtonContainer = styled(motion.div)`
   background-repeat: no-repeat;
   border: none;
   outline: none;
-  align-self: flex-end;
 
   @media ${max.tabletLg} {
     width: 100%;
