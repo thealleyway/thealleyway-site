@@ -73,7 +73,7 @@ const LongArrow = styled(animated.img)``;
 const Title = styled(P)`
   color: ${colors.BROWN};
   font-weight: ${fontWeights.medium};
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   margin: 0;
   padding-bottom: 0.5em;
   @media ${min.tablet} {
@@ -84,7 +84,7 @@ const Title = styled(P)`
 const Description = styled(P)`
   line-height: 1.7em;
   width: 13em;
-  margin: 0 0 0 4.3em;
+  margin: 0 0 0 5em;
   @media ${min.tablet} {
     margin: 0 0 0 5.6em;
   }

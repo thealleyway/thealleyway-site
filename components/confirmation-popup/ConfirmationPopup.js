@@ -36,7 +36,12 @@ export default function ConfirmationPopup({
 
   return (
     <>
-      <PopupBox page={page}>
+      <PopupBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 1 }}
+        page={page}
+      >
         <Box page={page}>
           <TextContent page={page}>
             <H2Styled page={page}>
@@ -58,8 +63,10 @@ export default function ConfirmationPopup({
             src={icons.CLOSE_ICON}
             alt="Close icon symbol used to close popup"
             onClick={() => {
+              document.body.style.overflow = 'visible';
               togglePopup(false);
             }}
+            whileHover={{ scale: 1.05 }}
           />
         </Box>
       </PopupBox>

@@ -45,15 +45,20 @@ const Img = styled(animated.img)`
   right: 1.5em;
   width: 14.5em;
   height: 11.6em;
+
+  @media ${min.tabletSm} {
+    right: 0;
+    width: 30em;
+    height: 27em;
+  }
   @media ${min.tablet} {
     top: 5em;
-    right: 0;
-    width: 28.7em;
-    height: 20.6em;
+    width: 33em;
+    height: 35em;
   }
   @media ${min.desktop} {
     top: 5em;
-    width: 38.5em;
+    width: 45.5em;
     height: 38em;
   }
 `;

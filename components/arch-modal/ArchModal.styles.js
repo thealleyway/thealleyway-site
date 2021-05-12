@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
-export const ArchModalWrapper = styled.div`
+export const ArchModalWrapper = styled(motion.div)`
   --arch-width: 350px;
   --arch-height: 450px;
   --off-set: 25px;
@@ -12,13 +13,19 @@ export const ArchModalWrapper = styled.div`
   position: fixed;
   top: 20%;
   left: 70%;
-  z-index: 15;
+  z-index: 150;
 
   @media ${max.desktop} {
     left: 50%;
   }
 
+  @media ${max.tabletLg} {
+    top: 25%;
+    left: calc(50% - (var(--arch-width) / 4));
+  }
+
   @media ${max.tablet} {
+    top: 30%;
     left: calc(50% - (var(--arch-width) / 2));
   }
 
@@ -89,14 +96,15 @@ export const ArchModalText = styled(P)`
   right: calc(var(--off-set) * 2);
   bottom: 28px;
   top: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @media ${max.tabletSm} {
     top: 45vw;
   }
 `;
 
-export const ArchModalCloseButton = styled.button`
+export const ArchModalCloseButton = styled(motion.button)`
   display flex;
   align-items: center;
   justify-content: center;

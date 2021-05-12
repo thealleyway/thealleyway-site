@@ -5,6 +5,8 @@ import { animated } from 'react-spring';
 const STORY_SPACING = 48;
 
 const HeaderandSquiggleContainer = styled(animated.div)`
+  z-index: 50;
+  position: relative;
   margin-left: -1.5em;
   @media ${min.tablet} {
     padding-bottom: 1.5em;
@@ -64,7 +66,7 @@ const SortingPaginationWrapper = styled.div`
   display: flex;
   flex-direction: row;
   max-width: 70em;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   justify-content: space-between;
   align-items: flex-end;
 
@@ -73,11 +75,17 @@ const SortingPaginationWrapper = styled.div`
   }
 
   @media only screen and ${max.tabletLg} {
-    margin: 0 calc(${STORY_SPACING}px * 1.3);
+    margin: 0 calc(${STORY_SPACING}px * 1.3) 1em calc(${STORY_SPACING}px * 1.3);
   }
 
   @media only screen and ${max.tabletSm} {
     margin: 0
+      clamp(
+        calc(${STORY_SPACING}px * 0.25),
+        3vw,
+        calc(${STORY_SPACING}px * 0.5)
+      )
+      0.5em
       clamp(
         calc(${STORY_SPACING}px * 0.25),
         3vw,

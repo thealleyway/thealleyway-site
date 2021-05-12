@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { P } from '../../style/typography';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
 const TextLabel = styled(P)`
   color: ${colors.BROWN};
@@ -15,7 +16,7 @@ const ErrorText = styled(P)`
   font-size: 0.7em;
   margin: 0.5em 0 0 0;
   text-shadow: 0.5px 0 #ff0000;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.13em;
 `;
 
 const StarLabelContainer = styled.div`
@@ -38,7 +39,7 @@ const TextInput = styled(P).attrs({
   }
 `;
 
-const InputFieldWrapper = styled.div`
+const InputFieldWrapper = styled(motion.div)`
   padding-bottom: 2em;
 `;
 

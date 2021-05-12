@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { min, max } from '../../lib/responsive';
 import { colors } from '../../style/colors';
 import { H4 } from '../../style/typography';
+import { motion } from 'framer-motion';
 
 const PopupTitle = styled(H4)`
   color: ${colors.MAUVE};
@@ -22,7 +23,7 @@ const PopupImage = styled.img`
   height: 100%;
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled(motion.img)`
   position: absolute;
   border: none;
   top: 1em;
@@ -37,12 +38,12 @@ const CloseIcon = styled.img`
   }
 `;
 
-const PopupBox = styled.div`
+const PopupBox = styled(motion.div)`
   border: none;
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 15;
+  z-index: 150;
   font-size: 0.9em;
   top: 15%;
   left: 0;
@@ -86,7 +87,7 @@ const Box = styled.div`
     width: 25em;
   }
   @media ${min.desktopLg} {
-    top: 22%;
+    top: 15%;
   }
 `;
 

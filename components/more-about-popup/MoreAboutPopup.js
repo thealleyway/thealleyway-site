@@ -14,7 +14,11 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
   const { popupTitles, popupDescriptions, popupImage } = popupData;
 
   return (
-    <PopupBox>
+    <PopupBox
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: 'spring', duration: 1 }}
+    >
       <Box>
         <PopupImage src={popupImage.url} alt={popupImage.alt} />
         <CloseIcon
@@ -23,6 +27,7 @@ export default function MoreAboutPopup({ popupData, setIsPopupOpen }) {
           onClick={() => {
             setIsPopupOpen(false);
           }}
+          whileHover={{ scale: 1.05 }}
         />
         <TextContentWrapper>
           {popupTitles.map((title, index) => {

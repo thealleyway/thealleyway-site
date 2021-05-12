@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { P } from '../../../style/typography';
 
-export const TextSectionWrapper = styled.div`
+export const TextSectionWrapper = styled(P).attrs({
+  as: 'div',
+})`
   display: flex;
   align-items: ${(props) =>
     props.verticalAlignment === 'bottom'

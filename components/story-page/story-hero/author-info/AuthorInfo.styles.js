@@ -37,9 +37,9 @@ export const AuthorName = styled.h5`
   font-size: 1.2em;
   margin: 0em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: 0.13em;
 `;
 
 export const AdditionalInfo = styled(P)`

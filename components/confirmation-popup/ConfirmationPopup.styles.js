@@ -1,20 +1,22 @@
 import styled from 'styled-components';
-import { min } from '../../lib/responsive';
+import { min, max } from '../../lib/responsive';
 import { P, H2 } from '../../style/typography';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
-const PopupBox = styled.div`
+const PopupBox = styled(motion.div)`
   border: none;
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 15;
-  top: ${(props) =>
-    props.page === 'inquiry' ? 'clamp(4em, 19vw, 15em)' : '20%'};
+  z-index: 150;
+
   left: 0;
-  @media ${min.tabletSm} {
+
+  @media ${min.mobile} {
     20%;
   }
+
   @media ${min.tablet} {
     top: ${(props) => {
       switch (props.page) {
@@ -23,9 +25,11 @@ const PopupBox = styled.div`
         case 'inquiry':
           return '26%';
         default:
-          return '20%';
+          return '25%';
       }
     }}
+  }
+  
   @media ${min.desktop} {
     top: 15%;
     left: 1em;
@@ -215,7 +219,7 @@ const Img = styled.img`
   }
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled(motion.img)`
   position: absolute;
   border: none;
   top: 1em;

@@ -33,6 +33,7 @@ const icons = {
   UNFILLED_SPARK_WHITE_OUTLINE: '/assets/unfilled-spark-white-outline.svg',
   UNFILLED_LINK: '/assets/unfilled-link-icon.svg',
   UNFILLED_SHORT_ARROW: '/assets/unfilled-short-arrow.svg',
+  UNFILLED_MEDIUM_ARROW: '/assets/unfilled-medium-arrow.svg',
   ALMOST_STRAIGHT_SCRIBBLE: '/assets/almost-straight-scribble.svg',
   CLOSE_ICON: '/assets/close-icon.svg',
   ADD_ICON: '/assets/add-icon.svg',
@@ -41,6 +42,9 @@ const icons = {
   TWITTER_ICON: '/assets/twitter.svg',
   INSTAGRAM_ICON: '/assets/instagram.svg',
   DONATE_CIRCULAR_TEXT: '/assets/donate-circle.svg',
+  LARGE_ALLEYWAY_LOGO: '/assets/large-alleyway-logo.svg',
+  LARGE_ALLEYWAY_EMBLEM: '/assets/large-alleyway-emblem.svg',
+  SMALL_ALLEYWAY_LOGO: '/assets/small-alleyway-logo.svg',
   SHARE_STORY_LINE: '/assets/share-story-line.svg',
 };
 
