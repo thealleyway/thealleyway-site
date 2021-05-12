@@ -34,6 +34,7 @@ import { Overlay } from '../../base-components/BaseComponents';
 import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
 import useResizeObserver from 'use-resize-observer';
+import { useValidEmail } from '../../../lib/hooks';
 
 const axios = require('axios');
 
@@ -71,9 +72,7 @@ export default function StoryInquiryForm({
   const isValidSubmission = () => {
     let errors = {};
     let formIsValid = true;
-    const validEmail = new RegExp(
-      '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$',
-    );
+
     if (
       fields[fieldNames.FIRST_NAME] == undefined ||
       fields[fieldNames.FIRST_NAME].length === 0
@@ -81,9 +80,15 @@ export default function StoryInquiryForm({
       formIsValid = false;
       errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
     }
-    if (!validEmail.test(fields[fieldNames.EMAIL])) {
+    if (
+      fields[fieldNames.EMAIL] == undefined ||
+      fields[fieldNames.EMAIL].length === 0
+    ) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
+    } else if (!useValidEmail.test(fields[fieldNames.EMAIL])) {
+      formIsValid = false;
+      errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
     if (trimmedDataUrl == null) {
       formIsValid = false;
