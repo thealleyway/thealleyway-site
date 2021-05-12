@@ -1,8 +1,9 @@
 import React from 'react';
-import TextSection from '../text-section/TextSection';
-import ImageGallery from '../image-gallery/ImageGallery';
 import FullSizeImageSlice from '../full-size-image-slice/FullSizeImageSlice';
+import HalfImageHalfText from '../half-image-half-text/HalfImageHalfText';
+import ImageGallery from '../image-gallery/ImageGallery';
 import LargeImageWithQuote from '../large-image-with-quote/LargeImageWithQuote';
+import TextSection from '../text-section/TextSection';
 import TextWithFadedImageBackground from '../text-with-faded-image-background/TextWithFadedImageBackground';
 
 export default function SliceZone({ sliceZone }) {
@@ -22,6 +23,8 @@ export default function SliceZone({ sliceZone }) {
             return <LargeImageWithQuote {...primary} key={key} />;
           case 'text_with_faded_image_background':
             return <TextWithFadedImageBackground {...primary} key={key} />;
+          case 'half_image_half_text':
+            return <HalfImageHalfText {...primary} key={key} />;
           default:
             return null;
         }
