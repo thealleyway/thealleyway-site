@@ -74,7 +74,7 @@ const QuoteWrapper = styled(H3)`
   font-size: ${(props) =>
     props.isAuthorTestimonies
       ? 'clamp(1.2em, 3vw, 1.3em)'
-      : 'clamp(1.4em, 6vw, 1.8em)'};
+      : 'clamp(1.4em, 5vw, 1.8em)'};
 
   @media ${min.tabletSm} {
     padding-top: ${(props) => (props.isAuthorTestimonies ? '.3em' : '0.5em')};

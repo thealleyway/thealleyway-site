@@ -31,4 +31,23 @@ const SquiggleUnderline = styled.img`
   }
 `;
 
-export { HeaderandSquiggleContainer, SquiggleUnderline };
+const QuoteCarouselContainer = styled.div`
+  @media ${min.tabletSm} {
+    margin-left: 0.7em;
+  }
+  @media ${min.tablet} {
+    margin-left: 0 0 0 1em;
+  }
+  @media ${min.tabletLg} {
+    margin-left: 0 0 0 1em;
+  }
+  @media ${min.desktop} {
+    margin-left: 0 0 0 6em;
+  }
+`;
+
+export {
+  HeaderandSquiggleContainer,
+  SquiggleUnderline,
+  QuoteCarouselContainer,
+};

@@ -81,7 +81,7 @@ export default function StoryInquiryPage({
 
   const quotes = authorTestimonies.map((q) =>
     getString(q.author_testimony).length > 150
-      ? getString(q.author_testimony).slice(0, 150) + '...'
+      ? getString(q.author_testimony).slice(0, 150) + ' . . .'
       : getString(q.author_testimony),
   );
 
