@@ -127,7 +127,7 @@ const TextContent = styled.div`
         case 'inquiry':
           return '-1em';
         default:
-          return '7em';
+          return '8em';
       }
     }};
   }
@@ -140,7 +140,7 @@ const TextContent = styled.div`
         case 'inquiry':
           return '-1em';
         default:
-          return '8em';
+          return '9em';
       }
     }};
     margin-left: 1em;
@@ -191,9 +191,12 @@ const Arch = styled.img`
   bottom: 2.5em;
   width: 6.5em;
   @media ${min.tablet} {
-    top: 3.8em;
+    top: 4.9em;
     right: 3.5em;
     width: 15em;
+  }
+  @media ${min.desktop} {
+    top: 5.3em;
   }
 `;
 
@@ -204,12 +207,15 @@ const Img = styled.img`
   width: 7.5em;
   height: 8em;
   @media ${min.tablet} {
-    top: 5.5em;
+    top: 6.5em;
     right: 3.5em;
     width: 10.5em;
     height: 17em;
     margin-top: -1em;
     margin-right: 2em;
+  }
+  @media ${min.desktop} {
+    top: 7em;
   }
 `;
 

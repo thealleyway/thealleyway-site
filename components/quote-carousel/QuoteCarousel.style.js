@@ -99,6 +99,7 @@ const AuthorsWrapper = styled(P)`
   float: right;
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
+  padding-top: ${(props) => (props.isAuthorTestimonies ? 0 : '.5em')};
 `;
 
 const AuthorsContainer = styled.div`
