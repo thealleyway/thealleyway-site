@@ -71,10 +71,6 @@ export const SubmitButton = styled(P).attrs({
   border: none;
   width: 150px;
   height: 48px;
-<<<<<<< HEAD
-=======
-  align-self: flex-end;
->>>>>>> master
   font-weight: normal;
   letter-spacing: 0.13em;
   cursor: pointer;
