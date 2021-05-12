@@ -30,7 +30,7 @@ export const PlaceHolder = styled.div`
 `;
 
 export const SubmitButtonContainer = styled(motion.button)`
-  width: ${(props) => (props.long ? `250px` : `150px`)};
+  width: ${(props) => (props.long ? `230px` : `150px`)};
   height: 48px;
   background-color: transparent;
   background-repeat: no-repeat;
@@ -47,13 +47,13 @@ export const SubmitButton = styled(P).attrs({
   color: ${colors.WHITE};
   background-color: ${colors.OLIVE};
   border: none;
-  width: ${(props) => (props.long ? `250px` : `150px`)};
+  width: ${(props) => (props.long ? `230px` : `150px`)};
   height: 48px;
   font-weight: normal;
   letter-spacing: 0.13em;
   cursor: pointer;
   @media ${max.tabletSm} {
     align-self: center;
-    width: ${(props) => (props.long ? `85%` : `65%`)};
+    width: ${(props) => (props.long ? `85%` : `95%`)};
   }
 `;
