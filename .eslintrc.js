@@ -34,9 +34,10 @@ module.exports = {
     'unicorn/filename-case': 'off',
     'unicorn/no-new-array': 'off',
     'react-hooks/exhaustive-deps': 'off',
-    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/rules-of-hooks': 'off',
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-null': 'off',
     'unicorn/no-nested-ternary': 'off',
+    'sonarjs/cognitive-complexity': 'off',
   },
 };
