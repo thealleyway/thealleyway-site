@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
 import { H1, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
-export const DesktopHero = styled.div`
+export const DesktopHero = styled(motion.div)`
   display: flex;
   padding: 4em;
   height: 100%;
@@ -32,7 +33,7 @@ export const HeroLeftWrapper = styled.div`
   }
 `;
 
-export const PrimaryImage1 = styled.img`
+export const PrimaryImage1 = styled(motion.img)`
   height: 50vh;
   width: auto;
   overflow: hidden;
@@ -44,7 +45,7 @@ export const PrimaryImage1 = styled.img`
   }
 `;
 
-export const SignatureImage = styled.img`
+export const SignatureImage = styled(motion.img)`
   filter: invert(1);
   width: 40%;
   height: auto;
@@ -109,7 +110,7 @@ export const StoryDate = styled(P)`
   color: ${colors.BROWN};
 `;
 
-export const PrimaryImage2 = styled.img`
+export const PrimaryImage2 = styled(motion.img)`
   height: 40vh;
   width: auto;
   overflow: hidden;
@@ -123,7 +124,7 @@ export const PrimaryImage2 = styled.img`
   }
 `;
 
-export const PrimaryImage3 = styled.img`
+export const PrimaryImage3 = styled(motion.img)`
   height: 40vh;
   width: auto;
   overflow: hidden;
@@ -150,7 +151,7 @@ export const MobileTextWrapper = styled.div`
   position: relative;
 `;
 
-export const MobileHeroImage = styled.img`
+export const MobileHeroImage = styled(motion.img)`
   opacity: 0.1;
   position: absolute;
   top: 0;

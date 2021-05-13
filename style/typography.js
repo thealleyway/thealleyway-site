@@ -18,7 +18,7 @@ const fontWeights = {
   bold: 650,
 };
 
-const H1 = styled.h1`
+const H1 = styled(motion.h1)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
