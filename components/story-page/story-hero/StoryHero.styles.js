@@ -5,8 +5,9 @@ import { colors } from '../../../style/colors';
 
 export const DesktopHero = styled.div`
   display: flex;
-  padding-top: 4em;
+  padding: 4em;
   height: 100%;
+  width: 120vw;
 
   @media ${max.tabletLg} {
     padding-left: 2em;

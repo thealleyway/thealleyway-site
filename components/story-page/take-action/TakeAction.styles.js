@@ -5,7 +5,7 @@ import { max } from '../../../lib/responsive';
 
 export const TakeActionWrapper = styled.div`
   height: 100%;
-  margin-left: 4em;
+  margin: 4em;
   display: flex;
   flex-direction: column;
   justify-content: center;

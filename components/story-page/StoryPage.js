@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { createRef, useState } from 'react';
 import { useMatchMedia } from '../../lib/hooks';
 import { breakpointsObj } from '../../lib/responsive';
 import Navigation from '../navigation/Navigation';
@@ -9,7 +9,12 @@ import TakeAction from './take-action/TakeAction';
 import BackToArchiveBanner from './back-to-archive-banner/BackToArchiveBanner';
 import ProgressBar from './progress-bar/ProgressBar';
 import TakeActionModal from './take-action-modal/TakeActionModal';
-import { StoryPageWrapper } from './StoryPage.styles';
+import HorizontalScroll from './horizontal-scroll/HorizontalScroll';
+import {
+  StoryPageWrapper,
+  HorizontalContentContainer,
+  HorizontalSection,
+} from './StoryPage.styles';
 
 export default function StoryPage({
   storyData,
@@ -32,52 +37,74 @@ export default function StoryPage({
     modal_background: modalBackground,
   } = storyData;
 
-  const target = createRef();
-
   const isTabletOrMobile = useMatchMedia(
     `(max-width: ${breakpointsObj.tabletLg}px)`,
   );
+  const target = createRef();
+  const [dynamicHeight, setDynamicHeight] = useState(null);
+  const [translateX, setTranslateX] = useState(0);
+
+  const content = (
+    <>
+      <StoryHero
+        authorInfo={authorInfo}
+        storyTitle={storyTitle}
+        storyDate={storyDate}
+        primaryImage1={primaryImage1}
+        primaryImage2={primaryImage2}
+        primaryImage3={primaryImage3}
+        donateLink={donateLink}
+      />
+      <SliceZone sliceZone={body} />
+      <TakeAction
+        takeActionDescription={takeActionDescription}
+        donateLink={donateLink}
+        learnLink={learnLink}
+        signLink={signLink}
+        moreResources={moreResources}
+        moreResourcesBackground={modalBackground}
+      />
+    </>
+  );
+
+  if (isTabletOrMobile) {
+    return (
+      <>
+        <Navigation navigationData={navigationData} />
+        <ProgressBar target={target} isHorizontalScroll={false} />
+        <StoryPageWrapper ref={target}>{content}</StoryPageWrapper>
+        <Footer footerData={footerData} />
+      </>
+    );
+  }
 
   return (
     <>
-      {isTabletOrMobile ? (
-        <>
-          <Navigation navigationData={navigationData} />
-          <ProgressBar target={target} isHorizontalScroll={false} />
-        </>
-      ) : (
-        <BackToArchiveBanner target={target} />
-      )}
-      <StoryPageWrapper ref={target}>
-        <StoryHero
-          authorInfo={authorInfo}
-          storyTitle={storyTitle}
-          storyDate={storyDate}
-          primaryImage1={primaryImage1}
-          primaryImage2={primaryImage2}
-          primaryImage3={primaryImage3}
-          donateLink={donateLink}
+      <HorizontalSection>
+        <BackToArchiveBanner
+          target={target}
+          progressPercentage={Math.min(
+            100,
+            (translateX / (dynamicHeight - 800)) * -100,
+          )}
         />
-        <SliceZone sliceZone={body} />
-        <TakeAction
+        <HorizontalScroll
+          dynamicHeight={dynamicHeight}
+          setDynamicHeight={setDynamicHeight}
+          translateX={translateX}
+          setTranslateX={setTranslateX}
+          target={target}
+        >
+          <HorizontalContentContainer>{content}</HorizontalContentContainer>
+        </HorizontalScroll>
+        <TakeActionModal
           takeActionDescription={takeActionDescription}
           donateLink={donateLink}
           learnLink={learnLink}
           signLink={signLink}
-          moreResources={moreResources}
-          moreResourcesBackground={modalBackground}
+          modalBackground={modalBackground}
         />
-        {!isTabletOrMobile && (
-          <TakeActionModal
-            takeActionDescription={takeActionDescription}
-            donateLink={donateLink}
-            learnLink={learnLink}
-            signLink={signLink}
-            modalBackground={modalBackground}
-          />
-        )}
-      </StoryPageWrapper>
-      {isTabletOrMobile && <Footer footerData={footerData} />}
+      </HorizontalSection>
     </>
   );
 }

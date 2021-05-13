@@ -9,7 +9,7 @@ import {
   ButtonWrapper,
 } from './BackToArchiveBanner.styles';
 
-export default function BackToArchiveBanner({ target }) {
+export default function BackToArchiveBanner({ target, progressPercentage }) {
   const [backHover, setBackHover] = useState(false);
 
   return (
@@ -24,7 +24,11 @@ export default function BackToArchiveBanner({ target }) {
         </PageLink>
       </ButtonWrapper>
       <BackToArchiveText>BACK TO ALL STORIES</BackToArchiveText>
-      <ProgressBar target={target} isHorizontalScroll={true} />
+      <ProgressBar
+        target={target}
+        isHorizontalScroll={true}
+        progressPercentage={progressPercentage}
+      />
     </BackToArchiveBannerWrapper>
   );
 }

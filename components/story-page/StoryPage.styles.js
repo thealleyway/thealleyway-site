@@ -15,3 +15,18 @@ export const StoryPageWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const HorizontalSection = styled.section`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+`;
+
+export const HorizontalContentContainer = styled.div`
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+`;

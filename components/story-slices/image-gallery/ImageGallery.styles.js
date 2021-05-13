@@ -5,6 +5,7 @@ export const GalleryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100vh;
 
   @media ${max.tabletLg} {
     justify-content: center;
@@ -18,6 +19,7 @@ export const GalleryWrapper = styled.div`
 export const GalleryImage1 = styled.img`
   padding: 2em;
   width: 30em;
+  height: 40vh;
   object-fit: cover;
 
   @media ${max.tabletLg} {
@@ -36,6 +38,7 @@ export const GalleryImage1 = styled.img`
 export const GalleryImage2 = styled.img`
   padding: 2em;
   width: 30em;
+  height: 100vh;
   object-fit: cover;
 
   @media ${max.tabletLg} {
@@ -52,7 +55,9 @@ export const GalleryImage2 = styled.img`
 
 export const GalleryImage3 = styled.img`
   padding: 2em;
+  padding-bottom: 0;
   width: 30em;
+  height: 30vh;
   object-fit: cover;
 
   @media ${max.tabletLg} {
@@ -74,9 +79,9 @@ export const FadedImage1 = styled.img`
   top: 25%;
   opacity: 0.15;
   z-index: -1;
+  width: 30%;
 
   @media ${max.tabletLg} {
-    width: 30%;
     z-index: 0;
     left: 10%;
     top: 0;
@@ -90,9 +95,9 @@ export const FadedImage2 = styled.img`
   right: 0;
   opacity: 0.15;
   z-index: -1;
+  width: 30%;
 
   @media ${max.tabletLg} {
-    width: 30%;
     z-index: 0;
     right: 10%;
     bottom: 0;
