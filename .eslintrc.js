@@ -41,10 +41,5 @@ module.exports = {
     'sonarjs/cognitive-complexity': 'off',
     'security/detect-object-injection': 'off',
     'react-hooks/rules-of-hooks': 'off',
-    'sonarjs/no-duplicate-string': 'off',
-    'unicorn/no-array-callback-reference': 'off',
-    'security/detect-non-literal-fs-filename': 'off',
-    'no-undef': 'off',
-    'no-dupe-keys': 'off',
   },
 };
