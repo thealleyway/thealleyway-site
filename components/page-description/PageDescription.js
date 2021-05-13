@@ -22,8 +22,8 @@ export default function PageDescription({
   });
 
   const imgAnimation = useSpring({
-    to: { opacity: 0.1, transform: 'translateX(0)' },
-    from: { opacity: 0, transform: 'translateX(10em)' },
+    to: { opacity: 0.1, transform: 'translateY(0)' },
+    from: { opacity: 0, transform: 'translateY(-15em)' },
     config: { tension: 20, friction: 15 },
   });
 

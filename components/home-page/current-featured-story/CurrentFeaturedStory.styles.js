@@ -8,6 +8,10 @@ import {
 } from '../../animation-base-components/AnimationBaseComponents';
 import { SignatureImage } from '../HomePage.styles';
 import { motion } from 'framer-motion';
+import {
+  FadeIn,
+  FadeOut,
+} from '../../animation-base-components/AnimationBaseComponents';
 
 export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   display: flex;
@@ -16,9 +20,13 @@ export const CurrentFeaturedStoryWrapper = styled(motion.div)`
   max-width: 1050px;
   padding: min(7%, 80px);
   padding-bottom: 0px;
+
   @media ${max.tabletLg} {
     padding-top: 5em;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: ${(props) => (props.fadeIn ? '3s' : '2s')};
   @media ${max.tabletSm} {
     display: none;
   }

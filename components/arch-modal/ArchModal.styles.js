@@ -126,5 +126,5 @@ export const ArchModalCloseButton = styled(motion.button)`
 `;
 
 export const CloseXImage = styled.img`
-  width: 50%;
+  width: 70%;
 `;
