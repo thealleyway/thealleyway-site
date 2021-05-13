@@ -32,7 +32,7 @@ const PopupBox = styled(motion.div)`
   }
   
   @media ${min.desktop} {
-    top: 15%;
+    top: 30%;
     left: 1em;
   }
   @media ${min.desktopLg} {
