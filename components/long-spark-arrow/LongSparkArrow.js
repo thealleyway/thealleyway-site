@@ -1,14 +1,17 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { getString } from '../../lib/richText';
+import { icons } from '../../style/icons';
+import { colors } from '../../style/colors';
+import { breakpointsObj } from '../../lib/responsive';
+import { useMatchMedia } from '../../lib/hooks';
 import {
+  UnfilledSparkArrowTablet,
+  ArrowTextTablet,
+  ArrowContainerTablet,
   UnfilledSparkArrow,
   ArrowText,
   ArrowContainer,
-  ArrowContainerHover,
-  FilledSparkArrow,
-  ArrowTextHover,
 } from './LongSparkArrow.styles';
-import { getString } from '../../lib/richText';
-import { icons } from '../../style/icons';
-import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../lib/intersectionObserver';
 import { PlaceHolder } from '../base-components/BaseComponents';
 import { motion } from 'framer-motion';
@@ -22,6 +25,9 @@ export default function LongSparkArrow({ arrowText, scrollTo }) {
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
+  const isTabletOrMobile = useMatchMedia(
+    `(max-width: ${breakpointsObj.tabletLg}px)`,
+  );
   if (visible) {
     return (
       <motion.div
@@ -32,23 +38,32 @@ export default function LongSparkArrow({ arrowText, scrollTo }) {
         transition={{ type: 'spring', duration: 4, delay: 0.5 }}
         aria-hidden="true"
       >
-        {!hover && (
-          <ArrowContainer>
-            <UnfilledSparkArrow
+        {isTabletOrMobile ? (
+          <ArrowContainerTablet href={`#${scrollTo}`}>
+            <UnfilledSparkArrowTablet
               src={icons.LONG_UNFILLED_SPARK_ARROW}
               alt="Unfilled long white spark arrow"
             />
-            <ArrowText>{getString(arrowText)}</ArrowText>
-          </ArrowContainer>
-        )}
-        {hover && (
-          <ArrowContainerHover href={`#${scrollTo}`}>
-            <FilledSparkArrow
-              src={icons.LONG_FILLED_SPARK_ARROW}
+            <ArrowTextTablet>{getString(arrowText)}</ArrowTextTablet>
+          </ArrowContainerTablet>
+        ) : (
+          <ArrowContainer aria-hidden="true" href={`#${scrollTo}`}>
+            <UnfilledSparkArrow
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              url={icons.LONG_UNFILLED_SPARK_ARROW}
               alt="Filled long white spark arrow with brown arrow center"
+              hover={hover}
+              color={colors.BROWN}
             />
-            <ArrowTextHover>{getString(arrowText)}</ArrowTextHover>
-          </ArrowContainerHover>
+            <ArrowText
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              hover={hover}
+            >
+              {getString(arrowText)}
+            </ArrowText>
+          </ArrowContainer>
         )}
       </motion.div>
     );

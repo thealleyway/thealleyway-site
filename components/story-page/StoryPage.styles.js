@@ -8,11 +8,25 @@ export const StoryPageWrapper = styled.div`
   float: left;
   height: 100vh;
   align-items: center;
-  padding-top: 5vh;
 
   @media ${max.tabletLg} {
     flex-direction: column;
     height: 100%;
     width: 100%;
   }
+`;
+
+export const HorizontalSection = styled.section`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+`;
+
+export const HorizontalContentContainer = styled.div`
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 `;

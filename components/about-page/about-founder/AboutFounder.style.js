@@ -23,7 +23,7 @@ const MeetFounderContainer = styled(motion.div)`
   }
 
   @media ${min.tabletSm} {
-    margin-top: 6em;
+    margin-top: 7em;
   }
 
   @media ${min.desktop} {

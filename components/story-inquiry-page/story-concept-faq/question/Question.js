@@ -6,8 +6,9 @@ import {
   QuestionAnswerContainer,
   AnswerStyled,
 } from './Question.styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { icons } from '../../../../style/icons';
+import { colors } from '../../../../style/colors';
 import { breakpointsObj } from '../../../../lib/responsive';
 import { useMatchMedia } from '../../../../lib/hooks';
 
@@ -18,17 +19,12 @@ export default function Question({
   index,
 }) {
   const { question, answer } = questionAnswerData;
-  const [hover, setHover] = useState(false);
   const isSelected = index === currIndex;
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
 
   return (
     <QuestionAnswerContainer>
       <QuestionStyled
-        onMouseEnter={() => {
-          setHover(true);
-        }}
-        onMouseLeave={() => setHover(false)}
         onClick={() => {
           if (isSelected && isMobile) {
             setCurrIndex();
@@ -36,8 +32,8 @@ export default function Question({
             setCurrIndex(index);
           }
         }}
-        isSelected={isSelected}
-        hover={isSelected ? false : hover}
+        selected={isSelected}
+        color={colors.BROWN}
       >
         {getString(question)}{' '}
         {isSelected && (

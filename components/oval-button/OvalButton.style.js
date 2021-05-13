@@ -40,7 +40,7 @@ const Button = styled(P).attrs({
   }
 
   @media ${max.tabletLg} {
-    width: 100%;
+    width: 90%;
   }
 `;
 

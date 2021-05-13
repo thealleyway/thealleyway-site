@@ -22,7 +22,7 @@ export default function TakeActionModal({
 }) {
   const [openHover, setOpenHover] = useState(false);
   const [closeHover, setCloseHover] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <>
@@ -55,7 +55,7 @@ export default function TakeActionModal({
         onClick={() => setIsModalOpen(true)}
         onMouseEnter={() => setOpenHover(true)}
         onMouseLeave={() => setOpenHover(false)}
-        display={!isModalOpen}
+        show={!isModalOpen}
       />
       <TakeActionModalButton
         onClick={() => setIsModalOpen(true)}
@@ -64,7 +64,7 @@ export default function TakeActionModal({
         src={
           openHover ? icons.BLACK_ARROW_BUTTON_HOVER : icons.BLACK_ARROW_BUTTON
         }
-        display={!isModalOpen}
+        show={!isModalOpen}
       />
     </>
   );

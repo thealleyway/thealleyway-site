@@ -41,7 +41,7 @@ const OurMissionWrapper = styled.div`
 `;
 
 const OurMissionImgLeft = styled.img`
-  width: clamp(9em, 15vw, 12.5em);
+  width: clamp(8em, 12vw, 12.5em);
   opacity: 10%;
   object-fit: cover;
 
@@ -116,12 +116,17 @@ const OurMissionImgRight = styled(OurMissionImgLeft)`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 22em;
-  left: clamp(12em, 20.75vw, 17em);
+  bottom: 25em;
+  left: calc(clamp(8em, 12vw, 12.5em) + max(3vw, clamp(1em, 1vw, 3em)));
 
   @media ${min.desktop} {
-    left: 14em;
-    bottom: 27.5em;
+    left: 14.5%;
+    bottom: 30em;
+  }
+
+  @media ${min.desktopLg} {
+    left: 15%;
+    bottom: 30em;
   }
 `;
 

@@ -7,7 +7,9 @@ import {
   QuestionContainer,
   AnswerContainer,
   ScrollToFaq,
+  SparkArrowContainer,
 } from './StoryConceptFaq.styles';
+import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
 import Answer from './answer/Answer';
 import { breakpointsObj } from '../../../lib/responsive';
 import { useMatchMedia } from '../../../lib/hooks';
@@ -15,7 +17,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 
-export default function StoryConceptFaq({ storyConceptFaqData }) {
+export default function StoryConceptFaq({
+  storyConceptFaqData,
+  sparkArrowAuthorTestimoniesText,
+}) {
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tabletSm}px)`);
   const { faqTitle, questionsAndAnswers } = storyConceptFaqData;
   const [currIndex, setCurrIndex] = useState(questionsAndAnswers[0].id);
@@ -35,6 +40,12 @@ export default function StoryConceptFaq({ storyConceptFaqData }) {
     return (
       <>
         <ScrollToFaq id="faq" />
+        <SparkArrowContainer>
+          <LongSparkArrow
+            arrowText={sparkArrowAuthorTestimoniesText}
+            scrollTo="author testimonies"
+          />
+        </SparkArrowContainer>
         <FaqContainer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

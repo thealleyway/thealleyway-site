@@ -80,11 +80,6 @@ export const LinkWrapper = styled(HoverAnimationButton)`
     margin-bottom: 3em;
     width: min(18em, 100%);
     font-weight: ${fontWeights.normal};
-    &:hover {
-      background: url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat;
-      background-position: right center;
-      background-size: contain;
-    }
     background: ${(props) =>
       props.selected
         ? `url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat`

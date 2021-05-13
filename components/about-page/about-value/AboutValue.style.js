@@ -116,11 +116,12 @@ const ValuesContainer = styled.div`
 
 const SparkArrowWrapper = styled.div`
   position: relative;
-  bottom: 25.5em;
+  bottom: 25.6em;
   left: clamp(10em, 18vw, 14em);
 
   @media ${min.desktop} {
     left: 11em;
+    bottom: 26em;
   }
 `;
 

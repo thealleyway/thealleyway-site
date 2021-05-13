@@ -28,7 +28,7 @@ export const NewsletterSignUpTitle = styled(H2)`
   margin-left: max(-12%, -200px);
   text-transform: lowercase;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
 
   @media ${max.tabletSm} {
     margin-left: -5%;
@@ -65,6 +65,7 @@ export const SubmitButtonContainer = styled(motion.button)`
   overflow: hidden;
   outline: none;
   align-self: flex-end;
+  margin-top: 1em;
 `;
 
 export const SubmitButton = styled(P).attrs({
@@ -78,6 +79,7 @@ export const SubmitButton = styled(P).attrs({
   font-weight: normal;
   letter-spacing: 0.13em;
   cursor: pointer;
+
   @media ${max.tabletSm} {
     align-self: center;
     width: 50%;

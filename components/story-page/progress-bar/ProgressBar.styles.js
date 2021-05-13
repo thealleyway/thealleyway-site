@@ -3,7 +3,7 @@ import { colors } from '../../../style/colors';
 
 const HorizontalStyling = css`
   position: absolute;
-  top: calc(5vh + 2em);
+  top: 4em;
 `;
 
 const VerticalStyling = css`

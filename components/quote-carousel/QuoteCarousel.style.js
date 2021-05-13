@@ -208,6 +208,7 @@ const ArchImage = styled.span`
     border-top-right-radius: calc(var(--arch-height) / 2);
     border: var(--border-width) solid ${colors.WHITE};
     background-image: inherit;
+    background-size: 120%;
     content: '';
   }
 `;

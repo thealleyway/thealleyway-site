@@ -126,8 +126,14 @@ const ScrollToSubmissionForm = styled.div`
   margin-top: -3em;
 `;
 
-const OverflowDiv = styled.div`
-  overflow: hidden;
+const FloatWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -3em;
+  @media ${min.tablet} {
+    float: right;
+    margin-top: -2em;
+  }
 `;
 
 export {
@@ -148,5 +154,5 @@ export {
   SocialInfoTextWrapper,
   ErrorText,
   ScrollToSubmissionForm,
-  OverflowDiv,
+  FloatWrapper,
 };
