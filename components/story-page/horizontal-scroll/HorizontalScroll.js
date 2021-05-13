@@ -45,11 +45,11 @@ export default function HorizontalScroll({
   useEffect(() => {
     handleDynamicHeight(objectRef, setDynamicHeight);
     window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
-
-  useEffect(() => {
-    return applyScrollListener(containerRef, setTranslateX);
+    const removeListener = applyScrollListener(containerRef, setTranslateX);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      removeListener();
+    };
   }, []);
 
   return (

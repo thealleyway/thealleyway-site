@@ -22,7 +22,7 @@ export default function TakeActionModal({
 }) {
   const [openHover, setOpenHover] = useState(false);
   const [closeHover, setCloseHover] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <>
