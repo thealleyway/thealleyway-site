@@ -16,6 +16,7 @@ import {
 } from './AboutPage.style';
 import { useSpring } from 'react-spring';
 import { header } from '../../style/animations';
+import { truncateString } from '../../lib/utils';
 
 export default function AboutPage({
   aboutPageData,
@@ -90,9 +91,7 @@ export default function AboutPage({
   };
 
   const getQuotes = theAlleywayNamesMeaning.map((m) =>
-    getString(m.meaning).length > 115
-      ? getString(m.meaning).slice(0, 115) + ' . . .'
-      : getString(m.meaning),
+    truncateString(getString(m.meaning), 115),
   );
 
   const quoteCarouselData = {
