@@ -30,7 +30,7 @@ export const PlaceHolder = styled.div`
 `;
 
 export const SubmitButtonContainer = styled(motion.button)`
-  width: ${(props) => (props.long ? `230px` : `150px`)};
+  width: ${(props) => (props.long ? `250px` : `170px`)};
   height: 48px;
   background-color: transparent;
   background-repeat: no-repeat;
@@ -54,6 +54,7 @@ export const SubmitButton = styled(P).attrs({
   cursor: pointer;
   @media ${max.tabletSm} {
     align-self: center;
-    width: ${(props) => (props.long ? `85%` : `95%`)};
+    width: 100%;
+    font-size: 1.3em;
   }
 `;
