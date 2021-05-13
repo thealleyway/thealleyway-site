@@ -1,10 +1,6 @@
 import TextInputField from '../../text-input-field/TextInputField';
 import TextInputBox from '../../text-input-box/TextInputBox';
 import {
-  SubmitButton,
-  SubmitButtonContainer,
-} from '../../home-page/newsletter-sign-up/NewsletterSignUp.styles';
-import {
   ContactFormContainer,
   InputBoxWrapper,
   ButtonWrapper,
@@ -20,6 +16,10 @@ import {
 } from '../../../lib/utils';
 import { colors } from '../../../style/colors';
 import { useValidEmail } from '../../../lib/hooks';
+import {
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../base-components/BaseComponents';
 
 const axios = require('axios');
 
@@ -138,6 +138,7 @@ export default function ContactForm({ togglePopup }) {
               aria-label="Submission Button"
               color={colors.WHITE}
               type="submit"
+              role="button"
               onClick={() => {
                 if (submitRequest()) {
                   document.body.style.overflow = 'hidden';

@@ -1,9 +1,7 @@
-import SquareButton from '../../square-button/SquareButton';
 import {
   StoryInquiryFormContainer,
-  SquareButtonWrapper,
   ScrollToSubmissionForm,
-  OverflowDiv,
+  FloatWrapper,
 } from './StoryInquiryForm.styles';
 import { fieldNames } from '../../../lib/utils';
 import React, { useState } from 'react';
@@ -16,6 +14,11 @@ import SocialInformation from './social-information/SocialInformation';
 import StoryConcept from './story-concept/StoryConcept';
 import ResourceLinks from './resource-links/ResourceLinks';
 import { useValidEmail } from '../../../lib/hooks';
+import {
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../base-components/BaseComponents';
+import { colors } from '../../../style/colors';
 
 const axios = require('axios');
 
@@ -115,55 +118,61 @@ export default function StoryInquiryForm({
   return (
     <>
       <ScrollToSubmissionForm id="submission form" />
-      <OverflowDiv>
-        <StoryInquiryFormContainer>
-          <AuthorInformation
-            authorInformationSubtitle={authorInformationSubtitle}
-            fields={fields}
-            errors={errors}
-            setFields={setFields}
-          />
-          <AuthorSignature
-            authorSignatureSubtitle={authorSignatureSubtitle}
-            authorSignatureDescription={authorSignatureDescription}
-            errors={errors}
-            clear={clear}
-            setSigPad={setSigPad}
-            trim={trim}
-            sigPad={sigPad}
-          />
-          <SocialInformation
-            fields={fields}
-            setFields={setFields}
-            socialInformationSubtitle={socialInformationSubtitle}
-            venmoMoreInfoDescription={venmoMoreInfoDescription}
-            venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
-            isVenmoPolicyOpen={isVenmoPolicyOpen}
-            setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
-          />
-          <StoryConcept
-            fields={fields}
-            errors={errors}
-            setFields={setFields}
-            storyConceptBoxSubtitle={storyConceptBoxSubtitle}
-            storyConceptDescription={storyConceptDescription}
-            storyConceptPopupData={storyConceptPopupData}
-            storyConceptSubtitle={storyConceptSubtitle}
-            isStoryConceptPopupOpen={isStoryConceptPopupOpen}
-            setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
-          />
-          <ResourceLinks
-            fields={fields}
-            setFields={setFields}
-            resourceLinksDescription={resourceLinksDescription}
-            resourceLinksSubtitle={resourceLinksSubtitle}
-            setAdditionalResources={setAdditionalResources}
-            errors={errors}
-            additionalResources={additionalResources}
-          />
-          <SquareButtonWrapper>
-            <SquareButton
-              buttonText="SUBMIT MY STORY"
+      <StoryInquiryFormContainer>
+        <AuthorInformation
+          authorInformationSubtitle={authorInformationSubtitle}
+          fields={fields}
+          errors={errors}
+          setFields={setFields}
+        />
+        <AuthorSignature
+          authorSignatureSubtitle={authorSignatureSubtitle}
+          authorSignatureDescription={authorSignatureDescription}
+          errors={errors}
+          clear={clear}
+          setSigPad={setSigPad}
+          trim={trim}
+          sigPad={sigPad}
+        />
+        <SocialInformation
+          fields={fields}
+          setFields={setFields}
+          socialInformationSubtitle={socialInformationSubtitle}
+          venmoMoreInfoDescription={venmoMoreInfoDescription}
+          venmoMoreInfoSubtitle={venmoMoreInfoSubtitle}
+          isVenmoPolicyOpen={isVenmoPolicyOpen}
+          setIsVenmoPolicyOpen={setIsVenmoPolicyOpen}
+        />
+        <StoryConcept
+          fields={fields}
+          errors={errors}
+          setFields={setFields}
+          storyConceptBoxSubtitle={storyConceptBoxSubtitle}
+          storyConceptDescription={storyConceptDescription}
+          storyConceptPopupData={storyConceptPopupData}
+          storyConceptSubtitle={storyConceptSubtitle}
+          isStoryConceptPopupOpen={isStoryConceptPopupOpen}
+          setIsStoryConceptPopupOpen={setIsStoryConceptPopupOpen}
+        />
+        <ResourceLinks
+          fields={fields}
+          setFields={setFields}
+          resourceLinksDescription={resourceLinksDescription}
+          resourceLinksSubtitle={resourceLinksSubtitle}
+          setAdditionalResources={setAdditionalResources}
+          errors={errors}
+          additionalResources={additionalResources}
+        />
+        <FloatWrapper>
+          <SubmitButtonContainer
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+            long
+          >
+            <SubmitButton
+              color={colors.WHITE}
+              type="submit"
+              role="button"
               long
               onClick={() => {
                 if (submitRequest()) {
@@ -174,24 +183,26 @@ export default function StoryInquiryForm({
                   setIsConfirmationPopupOpen(true);
                 }
               }}
-            />
-          </SquareButtonWrapper>
-          {isConfirmationPopupOpen && (
-            <ConfirmationPopup
-              confirmationData={storySubmissionConfirmationData}
-              togglePopup={setIsConfirmationPopupOpen}
-              page="inquiry"
-            />
-          )}
-          <Overlay
-            showOverlay={
-              isVenmoPolicyOpen ||
-              isStoryConceptPopupOpen ||
-              isConfirmationPopupOpen
-            }
+            >
+              SUBMIT MY STORY
+            </SubmitButton>
+          </SubmitButtonContainer>
+        </FloatWrapper>
+        {isConfirmationPopupOpen && (
+          <ConfirmationPopup
+            confirmationData={storySubmissionConfirmationData}
+            togglePopup={setIsConfirmationPopupOpen}
+            page="inquiry"
           />
-        </StoryInquiryFormContainer>
-      </OverflowDiv>
+        )}
+        <Overlay
+          showOverlay={
+            isVenmoPolicyOpen ||
+            isStoryConceptPopupOpen ||
+            isConfirmationPopupOpen
+          }
+        />
+      </StoryInquiryFormContainer>
     </>
   );
 
