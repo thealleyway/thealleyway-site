@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { min } from '../../lib/responsive';
 import { animated } from 'react-spring';
 
-const PageDescriptionContainer = styled(animated.div)`
+const PageDescriptionContainer = styled.div`
   display: flex;
   position: relative;
   padding: 4em 0 0 6.3em;
@@ -17,7 +17,7 @@ const PageDescriptionContainer = styled(animated.div)`
   }
 `;
 
-const DescriptionContainer = styled.div`
+const DescriptionContainer = styled(animated.div)`
   @media ${min.tablet} {
     margin: 0 0 0 2em;
   }
