@@ -39,6 +39,8 @@ const EmailWrapper = styled.div`
   @media only screen and ${max.tabletLg} {
     width: 50%;
     padding-left: 1.8em;
+    padding-top: 0;
+    margin: auto 0;
   }
 
   @media only screen and ${max.tablet} {
@@ -54,6 +56,7 @@ const SocialsWrapper = styled.div`
 
   @media only screen and ${max.tabletSm} {
     padding-left: clamp(1.5em, 3vw, 2em);
+    margin: auto 0;
   }
 `;
 
