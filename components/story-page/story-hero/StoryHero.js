@@ -108,40 +108,40 @@ export default function StoryHero({
 }) {
   const date = getFormattedDate(new Date(storyDate));
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tablet}px)`);
-  const placeHolderRef = useRef(null);
-  const [visible, setVisible] = useState(false);
+  // const placeHolderRef = useRef(null);
+  // const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    registerObserver(placeHolderRef.current, setVisible);
-  }, []);
-  if (visible) {
-    return isMobile ? (
-      <MobileHero
+  // useEffect(() => {
+  //   registerObserver(placeHolderRef.current, setVisible);
+  // }, []);
+  // if (visible) {
+  return isMobile ? (
+    <MobileHero
+      authorInfo={authorInfo}
+      donateLink={donateLink}
+      primaryImage1={primaryImage1}
+      storyDate={date}
+      storyTitle={storyTitle}
+    />
+  ) : (
+    <DesktopHero
+    // initial={{ opacity: 0 }}
+    // animate={{ opacity: 1 }}
+    // transition={{ type: 'spring', duration: 7 }}
+    >
+      <HeroLeftSection
         authorInfo={authorInfo}
         donateLink={donateLink}
         primaryImage1={primaryImage1}
+      />
+      <HeroRightSection
+        primaryImage2={primaryImage2}
+        primaryImage3={primaryImage3}
         storyDate={date}
         storyTitle={storyTitle}
       />
-    ) : (
-      <DesktopHero
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ type: 'spring', duration: 7 }}
-      >
-        <HeroLeftSection
-          authorInfo={authorInfo}
-          donateLink={donateLink}
-          primaryImage1={primaryImage1}
-        />
-        <HeroRightSection
-          primaryImage2={primaryImage2}
-          primaryImage3={primaryImage3}
-          storyDate={date}
-          storyTitle={storyTitle}
-        />
-      </DesktopHero>
-    );
-  }
-  return <PlaceHolder ref={placeHolderRef} />;
+    </DesktopHero>
+  );
+  // }
+  // return <PlaceHolder ref={placeHolderRef} />;
 }

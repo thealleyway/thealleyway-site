@@ -20,6 +20,8 @@ export default function BackToArchiveBanner({ target, progressPercentage }) {
             onMouseEnter={() => setBackHover(true)}
             onMouseLeave={() => setBackHover(false)}
             src={backHover ? icons.EXIT_BUTTON_HOVER : icons.EXIT_BUTTON}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.99 }}
           />
         </PageLink>
       </ButtonWrapper>

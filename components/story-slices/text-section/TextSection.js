@@ -16,21 +16,21 @@ export default function TextSection({
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  if (visible) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ type: 'spring', duration: 4, delay: 0.5 }}
-      >
-        <TextSectionWrapper
-          verticalAlignment={vertical_alignment}
-          horizontalAlignment={horizontal_alignment}
+  return (
+    <TextSectionWrapper
+      verticalAlignment={vertical_alignment}
+      horizontalAlignment={horizontal_alignment}
+      ref={placeHolderRef}
+    >
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: 'spring', duration: 4, delay: 0.5 }}
         >
           {renderRichText(text)}
-        </TextSectionWrapper>
-      </motion.div>
-    );
-  }
-  return <PlaceHolder ref={placeHolderRef} />;
+        </motion.div>
+      )}
+    </TextSectionWrapper>
+  );
 }
