@@ -106,9 +106,8 @@ export default function NewsletterSignUp({
             <TextInputField
               id="name"
               label="Name"
-              fullWidth
               required
-              biggerStar
+              biggerStar={true}
               showError={errors[fieldNames.NAME]}
               value={fields[fieldNames.NAME] ? fields[fieldNames.NAME] : ''}
               onChange={(e) => {
@@ -119,9 +118,8 @@ export default function NewsletterSignUp({
             <TextInputField
               id="email"
               label="Email"
-              fullWidth
               required
-              biggerStar
+              biggerStar={true}
               showError={errors[fieldNames.EMAIL]}
               value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
               onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
