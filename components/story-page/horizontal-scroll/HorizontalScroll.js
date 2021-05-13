@@ -12,13 +12,11 @@ const calcDynamicHeight = (objectWidth) => {
 };
 
 const handleDynamicHeight = (ref, setDynamicHeight) => {
-  if (ref.current) {
     setTimeout(() => {
       const objectWidth = ref.current.scrollWidth;
       const dynamicHeight = calcDynamicHeight(objectWidth);
       setDynamicHeight(dynamicHeight);
     }, 1000);
-  }
 };
 
 const applyScrollListener = (ref, setTranslateX) => {
