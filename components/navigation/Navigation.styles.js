@@ -84,7 +84,7 @@ export const LinkWrapper = styled(HoverAnimationButton)`
       props.selected
         ? `url(${icons.LONG_UNFILLED_SPARK_ARROW_HORIZONTAL}) no-repeat`
         : `inherit`};
-    background-position: left center;
+    background-position: center center;
     background-size: contain;
   }
 `;
