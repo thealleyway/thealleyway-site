@@ -51,7 +51,7 @@ export default function AuthorSignature({
                 <SignatureCanvasWrapper id="signature canvas wrapper" ref={ref}>
                     <SignatureCanvas
                         penColor="white"
-                        canvasProps={{ width: canvasWidth, height: 60 }}
+                        canvasProps={{ width: canvasWidth, height: canvasWidth / 2.6 }}
                         ref={(ref) => setSigPad(ref)}
                         minWidth={1.5}
                         maxWidth={1.5}
