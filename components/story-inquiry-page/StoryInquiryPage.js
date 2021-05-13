@@ -22,6 +22,7 @@ import LongLines from './long-lines/LongLines';
 import LongLinesFlipped from './long-lines-flipped/LongLinesFlipped';
 import { useSpring } from 'react-spring';
 import { header } from '../../style/animations';
+import { truncateString } from '../../lib/utils';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -80,9 +81,7 @@ export default function StoryInquiryPage({
   };
 
   const quotes = authorTestimonies.map((q) =>
-    getString(q.author_testimony).length > 150
-      ? getString(q.author_testimony).slice(0, 150) + '...'
-      : getString(q.author_testimony),
+    truncateString(getString(q.author_testimony), 150),
   );
 
   const authors = authorTestimonies.map((m) => getString(m.author_name));
