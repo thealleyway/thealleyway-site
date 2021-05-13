@@ -22,6 +22,7 @@ const QuestionStyled = styled(H4).attrs({
 
 const ShortArrow = styled.img`
   display: none;
+  position: absolute;
   @media ${min.tablet} {
     display: inline;
     transform: rotate(90deg);
