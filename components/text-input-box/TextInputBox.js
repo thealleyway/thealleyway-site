@@ -18,7 +18,7 @@ export default function TextInputBox({
     <>
       <StarLabelContainer>
         <InputBoxLabel>{label}</InputBoxLabel>
-        {required && <RedStar src={icons.RED_STAR} />}
+        {required && <RedStar src={icons.RED_STAR} box/>}
       </StarLabelContainer>
       <InputBox
         onChange={onChange}

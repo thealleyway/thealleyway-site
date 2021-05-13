@@ -15,8 +15,9 @@ export const Overlay = styled.div`
 `;
 
 export const RedStar = styled.img`
-  width: 2%;
-  margin-left: 0.5em;
+  width: ${(props) => props.biggerStar ? '4%' : '2%'};
+  margin-left: ${(props) => props.box ? '0.45em' : '0.5em'};
+  margin-top: ${(props) => props.box ? '0.44em' : 0};
   @media ${min.desktopLg} {
     width: 0.7em;
   }

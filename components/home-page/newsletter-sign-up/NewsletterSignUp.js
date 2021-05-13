@@ -108,6 +108,7 @@ export default function NewsletterSignUp({
               label="Name"
               fullWidth
               required
+              biggerStar
               showError={errors[fieldNames.NAME]}
               value={fields[fieldNames.NAME] ? fields[fieldNames.NAME] : ''}
               onChange={(e) => {
@@ -119,7 +120,8 @@ export default function NewsletterSignUp({
               id="email"
               label="Email"
               fullWidth
-              required={true}
+              required
+              biggerStar
               showError={errors[fieldNames.EMAIL]}
               value={fields[fieldNames.EMAIL] ? fields[fieldNames.EMAIL] : ''}
               onChange={(e) => setFields({ ...fields, EMAIL: e.target.value })}
