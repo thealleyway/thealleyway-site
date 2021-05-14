@@ -24,7 +24,7 @@ const ClearSignatureWrapper = styled.div`
 `;
 
 const StoryConceptInfoTextWrapper = styled.div`
-  margin: -0.5em 0;
+  margin: 1em 0;
 `;
 
 const AuthorInformationContainer = styled(motion.div)`
