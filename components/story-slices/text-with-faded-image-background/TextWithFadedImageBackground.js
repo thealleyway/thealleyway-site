@@ -33,7 +33,7 @@ export default function TextWithFadedImageBackground({
             src={background_image.url}
             imageRight={image_right}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.1 }}
             transition={{ type: 'spring', duration: 4 }}
           />
           <Text
