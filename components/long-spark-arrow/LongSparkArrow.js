@@ -16,7 +16,7 @@ import { registerObserver } from '../../lib/intersectionObserver';
 import { PlaceHolder } from '../base-components/BaseComponents';
 import { motion } from 'framer-motion';
 
-export default function LongSparkArrow({ arrowText, scrollTo }) {
+export default function LongSparkArrow({ arrowText, scrollTo, pageDescription }) {
   const [hover, setHover] = useState(false);
   const placeHolderRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -35,7 +35,7 @@ export default function LongSparkArrow({ arrowText, scrollTo }) {
         onMouseLeave={() => setHover(false)}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: 'spring', duration: 4, delay: 0.5 }}
+        transition={{ type: 'spring', duration: 4, delay: pageDescription ? 3 : 0.5 }}
         aria-hidden="true"
       >
         {isTabletOrMobile ? (
