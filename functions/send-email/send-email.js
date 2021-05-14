@@ -17,13 +17,14 @@ const DETAILS_MIN_LENGTH = 20;
 const DETAILS_MAX_LENGTH = 1e7;
 
 const handler = async (event) => {
+  console.log('1) inside handler');
   if (!process.env.CONTACT_EMAIL) {
     return {
       statusCode: 500,
       body: 'process.env.CONTACT_EMAIL must be defined',
     };
   }
-
+  console.log('2)', process.env.CONTACT_EMAIL);
   const body = JSON.parse(event.body);
 
   try {
@@ -34,6 +35,7 @@ const handler = async (event) => {
       body: error.message,
     };
   }
+  console.log('3) name', body.name);
 
   try {
     validateEmail('body.email', body.email);
@@ -43,6 +45,8 @@ const handler = async (event) => {
       body: error.message,
     };
   }
+
+  console.log('4) email', body.email);
 
   try {
     validateLength(
@@ -58,6 +62,8 @@ const handler = async (event) => {
     };
   }
 
+  console.log('5) subject', body.subject);
+
   try {
     validateLength(
       'body.details',
@@ -72,6 +78,8 @@ const handler = async (event) => {
     };
   }
 
+  console.log('6) details', body.details);
+
   const descriptor = {
     from: `"${body.email}" <no-reply@the-alleyway.com>`,
     to: process.env.CONTACT_EMAIL,
@@ -80,12 +88,14 @@ const handler = async (event) => {
   };
 
   try {
+    console.log('7) before send mail', descriptor);
     await sendMail(descriptor);
     return {
       statusCode: 200,
       body: `Email sent successfully from ${body.email}`,
     };
   } catch (error) {
+    console.log('8) error', error.message);
     return { statusCode: 500, body: error.message };
   }
 };
