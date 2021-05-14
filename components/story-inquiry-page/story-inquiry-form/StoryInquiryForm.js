@@ -134,7 +134,7 @@ export default function StoryInquiryForm({
       )}\nSignature: ${trimmedDataUrl}\n`;
 
       try {
-        const subject = `The Alleyway Story Inquiry from: ${name}`;
+        const subject = `Story Inquiry: ${name}`;
         await sendStoryEmail(name, subject, fields[fieldNames.EMAIL], details);
         return true;
       } catch (error) {
