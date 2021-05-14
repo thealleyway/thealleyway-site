@@ -17,7 +17,7 @@ const DETAILS_MIN_LENGTH = 20;
 const DETAILS_MAX_LENGTH = 1e7;
 
 const handler = async (event) => {
-  console.log('1) inside handler');
+  console.log('1) inside handler', Date.now());
   if (!process.env.CONTACT_EMAIL) {
     return {
       statusCode: 500,
@@ -88,9 +88,9 @@ const handler = async (event) => {
   };
 
   try {
-    console.log('7) before send mail', descriptor);
+    console.log('7) before send mail', descriptor, Date.now());
     await sendMail(descriptor);
-    console.log('8) after send mail', descriptor);
+    console.log('8) after send mail', descriptor, Date.now());
     return {
       statusCode: 200,
       body: `Email sent successfully from ${body.email}`,
