@@ -112,13 +112,7 @@ export default function StoryHero({
 }) {
   const date = getFormattedDate(new Date(storyDate));
   const isMobile = useMatchMedia(`(max-width: ${breakpointsObj.tablet}px)`);
-  // const placeHolderRef = useRef(null);
-  // const [visible, setVisible] = useState(false);
 
-  // useEffect(() => {
-  //   registerObserver(placeHolderRef.current, setVisible);
-  // }, []);
-  // if (visible) {
   return isMobile ? (
     <MobileHero
       authorInfo={authorInfo}
@@ -128,11 +122,7 @@ export default function StoryHero({
       storyTitle={storyTitle}
     />
   ) : (
-    <DesktopHero
-    // initial={{ opacity: 0 }}
-    // animate={{ opacity: 1 }}
-    // transition={{ type: 'spring', duration: 7 }}
-    >
+    <DesktopHero>
       <HeroLeftSection
         authorInfo={authorInfo}
         donateLink={donateLink}
@@ -146,6 +136,4 @@ export default function StoryHero({
       />
     </DesktopHero>
   );
-  // }
-  // return <PlaceHolder ref={placeHolderRef} />;
 }
