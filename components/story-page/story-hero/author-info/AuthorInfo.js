@@ -52,10 +52,18 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
         <AdditionalInfo>{getString(title)}</AdditionalInfo>
         <AdditionalInfo>{getString(additional_information)}</AdditionalInfo>
         <SocialMediaLink href={instagram.url} target="_blank" rel="noreferrer">
-          <SocialMediaIcon src={icons.INSTAGRAM_ICON} />
+          <SocialMediaIcon
+            src={icons.INSTAGRAM_ICON}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 1 }}
+          />
         </SocialMediaLink>
         <SocialMediaLink href={twitter.url} target="_blank" rel="noreferrer">
-          <SocialMediaIcon src={icons.TWITTER_ICON} />
+          <SocialMediaIcon
+            src={icons.TWITTER_ICON}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 1 }}
+          />
         </SocialMediaLink>
       </AuthorTextWrapper>
     </AuthorInfoWrapper>

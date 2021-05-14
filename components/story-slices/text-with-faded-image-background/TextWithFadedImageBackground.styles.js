@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { min, max } from '../../../lib/responsive';
 import { P } from '../../../style/typography';
+import { motion } from 'framer-motion';
 
-export const TextWithFadedImageBackgroundWrapper = styled.div`
+export const TextWithFadedImageBackgroundWrapper = styled(motion.div)`
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
@@ -41,7 +42,7 @@ export const Text = styled(P)`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   position: absolute;
   height: 70%;
   width: 50%;

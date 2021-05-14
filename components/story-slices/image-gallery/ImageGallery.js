@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useMemo } from 'react';
 import {
   FadedImage1,
   FadedImage2,
@@ -7,12 +6,14 @@ import {
   GalleryImage3,
   GalleryWrapper,
 } from '../image-gallery/ImageGallery.styles';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { registerObserver } from '../../../lib/intersectionObserver';
 
 const PREVIEW_CHANGE_IN_MILLISECONDS = 4000;
 
 export default function ImageGallery({ images }) {
   const [firstActiveIndex, setFirstActiveIndex] = useState(0);
-  const [fadeIn, setFadeIn] = useState(false);
+  const [fadeInImages, setFadeInImages] = useState(true);
   const getNextIndex = (index) => (index + 1) % images.length;
 
   useEffect(() => {
@@ -20,11 +21,11 @@ export default function ImageGallery({ images }) {
     var fadeOut;
     const id = setTimeout(() => {
       fadeIn = setTimeout(() => {
-        setFadeIn(true);
+        setFadeInImages(true);
         setFirstActiveIndex(getNextIndex(firstActiveIndex));
       }, PREVIEW_CHANGE_IN_MILLISECONDS);
       fadeOut = setTimeout(() => {
-        setFadeIn(false);
+        setFadeInImages(false);
       }, PREVIEW_CHANGE_IN_MILLISECONDS / 2);
     }, PREVIEW_CHANGE_IN_MILLISECONDS);
     return () => {
@@ -33,6 +34,13 @@ export default function ImageGallery({ images }) {
       clearTimeout(fadeOut);
     };
   }, [firstActiveIndex]);
+
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
 
   const currentImages = useMemo(() => {
     const index1 = firstActiveIndex;
@@ -47,30 +55,40 @@ export default function ImageGallery({ images }) {
   }, [firstActiveIndex, images]);
 
   return (
-    <GalleryWrapper>
+    <GalleryWrapper ref={placeHolderRef}>
       <GalleryImage1
         src={currentImages[0].gallery_image.url}
         alt={currentImages[0].gallery_image.alt}
-        fadeIn={fadeIn}
+        fadeIn={fadeInImages}
       />
       <GalleryImage2
         src={currentImages[1].gallery_image.url}
         alt={currentImages[1].gallery_image.alt}
-        fadeIn={fadeIn}
+        fadeIn={fadeInImages}
       />
       <GalleryImage3
         src={currentImages[2].gallery_image.url}
         alt={currentImages[2].gallery_image.alt}
-        fadeIn={fadeIn}
+        fadeIn={fadeInImages}
       />
-      <FadedImage1
-        src={currentImages[0].gallery_image.url}
-        alt={currentImages[0].gallery_image.alt}
-      />
-      <FadedImage2
-        src={currentImages[1].gallery_image.url}
-        alt={currentImages[1].gallery_image.alt}
-      />
+      {visible && (
+        <FadedImage1
+          src={currentImages[0].gallery_image.url}
+          alt={currentImages[0].gallery_image.alt}
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 0.1, y: 0 }}
+          transition={{ type: 'spring', duration: 4 }}
+        />
+      )}
+      {visible && (
+        <FadedImage2
+          src={currentImages[1].gallery_image.url}
+          alt={currentImages[1].gallery_image.alt}
+          initial={{ opacity: 0, y: -200 }}
+          animate={{ opacity: 0.1, y: 0 }}
+          transition={{ type: 'spring', duration: 4 }}
+        />
+      )}
     </GalleryWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 export const ImageWithFadedBackgroundWrapper = styled.div`
   width: 50em;
@@ -20,7 +21,7 @@ export const ImageWithFadedBackgroundWrapper = styled.div`
 
 const imagePadding = 'var(--image-padding)';
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   height: 70%;
   width: auto;
   position: absolute;
@@ -42,7 +43,7 @@ export const Image = styled.img`
   }
 `;
 
-export const FadedImage = styled.img`
+export const FadedImage = styled(motion.img)`
   height: 70%;
   width: auto;
   object-fit: cover;

@@ -19,12 +19,19 @@ import {
   StoryTitle,
   TextWrapper,
 } from './StoryHero.styles';
+import React from 'react';
 
 const HeroLeftSection = ({ primaryImage1, authorInfo, donateLink }) => {
   const { signature } = authorInfo;
+
   return (
     <HeroLeftWrapper>
-      <PrimaryImage1 src={primaryImage1.url} />
+      <PrimaryImage1
+        src={primaryImage1.url}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 5, delay: 1 }}
+      />
       <SignatureImage src={signature.url} />
       <AuthorInfo authorInfo={authorInfo} donateLink={donateLink} />
     </HeroLeftWrapper>
@@ -40,12 +47,34 @@ const HeroRightSection = ({
   return (
     <HeroRightWrapper>
       <RightImagesWrapper>
-        <PrimaryImage2 src={primaryImage2.url} />
-        <PrimaryImage3 src={primaryImage3.url} />
+        <PrimaryImage2
+          src={primaryImage2.url}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: 'spring', duration: 5 }}
+        />
+        <PrimaryImage3
+          src={primaryImage3.url}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: 'spring', duration: 5, delay: 1.5 }}
+        />
       </RightImagesWrapper>
       <TextWrapper>
-        <StoryTitle>{getString(storyTitle)}</StoryTitle>
-        <StoryDate>{storyDate}</StoryDate>
+        <StoryTitle
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: 'spring', duration: 4 }}
+        >
+          {getString(storyTitle)}
+        </StoryTitle>
+        <StoryDate
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: 'spring', duration: 4 }}
+        >
+          {storyDate}
+        </StoryDate>
       </TextWrapper>
     </HeroRightWrapper>
   );

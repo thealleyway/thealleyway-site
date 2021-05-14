@@ -15,6 +15,7 @@ export default function BackToStartButton(props) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+      whileTap={{ scale: 0.99 }}
       {...props}
     >
       <ButtonImage

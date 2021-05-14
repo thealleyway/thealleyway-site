@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 import {
   FadeIn,
   FadeOut,
@@ -10,8 +11,10 @@ export const GalleryWrapper = styled.div`
   flex-direction: column;
   position: relative;
   height: 100vh;
+  width: 30em;
 
   @media ${max.tabletLg} {
+    height: 50vh;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -39,6 +42,9 @@ export const GalleryImage1 = styled.img`
   @media ${max.tabletSm} {
     display: none;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `0.5s` : '3s')};
 `;
 
 export const GalleryImage2 = styled.img`
@@ -52,6 +58,7 @@ export const GalleryImage2 = styled.img`
   @media ${max.tabletLg} {
     z-index: 1;
     padding: 2%;
+    height: 40vh;
     width: 50%;
   }
 
@@ -59,6 +66,9 @@ export const GalleryImage2 = styled.img`
     padding: 4%;
     width: 80%;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `1.8s` : '1.8s')};
 `;
 
 export const GalleryImage3 = styled.img`
@@ -74,6 +84,7 @@ export const GalleryImage3 = styled.img`
     z-index: 1;
     padding: 2%;
     width: 50%;
+    height: 40vh;
     position: absolute;
     right: -25%;
   }
@@ -81,9 +92,12 @@ export const GalleryImage3 = styled.img`
   @media ${max.tabletSm} {
     display: none;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `3s` : '0.5s')};
 `;
 
-export const FadedImage1 = styled.img`
+export const FadedImage1 = styled(motion.img)`
   object-fit: cover;
   position: absolute;
   top: 25%;
@@ -98,7 +112,7 @@ export const FadedImage1 = styled.img`
   }
 `;
 
-export const FadedImage2 = styled.img`
+export const FadedImage2 = styled(motion.img)`
   object-fit: cover;
   position: absolute;
   bottom: 25%;

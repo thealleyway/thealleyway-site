@@ -2,8 +2,15 @@ import styled from 'styled-components';
 import { H4, P, fonts, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
-export const TakeActionWrapper = styled.div`
+export const RefDiv = styled(motion.div)`
+  margin: 0;
+  height: 100%;
+  padding: 0;
+`;
+
+export const TakeActionWrapper = styled(motion.div)`
   height: 100%;
   margin: 4em;
   display: flex;
@@ -58,7 +65,7 @@ export const DescriptionText = styled(P)`
   }
 `;
 
-export const TitleAndButtonWrapper = styled.div`
+export const TitleAndButtonWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +75,7 @@ export const BackToStartButtonContainer = styled.div`
   height: auto;
 `;
 
-export const ShareLinkWrapper = styled.div`
+export const ShareLinkWrapper = styled(motion.div)`
   position: absolute;
   bottom: 10%;
   right: 20%;

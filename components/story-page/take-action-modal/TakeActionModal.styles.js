@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { H2, P } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
-export const TakeActionModalWrapper = styled.div`
+export const TakeActionModalWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +31,7 @@ export const TakeActionModalWrapper = styled.div`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled(motion.div)`
   width: 60%;
   padding-left: 2em;
 `;

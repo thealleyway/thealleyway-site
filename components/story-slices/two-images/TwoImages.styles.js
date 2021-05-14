@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 export const TwoImagesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
+  width: 30em;
   flex-direction column;
   padding: 4em;
-
   @media ${max.tabletLg} {
     flex-direction row;
+    height: 100%;
+    width: auto;
   }
-
   @media ${max.tabletSm} {
     flex-direction column;
     padding: 2em;
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   height: 46%;
   width: auto;
   object-fit: cover;

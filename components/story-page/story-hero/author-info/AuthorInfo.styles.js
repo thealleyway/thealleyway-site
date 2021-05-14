@@ -61,7 +61,7 @@ export const SocialMediaLink = styled.a`
   }
 `;
 
-export const SocialMediaIcon = styled.img`
+export const SocialMediaIcon = styled(motion.img)`
   width: 15%;
   height: 15%;
   margin-right: 5%;

@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
 import { fonts, fontWeights } from '../../../style/typography';
 import { colors } from '../../../style/colors';
+import { motion } from 'framer-motion';
 
 export const LargeImageWithQuoteWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4em;
-  height: 100%;
-
+  height: 100vh;
+  width: 50em;
   @media ${max.tabletLg} {
+    height: 100%;
     width: 100%;
   }
 
@@ -18,7 +20,7 @@ export const LargeImageWithQuoteWrapper = styled.div`
   }
 `;
 
-export const LargeImage = styled.img`
+export const LargeImage = styled(motion.img)`
   height: 100%;
   width: auto;
   object-fit: cover;
@@ -29,7 +31,7 @@ export const LargeImage = styled.img`
   }
 `;
 
-export const Quote = styled.h2`
+export const Quote = styled(motion.h2)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   font-size: 2em;

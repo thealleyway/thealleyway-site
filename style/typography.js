@@ -18,7 +18,7 @@ const fontWeights = {
   bold: 650,
 };
 
-const H1 = styled.h1`
+const H1 = styled(motion.h1)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
   color: ${colors.BURNTORANGE};
@@ -56,7 +56,7 @@ const H4 = styled.h3`
   font-size: 1em;
 `;
 
-const P = styled.p`
+const P = styled(motion.p)`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
   font-size: 1em;
