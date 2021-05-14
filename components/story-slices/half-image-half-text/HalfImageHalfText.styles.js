@@ -15,6 +15,8 @@ export const HalfImageHalfTextWrapper = styled.div`
     justify-content: space-between;
     flex-direction ${(props) =>
       props.tabletArrangement ? 'row-reverse' : 'row'};
+    height: 100%;
+    width: auto;
   }
   @media ${max.tabletSm} {
     flex-direction ${(props) =>

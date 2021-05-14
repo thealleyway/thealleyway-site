@@ -7,6 +7,8 @@ import {
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { motion } from 'framer-motion';
+import { useMatchMedia } from '../../../lib/hooks';
+import { breakpointsObj } from '../../../lib/responsive';
 
 export default function HalfImageHalfText({
   arrangement,
@@ -21,7 +23,11 @@ export default function HalfImageHalfText({
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  return (
+  const isTabletOrMobile = useMatchMedia(
+    `(max-width: ${breakpointsObj.tabletLg}px)`,
+  );
+
+  return !isTabletOrMobile ? (
     <HalfImageHalfTextWrapper
       arrangement={arrangement}
       tabletArrangement={tablet_arrangement}
@@ -46,6 +52,16 @@ export default function HalfImageHalfText({
           </TextWrapper>
         </motion.div>
       )}
+    </HalfImageHalfTextWrapper>
+  ) : (
+    <HalfImageHalfTextWrapper
+      arrangement={arrangement}
+      tabletArrangement={tablet_arrangement}
+    >
+      <Image src={image.url} />
+      <TextWrapper arrangement={arrangement}>
+        {renderRichText(text)}
+      </TextWrapper>
     </HalfImageHalfTextWrapper>
   );
 }
