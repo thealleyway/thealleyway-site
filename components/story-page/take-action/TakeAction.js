@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useMatchMedia } from '../../../lib/hooks';
 import { breakpointsObj } from '../../../lib/responsive';
 import { getString } from '../../../lib/richText';
@@ -23,6 +22,8 @@ import {
   TakeActionWrapper,
   UnderlineImage,
 } from './TakeAction.styles';
+import React, { useState, useRef, useEffect } from 'react';
+import { registerObserver } from '../../../lib/intersectionObserver';
 
 const copyToClipboard = () => {
   if (typeof window !== 'undefined') {
@@ -54,6 +55,13 @@ export default function TakeAction({
 
   const showMoreResources = moreResources.length > 0;
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const placeHolderRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    registerObserver(placeHolderRef.current, setVisible);
+  }, []);
 
   const takeActionContent = (
     <>
@@ -106,19 +114,25 @@ export default function TakeAction({
           {takeActionContent}
         </TabletMobileWrapper>
       ) : (
-        <TakeActionWrapper>
-          <TitleAndButtonWrapper>
-            <TakeActionHeadingDesktop>
-              Take <i>Action</i>
-              <UnderlineImage
-                src={icons.SQUIGGLE_UNDERLINE}
-                alt="underline squiggle"
-              />
-            </TakeActionHeadingDesktop>
-            <BackToStartButtonContainer>
-              <BackToStartButton showHorizontal />
-            </BackToStartButtonContainer>
-          </TitleAndButtonWrapper>
+        <TakeActionWrapper ref={placeHolderRef}>
+          {visible && (
+            <TitleAndButtonWrapper
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ type: 'spring', duration: 4 }}
+            >
+              <TakeActionHeadingDesktop>
+                Take <i>Action</i>
+                <UnderlineImage
+                  src={icons.SQUIGGLE_UNDERLINE}
+                  alt="underline squiggle"
+                />
+              </TakeActionHeadingDesktop>
+              <BackToStartButtonContainer>
+                <BackToStartButton showHorizontal />
+              </BackToStartButtonContainer>
+            </TitleAndButtonWrapper>
+          )}
           {takeActionContent}
           {shareLink}
         </TakeActionWrapper>
