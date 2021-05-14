@@ -12,9 +12,11 @@ import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import {
   HeaderandSquiggleContainer,
   SquiggleUnderline,
+  QuoteCarouselContainer,
 } from './AboutPage.style';
 import { useSpring } from 'react-spring';
 import { header } from '../../style/animations';
+import { truncateString } from '../../lib/utils';
 
 export default function AboutPage({
   aboutPageData,
@@ -88,9 +90,9 @@ export default function AboutPage({
     spark_arrow_name_text,
   };
 
-  const getQuotes = theAlleywayNamesMeaning.map((m) => {
-    return getString(m.meaning);
-  });
+  const getQuotes = theAlleywayNamesMeaning.map((m) =>
+    truncateString(getString(m.meaning), 115),
+  );
 
   const quoteCarouselData = {
     title: theAlleywayNamesTitle,
@@ -141,7 +143,12 @@ export default function AboutPage({
         id={scrollToValues}
         scrollToId={scrollToNames}
       />
-      <QuoteCarousel quoteCarouselData={quoteCarouselData} id={scrollToNames} />
+      <QuoteCarouselContainer>
+        <QuoteCarousel
+          quoteCarouselData={quoteCarouselData}
+          id={scrollToNames}
+        />
+      </QuoteCarouselContainer>
       <Footer footerData={footerData} footerBoxLinkData={footerBoxLinkDate} />
     </>
   );

@@ -43,7 +43,7 @@ export default function NewsletterSignUp({
 
     if (isValidSubmission()) {
       addToList(
-        fields['email'],
+        fields[fieldNames.EMAIL],
         (_, data) => {
           if ('error' in data) {
             alert(

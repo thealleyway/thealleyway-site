@@ -54,17 +54,19 @@ const SideImageContainer = styled.div`
 `;
 
 const QuoteCarouselContainer = styled.div`
-  margin: 0 0 -12em 0;
-  padding-top: 3em;
+  margin: 7em 0 -10em 0;
   @media ${min.tabletSm} {
-    margin-left: 0.7em;
+    padding-top: 3em;
+    margin: 3em 0 -8em 0.7em;
   }
   @media ${min.tablet} {
-    padding-top: 3em;
-    margin: 0 0 -8em 1em;
+    margin: 3em 0 -8em 1em;
+  }
+  @media ${min.tabletLg} {
+    margin: 7em 0 -2em 1em;
   }
   @media ${min.desktop} {
-    margin: 4.5em 0 0 6em;
+    margin: 8em 0 0 6em;
   }
 `;
 
