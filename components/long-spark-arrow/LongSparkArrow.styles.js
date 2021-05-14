@@ -1,141 +1,75 @@
 import { P } from '../../style/typography';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { colors } from '../../style/colors';
-import { min, max } from '../../lib/responsive';
-import {
-  HoverAnimationButton,
-  TopBottomAnimation,
-} from '../animation-base-components/AnimationBaseComponents';
+import { min } from '../../lib/responsive';
+import { HoverAnimationButton } from '../animation-base-components/AnimationBaseComponents';
 
-const SparkArrowGeneral = `
+const UnfilledSparkArrow = styled.img`
   position: absolute;
   transform: rotate(90deg);
   z-index: 1;
-`;
-
-const ArrowTextGeneral = `
-  position: absolute;
-  z-index: 2;
-  text-align: right;
-  letter-spacing: 0.13em;
-  color: ${colors.BROWN};
-`;
-
-const ArrowContainerGeneral = `
-  position: absolute;
-  transform: rotate(270deg);
-  border: none;
-`;
-
-const UnfilledSparkArrow = styled(HoverAnimationButton)`
-  ${SparkArrowGeneral};
-  top: -5.6em;
-  height: 27em;
-  width: 3.75em;
-  cursor: pointer;
-  background: ${(props) => `url('${props.url}') no-repeat` || 'none'};
-  background-position: 0 0%;
-  background-size: 85%;
-  padding-bottom: 1em;
-  border: none;
-  overflow: visible;
-
-  @media ${max.tabletLg} {
-    visibility: hidden;
-  }
-
-  @media ${min.desktop} {
-    top: 4.2em;
-    height: 25em;
-  }
-
-  ${(props) =>
-    props.hover
-      ? css`
-          animation: ${TopBottomAnimation} 0.8s forwards;
-        `
-      : ''};
-`;
-
-const UnfilledSparkArrowTablet = styled.img`
-  ${SparkArrowGeneral};
   top: -6.7em;
   right: 7.25em;
-  height: 17em;
+  height: 18em;
 
   @media ${min.tablet} {
-    top: -2.4em;
-    right: 7.5em;
-    height: 17em;
+    top: -6.9em;
+    right: 8em;
+    height: 19em;
   }
-  @media ${min.tabletLg} {
-    visibility: hidden;
+
+  cursor: pointer;
+
+  @media ${min.desktop} {
+    top: 2.1em;
+    right: 8em;
+    height: 19em;
   }
 `;
 
 const ArrowText = styled(P)`
-  ${ArrowTextGeneral}
-  right: -12.8em;
+  position: absolute;
+  z-index: 2;
+  text-align: right;
+  right: 0;
+  letter-spacing: 0.13em;
+  color: ${colors.BROWN};
+
   width: 20em;
-  padding-top: 0.8em;
-  padding-top: 4.5em;
+  padding-right: 0;
+  padding-top: 0.5em;
+  @media ${min.tablet} {
+    padding-top: 0.8em;
+  }
 
   @media ${min.desktop} {
-    padding-right: 0.9em;
-    padding-top: 11.9em;
-  }
-`;
-
-const ArrowTextTablet = styled(P)`
-  ${ArrowTextGeneral}
-  right: 0;
-  width: 20em;
-
-  @media ${min.tablet} {
-    padding-top: 4.3em;
-  }
-
-  @media ${min.tabletLg} {
-    visibility: hidden;
+    padding-top: 9.7em;
   }
 `;
 
 const ArrowContainer = styled(HoverAnimationButton).attrs({
   as: 'a',
 })`
-  ${ArrowContainerGeneral}
-  top: 12.6em;
-  left: 2em;
-
-  @media ${min.tablet} {
-    top: 16.2em;
-    left: -6em;
-  }
-
-  @media ${min.desktop} {
-    top: 16.25em;
-    left: -10em;
-  }
-`;
-
-const ArrowContainerTablet = styled(HoverAnimationButton).attrs({
-  as: 'a',
-})`
-  ${ArrowContainerGeneral}
+  position: absolute;
+  transform: rotate(270deg);
+  border: none;
+  position: absolute;
   top: 5.5em;
   left: 1.5em;
 
   @media ${min.tablet} {
-    top: 3.4em;
-    left: -6em;
+    top: 3.5em;
+    left: -2.5em;
+  }
+
+  @media ${min.desktop} {
+    top: 4.5em;
+    left: -8.5em;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
-export {
-  UnfilledSparkArrowTablet,
-  ArrowTextTablet,
-  ArrowContainerTablet,
-  UnfilledSparkArrow,
-  ArrowText,
-  ArrowContainer,
-};
+export { UnfilledSparkArrow, ArrowText, ArrowContainer };
