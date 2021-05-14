@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 63.9 68.14" style="enable-background:new 0 0 63.9 68.14;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-	.st1{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#FD1A16;stroke-width:0.25;stroke-miterlimit:10;}
-	.st3{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st4{stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st5{fill:none;stroke:#FFFFFF;stroke-width:2;}
-	.st6{fill:none;stroke:#D5B482;stroke-width:2;}
-	.st7{fill:#D4B482;stroke:#D5B482;stroke-width:1.7;}
-	.st8{fill:none;stroke:#D5B482;stroke-width:1.7;}
-	.st9{fill:#FFFFFF;}
-	.st10{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;}
-	.st11{fill:#BD7045;stroke:#FFFFFF;stroke-width:2;}
-	.st12{fill:none;stroke:#FAF9EE;stroke-width:2;}
-</style>
-<g id="Layer_1">
-</g>
-<g id="Layer_2">
-</g>
-<g id="Layer_3">
-	<circle class="st6" cx="31.51" cy="34.47" r="22"/>
-	<path class="st7" d="M31.51,25.27L16.17,35.92c15.33-10.65,15.14,1.77,15.33,10.05c0-8.28,0-20.7,15.33-10.05L31.51,25.27z"/>
-</g>
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="25" cy="25" r="24" stroke="#D6B482" stroke-width="2"/>
+<path d="M15 25.0003L26.5714 41.667C15 25.0003 28.5 25.214 37.5 25.0003C28.5 25.0003 15 25.0003 26.5714 8.33366L15 25.0003Z" fill="#D6B482" stroke="#D6B482" stroke-width="1.7"/>
 </svg>

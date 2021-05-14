@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { colors } from '../../style/colors';
 
 const ButtonImage = styled.img`
-  width: 4.5em;
+  width: 4em;
   transform: ${(props) =>
-    props.showHorizontal ? 'rotate(270deg)' : 'rotate(0deg)'};
+    props.showHorizontal ? 'rotate(0deg)' : 'rotate(90deg)'};
   &:hover {
     cursor: pointer;
   }
@@ -23,6 +23,7 @@ const ButtonText = styled(P)`
   letter-spacing: 0.13em;
   width: ${(props) => props.showHorizontal && '12em'};
   padding-left: ${(props) => props.showHorizontal && '1em'};
+  padding-top: ${(props) => !props.showHorizontal && '1.5em'};
 `;
 
 export { Button, ButtonText, ButtonImage };
