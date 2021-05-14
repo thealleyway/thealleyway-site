@@ -14,8 +14,10 @@ export const TextSectionWrapper = styled(P).attrs({
       : 'flex-start'};
   margin: 4em;
   width: calc(40em - 30vh);
+  height: calc(100vh - 8em);
 
   @media ${max.tabletLg} {
+    height: auto;
     margin: 2em;
     width: 40%;
     align-self: ${(props) =>
