@@ -11,6 +11,7 @@ export const LargeImageWithQuoteWrapper = styled.div`
   height: 100vh;
   width: 50em;
   @media ${max.tabletLg} {
+    height: 100%;
     width: 100%;
   }
 
