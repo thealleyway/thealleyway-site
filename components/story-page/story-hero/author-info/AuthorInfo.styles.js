@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { max } from '../../../../lib/responsive';
 import { P, fontWeights, fonts } from '../../../../style/typography';
 import { colors } from '../../../../style/colors';
+import { motion } from 'framer-motion';
 
 export const AuthorInfoWrapper = styled.div`
   display: flex;
@@ -60,7 +61,7 @@ export const SocialMediaLink = styled.a`
   }
 `;
 
-export const SocialMediaIcon = styled.img`
+export const SocialMediaIcon = styled(motion.img)`
   width: 15%;
   height: 15%;
   margin-right: 5%;

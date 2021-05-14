@@ -75,7 +75,7 @@ export const BackToStartButtonContainer = styled.div`
   height: auto;
 `;
 
-export const ShareLinkWrapper = styled.div`
+export const ShareLinkWrapper = styled(motion.div)`
   position: absolute;
   bottom: 10%;
   right: 20%;

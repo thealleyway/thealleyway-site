@@ -1,6 +1,7 @@
 import { P } from '../../style/typography';
 import styled from 'styled-components';
 import { colors } from '../../style/colors';
+import { motion } from 'framer-motion';
 
 const ButtonImage = styled.img`
   width: 4.5em;
@@ -11,7 +12,7 @@ const ButtonImage = styled.img`
   }
 `;
 
-const Button = styled.a`
+const Button = styled(motion.a)`
   display: flex;
   flex-direction: ${(props) => (props.showHorizontal ? 'row' : 'column')};
   align-items: center;
