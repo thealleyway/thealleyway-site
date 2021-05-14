@@ -22,7 +22,7 @@ import {
   TopQuoteWrapper,
   SparkArrowWrapper,
 } from './AboutFounder.style';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 
@@ -75,8 +75,7 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
         <MeetFounderContainer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: "spring", duration: 4 }}
-
+          transition={{ type: 'spring', duration: 4 }}
         >
           <MeetFounderWrapper>
             {!isTabletOrMobile && (
@@ -135,7 +134,10 @@ export default function AboutFounder({ aboutFounderData, id, scrollToId }) {
             </SparkArrowWrapper>
           )}
           {isOpen && (
-            <MoreAboutPopup popupData={popUpData} setIsPopupOpen={togglePopup} />
+            <MoreAboutPopup
+              popupData={popUpData}
+              setIsPopupOpen={togglePopup}
+            />
           )}
           <Overlay showOverlay={isOpen} />
         </MeetFounderContainer>

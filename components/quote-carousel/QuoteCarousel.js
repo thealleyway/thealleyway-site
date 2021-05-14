@@ -17,7 +17,7 @@ import {
   AuthorsWrapper,
 } from './QuoteCarousel.style';
 import { icons } from '../../style/icons';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../lib/intersectionObserver';
 import { PlaceHolder } from '../base-components/BaseComponents';
 
@@ -61,12 +61,15 @@ export default function QuoteCarousel({
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-
   if (visible) {
     return (
       <>
         <ScrollToCarousel id={id} />
-        <ContentWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+        <ContentWrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
           <TextWrapper isAuthorTestimonies={isAuthorTestimonies}>
             <TitleWrapper>{getString(title)}</TitleWrapper>
             <DescriptionWrapper>{getString(description)}</DescriptionWrapper>

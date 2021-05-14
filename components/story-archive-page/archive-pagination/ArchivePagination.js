@@ -2,7 +2,7 @@ import PageLink from '../../page-link/PageLink';
 import { ArchiveArrow, PaginationWrapper } from './ArchivePagination.style';
 import { P } from '../../../style/typography';
 import { icons } from '../../../style/icons';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 
@@ -24,7 +24,7 @@ export default function ArchivePagination({ paginationData, sortType }) {
       <PaginationWrapper
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: "spring", duration: 4 }}
+        transition={{ type: 'spring', duration: 4 }}
       >
         <PageLink href={ARCHIVE + (page - 1) + '#archive'}>
           <ArchiveArrow

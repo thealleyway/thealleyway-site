@@ -9,7 +9,7 @@ import {
 import FooterLink from './footer-link/FooterLink';
 import ImageBoxLink from '../image-box-link/ImageBoxLink';
 import BackToStartButton from '../back-to-start-button/BackToStartButton';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../lib/intersectionObserver';
 import { PlaceHolder } from '../base-components/BaseComponents';
 
@@ -18,6 +18,8 @@ export default function Footer({ footerData, footerBoxLinkData }) {
     contact_email: contactEmail,
     instagram_link: { url: instagramLink },
     tiktok_link: { url: tiktokLink },
+    facebook_link: { url: facebookLink },
+    twitter_link: { url: twitterLink },
   } = footerData;
 
   const mailToLink = 'mailto:' + getString(contactEmail);
@@ -29,8 +31,12 @@ export default function Footer({ footerData, footerBoxLinkData }) {
 
   if (visible) {
     return (
-      <FooterContainer topMargin={footerBoxLinkData ? true : false}
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+      <FooterContainer
+        topMargin={footerBoxLinkData ? true : false}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+      >
         {footerBoxLinkData && <ImageBoxLink boxLinkData={footerBoxLinkData} />}
         {!footerBoxLinkData && (
           <BackToStartButtonContainer>
@@ -44,8 +50,8 @@ export default function Footer({ footerData, footerBoxLinkData }) {
           <SocialsWrapper>
             <FooterLink label="Instagram" link={instagramLink} />
             <FooterLink label="Tiktok" link={tiktokLink} />
-            <FooterLink label="Facebook" link="#" />
-            <FooterLink label="Twitter" link="#" />
+            <FooterLink label="Facebook" link={facebookLink} />
+            <FooterLink label="Twitter" link={twitterLink} />
           </SocialsWrapper>
         </FooterSocialsContainer>
       </FooterContainer>

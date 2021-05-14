@@ -14,7 +14,7 @@ export const NavigationWrapper = styled(motion.nav)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2em 5em;
+  padding: 1.5em 5em 2em 5em;
   z-index: 60;
   background-color: ${colors.CREME};
   height: 5em;
@@ -30,7 +30,7 @@ export const NavigationWrapper = styled(motion.nav)`
 `;
 
 export const Logo = styled.img`
-  width: 6em;
+  width: 8em;
 `;
 
 export const LogoWrapper = styled.div`

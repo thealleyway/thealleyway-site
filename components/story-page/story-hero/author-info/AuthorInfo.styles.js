@@ -67,10 +67,13 @@ export const SocialMediaIcon = styled(motion.img)`
   margin-right: 5%;
 `;
 
-export const DonateLink = styled.a``;
+export const DonateLink = styled.a`
+  margin: -8em 9em 0 0;
+`;
 
-export const DonateCircularText = styled.img`
-  width: 85%;
+export const DonateCircularText = styled(motion.img)`
+  position: absolute;
+  width: 7.5em;
   &:hover {
     cursor: pointer;
   }

@@ -56,22 +56,27 @@ export default function ArchiveStoryPreview({ story, signature }) {
           >
             <StoryPreviewImage src={previewImage.url} alt={previewImage.alt} />
             <StoryPreviewHover>
-              <DateArrowWrapper
-                animate={{ opacity: hover ? 1 : 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <DateWrapper>{formattedDate}</DateWrapper>
-                <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
-              </DateArrowWrapper>
-              {!isTabletOrMobile && (
-                <PageLink href={storyUrl}>
-                  <StoryPreviewSignature
-                    src={signature.url}
-                    alt={signature.alt}
-                    animate={{ opacity: hover ? 1 : 0 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </PageLink>
+              {isTabletOrMobile ? (
+                <DateArrowWrapper>
+                  <DateWrapper>{formattedDate}</DateWrapper>
+                  <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
+                </DateArrowWrapper>
+              ) : (
+                <motion.div
+                  animate={{ opacity: hover ? 1 : 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <DateArrowWrapper>
+                    <DateWrapper>{formattedDate}</DateWrapper>
+                    <StoryPreviewArrow src={icons.UNFILLED_MEDIUM_ARROW} />
+                  </DateArrowWrapper>
+                  <PageLink href={storyUrl}>
+                    <StoryPreviewSignature
+                      src={signature.url}
+                      alt={signature.alt}
+                    />
+                  </PageLink>
+                </motion.div>
               )}
             </StoryPreviewHover>
             <StoryPreviewTitle>{getString(storyTitle)}</StoryPreviewTitle>

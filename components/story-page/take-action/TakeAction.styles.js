@@ -83,7 +83,7 @@ export const ShareLinkWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 15em;
+  width: 18em;
   background: url(${(props) => props.url}) no-repeat;
   background-position: center;
 
@@ -96,6 +96,7 @@ export const ShareLinkWrapper = styled(motion.div)`
 
 export const ShareLinkText = styled(H4)`
   font-weight: ${fontWeights.normal};
+  margin-right: 2em;
 `;
 
 export const ShareLinkImage = styled.img`

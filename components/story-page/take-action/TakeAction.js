@@ -78,12 +78,7 @@ export default function TakeAction({
           <OvalButton buttonText="DONATE" href={donateLink.url} />
         </ActionButtonsWrapper>
         {showMoreResources && (
-          <InputInfoText
-            onClick={() => {
-              document.body.style.overflow = 'hidden';
-              setIsModalOpen(true);
-            }}
-          >
+          <InputInfoText onClick={() => setIsModalOpen(true)}>
             more resources
           </InputInfoText>
         )}
@@ -145,10 +140,7 @@ export default function TakeAction({
       )}
       {showMoreResources && isModalOpen && (
         <MoreResourcesModal
-          onClose={() => {
-            document.body.style.overflow = 'visible';
-            setIsModalOpen(false);
-          }}
+          onClose={() => setIsModalOpen(false)}
           moreResources={moreResources}
           moreResourcesBackground={moreResourcesBackground}
         />

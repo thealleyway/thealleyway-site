@@ -16,6 +16,7 @@ const icons = {
   FILLED_SPARK_WHITE: '/assets/filled-spark-white.svg',
   FILLED_LINK: '/assets/filled-link-icon.svg',
   FILLED_SHORT_ARROW: '/assets/filled-short-arrow.svg',
+  FILLED_DONATE_CIRCULAR_TEXT: '/assets/filled-donate-circular-text.svg',
   HAMBURGER: '/assets/hamburger.svg',
   LONG_FILLED_SPARK_ARROW: '/assets/long-filled-spark-arrow.svg',
   LONG_UNFILLED_SPARK_ARROW: '/assets/long-unfilled-spark-arrow.svg',
