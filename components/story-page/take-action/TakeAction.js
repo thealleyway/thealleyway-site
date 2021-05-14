@@ -24,6 +24,7 @@ import {
 } from './TakeAction.styles';
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
+import { motion } from 'framer-motion';
 
 const copyToClipboard = () => {
   if (typeof window !== 'undefined') {
@@ -63,8 +64,12 @@ export default function TakeAction({
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  const takeActionContent = (
-    <>
+  const takeActionContent = visible && (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ type: 'spring', duration: 5 }}
+    >
       <DescriptionText>{getString(takeActionDescription)}</DescriptionText>
       <ResourceWrapper>
         <ActionButtonsWrapper>
@@ -83,7 +88,7 @@ export default function TakeAction({
           </InputInfoText>
         )}
       </ResourceWrapper>
-    </>
+    </motion.div>
   );
 
   const shareLink = (
