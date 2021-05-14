@@ -62,7 +62,7 @@ export default function ContactForm({ togglePopup }) {
   const submitRequest = async () => {
     if (isValidSubmission()) {
       const name = `${fields[fieldNames.FIRST_NAME]} ${
-        fields[fieldNames.LAST_NAME]
+        fields[fieldNames.LAST_NAME] || ''
       }`;
       const subject = `Contact Form: ${name}`;
 
