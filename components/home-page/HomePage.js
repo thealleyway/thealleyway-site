@@ -73,7 +73,7 @@ export default function HomePage({
     };
   }, [activeIndex]);
 
-  const mapFeaturedStories = (featuredStory, index) => {
+  const featuredPreviews = featuredStories.map((featuredStory, index) => {
     return (
       <FeaturedStoryPreview
         active={index === activeIndex}
@@ -85,7 +85,7 @@ export default function HomePage({
         signature={getSignature(featuredStory.story.data.author_info.id)}
       />
     );
-  };
+  });
 
   return (
     <>
@@ -132,21 +132,19 @@ export default function HomePage({
               animate={{ opacity: 1, y: -420 }}
               transition={{ type: 'spring', duration: 3, delay: 1 }}
             >
-              {featuredStories.map(mapFeaturedStories)}
+              {featuredPreviews}
             </FeaturedStoryPreviews>
           </HomePageIntroContainerSmall>
         )}
         {isMobile && fadedShort && (
-          <FeaturedStoryPreviews>
-            {featuredStories.map(mapFeaturedStories)}
-          </FeaturedStoryPreviews>
+          <FeaturedStoryPreviews>{featuredPreviews}</FeaturedStoryPreviews>
         )}
         {!isMobile && (
           <FeaturedStoryPreviews
             animate={{ opacity: [0, 1] }}
             transition={{ type: 'spring', duration: 7 }}
           >
-            {featuredStories.map(mapFeaturedStories)}
+            {featuredPreviews}
           </FeaturedStoryPreviews>
         )}
         {fadedLong && (

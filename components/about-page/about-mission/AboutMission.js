@@ -15,7 +15,7 @@ import {
   BoxLinkWrapper,
   SparkArrowWrapper,
 } from './AboutMission.style';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 
@@ -40,20 +40,20 @@ export default function AboutMission({ missionData, id, scrollToId }) {
   }, []);
 
   if (visible) {
-
     return (
       <>
         <ScrollToMission id={id} />
         <OurMissionContainer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: "spring", duration: 4 }}>
+          transition={{ type: 'spring', duration: 4 }}
+        >
           <OurMissionWrapper>
             <OurMissionImgLeft
               src={ourMissionImage.url}
               alt={ourMissionImage.alt}
             />
-            <OurMissionTextContainer          >
+            <OurMissionTextContainer>
               <H2Wrapper>{getString(ourMissionTitle)}</H2Wrapper>
               <P>{renderRichText(ourMissionDescription)}</P>
             </OurMissionTextContainer>
