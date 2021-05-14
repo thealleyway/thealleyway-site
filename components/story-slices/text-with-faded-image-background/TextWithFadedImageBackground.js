@@ -26,16 +26,15 @@ export default function TextWithFadedImageBackground({
       imageRight={image_right}
       ref={placeHolderRef}
     >
-      {visible && (
-        <>
-          {' '}
+               {' '}
+      {visible && 
           <Image
             src={background_image.url}
             imageRight={image_right}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{ type: 'spring', duration: 4 }}
-          />
+            initial={{ opacity: 0.3, x: image_right ? -100 : 100 }}
+            animate={{ opacity: 0.1, x: 0}}
+            transition={{ type: 'spring', duration: 10 }}
+          />}
           <Text
             imageRight={image_right}
             initial={{ opacity: 0 }}
@@ -43,9 +42,9 @@ export default function TextWithFadedImageBackground({
             transition={{ type: 'spring', duration: 4 }}
           >
             {getString(text)}
-          </Text>{' '}
-        </>
-      )}
+          </Text>
+          {' '}
+      {/* )} */}
     </TextWithFadedImageBackgroundWrapper>
   );
 }
