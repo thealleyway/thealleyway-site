@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 export const TwoImagesWrapper = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export const TwoImagesWrapper = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   height: 46%;
   width: auto;
   object-fit: cover;
