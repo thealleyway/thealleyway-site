@@ -14,7 +14,7 @@ export default function FullSizeImageSlice({ image1, image2 }) {
       {visible && (
         <Image
           src={image1.url}
-          initial={{ opacity: 0, y: -100 }}
+          initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', duration: 4, delay: 0.2 }}
         />
@@ -22,7 +22,7 @@ export default function FullSizeImageSlice({ image1, image2 }) {
       {visible && (
         <Image
           src={image2.url}
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', duration: 4, delay: 0.2 }}
         />

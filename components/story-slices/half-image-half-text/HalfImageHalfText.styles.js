@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
 import { P } from '../../../style/typography';
+import { motion } from 'framer-motion';
 
 export const HalfImageHalfTextWrapper = styled.div`
   display: flex;
-  height: 100%;
+  height: 100vh;
+  width: 52em;
   flex-direction ${(props) =>
     props.arrangement ? 'column-reverse' : 'column'};
   padding: 4em;
@@ -41,7 +43,7 @@ export const TextWrapper = styled(P).attrs({
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   height: 46%;
   max-width: 50em;
   object-fit: cover;
