@@ -25,7 +25,7 @@ export default function TextSection({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: 'spring', duration: 4  }}
+          transition={{ type: 'spring', duration: 4, delay: 0.2 }}
         >
           {renderRichText(text)}
         </motion.div>
