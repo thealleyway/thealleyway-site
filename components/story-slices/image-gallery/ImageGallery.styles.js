@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import { motion } from 'framer-motion';
 
 export const GalleryWrapper = styled.div`
   display: flex;
@@ -73,7 +74,7 @@ export const GalleryImage3 = styled.img`
   }
 `;
 
-export const FadedImage1 = styled.img`
+export const FadedImage1 = styled(motion.img)`
   object-fit: cover;
   position: absolute;
   top: 25%;
@@ -88,7 +89,7 @@ export const FadedImage1 = styled.img`
   }
 `;
 
-export const FadedImage2 = styled.img`
+export const FadedImage2 = styled(motion.img)`
   object-fit: cover;
   position: absolute;
   bottom: 25%;
