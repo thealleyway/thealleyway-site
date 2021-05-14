@@ -31,7 +31,12 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
        onMouseOut={() => setHover(false)}
        >
          {!hover && <DonateCircularText src={ icons.DONATE_CIRCULAR_TEXT }/>}
-         {hover && <FilledDonateCircularText src={icons.FILLED_DONATE_CIRCULAR_TEXT} />}
+         {hover && <FilledDonateCircularText src={icons.FILLED_DONATE_CIRCULAR_TEXT}
+         animate={{rotate: 360, y: -15, x: -15}}
+         transition={{ease: "linear", repeat: Infinity, duration: 20}}
+         whileHover={{ scale: 1.05 }}
+         whileTap={{ scale: 1}}
+          />}
       </DonateLink>
       <AuthorTextWrapper>
         <AuthorName>{getString(author_name)}</AuthorName>

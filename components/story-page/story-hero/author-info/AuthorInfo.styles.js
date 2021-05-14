@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { max } from '../../../../lib/responsive';
 import { P, fontWeights, fonts } from '../../../../style/typography';
 import { colors } from '../../../../style/colors';
+import { motion } from 'framer-motion';
 
 export const AuthorInfoWrapper = styled.div`
   display: flex;
@@ -70,7 +71,7 @@ export const DonateLink = styled.a`
   margin: -8em 9em 0 0;
 `;
 
-export const DonateCircularText = styled.img`
+export const DonateCircularText = styled(motion.img)`
   position: absolute;
   width: 7.5em;
   &:hover {
@@ -78,7 +79,7 @@ export const DonateCircularText = styled.img`
   }
 `;
 
-export const FilledDonateCircularText = styled.img`
+export const FilledDonateCircularText = styled(motion.img)`
 position: absolute;
 width: 9.2em;
 margin: -0.5em 0 0 -.55em ;
