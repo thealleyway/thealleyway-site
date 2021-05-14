@@ -30,7 +30,7 @@ export const NavigationWrapper = styled(motion.nav)`
 `;
 
 export const Logo = styled.img`
-  width: 6em;
+  width: 8em;
 `;
 
 export const LogoWrapper = styled.div`
