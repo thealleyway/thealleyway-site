@@ -39,9 +39,5 @@ module.exports = {
     'unicorn/no-null': 'off',
     'unicorn/no-nested-ternary': 'off',
     'sonarjs/no-duplicate-string': 'off',
-    'unicorn/no-array-callback-reference': 'off',
-    'security/detect-non-literal-fs-filename': 'off',
-    'no-undef': 'off',
-    'no-dupe-keys': 'off',
   },
 };
