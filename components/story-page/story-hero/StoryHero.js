@@ -19,9 +19,7 @@ import {
   StoryTitle,
   TextWrapper,
 } from './StoryHero.styles';
-import React, { useState, useRef, useEffect } from 'react';
-import { registerObserver } from '../../../lib/intersectionObserver';
-import { PlaceHolder } from '../../base-components/BaseComponents';
+import React from 'react';
 
 const HeroLeftSection = ({ primaryImage1, authorInfo, donateLink }) => {
   const { signature } = authorInfo;
@@ -59,7 +57,7 @@ const HeroRightSection = ({
           src={primaryImage3.url}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: 'spring', duration: 5, delay: 2 }}
+          transition={{ type: 'spring', duration: 5, delay: 1.5 }}
         />
       </RightImagesWrapper>
       <TextWrapper>
@@ -70,7 +68,13 @@ const HeroRightSection = ({
         >
           {getString(storyTitle)}
         </StoryTitle>
-        <StoryDate>{storyDate}</StoryDate>
+        <StoryDate
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: 'spring', duration: 4 }}
+        >
+          {storyDate}
+        </StoryDate>
       </TextWrapper>
     </HeroRightWrapper>
   );
