@@ -1,13 +1,13 @@
 require('dotenv').config();
 
 const process = require('process');
-// const { promisify } = require('util');
+const { promisify } = require('util');
 
-const sendMailLib = require('sendmail')();
+const sendMailLib = require('sendmail');
 
 const { validateEmail, validateLength } = require('./validations');
 
-// const sendMail = promisify(sendMailLib());
+const sendMail = promisify(sendMailLib());
 
 const NAME_MIN_LENGTH = 1;
 const NAME_MAX_LENGTH = 50;
@@ -89,7 +89,7 @@ const handler = async (event) => {
 
   try {
     console.log('7) before send mail', descriptor, Date.now());
-    await sendMailLib(descriptor);
+    await sendMail(descriptor);
     console.log('8) after send mail', descriptor, Date.now());
     return {
       statusCode: 200,
