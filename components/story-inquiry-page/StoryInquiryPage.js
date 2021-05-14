@@ -23,6 +23,7 @@ import LongLinesFlipped from './long-lines-flipped/LongLinesFlipped';
 import { useSpring } from 'react-spring';
 import { header } from '../../style/animations';
 import { truncateString } from '../../lib/utils';
+import { ScrollToFaq } from './story-concept-faq/StoryConceptFaq.styles';
 
 export default function StoryInquiryPage({
   storyInquiryPageData,
@@ -151,6 +152,7 @@ export default function StoryInquiryPage({
         storyConceptPopupData={storyConceptPopupData}
         storySubmissionConfirmationData={storySubmissionConfirmationData}
       />
+      <ScrollToFaq id="faq" />
       <StoryConceptFaq
         storyConceptFaqData={storyConceptFaqData}
         sparkArrowAuthorTestimoniesText={sparkArrowAuthorTestimoniesText}
