@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { max } from '../../../../lib/responsive';
 import { colors } from '../../../../style/colors';
 import { P, H4 } from '../../../../style/typography';
 
-export const MoreResourcesModalWrapper = styled.div`
+export const MoreResourcesModalWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 3em 4em;
@@ -13,7 +14,7 @@ export const MoreResourcesModalWrapper = styled.div`
   background-color: ${colors.CREME};
   position: fixed;
   top: calc(50% - 13em);
-  left: calc(50% - 12em);
+  right: 12em;
   z-index: 15;
 
   &:before {
@@ -27,6 +28,10 @@ export const MoreResourcesModalWrapper = styled.div`
     right: 0;
     z-index: -1;
     content: '';
+  }
+
+  @media ${max.tabletLg} {
+    right: calc(50% - 12em);
   }
 
   @media ${max.tabletSm} {

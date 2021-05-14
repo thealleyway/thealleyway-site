@@ -16,7 +16,12 @@ export default function MoreResourcesModal({
   return (
     <>
       <Overlay showOverlay={true} />
-      <MoreResourcesModalWrapper url={moreResourcesBackground.url}>
+      <MoreResourcesModalWrapper
+        url={moreResourcesBackground.url}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'spring', duration: 2 }}
+      >
         <MoreResourcesTitle>More Resources</MoreResourcesTitle>
         {moreResources.map((resource, index) => (
           <MoreResourcesLink
