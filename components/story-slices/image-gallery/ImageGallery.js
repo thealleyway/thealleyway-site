@@ -9,18 +9,30 @@ import {
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 
-const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
+const PREVIEW_CHANGE_IN_MILLISECONDS = 4000;
 
 export default function ImageGallery({ images }) {
   const [firstActiveIndex, setFirstActiveIndex] = useState(0);
+  const [fadeInImages, setFadeInImages] = useState(true);
   const getNextIndex = (index) => (index + 1) % images.length;
 
   useEffect(() => {
-    const id = setTimeout(
-      () => setFirstActiveIndex(getNextIndex(firstActiveIndex)),
-      PREVIEW_CHANGE_IN_MILLISECONDS,
-    );
-    return () => clearTimeout(id);
+    var fadeIn;
+    var fadeOut;
+    const id = setTimeout(() => {
+      fadeIn = setTimeout(() => {
+        setFadeInImages(true);
+        setFirstActiveIndex(getNextIndex(firstActiveIndex));
+      }, PREVIEW_CHANGE_IN_MILLISECONDS);
+      fadeOut = setTimeout(() => {
+        setFadeInImages(false);
+      }, PREVIEW_CHANGE_IN_MILLISECONDS / 2);
+    }, PREVIEW_CHANGE_IN_MILLISECONDS);
+    return () => {
+      clearTimeout(id);
+      clearTimeout(fadeIn);
+      clearTimeout(fadeOut);
+    };
   }, [firstActiveIndex]);
 
   const placeHolderRef = useRef(null);
@@ -47,14 +59,17 @@ export default function ImageGallery({ images }) {
       <GalleryImage1
         src={currentImages[0].gallery_image.url}
         alt={currentImages[0].gallery_image.alt}
+        fadeIn={fadeInImages}
       />
       <GalleryImage2
         src={currentImages[1].gallery_image.url}
         alt={currentImages[1].gallery_image.alt}
+        fadeIn={fadeInImages}
       />
       <GalleryImage3
         src={currentImages[2].gallery_image.url}
         alt={currentImages[2].gallery_image.alt}
+        fadeIn={fadeInImages}
       />
       {visible && (
         <FadedImage1

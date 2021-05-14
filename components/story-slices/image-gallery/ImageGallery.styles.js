@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
 import { motion } from 'framer-motion';
+import {
+  FadeIn,
+  FadeOut,
+} from '../../animation-base-components/AnimationBaseComponents';
 
 export const GalleryWrapper = styled.div`
   display: flex;
@@ -36,6 +40,9 @@ export const GalleryImage1 = styled.img`
   @media ${max.tabletSm} {
     display: none;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `0.5s` : '3s')};
 `;
 
 export const GalleryImage2 = styled.img`
@@ -55,6 +62,9 @@ export const GalleryImage2 = styled.img`
     padding: 4%;
     width: 80%;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `1.8s` : '1.8s')};
 `;
 
 export const GalleryImage3 = styled.img`
@@ -76,6 +86,9 @@ export const GalleryImage3 = styled.img`
   @media ${max.tabletSm} {
     display: none;
   }
+
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)} forwards;
+  animation-duration: ${(props) => (props.fadeIn ? `3s` : '0.5s')};
 `;
 
 export const FadedImage1 = styled(motion.img)`
