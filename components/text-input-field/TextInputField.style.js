@@ -4,7 +4,7 @@ import { colors } from '../../style/colors';
 import { motion } from 'framer-motion';
 
 const TextLabel = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   display: block;
   margin: 0;
   font-size: 0.8em;
@@ -29,9 +29,11 @@ const TextInput = styled(P).attrs({
 })`
   display: block;
   border: none;
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   border-bottom: ${(props) =>
-    props.showError ? `1px solid ${colors.RED}` : `1px solid ${colors.BROWN}`};
+    props.showError
+      ? `1px solid ${colors.RED}`
+      : `1px solid ${colors.STONEPATH}`};
   width: 100%;
   border-radius: 0%;
   &:focus {

@@ -51,7 +51,7 @@ export default function CurrentFeaturedStory({
         <PreviewText>{getString(previewText)}</PreviewText>
         <PageLink href={url} passHref>
           <CurrentFeaturedStoryButton
-            color={colors.BROWN}
+            color={colors.STONEPATH}
             url={icons.UNFILLED_LONG_ARROW}
           >
             <CurrentFeaturedStoryButtonText>

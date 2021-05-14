@@ -33,7 +33,7 @@ export default function ArchiveSorting({ sortType, order }) {
         transition={{ type: 'spring', duration: 4 }}
       >
         <PageLink href={sortUrl(order)}>
-          <SortLabel selected={sortType == order} color={colors.BROWN}>
+          <SortLabel selected={sortType == order} color={colors.STONEPATH}>
             {label}
           </SortLabel>
         </PageLink>

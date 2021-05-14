@@ -16,7 +16,7 @@ export const NavigationWrapper = styled(motion.nav)`
   width: 100%;
   padding: 1.5em 5em 2em 5em;
   z-index: 60;
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   height: 5em;
 
   @media ${max.tablet} {
@@ -35,7 +35,7 @@ export const Logo = styled.img`
 
 export const LogoWrapper = styled.div`
   font-family: ${fonts.swearDisplay};
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-weight: ${fontWeights.medium};
   font-size: 1.2em;
   padding-left: 1.5em;
@@ -70,7 +70,7 @@ export const LinkWrapper = styled(HoverAnimationButton)`
   text-align: left;
   font-size: 1em;
   font-family: ${fonts.poppins};
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-weight: ${(props) =>
     props.selected ? fontWeights.medium : fontWeights.normal};
   text-transform: uppercase;
@@ -101,8 +101,8 @@ export const HamburgerMenu = styled.div`
   right: 0;
   width: 50%;
   height: 100%;
-  background-color: ${colors.CREME};
-  border: 2px solid ${colors.BLACK};
+  background-color: ${colors.CANVAS};
+  border: 2px solid ${colors.NIGHTSKY};
   z-index: 15;
 
   @media ${max.tablet} {

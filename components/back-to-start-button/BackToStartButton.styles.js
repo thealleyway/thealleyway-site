@@ -19,7 +19,7 @@ const Button = styled(motion.a)`
 `;
 
 const ButtonText = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   margin: 0;
   letter-spacing: 0.13em;
   width: ${(props) => props.showHorizontal && '12em'};

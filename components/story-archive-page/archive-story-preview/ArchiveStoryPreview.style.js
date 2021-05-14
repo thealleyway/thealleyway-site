@@ -14,7 +14,7 @@ const STORY_PREVIEW_DIMENSION = {
 
 const StoryPreviewContainer = styled(motion.div)`
   position: relative;
-  color: ${colors.WHITE};
+  color: ${colors.FRESHSNOW};
   width: ${STORY_PREVIEW_DIMENSION.width};
   height: ${STORY_PREVIEW_DIMENSION.height};
   margin: 0 ${STORY_SPACING}px calc(${STORY_SPACING}px * 1.5) ${STORY_SPACING}px;

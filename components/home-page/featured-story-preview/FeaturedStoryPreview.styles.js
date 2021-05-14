@@ -59,7 +59,7 @@ export const DoubleArchways = styled(motion.img)`
 // Below only for mobile
 export const FeaturedStoryPreviewTitle = styled(H1)`
   font-size: 9vw;
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   position: absolute;
   top: 0;
   left: 8%;
@@ -71,7 +71,7 @@ export const FeaturedStoryPreviewTitle = styled(H1)`
 `;
 
 export const FeaturedStoryPreviewText = styled(P)`
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   position: absolute;
   top: 30%;
   left: 20%;

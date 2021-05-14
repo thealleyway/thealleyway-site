@@ -34,7 +34,7 @@ export const AuthorTextWrapper = styled.div`
 export const AuthorName = styled.h5`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.normal};
-  color: ${colors.BURNTORANGE};
+  color: ${colors.SUNSETORANGE};
   font-size: 1.2em;
   margin: 0em;
   text-transform: uppercase;
@@ -45,7 +45,7 @@ export const AuthorName = styled.h5`
 
 export const AdditionalInfo = styled(P)`
   margin: 0em;
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-size: 1em;
   overflow: hidden;
   text-overflow: ellipsis;

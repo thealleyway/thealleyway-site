@@ -49,7 +49,7 @@ export const CurrentFeaturedStoryTextWrapper = styled.div`
 `;
 
 export const CurrentFeaturedStoryH1 = styled(H1)`
-  color: ${colors.BLACK};
+  color: ${colors.NIGHTSKY};
   font-size: clamp(2.5em, 3.5vw, 3.5em);
   margin: 0 auto 0 -260px;
   overflow: hidden;
@@ -83,7 +83,7 @@ export const CurrentFeaturedStoryButton = styled(HoverAnimationButton)`
 `;
 
 export const CurrentFeaturedStoryButtonText = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   text-transform: uppercase;
   text-align: left;
   letter-spacing: 0.13em;

@@ -138,7 +138,7 @@ export default function NewsletterSignUp({
               whileTap={{ scale: 0.99 }}
             >
               <SubmitButton
-                color={colors.WHITE}
+                color={colors.FRESHSNOW}
                 type="submit"
                 role="button"
                 onClick={onSubmitClick}

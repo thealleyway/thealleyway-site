@@ -93,7 +93,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const StoryTitle = styled(H1)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   margin: 0;
   font-size: clamp(2em, 2vw, 3em);
   overflow-wrap: break-word;
@@ -107,7 +107,7 @@ export const StoryTitle = styled(H1)`
 `;
 
 export const StoryDate = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
 `;
 
 export const PrimaryImage2 = styled(motion.img)`

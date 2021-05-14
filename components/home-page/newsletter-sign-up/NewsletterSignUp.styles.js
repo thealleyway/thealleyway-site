@@ -23,7 +23,7 @@ export const NewsletterSignUpWrapper = styled(motion.div)`
 `;
 
 export const NewsletterSignUpTitle = styled(H2)`
-  color: ${colors.BURNTORANGE};
+  color: ${colors.SUNSETORANGE};
   font-size: clamp(2em, 3vw, 3em);
   margin-left: max(-12%, -200px);
   text-transform: lowercase;
@@ -71,8 +71,8 @@ export const SubmitButtonContainer = styled(motion.button)`
 export const SubmitButton = styled(P).attrs({
   as: HoverAnimationButton,
 })`
-  color: ${colors.WHITE};
-  background-color: ${colors.OLIVE};
+  color: ${colors.FRESHSNOW};
+  background-color: ${colors.DEWYGRASS};
   border: none;
   width: 150px;
   height: 48px;

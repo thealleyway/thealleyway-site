@@ -33,7 +33,7 @@ export default function Question({
           }
         }}
         selected={isSelected}
-        color={colors.BROWN}
+        color={colors.STONEPATH}
       >
         {getString(question)}{' '}
         {isSelected && (

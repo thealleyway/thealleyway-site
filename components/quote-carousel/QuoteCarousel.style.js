@@ -58,11 +58,11 @@ const TitleWrapper = styled(H2)`
 `;
 
 const DescriptionWrapper = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
 `;
 
 const QuoteWrapper = styled(H3)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-style: initial !important;
   margin: 0;
   padding: 0;
@@ -95,7 +95,7 @@ const QuoteWrapper = styled(H3)`
 `;
 
 const AuthorsWrapper = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   float: right;
   animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
   animation-duration: 3s;
@@ -195,7 +195,7 @@ const ArchImage = styled.span`
   background: url(${(props) => props.url});
   width: var(--arch-width);
   height: 50%;
-  border: var(--border-width) solid ${colors.WHITE};
+  border: var(--border-width) solid ${colors.FRESHSNOW};
   border-top: 0;
 
   &:after {
@@ -206,7 +206,7 @@ const ArchImage = styled.span`
     width: 100%;
     border-top-left-radius: calc(var(--arch-height) / 2);
     border-top-right-radius: calc(var(--arch-height) / 2);
-    border: var(--border-width) solid ${colors.WHITE};
+    border: var(--border-width) solid ${colors.FRESHSNOW};
     background-image: inherit;
     background-size: 120%;
     content: '';

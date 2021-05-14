@@ -50,10 +50,10 @@ const PopupBox = styled(motion.div)`
 `;
 
 const Box = styled.div`
-  background: ${colors.CREME};
+  background: ${colors.CANVAS};
   position: relative;
   margin: 0 auto;
-  border: 0.15em solid ${colors.BLACK};
+  border: 0.15em solid ${colors.NIGHTSKY};
   overflow: auto;
   height: ${(props) => {
     switch (props.page) {

@@ -71,7 +71,7 @@ const LongArrowContainer = styled.div`
 const LongArrow = styled(animated.img)``;
 
 const Title = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   font-weight: ${fontWeights.medium};
   letter-spacing: 0.13em;
   margin: 0;

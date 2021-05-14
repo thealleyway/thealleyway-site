@@ -87,12 +87,12 @@ const SocialInfoTextWrapper = styled.div`
 `;
 
 const SignatureCanvasWrapper = styled.div`
-  background-color: ${colors.BLACK};
-  border: 1px solid ${colors.BROWN};
+  background-color: ${colors.NIGHTSKY};
+  border: 1px solid ${colors.STONEPATH};
 `;
 
 const TextLabel = styled(P)`
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   display: block;
   margin: 0;
 `;

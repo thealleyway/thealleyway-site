@@ -183,7 +183,7 @@ const TopQuoteWrapper = styled(H3)`
   position: relative;
   top: -7em;
   width: 10em;
-  color: ${colors.OLIVE};
+  color: ${colors.DEWYGRASS};
 
   @media ${max.tabletLg} {
     top: 0;

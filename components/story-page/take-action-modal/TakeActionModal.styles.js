@@ -13,8 +13,8 @@ export const TakeActionModalWrapper = styled(motion.div)`
   height: 70vh;
   width: 50vw;
   z-index: 15;
-  background-color: ${colors.CREME};
-  border: 2px solid ${colors.BLACK};
+  background-color: ${colors.CANVAS};
+  border: 2px solid ${colors.NIGHTSKY};
   border-left: 0;
 
   &:before {
@@ -66,9 +66,9 @@ export const TakeActionButtonBox = styled.div`
   display: ${(props) => (props.show ? 'block' : 'none')};
   cursor: pointer;
   position: fixed;
-  border: 2px ${colors.BLACK} solid;
+  border: 2px ${colors.NIGHTSKY} solid;
   border-left: none;
-  background-color: ${colors.CREME};
+  background-color: ${colors.CANVAS};
   height: 8em;
   width: 2.75em;
   top: calc(50% - 4em);

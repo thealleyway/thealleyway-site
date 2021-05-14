@@ -13,14 +13,14 @@ const VerticalStyling = css`
 
 const PercentageIndicatorStyles = css`
   height: 3px;
-  background-color: ${colors.BROWN};
+  background-color: ${colors.STONEPATH};
   width: ${(props) => `${props.readingProgress}%`};
   z-index: 20;
 `;
 
 const DefaultProgressbarStyles = css`
   height: 3px;
-  background-color: ${colors.WHITE};
+  background-color: ${colors.FRESHSNOW};
   width: 100%;
   z-index: 19;
 `;

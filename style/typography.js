@@ -21,7 +21,7 @@ const fontWeights = {
 const H1 = styled(motion.h1)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
-  color: ${colors.BURNTORANGE};
+  color: ${colors.SUNSETORANGE};
   font-size: 6em;
   @media ${min.tablet} {
     font-size: 10.5em;
@@ -34,7 +34,7 @@ const H1 = styled(motion.h1)`
 const H2 = styled(motion.h2)`
   font-family: ${fonts.swearDisplay};
   font-weight: ${fontWeights.medium};
-  color: ${colors.BURNTORANGE};
+  color: ${colors.SUNSETORANGE};
   font-size: 2em;
   @media ${min.tablet} {
     font-size: 2.6em;
@@ -51,7 +51,7 @@ const H3 = styled.h3`
 const H4 = styled.h3`
   font-family: ${fonts.poppins};
   font-weight: ${fontWeights.medium};
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   letter-spacing: 0.13em;
   font-size: 1em;
 `;
@@ -64,7 +64,7 @@ const P = styled(motion.p)`
 `;
 
 const InputInfoText = styled(P)`
-  color: ${colors.MAUVE};
+  color: ${colors.ROSEMAUVE};
   font-size: 0.8em;
   text-transform: lowercase;
   text-align: right;

@@ -10,8 +10,8 @@ export const MoreResourcesModalWrapper = styled(motion.div)`
   padding: 3em 4em;
   width: 24em;
   height: 26em;
-  border: 2px ${colors.BLACK} solid;
-  background-color: ${colors.CREME};
+  border: 2px ${colors.NIGHTSKY} solid;
+  background-color: ${colors.CANVAS};
   position: fixed;
   top: calc(50% - 13em);
   right: 12em;
@@ -42,7 +42,7 @@ export const MoreResourcesModalWrapper = styled(motion.div)`
 `;
 
 export const MoreResourcesTitle = styled(H4)`
-  color: ${colors.MAUVE};
+  color: ${colors.ROSEMAUVE};
   text-transform: uppercase;
 `;
 

@@ -42,10 +42,10 @@ export const ArchModalContentWrapper = styled.div`
 `;
 
 export const ArchFilledIn = styled.span`
-  background-color: ${colors.SANDYYELLOW};
+  background-color: ${colors.GOLDENWHEAT};
   width: var(--arch-width);
   height: 50%;
-  border: var(--border-width) solid ${colors.BLACK};
+  border: var(--border-width) solid ${colors.NIGHTSKY};
   border-top 0px;
 
   position: absolute;
@@ -60,7 +60,7 @@ export const ArchFilledIn = styled.span`
     width: 100%;
     border-top-left-radius: calc(var(--arch-height) / 2);
     border-top-right-radius: calc(var(--arch-height) / 2);
-    border: var(--border-width) solid ${colors.BLACK};
+    border: var(--border-width) solid ${colors.NIGHTSKY};
     border-bottom: 0px;
     background-color: inherit;
     content: '';
@@ -112,8 +112,8 @@ export const ArchModalCloseButton = styled(motion.button)`
   right: 0;
   top: 0;
   cursor: pointer;
-  background-color: ${colors.SANDYYELLOW};
-  border: 2px solid ${colors.BLACK};
+  background-color: ${colors.GOLDENWHEAT};
+  border: 2px solid ${colors.NIGHTSKY};
   width: 50px;
   height: 50px;
   border-radius: 50%;

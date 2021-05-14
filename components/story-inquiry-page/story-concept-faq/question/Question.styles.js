@@ -15,7 +15,7 @@ const QuestionStyled = styled(H4).attrs({
   margin: 0.5em 0;
   font-weight: ${(props) =>
     props.selected ? fontWeights.medium : fontWeights.normal};
-  color: ${colors.BROWN};
+  color: ${colors.STONEPATH};
   padding-bottom: 0.3em;
   text-align: left;
 `;
