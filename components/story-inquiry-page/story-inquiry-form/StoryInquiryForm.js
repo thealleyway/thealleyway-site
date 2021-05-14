@@ -75,7 +75,7 @@ export default function StoryInquiryForm({
       errors[fieldNames.SIGNATURE] = 'SIGNATURE IS REQUIRED!';
     }
     if (
-      fields[fieldNames.STORY_CONCEPT] ||
+      !fields[fieldNames.STORY_CONCEPT] ||
       fields[fieldNames.STORY_CONCEPT].length < MESSAGE_LENGTH_MINIMUM
     ) {
       formIsValid = false;
@@ -83,7 +83,7 @@ export default function StoryInquiryForm({
         fieldNames.STORY_CONCEPT
       ] = `STORY CONCEPT MUST BE AT LEAST ${MESSAGE_LENGTH_MINIMUM} CHARACTERS`;
     }
-    if (fields[fieldNames.PETITION_LINK]) {
+    if (!fields[fieldNames.PETITION_LINK]) {
       formIsValid = false;
       errors[fieldNames.PETITION_LINK] = 'PETITION LINK IS REQUIRED!';
     }
