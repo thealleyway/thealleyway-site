@@ -71,18 +71,9 @@ export const DonateLink = styled.a`
   margin: -8em 9em 0 0;
 `;
 
-export const DonateCircularText = styled.img`
+export const DonateCircularText = styled(motion.img)`
   position: absolute;
   width: 7.5em;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const FilledDonateCircularText = styled(motion.img)`
-  position: absolute;
-  width: 9.2em;
-  margin: -0.5em 0 0 -0.55em;
   &:hover {
     cursor: pointer;
   }
