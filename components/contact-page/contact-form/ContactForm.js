@@ -39,7 +39,10 @@ export default function ContactForm({ togglePopup }) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
-    if (!fields[fieldNames.MESSAGE]) {
+    if (
+      !fields[fieldNames.MESSAGE] ||
+      fields[fieldNames.MESSAGE].length < MESSAGE_LENGTH_MINIMUM
+    ) {
       formIsValid = false;
       errors[
         fieldNames.MESSAGE
