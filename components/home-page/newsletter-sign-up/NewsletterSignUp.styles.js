@@ -72,7 +72,7 @@ export const SubmitButton = styled(P).attrs({
   as: HoverAnimationButton,
 })`
   color: ${colors.FRESHSNOW};
-  background-color: ${colors.OLIVE};
+  background-color: ${colors.DEWYGRASS};
   border: none;
   width: 150px;
   height: 48px;

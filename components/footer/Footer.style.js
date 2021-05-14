@@ -14,7 +14,7 @@ const FooterContainer = styled(motion.div)`
 `;
 
 const FooterSocialsContainer = styled.div`
-  background-color: ${colors.OLIVE};
+  background-color: ${colors.DEWYGRASS};
   width: 100%;
   min-height: 15em;
   display: flex;
