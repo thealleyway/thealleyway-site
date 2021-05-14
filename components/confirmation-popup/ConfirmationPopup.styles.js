@@ -20,19 +20,28 @@ const PopupBox = styled(motion.div)`
 
   @media ${min.tablet} {
     top: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '30%';
-        case 'inquiry':
-          return '26%';
-        default:
-          return '25%';
-      }
-    }}
+    switch (props.page) {
+      case 'home':
+        return '30%';
+      case 'inquiry':
+        return '26%';
+      default:
+        return '25%';
+    }
+  }};
   }
   
   @media ${min.desktop} {
-    top: 15%;
+    top: ${(props) => {
+    switch (props.page) {
+      case 'home':
+        return '25%';
+      case 'inquiry':
+        return '35%';
+      default:
+        return '0%';
+    }
+  }}
     left: 1em;
   }
   @media ${min.desktopLg} {
@@ -61,53 +70,53 @@ const Box = styled.div`
   top: ${(props) => {
     switch (props.page) {
       case 'home':
-        return '-6em';
+        return '-10em';
+      case 'inquiry':
+        return '-10em';
+      default:
+        return '-4em';
+    }
+  }};
+  @media ${min.tabletSm} {
+    height: ${(props) => {
+    switch (props.page) {
+      case 'home':
+        return '34em';
+      case 'inquiry':
+        return '38em';
+      default:
+        return '25em';
+    }
+  }};
+  }
+  @media ${min.tablet} {
+    height: 29em;
+    width: ${(props) => (props.page == 'inquiry' ? '90%' : '80%')};
+    top: ${(props) => {
+    switch (props.page) {
+      case 'home':
+        return '-4em';
       case 'inquiry':
         return '-3em';
       default:
         return '0';
     }
   }};
-  @media ${min.tabletSm} {
-    height: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '34em';
-        case 'inquiry':
-          return '37em';
-        default:
-          return '25em';
-      }
-    }};
-  }
-  @media ${min.tablet} {
-    height: 29em;
-    width: ${(props) => (props.page == 'inquiry' ? '90%' : '80%')};
-    top: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '-2em';
-        case 'inquiry':
-          return '-3em';
-        default:
-          return '0';
-      }
-    }};
   }
   @media ${min.desktop} {
     top: -2%;
     padding: 20px;
     width: 58%;
     top: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '-3em';
-        case 'inquiry':
-          return '-10em';
-        default:
-          return '-3';
-      }
-    }};
+    switch (props.page) {
+      case 'home':
+        return '-7em';
+      case 'inquiry':
+        return '-6em';
+      default:
+        return '-3em';
+    }
+  }};
   }
   @media ${min.desktopLg} {
     top: 22%;
@@ -122,28 +131,28 @@ const TextContent = styled.div`
     width: ${(props) => (props.page == 'home' ? '50%' : '60%')};
     padding: 0 0 0 3em;
     margin-top: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '3em';
-        case 'inquiry':
-          return '-1em';
-        default:
-          return '8em';
-      }
-    }};
+    switch (props.page) {
+      case 'home':
+        return '3em';
+      case 'inquiry':
+        return '-1em';
+      default:
+        return '8em';
+    }
+  }};
   }
   @media ${min.desktop} {
     width: 50%;
     margin-top: ${(props) => {
-      switch (props.page) {
-        case 'home':
-          return '3em';
-        case 'inquiry':
-          return '-1em';
-        default:
-          return '9em';
-      }
-    }};
+    switch (props.page) {
+      case 'home':
+        return '3em';
+      case 'inquiry':
+        return '-1em';
+      default:
+        return '9em';
+    }
+  }};
     margin-left: 1em;
     font-size: 0.9em;
   }
@@ -168,7 +177,7 @@ const PStyled = styled(P)`
   margin-top: -1em;
   @media ${min.mobile} {
     font-size: ${(props) =>
-      props.page == 'inquiry' ? 'clamp(0.8em, 3vw, 1em)' : '1em'};
+    props.page == 'inquiry' ? 'clamp(0.8em, 3vw, 1em)' : '1em'};
   }
 `;
 
