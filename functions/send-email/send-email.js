@@ -11,7 +11,9 @@ const sendMail = promisify(sendMailLib());
 
 const NAME_MIN_LENGTH = 1;
 const NAME_MAX_LENGTH = 50;
-const DETAILS_MIN_LENGTH = 10;
+const SUBJECT_MIN_LENGTH = 1;
+const SUBJECT_MAX_LENGTH = 50;
+const DETAILS_MIN_LENGTH = 20;
 const DETAILS_MAX_LENGTH = 1e7;
 
 const handler = async (event) => {
@@ -44,6 +46,20 @@ const handler = async (event) => {
 
   try {
     validateLength(
+      'body.subject',
+      body.subject,
+      SUBJECT_MIN_LENGTH,
+      SUBJECT_MAX_LENGTH,
+    );
+  } catch (error) {
+    return {
+      statusCode: 403,
+      body: error.message,
+    };
+  }
+
+  try {
+    validateLength(
       'body.details',
       body.details,
       DETAILS_MIN_LENGTH,
@@ -59,7 +75,7 @@ const handler = async (event) => {
   const descriptor = {
     from: `"${body.email}" <no-reply@the-alleyway.com>`,
     to: process.env.CONTACT_EMAIL,
-    subject: `The Alleyway Story Inquiry from: ${body.name}`,
+    subject: body.subject,
     text: body.details,
   };
 

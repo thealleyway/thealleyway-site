@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { colors } from '../../../style/colors';
-import { fieldNames, sendStoryEmail } from '../../../lib/utils';
+import {
+  fieldNames,
+  MESSAGE_LENGTH_MINIMUM,
+  sendStoryEmail,
+} from '../../../lib/utils';
 import { useValidEmail } from '../../../lib/hooks';
 import {
   Overlay,
@@ -70,9 +74,14 @@ export default function StoryInquiryForm({
       formIsValid = false;
       errors[fieldNames.SIGNATURE] = 'SIGNATURE IS REQUIRED!';
     }
-    if (fields[fieldNames.STORY_CONCEPT]) {
+    if (
+      fields[fieldNames.STORY_CONCEPT] ||
+      fields[fieldNames.STORY_CONCEPT].length < MESSAGE_LENGTH_MINIMUM
+    ) {
       formIsValid = false;
-      errors[fieldNames.STORY_CONCEPT] = 'STORY CONCEPT IS REQUIRED!';
+      errors[
+        fieldNames.STORY_CONCEPT
+      ] = `STORY CONCEPT MUST BE AT LEAST ${MESSAGE_LENGTH_MINIMUM} CHARACTERS`;
     }
     if (fields[fieldNames.PETITION_LINK]) {
       formIsValid = false;
@@ -125,7 +134,8 @@ export default function StoryInquiryForm({
       )}\nSignature: ${trimmedDataUrl}\n`;
 
       try {
-        await sendStoryEmail(name, fields[fieldNames.EMAIL], details);
+        const subject = `The Alleyway Story Inquiry from: ${name}`;
+        await sendStoryEmail(name, subject, fields[fieldNames.EMAIL], details);
         return true;
       } catch (error) {
         alert(
