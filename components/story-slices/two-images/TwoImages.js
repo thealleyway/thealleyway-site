@@ -16,10 +16,17 @@ export default function FullSizeImageSlice({ image1, image2 }) {
           src={image1.url}
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', duration: 4 }}
+          transition={{ type: 'spring', duration: 4, delay: 0.2 }}
         />
       )}
-      <Image src={image2.url} />
+      {visible && (
+        <Image
+          src={image2.url}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: 'spring', duration: 4, delay: 0.2 }}
+        />
+      )}
     </TwoImagesWrapper>
   );
 }
