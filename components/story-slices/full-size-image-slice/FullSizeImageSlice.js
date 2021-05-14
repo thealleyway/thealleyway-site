@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { FullSizeImage, ImageWrapper } from './FullSizeImageSlice.styles';
+import { useMatchMedia } from '../../../lib/hooks';
+import { breakpointsObj } from '../../../lib/responsive';
 
 export default function FullSizeImageSlice({ image }) {
   const placeHolderRef = useRef(null);
@@ -10,7 +12,11 @@ export default function FullSizeImageSlice({ image }) {
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  return (
+  const isTabletOrMobile = useMatchMedia(
+    `(max-width: ${breakpointsObj.tabletLg}px)`,
+  );
+
+  return !isTabletOrMobile ? (
     <ImageWrapper ref={placeHolderRef}>
       {visible && (
         <FullSizeImage
@@ -21,5 +27,7 @@ export default function FullSizeImageSlice({ image }) {
         />
       )}
     </ImageWrapper>
+  ) : (
+    <FullSizeImage src={image.url} ref={placeHolderRef} />
   );
 }

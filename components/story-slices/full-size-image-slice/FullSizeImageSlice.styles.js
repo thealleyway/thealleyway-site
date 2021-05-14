@@ -12,7 +12,7 @@ export const FullSizeImage = styled(motion.img)`
   height: 100%;
   object-fit: cover;
   @media ${max.tabletLg} {
-    width: 100vh;
+    width: 100%;
     height: auto;
   }
 
