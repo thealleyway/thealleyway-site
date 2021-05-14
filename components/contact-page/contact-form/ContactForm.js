@@ -138,7 +138,6 @@ export default function ContactForm({ togglePopup }) {
               onClick={async () => {
                 const response = await submitRequest();
                 if (response) {
-                  document.body.style.overflow = 'hidden';
                   document.querySelector('#area').value = '';
                   setFields({});
                   togglePopup();

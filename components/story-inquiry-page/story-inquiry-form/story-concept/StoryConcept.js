@@ -53,7 +53,6 @@ export default function StoryConcept({
         <StoryConceptInfoTextWrapper>
           <InputInfoText
             onClick={() => {
-              document.body.style.overflow = 'hidden';
               setIsStoryConceptPopupOpen(true);
             }}
           >

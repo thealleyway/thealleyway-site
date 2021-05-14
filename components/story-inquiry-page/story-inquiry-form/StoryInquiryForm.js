@@ -208,7 +208,6 @@ export default function StoryInquiryForm({
               onClick={async () => {
                 const response = await submitRequest();
                 if (response) {
-                  document.body.style.overflow = 'hidden';
                   document.querySelector('#area').value = '';
                   setFields({});
                   clear();

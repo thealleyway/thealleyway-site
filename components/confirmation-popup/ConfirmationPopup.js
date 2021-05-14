@@ -63,7 +63,6 @@ export default function ConfirmationPopup({
             src={icons.CLOSE_ICON}
             alt="Close icon symbol used to close popup"
             onClick={() => {
-              document.body.style.overflow = 'visible';
               togglePopup(false);
             }}
             whileHover={{ scale: 1.05 }}

@@ -75,7 +75,6 @@ export default function SocialInformation({
         <SocialInfoTextWrapper>
           <InputInfoText
             onClick={() => {
-              document.body.style.overflow = 'hidden';
               setIsVenmoPolicyOpen(true);
             }}
           >
@@ -86,7 +85,6 @@ export default function SocialInformation({
           <ArchModal
             text={venmoMoreInfoDescription}
             onClose={() => {
-              document.body.style.overflow = 'visible';
               setIsVenmoPolicyOpen(false);
             }}
           />
