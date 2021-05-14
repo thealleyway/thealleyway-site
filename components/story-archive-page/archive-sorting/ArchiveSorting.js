@@ -5,7 +5,7 @@ import {
   SortUnderline,
 } from './ArchiveSorting.style';
 import { icons } from '../../../style/icons';
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 import { colors } from '../../../style/colors';
@@ -30,18 +30,19 @@ export default function ArchiveSorting({ sortType, order }) {
       <SortLabelWrapper
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: "spring", duration: 4 }}>
-      <PageLink href={sortUrl(order)}>
-        <SortLabel selected={sortType == order} color={colors.BROWN}>
-          {label}
-        </SortLabel>
-      </PageLink>
-      <SortUnderline
-        enabled={sortType == order}
-        src={icons.ALMOST_STRAIGHT_SCRIBBLE}
-        alpha={ALPHA == order}
-        alt=""
-      />
+        transition={{ type: 'spring', duration: 4 }}
+      >
+        <PageLink href={sortUrl(order)}>
+          <SortLabel selected={sortType == order} color={colors.BROWN}>
+            {label}
+          </SortLabel>
+        </PageLink>
+        <SortUnderline
+          enabled={sortType == order}
+          src={icons.ALMOST_STRAIGHT_SCRIBBLE}
+          alpha={ALPHA == order}
+          alt=""
+        />
       </SortLabelWrapper>
     );
   }

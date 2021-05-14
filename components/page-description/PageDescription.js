@@ -29,9 +29,9 @@ export default function PageDescription({
 
   return (
     <div>
-      <PageDescriptionContainer style={descriptionAnimation}>
-        <LongSparkArrow arrowText={arrowText} scrollTo={scrollTo} />
-        <DescriptionContainer>
+      <PageDescriptionContainer>
+        <LongSparkArrow arrowText={arrowText} scrollTo={scrollTo} pageDescription />
+        <DescriptionContainer style={descriptionAnimation}>
           <Description>{renderRichText(description)}</Description>
         </DescriptionContainer>
       </PageDescriptionContainer>

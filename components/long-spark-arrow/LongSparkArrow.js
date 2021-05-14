@@ -12,6 +12,7 @@ import { PlaceHolder } from '../base-components/BaseComponents';
 import { motion } from 'framer-motion';
 
 export default function LongSparkArrow({ arrowText, scrollTo }) {
+  
   const placeHolderRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -24,7 +25,7 @@ export default function LongSparkArrow({ arrowText, scrollTo }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: 'spring', duration: 4, delay: 0.5 }}
+        transition={{ type: 'spring', duration: 4, delay: pageDescription ? 3 : 0.5 }}
         aria-hidden="true"
       >
         <ArrowContainer aria-hidden="true" href={`#${scrollTo}`}>

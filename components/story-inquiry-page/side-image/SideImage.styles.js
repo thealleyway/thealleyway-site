@@ -16,4 +16,4 @@ const SideImageStyled = styled(motion.img)`
   }
 `;
 
-export { SideImageStyled }
+export { SideImageStyled };
