@@ -6,7 +6,6 @@ import {
   QuestionAnswerContainer,
   QuestionContainer,
   AnswerContainer,
-  ScrollToFaq,
   SparkArrowContainer,
 } from './StoryConceptFaq.styles';
 import LongSparkArrow from '../../long-spark-arrow/LongSparkArrow';
@@ -39,7 +38,6 @@ export default function StoryConceptFaq({
   if (visible) {
     return (
       <>
-        <ScrollToFaq id="faq" />
         <SparkArrowContainer>
           <LongSparkArrow
             arrowText={sparkArrowAuthorTestimoniesText}
