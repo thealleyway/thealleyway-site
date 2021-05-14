@@ -90,12 +90,13 @@ const handler = async (event) => {
   try {
     console.log('7) before send mail', descriptor);
     await sendMail(descriptor);
+    console.log('8) after send mail', descriptor);
     return {
       statusCode: 200,
       body: `Email sent successfully from ${body.email}`,
     };
   } catch (error) {
-    console.log('8) error', error.message);
+    console.log('9) error', error.message);
     return { statusCode: 500, body: error.message };
   }
 };
