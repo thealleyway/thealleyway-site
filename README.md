@@ -15,13 +15,13 @@
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/Scout-NU/alejandra-site.git
+git clone https://github.com/Scout-NU/thealleyway-site.git
 ```
 
 2. **Change directories**
 
 ```bash
-cd alejandra-site
+cd thealleyway-site
 ```
 
 3. **Set up environment variables**
@@ -34,8 +34,16 @@ cp env_example .env
 ```
 
 ```sh
-PRISMIC_URL="XXXXXXXXXXXXXXX"
+PRISMIC_REPOSITORY_NAME="XXXXXXXXXXXXXXX"
+NEXT_PUBLIC_MAILERLITE_API="XXXXXXXXXXXXXXX"
+NEXT_PUBLIC_MAILERLITE_LIST_ID="XXXXXXXXXXXXXXX"
+SEND_EMAIL_API_ENDPOINT="XXXXXXXXXXXXXXXX"
 ```
+
+- PRISMIC_REPOSITORY_NAME should be the name of the Prismic Repository
+- NEXT_PUBLIC_MAILERLITE_API should be a MailerLite API, you can find this after creating an account
+- NEXT_PUBLIC_MAILERLITE_LIST_ID, after creating a group for subscribers in MailerLite you will see a List ID for it
+- SEND_EMAIL_API_ENDPOINT Google Scripts API endpoint
 
 4. **Install the packages**
 
@@ -57,30 +65,42 @@ Now the server will run locally, most likely on `http://localhost:3000`. Your wo
 A quick look at the top-level file structure used
 
     .
+    ├── /components
+    ├── /functions
+    ├── /lib
     ├── /node_modules
     ├── /pages
     ├── /public
+    ├── /style
     ├── /styles
     ├── .gitignore
     ├── package-lock.json
     ├── package.json
     └── README.md
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages)are automatically installed.
+1.  **`/components`**: This directory contains all of the components and styling for the entire project
 
-2.  **`/pages`**: This directory contains the routes, with each route in a seperate file. Next.js then pre-renders every page in the **`/pages`** directory.
+2.  **`/functions`**: This directory contains all of the Netlify functions created for sending emails
 
-3.  **`/public`**: This directory is used by Next.js to statically serve files.
+3.  **`/lub`**: This directory contains all of the cross-project reusable functions
 
-4.  **`/styles`**: This directory contains the global styles utilized in the project.
+4.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages)are automatically installed.
 
-5.  **`.gitignore`**: This file tells git which files will not maintain a version history, thus don't need to be tracked.
+5.  **`/pages`**: This directory contains the routes, with each route in a seperate file. Next.js then pre-renders every page in the **`/pages`** directory.
 
-6.  **`package-lock.json`**: (First see `package.json`, below) This is an automatically generated file based on the exact versions of your npm dependencies used for the project. **You won't change this file directly.**
+6.  **`/public`**: This directory is used by Next.js to statically serve files.
 
-7.  **`package.json`**: A manifest file for Node.js projects, this file includes the metadata for the project. Metadat incluedes the project's name, author, etc. This manifest is how npm knows which packages to isntall to run the project.
+7.  **`/style`**: This directory contains cross-project reusable styling
 
-6.**`README.md`**: A reference text file containing information about the project.
+8.  **`/styles`**: This directory contains the global styles utilized in the project.
+
+9.  **`.gitignore`**: This file tells git which files will not maintain a version history, thus don't need to be tracked.
+
+10. **`package-lock.json`**: (First see `package.json`, below) This is an automatically generated file based on the exact versions of your npm dependencies used for the project. **You won't change this file directly.**
+
+11. **`package.json`**: A manifest file for Node.js projects, this file includes the metadata for the project. Metadat incluedes the project's name, author, etc. This manifest is how npm knows which packages to isntall to run the project.
+
+12. **`README.md`**: A reference text file containing information about the project.
 
 ## :gear: Technologies
 
