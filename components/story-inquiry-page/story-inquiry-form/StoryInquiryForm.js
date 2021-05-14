@@ -201,7 +201,7 @@ export default function StoryInquiryForm({
             long
           >
             <SubmitButton
-              color={colors.WHITE}
+              color={colors.FRESHSNOW}
               type="submit"
               role="button"
               long
