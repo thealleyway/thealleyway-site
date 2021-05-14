@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { max } from '../../../../lib/responsive';
 import { colors } from '../../../../style/colors';
 import { P, H4 } from '../../../../style/typography';
 
-export const MoreResourcesModalWrapper = styled.div`
+export const MoreResourcesModalWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 3em 4em;
