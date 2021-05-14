@@ -7,8 +7,10 @@ export const GalleryWrapper = styled.div`
   flex-direction: column;
   position: relative;
   height: 100vh;
+  width: 30em;
 
   @media ${max.tabletLg} {
+    height: 50vh;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -45,6 +47,7 @@ export const GalleryImage2 = styled.img`
   @media ${max.tabletLg} {
     z-index: 1;
     padding: 2%;
+    height: 40vh;
     width: 50%;
   }
 
@@ -65,6 +68,7 @@ export const GalleryImage3 = styled.img`
     z-index: 1;
     padding: 2%;
     width: 50%;
+    height: 40vh;
     position: absolute;
     right: -25%;
   }
