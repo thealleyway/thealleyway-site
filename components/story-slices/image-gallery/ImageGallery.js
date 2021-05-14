@@ -8,18 +8,30 @@ import {
   GalleryWrapper,
 } from '../image-gallery/ImageGallery.styles';
 
-const PREVIEW_CHANGE_IN_MILLISECONDS = 3000;
+const PREVIEW_CHANGE_IN_MILLISECONDS = 4000;
 
 export default function ImageGallery({ images }) {
   const [firstActiveIndex, setFirstActiveIndex] = useState(0);
+  const [fadeIn, setFadeIn] = useState(false);
   const getNextIndex = (index) => (index + 1) % images.length;
 
   useEffect(() => {
-    const id = setTimeout(
-      () => setFirstActiveIndex(getNextIndex(firstActiveIndex)),
-      PREVIEW_CHANGE_IN_MILLISECONDS,
-    );
-    return () => clearTimeout(id);
+    var fadeIn;
+    var fadeOut;
+    const id = setTimeout(() => {
+      fadeIn = setTimeout(() => {
+        setFadeIn(true);
+        setFirstActiveIndex(getNextIndex(firstActiveIndex));
+      }, PREVIEW_CHANGE_IN_MILLISECONDS);
+      fadeOut = setTimeout(() => {
+        setFadeIn(false);
+      }, PREVIEW_CHANGE_IN_MILLISECONDS / 2);
+    }, PREVIEW_CHANGE_IN_MILLISECONDS);
+    return () => {
+      clearTimeout(id);
+      clearTimeout(fadeIn);
+      clearTimeout(fadeOut);
+    };
   }, [firstActiveIndex]);
 
   const currentImages = useMemo(() => {
@@ -39,14 +51,17 @@ export default function ImageGallery({ images }) {
       <GalleryImage1
         src={currentImages[0].gallery_image.url}
         alt={currentImages[0].gallery_image.alt}
+        fadeIn={fadeIn}
       />
       <GalleryImage2
         src={currentImages[1].gallery_image.url}
         alt={currentImages[1].gallery_image.alt}
+        fadeIn={fadeIn}
       />
       <GalleryImage3
         src={currentImages[2].gallery_image.url}
         alt={currentImages[2].gallery_image.alt}
+        fadeIn={fadeIn}
       />
       <FadedImage1
         src={currentImages[0].gallery_image.url}
