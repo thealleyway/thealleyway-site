@@ -7,9 +7,11 @@ import {
   AuthorName,
   DonateLink,
   DonateCircularText,
+  FilledDonateCircularText,
   SocialMediaIcon,
   SocialMediaLink,
 } from './AuthorInfo.styles';
+import { useState } from 'react';
 
 export default function AuthorInfo({ authorInfo, donateLink }) {
   const {
@@ -19,10 +21,17 @@ export default function AuthorInfo({ authorInfo, donateLink }) {
     instagram,
     twitter,
   } = authorInfo;
+
+  const [hover, setHover] = useState(false);
+
   return (
     <AuthorInfoWrapper>
-      <DonateLink href={donateLink.url} target="_blank" rel="noreferrer">
-        <DonateCircularText src={icons.DONATE_CIRCULAR_TEXT} />
+      <DonateLink href={donateLink.url} target="_blank" rel="noreferrer"
+       onMouseOver={() => setHover(true)} 
+       onMouseOut={() => setHover(false)}
+       >
+         {!hover && <DonateCircularText src={ icons.DONATE_CIRCULAR_TEXT }/>}
+         {hover && <FilledDonateCircularText src={icons.FILLED_DONATE_CIRCULAR_TEXT} />}
       </DonateLink>
       <AuthorTextWrapper>
         <AuthorName>{getString(author_name)}</AuthorName>

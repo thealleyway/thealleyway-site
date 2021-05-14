@@ -66,11 +66,24 @@ export const SocialMediaIcon = styled.img`
   margin-right: 5%;
 `;
 
-export const DonateLink = styled.a``;
+export const DonateLink = styled.a`
+  margin: -8em 9em 0 0;
+`;
 
 export const DonateCircularText = styled.img`
-  width: 85%;
+  position: absolute;
+  width: 7.5em;
   &:hover {
     cursor: pointer;
   }
 `;
+
+export const FilledDonateCircularText = styled.img`
+position: absolute;
+width: 9.2em;
+margin: -0.5em 0 0 -.55em ;
+&:hover {
+  cursor: pointer;
+}
+`;
+
