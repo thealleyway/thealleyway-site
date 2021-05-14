@@ -22,6 +22,7 @@ export default function TextInputField({
   addResource,
   deleteResource,
   value,
+  biggerStar,
   ...inputProps
 }) {
   return (
@@ -31,7 +32,11 @@ export default function TextInputField({
           {label}
         </TextLabel>
         {required && (
-          <RedStar src={icons.RED_STAR} alt="red star for required fields" />
+          <RedStar
+            src={icons.RED_STAR}
+            alt="red star for required fields"
+            biggerStar={biggerStar}
+          />
         )}
       </StarLabelContainer>
       <TextInput
