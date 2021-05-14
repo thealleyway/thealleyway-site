@@ -8,14 +8,12 @@ import {
   SquiggleWavy,
   H1StyledContainer,
   LongLinesContainer,
-  TopSparkArrowContainer,
   SideImageContainer,
   QuoteCarouselContainer,
   ScrollToAuthorTestimonies,
 } from './StoryInquiryPage.styles';
 import StoryInquiryForm from './story-inquiry-form/StoryInquiryForm';
 import { icons } from '../../style/icons';
-import LongSparkArrow from '../long-spark-arrow/LongSparkArrow';
 import QuoteCarousel from '../quote-carousel/QuoteCarousel';
 import SideImage from './side-image/SideImage';
 import LongLines from './long-lines/LongLines';
@@ -59,7 +57,6 @@ export default function StoryInquiryPage({
     story_submission_confirmation_description: confirmationDescription,
     story_submission_confirmation_image: confirmationImage,
     spark_arrow_description_text: sparkArrowDescriptionText,
-    spark_arrow_faq_text: sparkArrowFaqText,
     spark_arrow_author_testimonies_text: sparkArrowAuthorTestimoniesText,
     footer_image: footerImage,
     story_inquiry_top_image: storyInquiryTopImage,
@@ -134,9 +131,6 @@ export default function StoryInquiryPage({
         img={storyInquiryTopImage}
         scrollTo={'submission form'}
       />
-      <TopSparkArrowContainer>
-        <LongSparkArrow arrowText={sparkArrowFaqText} scrollTo="faq" />
-      </TopSparkArrowContainer>
       <SideImageContainer>
         <SideImage image={storyInquirySideImage1} />
         <SideImage image={storyInquirySideImage2} />

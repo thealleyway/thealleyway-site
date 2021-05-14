@@ -3,18 +3,6 @@ import { min } from '../../lib/responsive';
 import { motion } from 'framer-motion';
 import { animated } from 'react-spring';
 
-const TopSparkArrowContainer = styled.div`
-  position: absolute;
-  display: none;
-  @media ${min.tablet} {
-    display: block;
-    margin: 4.5em 0 0 7.8em;
-  }
-  @media ${min.desktop} {
-    margin: 2em 0 0 10.9em;
-  }
-`;
-
 const SquiggleWavy = styled.img`
   position: absolute;
   width: 8.7em;
@@ -90,7 +78,6 @@ const LongLinesContainer = styled(motion.div)`
 export {
   SquiggleWavy,
   H1StyledContainer,
-  TopSparkArrowContainer,
   SideImageContainer,
   LongLinesContainer,
   QuoteCarouselContainer,
