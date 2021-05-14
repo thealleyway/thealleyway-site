@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const ImageWrapper = styled.div`
   height: 100vh;
-  width: 28em;
+  width: 35em;
 `;
 
 export const FullSizeImage = styled(motion.img)`
