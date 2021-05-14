@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import { max } from '../../../lib/responsive';
+import {
+  FadeIn,
+  FadeOut,
+} from '../../animation-base-components/AnimationBaseComponents';
 
 export const GalleryWrapper = styled.div`
   display: flex;
@@ -21,6 +25,8 @@ export const GalleryImage1 = styled.img`
   width: 30em;
   height: 40vh;
   object-fit: cover;
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: ${(props) => (props.fadeIn ? '3s' : '2s')};
 
   @media ${max.tabletLg} {
     z-index: 1;
@@ -40,6 +46,8 @@ export const GalleryImage2 = styled.img`
   width: 30em;
   height: 100vh;
   object-fit: cover;
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: ${(props) => (props.fadeIn ? '3s' : '2s')};
 
   @media ${max.tabletLg} {
     z-index: 1;
@@ -59,6 +67,8 @@ export const GalleryImage3 = styled.img`
   width: 30em;
   height: 30vh;
   object-fit: cover;
+  animation: ${(props) => (props.fadeIn ? FadeIn : FadeOut)};
+  animation-duration: ${(props) => (props.fadeIn ? '3s' : '2s')};
 
   @media ${max.tabletLg} {
     z-index: 1;

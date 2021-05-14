@@ -18,6 +18,8 @@ export default function Footer({ footerData, footerBoxLinkData }) {
     contact_email: contactEmail,
     instagram_link: { url: instagramLink },
     tiktok_link: { url: tiktokLink },
+    facebook_link: { url: facebookLink },
+    twitter_link: { url: twitterLink },
   } = footerData;
 
   const mailToLink = 'mailto:' + getString(contactEmail);
@@ -48,8 +50,8 @@ export default function Footer({ footerData, footerBoxLinkData }) {
           <SocialsWrapper>
             <FooterLink label="Instagram" link={instagramLink} />
             <FooterLink label="Tiktok" link={tiktokLink} />
-            <FooterLink label="Facebook" link="#" />
-            <FooterLink label="Twitter" link="#" />
+            <FooterLink label="Facebook" link={facebookLink} />
+            <FooterLink label="Twitter" link={twitterLink} />
           </SocialsWrapper>
         </FooterSocialsContainer>
       </FooterContainer>

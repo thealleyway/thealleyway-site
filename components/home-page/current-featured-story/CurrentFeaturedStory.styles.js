@@ -87,6 +87,7 @@ export const CurrentFeaturedStoryButtonText = styled(P)`
   text-transform: uppercase;
   text-align: left;
   letter-spacing: 0.13em;
+  font-size: 1.2em;
 `;
 
 export const PreviewText = styled(P)`
