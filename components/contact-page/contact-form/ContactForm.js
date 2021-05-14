@@ -9,10 +9,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { registerObserver } from '../../../lib/intersectionObserver';
 import { PlaceHolder } from '../../base-components/BaseComponents';
 import {
-  emailEndpoint,
-  axiosConfig,
-  proxyurl,
   fieldNames,
+  MESSAGE_LENGTH_MINIMUM,
+  sendStoryEmail,
 } from '../../../lib/utils';
 import { colors } from '../../../style/colors';
 import { useValidEmail } from '../../../lib/hooks';
@@ -20,8 +19,6 @@ import {
   SubmitButton,
   SubmitButtonContainer,
 } from '../../base-components/BaseComponents';
-
-const axios = require('axios');
 
 export default function ContactForm({ togglePopup }) {
   const [fields, setFields] = useState({});
@@ -31,17 +28,11 @@ export default function ContactForm({ togglePopup }) {
     let errors = {};
     let formIsValid = true;
 
-    if (
-      fields[fieldNames.FIRST_NAME] == undefined ||
-      fields[fieldNames.FIRST_NAME].length === 0
-    ) {
+    if (!fields[fieldNames.FIRST_NAME]) {
       formIsValid = false;
       errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
     }
-    if (
-      fields[fieldNames.EMAIL] == undefined ||
-      fields[fieldNames.EMAIL].length === 0
-    ) {
+    if (!fields[fieldNames.EMAIL]) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
     } else if (useValidEmail(fields[fieldNames.EMAIL])) {
@@ -49,11 +40,13 @@ export default function ContactForm({ togglePopup }) {
       errors[fieldNames.EMAIL] = 'INVALID EMAIL!';
     }
     if (
-      fields[fieldNames.MESSAGE] == undefined ||
-      fields[fieldNames.MESSAGE].length === 0
+      !fields[fieldNames.MESSAGE] ||
+      fields[fieldNames.MESSAGE].length < MESSAGE_LENGTH_MINIMUM
     ) {
       formIsValid = false;
-      errors[fieldNames.MESSAGE] = 'MESSAGE IS REQUIRED!';
+      errors[
+        fieldNames.MESSAGE
+      ] = `MESSAGE MUST BE AT LEAST ${MESSAGE_LENGTH_MINIMUM} CHARACTERS!`;
     }
     setErrors(errors);
     return formIsValid;
@@ -66,26 +59,29 @@ export default function ContactForm({ togglePopup }) {
     registerObserver(placeHolderRef.current, setVisible);
   }, []);
 
-  function submitRequest() {
-    const name = `${fields[fieldNames.FIRST_NAME]} ${
-      fields[fieldNames.LAST_NAME]
-    }`;
-    const subject = `Get in touch - ${name}`;
+  const submitRequest = async () => {
     if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${
-        fields[fieldNames.EMAIL]
-      }&subject=${subject}&body=${fields[fieldNames.MESSAGE]}`;
-      axios
-        .post(proxyurl + request, axiosConfig)
-        .then((response) => {
-          return response;
-        })
-        .catch((error) => {
-          return error;
-        });
-      return true;
+      const name = `${fields[fieldNames.FIRST_NAME]} ${
+        fields[fieldNames.LAST_NAME] || ''
+      }`;
+      const subject = `Contact Form: ${name}`;
+
+      try {
+        await sendStoryEmail(
+          name,
+          subject,
+          fields[fieldNames.EMAIL],
+          fields[fieldNames.MESSAGE],
+        );
+        return true;
+      } catch (error) {
+        alert(
+          `Error sending email, please try again later. \n${error.message}`,
+        );
+        return false;
+      }
     }
-  }
+  };
 
   if (visible) {
     return (
@@ -139,8 +135,9 @@ export default function ContactForm({ togglePopup }) {
               color={colors.WHITE}
               type="submit"
               role="button"
-              onClick={() => {
-                if (submitRequest()) {
+              onClick={async () => {
+                const response = await submitRequest();
+                if (response) {
                   document.body.style.overflow = 'hidden';
                   document.querySelector('#area').value = '';
                   setFields({});

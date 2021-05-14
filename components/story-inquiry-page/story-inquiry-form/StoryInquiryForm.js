@@ -1,26 +1,29 @@
-import {
-  StoryInquiryFormContainer,
-  ScrollToSubmissionForm,
-  FloatWrapper,
-} from './StoryInquiryForm.styles';
-import { fieldNames } from '../../../lib/utils';
 import React, { useState } from 'react';
+import { colors } from '../../../style/colors';
+import {
+  fieldNames,
+  MESSAGE_LENGTH_MINIMUM,
+  sendStoryEmail,
+} from '../../../lib/utils';
+import { useValidEmail } from '../../../lib/hooks';
+import {
+  Overlay,
+  SubmitButton,
+  SubmitButtonContainer,
+} from '../../base-components/BaseComponents';
 import ConfirmationPopup from '../../confirmation-popup/ConfirmationPopup';
-import { Overlay } from '../../base-components/BaseComponents';
-import { emailEndpoint, axiosConfig, proxyurl } from '../../../lib/utils';
 import AuthorInformation from './author-information/AuthorInformation';
 import AuthorSignature from './author-signature/AuthorSignature';
 import SocialInformation from './social-information/SocialInformation';
 import StoryConcept from './story-concept/StoryConcept';
 import ResourceLinks from './resource-links/ResourceLinks';
-import { useValidEmail } from '../../../lib/hooks';
 import {
-  SubmitButton,
-  SubmitButtonContainer,
-} from '../../base-components/BaseComponents';
-import { colors } from '../../../style/colors';
+  StoryInquiryFormContainer,
+  ScrollToSubmissionForm,
+  FloatWrapper,
+} from './StoryInquiryForm.styles';
 
-const axios = require('axios');
+const getDisplayString = (value) => value || 'N/A';
 
 export default function StoryInquiryForm({
   storyInquiryFormData,
@@ -56,17 +59,11 @@ export default function StoryInquiryForm({
     let errors = {};
     let formIsValid = true;
 
-    if (
-      fields[fieldNames.FIRST_NAME] == undefined ||
-      fields[fieldNames.FIRST_NAME].length === 0
-    ) {
+    if (!fields[fieldNames.FIRST_NAME]) {
       formIsValid = false;
       errors[fieldNames.FIRST_NAME] = 'FIRST NAME IS REQUIRED!';
     }
-    if (
-      fields[fieldNames.EMAIL] == undefined ||
-      fields[fieldNames.EMAIL].length === 0
-    ) {
+    if (!fields[fieldNames.EMAIL]) {
       formIsValid = false;
       errors[fieldNames.EMAIL] = 'EMAIL IS REQUIRED!';
     } else if (useValidEmail(fields[fieldNames.EMAIL])) {
@@ -78,30 +75,23 @@ export default function StoryInquiryForm({
       errors[fieldNames.SIGNATURE] = 'SIGNATURE IS REQUIRED!';
     }
     if (
-      fields[fieldNames.STORY_CONCEPT] == undefined ||
-      fields[fieldNames.STORY_CONCEPT].length === 0
+      !fields[fieldNames.STORY_CONCEPT] ||
+      fields[fieldNames.STORY_CONCEPT].length < MESSAGE_LENGTH_MINIMUM
     ) {
       formIsValid = false;
-      errors[fieldNames.STORY_CONCEPT] = 'STORY CONCEPT IS REQUIRED!';
+      errors[
+        fieldNames.STORY_CONCEPT
+      ] = `STORY CONCEPT MUST BE AT LEAST ${MESSAGE_LENGTH_MINIMUM} CHARACTERS`;
     }
-    if (
-      fields[fieldNames.PETITION_LINK] == undefined ||
-      fields[fieldNames.PETITION_LINK].length === 0
-    ) {
+    if (!fields[fieldNames.PETITION_LINK]) {
       formIsValid = false;
       errors[fieldNames.PETITION_LINK] = 'PETITION LINK IS REQUIRED!';
     }
-    if (
-      fields[fieldNames.DONATION_PAGE_LINK] == undefined ||
-      fields[fieldNames.DONATION_PAGE_LINK].length === 0
-    ) {
+    if (!fields[fieldNames.DONATION_PAGE_LINK]) {
       formIsValid = false;
       errors[fieldNames.DONATION_PAGE_LINK] = 'DONATION PAGE LINK IS REQUIRED!';
     }
-    if (
-      fields[fieldNames.FURTHER_EDUCATION_LINK] == undefined ||
-      fields[fieldNames.FURTHER_EDUCATION_LINK].length === 0
-    ) {
+    if (!fields[fieldNames.FURTHER_EDUCATION_LINK]) {
       formIsValid = false;
       errors[fieldNames.FURTHER_EDUCATION_LINK] =
         'FURTHER EDUCATION LINK IS REQUIRED!';
@@ -113,6 +103,47 @@ export default function StoryInquiryForm({
   const clear = () => {
     sigPad.clear();
     trim(null);
+  };
+
+  const submitRequest = async () => {
+    if (isValidSubmission()) {
+      let lastName = fields[fieldNames.LAST_NAME] || '';
+      const name = `${fields[fieldNames.FIRST_NAME]} ${lastName}`;
+      const details = `Name: ${getDisplayString(
+        name,
+      )}\nEmail: ${getDisplayString(
+        fields[fieldNames.EMAIL],
+      )}\nStory Concept: ${getDisplayString(
+        fields[fieldNames.STORY_CONCEPT],
+      )}\nWebsite: ${getDisplayString(
+        fields[fieldNames.WEBSITE],
+      )}\nInstagram: ${getDisplayString(
+        fields[fieldNames.INSTAGRAM],
+      )}\nTwitter: ${getDisplayString(
+        fields[fieldNames.TWITTER],
+      )}\nVenmo: ${getDisplayString(
+        fields[fieldNames.VENMO],
+      )}\nPetition Link: ${getDisplayString(
+        fields[fieldNames.PETITION_LINK],
+      )}\nDonation Page Link: ${getDisplayString(
+        fields[fieldNames.DONATION_PAGE_LINK],
+      )}\nFurther Education Link: ${getDisplayString(
+        fields[fieldNames.FURTHER_EDUCATION_LINK],
+      )}\nAdditional Resources: ${additionalResources.map(
+        (r) => r.RESOURCE + '\n',
+      )}\nSignature: ${trimmedDataUrl}\n`;
+
+      try {
+        const subject = `Story Inquiry: ${name}`;
+        await sendStoryEmail(name, subject, fields[fieldNames.EMAIL], details);
+        return true;
+      } catch (error) {
+        alert(
+          `Error submitting story inquiry, please try again later. \n${error.message}`,
+        );
+        return false;
+      }
+    }
   };
 
   return (
@@ -174,8 +205,9 @@ export default function StoryInquiryForm({
               type="submit"
               role="button"
               long
-              onClick={() => {
-                if (submitRequest()) {
+              onClick={async () => {
+                const response = await submitRequest();
+                if (response) {
                   document.body.style.overflow = 'hidden';
                   document.querySelector('#area').value = '';
                   setFields({});
@@ -205,42 +237,4 @@ export default function StoryInquiryForm({
       </StoryInquiryFormContainer>
     </>
   );
-
-  function submitRequest() {
-    let lastName = fields[fieldNames.LAST_NAME];
-    if (!lastName) {
-      lastName = '';
-    }
-    const name = `${fields[fieldNames.FIRST_NAME]} ${lastName}`;
-    const subject = `Story Inquiry - ${name}`;
-    const body = `Name: ${name}%0
-    Email: ${fields[fieldNames.EMAIL]}%0
-    Story Concept: ${fields[fieldNames.STORY_CONCEPT]}%0A
-    Website: ${fields[fieldNames.WEBSITE]}%0A
-    Instagram: ${fields[fieldNames.INSTAGRAM]}%0A
-    Twitter: ${fields[fieldNames.TWITTER]}%0A
-    Venmo: ${fields[fieldNames.VENMO]}%0A
-    Petition Link: ${fields[fieldNames.PETITION_LINK]}%0A
-    Donation Page Link: ${fields[fieldNames.DONATION_PAGE_LINK]}%0A
-    Further Education Link: ${fields[fieldNames.FURTHER_EDUCATION_LINK]}%0A
-    Additional Resources: ${additionalResources.map(
-      (r, index) => '%0A' + index + 1 + '. ' + r.RESOURCE + '%0A',
-    )}%0A%0A%0A
-    Signature: ${trimmedDataUrl}%0A
-    `;
-    if (isValidSubmission()) {
-      const request = `${emailEndpoint}?name=${fields['name']}&email=${
-        fields[fieldNames.EMAIL]
-      }&subject=${subject}&body=${body}`;
-      axios
-        .post(proxyurl + request, axiosConfig)
-        .then((response) => {
-          return response;
-        })
-        .catch((error) => {
-          return error;
-        });
-      return true;
-    }
-  }
 }
