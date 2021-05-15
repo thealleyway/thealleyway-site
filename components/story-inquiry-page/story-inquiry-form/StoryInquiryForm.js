@@ -131,7 +131,7 @@ export default function StoryInquiryForm({
         fields[fieldNames.FURTHER_EDUCATION_LINK],
       )}\nAdditional Resources: ${additionalResources.map(
         (r) => r.RESOURCE + '\n',
-      )}\nSignature: ${trimmedDataUrl}\n`;
+      )}\nSignature: ${trimmedDataUrl.replaceAll('+', '%2b')}\n`;
 
       try {
         const subject = `Story Inquiry: ${name}`;
