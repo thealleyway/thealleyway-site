@@ -156,3 +156,5 @@ jzhzhang66@gmail.com
 **Izzy Berzsenyi**<br />
 Developer<br />
 iberzsenyi@yahoo.com
+
+Made with love by Scout.
