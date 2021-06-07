@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="stylesheet" href="https://use.typekit.net/phw2qhh.css">
+          <link rel="stylesheet" href="https://use.typekit.net/phw2qhh.css"/>
         </Head>
         <body style={{ backgroundColor: colors.CANVAS }}>
           <Main />
